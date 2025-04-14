@@ -19,16 +19,24 @@ const Newsletter = () => {
       if (email.includes('@')) {
         toast({
           title: "Success!",
-          description: "You've been subscribed to our newsletter.",
-          icon: <CheckCircle className="h-4 w-4" />,
+          description: (
+            <div className="flex items-center">
+              <CheckCircle className="h-4 w-4 mr-2" />
+              You've been subscribed to our newsletter.
+            </div>
+          ),
         });
         setEmail('');
       } else {
         toast({
           variant: "destructive",
           title: "Error",
-          description: "Please enter a valid email address.",
-          icon: <AlertCircle className="h-4 w-4" />,
+          description: (
+            <div className="flex items-center">
+              <AlertCircle className="h-4 w-4 mr-2" />
+              Please enter a valid email address.
+            </div>
+          ),
         });
       }
     }, 1000);

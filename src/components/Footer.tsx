@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Instagram, Twitter, Heart, Spotify } from 'lucide-react';
+import { Instagram, Twitter, Heart, Music } from 'lucide-react';
 
 const Footer = () => {
   return (
@@ -35,7 +35,7 @@ const Footer = () => {
                 <Twitter size={20} />
               </a>
               <a href="https://open.spotify.com/show/0ZpvzCEuDeKQhBw74YEmp9?si=WpeRZqDaS5CRs-R3JyGipQ" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-podcast-yellow hover:text-podcast-darkgray transition-colors">
-                <Spotify size={20} />
+                <Music size={20} />
               </a>
             </div>
           </div>
