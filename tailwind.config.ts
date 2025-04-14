@@ -24,10 +24,10 @@ export default {
         input: 'hsl(var(--input))',
         ring: 'hsl(var(--ring))',
         background: {
-          DEFAULT: '#FFDEE2',
+          DEFAULT: '#d52a78',
         },
         foreground: {
-          DEFAULT: '#000000',
+          DEFAULT: '#ffffff',
         },
         primary: {
           DEFAULT: 'hsl(var(--primary))',
