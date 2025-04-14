@@ -1,4 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Merriweather:wght@300;400;700&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Merriweather:wght@300;400;700&family=Assistant:wght@200;300;400;500;600;700;800&family=Karantina:wght@300;400;700&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -6,33 +7,33 @@
 
 @layer base {
   :root {
-    --background: 345 100% 89%; // HSL for soft pink
-    --foreground: 0 0% 0%; // Black
+    --background: hsl(345, 100%, 89%); /* HSL for soft pink */
+    --foreground: hsl(0, 0%, 0%); /* Black */
 
-    --card: 0 0% 100%;
-    --card-foreground: 240 10% 3.9%;
+    --card: hsl(0, 0%, 100%);
+    --card-foreground: hsl(240, 10%, 3.9%);
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 240 10% 3.9%;
+    --popover: hsl(0, 0%, 100%);
+    --popover-foreground: hsl(240, 10%, 3.9%);
 
-    --primary: 331 73% 48%;
-    --primary-foreground: 0 0% 98%;
+    --primary: hsl(331, 73%, 48%);
+    --primary-foreground: hsl(0, 0%, 98%);
 
-    --secondary: 60 99% 54%;
-    --secondary-foreground: 240 5.9% 10%;
+    --secondary: hsl(60, 99%, 54%);
+    --secondary-foreground: hsl(240, 5.9%, 10%);
 
-    --muted: 240 4.8% 95.9%;
-    --muted-foreground: 240 3.8% 46.1%;
+    --muted: hsl(240, 4.8%, 95.9%);
+    --muted-foreground: hsl(240, 3.8%, 46.1%);
 
-    --accent: 240 4.8% 95.9%;
-    --accent-foreground: 240 5.9% 10%;
+    --accent: hsl(240, 4.8%, 95.9%);
+    --accent-foreground: hsl(240, 5.9%, 10%);
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 0 0% 98%;
+    --destructive: hsl(0, 84.2%, 60.2%);
+    --destructive-foreground: hsl(0, 0%, 98%);
 
-    --border: 240 5.9% 90%;
-    --input: 240 5.9% 90%;
-    --ring: 331 73% 48%;
+    --border: hsl(240, 5.9%, 90%);
+    --input: hsl(240, 5.9%, 90%);
+    --ring: hsl(331, 73%, 48%);
 
     --radius: 0.75rem;
   }
@@ -43,12 +44,18 @@
     @apply border-border;
   }
 
+  html {
+    direction: rtl;
+  }
+
   body {
     @apply bg-background text-foreground font-body;
+    font-family: 'Assistant', sans-serif;
   }
 
   h1, h2, h3, h4, h5, h6 {
     @apply font-display font-bold text-black;
+    font-family: 'Karantina', cursive;
   }
 }
 
@@ -61,5 +68,5 @@
 }
 
 .hero-shape {
-  @apply absolute top-0 right-0 w-1/2 h-full bg-podcast-yellow rounded-bl-[300px] -z-10 opacity-10;
+  @apply absolute top-0 left-0 w-1/2 h-full bg-podcast-yellow rounded-br-[300px] -z-10 opacity-10;
 }

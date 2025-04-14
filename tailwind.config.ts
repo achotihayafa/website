@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -110,8 +111,8 @@ export default {
         'pulse-slow': 'pulse-slow 3s infinite'
       },
       fontFamily: {
-        'display': ['Montserrat', 'sans-serif'],
-        'body': ['Merriweather', 'serif']
+        'display': ['Karantina', 'cursive'],
+        'body': ['Assistant', 'sans-serif']
       }
     }
   },
