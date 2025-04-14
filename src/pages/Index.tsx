@@ -4,7 +4,6 @@ import Navbar from '@/components/Navbar';
 import HeroSection from '@/components/HeroSection';
 import LatestEpisodes from '@/components/LatestEpisodes';
 import AboutSection from '@/components/AboutSection';
-import Newsletter from '@/components/Newsletter';
 import Footer from '@/components/Footer';
 
 const Index = () => {
@@ -14,7 +13,6 @@ const Index = () => {
       <HeroSection />
       <LatestEpisodes />
       <AboutSection />
-      <Newsletter />
       <Footer />
     </div>
   );
