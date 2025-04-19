@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Button } from "@/components/ui/button";
 import { AppleIcon, YoutubeIcon, RadioIcon, RssIcon, MusicIcon, Headphones } from 'lucide-react';
@@ -7,48 +6,33 @@ const PodcastPlatforms = () => {
   const platforms = [
     {
       name: "ספוטיפיי",
-      link: "https://open.spotify.com/show/0ZpvzCEuDeKQhBw74YEmp9?si=WpeRZqDaS5CRs-R3JyGipQ",
-      icon: <MusicIcon className="h-5 w-5" /> // Using MusicIcon instead of Spotify
+      link: "https://open.spotify.com/show/0ZpvzCEuDeKQhBw74YEmp9",
+      icon: <MusicIcon className="h-5 w-5" />
     },
     {
       name: "אפל פודקאסט",
-      link: "#", // Replace with actual link
+      link: "https://podcasts.apple.com/us/podcast/אחותי-היפה/id1728358395",
       icon: <AppleIcon className="h-5 w-5" />
     },
     {
       name: "יוטיוב",
-      link: "#", // Replace with actual link
+      link: "https://www.youtube.com/@AchotiHaYafa",
       icon: <YoutubeIcon className="h-5 w-5" />
     },
     {
-      name: "גוגל פודקאסט",
-      link: "#", // Replace with actual link
+      name: "פודקאסט אדיקט",
+      link: "https://podcastaddict.com/podcast/%D7%90%D7%97%D7%95%D7%AA%D7%99%20%D7%94%D7%99%D7%A4%D7%94/5306867",
       icon: <RadioIcon className="h-5 w-5" />
     },
     {
-      name: "קסטבוקס",
-      link: "#", // Replace with actual link
-      icon: <Headphones className="h-5 w-5" />
-    },
-    {
       name: "פוקאט קאסט",
-      link: "#", // Replace with actual link
+      link: "https://pca.st/zapd6uv9",
       icon: <Headphones className="h-5 w-5" />
     },
     {
       name: "אנקור",
       link: "https://anchor.fm/s/f1452300/podcast/rss",
       icon: <RadioIcon className="h-5 w-5" />
-    },
-    {
-      name: "Apple Music",
-      link: "#", // Replace with actual link
-      icon: <MusicIcon className="h-5 w-5" />
-    },
-    {
-      name: "iHeart",
-      link: "#", // Replace with actual link
-      icon: <Headphones className="h-5 w-5" />
     },
     {
       name: "RSS",
