@@ -41,14 +41,21 @@ export const fetchRssFeed = async (): Promise<Episode[]> => {
         day: 'numeric'
       }).format(date);
       
-      // Format duration (mm:ss)
-      let formattedDuration = duration;
-      if (duration.includes(":")) {
-        formattedDuration = duration;
-      } else {
-        const minutes = Math.floor(parseInt(duration) / 60);
-        const seconds = parseInt(duration) % 60;
-        formattedDuration = `${minutes}:${seconds.toString().padStart(2, '0')}`;
+      // Improved duration formatting
+      let formattedDuration = "0:00";
+      
+      if (duration) {
+        // Handle MM:SS format
+        if (duration.includes(":")) {
+          formattedDuration = duration;
+        } 
+        // Handle seconds-only format
+        else if (!isNaN(parseInt(duration))) {
+          const totalSeconds = parseInt(duration);
+          const minutes = Math.floor(totalSeconds / 60);
+          const seconds = totalSeconds % 60;
+          formattedDuration = `${minutes}:${seconds.toString().padStart(2, '0')}`;
+        }
       }
       
       episodes.push({
