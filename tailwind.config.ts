@@ -57,9 +57,9 @@ export default {
           foreground: 'hsl(var(--card-foreground))'
         },
         podcast: {
-          yellow: '#fcfe14',
-          magenta: '#d52a78',
-          lightgray: '#f8f8f8',
+          yellow: '#F5C400',
+          magenta: '#D52A78',
+          lightgray: '#F8F8F8',
           darkgray: '#333333'
         }
       },

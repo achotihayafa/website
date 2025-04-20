@@ -75,15 +75,15 @@ const BestEpisodes = () => {
     <section className="py-20 bg-black">
       <div className="container px-6">
         <div className="mb-12">
-          <h2 className="text-4xl md:text-5xl font-bold gradient-text mb-4">פרקים מומלצים</h2>
+          <h2 className="text-4xl md:text-5xl font-bold text-podcast-magenta mb-4">פרקים מומלצים</h2>
           <p className="text-white/80 text-lg">הפרקים האהובים עלינו במיוחד</p>
         </div>
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {bestEpisodes.map((episode, index) => (
-            <Card key={index} className="bg-card/30 backdrop-blur border-white/10 hover:border-podcast-magenta/50 transition-all duration-300">
+            <Card key={index} className="bg-podcast-darkgray/30 border-white/10 hover:border-podcast-magenta/50 transition-all duration-300">
               <CardContent className="p-6">
-                <h3 className="text-2xl font-bold mb-3 gradient-text">{episode.title}</h3>
+                <h3 className="text-2xl font-bold mb-3 text-podcast-yellow">{episode.title}</h3>
                 <p className="text-white/70 mb-6 line-clamp-3">{episode.description}</p>
                 
                 <div className="flex gap-4">

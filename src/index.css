@@ -1,4 +1,3 @@
-
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Merriweather:wght@300;400;700&family=Assistant:wght@200;300;400;500;600;700;800&family=Karantina:wght@300;400;700&display=swap');
 
 @tailwind base;
@@ -57,17 +56,5 @@
     @apply font-display font-bold text-white;
     font-family: 'Karantina', cursive;
   }
-}
-
-.gradient-text {
-  @apply bg-clip-text text-transparent bg-gradient-to-r from-podcast-yellow to-podcast-magenta;
-}
-
-.episode-card-gradient {
-  background: linear-gradient(135deg, rgba(0, 0, 0, 0.95) 0%, rgba(0, 0, 0, 0.8) 100%);
-}
-
-.hero-shape {
-  @apply absolute top-0 left-0 w-1/2 h-full bg-podcast-yellow rounded-br-[300px] -z-10 opacity-5;
 }
 
