@@ -34,19 +34,17 @@ const AboutSection = () => {
           <div className="w-12 h-12 rounded-full bg-podcast-yellow flex items-center justify-center mx-auto mb-4">
             <Heart className="text-podcast-darkgray" size={24} />
           </div>
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">אודות הפודקאסט שלנו</h2>
-          <p className="text-lg text-white/80 mb-6">
-            אחותי היפה - פודקאסט על רגשות, אבל בעצם פודקאסט להטב"קי, בהנחיית צחי ויהונתן כהן.
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">אודות הפודקאסט "אחותי היפה"</h2>
+
+          <p className="text-lg text-white/80">
+            “אחותי היפה" הוא פודקאסט המגיש שיחות עומק על רגשות, זהות וחוויות להטב"קיות. הפודקאסט, בהנחיית האחים צחי ויהונתן כהן, עוסק בכל פרק ברגש אחר מתוך “Atlas of the Heart” של ברנה בראון וממשיך למסע אינטימי בין זיכרונות וסיפורים, בניסיון להבין את הרגש ולפתוח את הלב.
           </p>
           <p className="text-lg text-white/80">
-            בכל פרק, אנחנו נבחר רגש מהספר "האטלס של הלב" של ברנה בראון, וממנו נצא למסע בין זכרונות וסיפורים, והכל כדי להכיר את עצמנו קצת יותר ולהבין מה אנחנו באמת מרגישות.
-          </p>
-          <p className="text-lg text-white/80">
-            מדייט למסיבה, מארוחת חג לפיצה ב-2 בלילה, מפסגת זאב בערב שבת ועד לאומן בשישי בלילה, מקלפי טארוט ועד להפרשת חלה, ממבטים חודרים בחדר כושר ועד לדיבור בלי הפסקה, מברלין של יהונתן ועד למדריד של צחי, משברון לב ועד לדמעות על מה שעדיין ריק, מהכנות הפשוטה שלנו ועד רפלקציות חופרות בספירלה אינסופית - את הכל נשים, בכל פרק, צעד צעד עד ש... מי יודע.
+            בין סיפורי הילדות, טיולים ברחבי העולם דייטים כושלים, “אחותי היפה” מדבר אל הלב ומציע נקודת מבט ייחודית על פגיעות, שייכות, וגאווה.
           </p>
         </div>
 
-        <h3 className="text-2xl md:text-3xl font-bold mb-10 text-center">המנחים שלנו</h3>
+        <h3 className="text-2xl md:text-3xl font-bold mb-10 text-center">המנחים</h3>
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
           {hosts.map((host, index) => (
