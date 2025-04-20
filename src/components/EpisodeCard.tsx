@@ -74,13 +74,6 @@ const EpisodeCard = ({
             {title}
           </h3>
           
-          <div className="flex items-center text-sm text-white/70 mb-3">
-            <span>{date}</span>
-            <span className="mx-2">•</span>
-            <Clock size={14} className="ml-1" />
-            <span>{duration}</span>
-          </div>
-          
           <p className="text-white/80 mb-6 line-clamp-3">
             {description}
           </p>
