@@ -42,7 +42,6 @@ const LatestEpisodes = () => {
                 duration={episode.duration}
                 date={episode.date}
                 spotifyLink={episode.spotifyLink}
-                featured={episode.featured}
                 audioUrl={episode.audioUrl}
                 imageUrl={episode.imageUrl}
               />
