@@ -58,7 +58,7 @@ const BestEpisodes = () => {
       <div className="container px-6">
         <div className="mb-12">
           <h2 className="text-4xl md:text-5xl font text-podcast-magenta mb-4">פרקים מומלצים</h2>
-          <p className="text-white text-lg">האזינו לפרקים שאהובים עלינו במיוחד</p>
+          <p className="text-white/80 text-lg">האזינו לפרקים שאהובים עלינו במיוחד</p>
         </div>
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -73,8 +73,8 @@ const BestEpisodes = () => {
                   />
                 </AspectRatio>
                 <div className="p-6">
-                  <h3 className="text-2xl font-bold mb-3 text-podcast-yellow">{episode.title}</h3>
-                  <p className="text-white/70 mb-6 line-clamp-3">{episode.description}</p>
+                  <h3 className="text-2xl font mb-3 text-podcast-yellow">{episode.title}</h3>
+                  <p className="text-white/80 mb-6 line-clamp-3">{episode.description}</p>
                   
                   <div className="flex gap-4">
                     {episode.links.spotify && (
@@ -82,7 +82,7 @@ const BestEpisodes = () => {
                         href={episode.links.spotify} 
                         target="_blank" 
                         rel="noopener noreferrer"
-                        className="text-white/60 hover:text-podcast-yellow transition-colors"
+                        className="text-white/80 hover:text-podcast-yellow transition-colors"
                         aria-label="האזינו ב-Spotify"
                       >
                         <SiSpotify size={24} />
