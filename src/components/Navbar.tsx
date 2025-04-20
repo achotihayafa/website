@@ -68,9 +68,11 @@ const Navbar = () => {
         <a href="#episodes" className="text-xl font-medium text-white" onClick={toggleMenu}>פרקים</a>
         <a href="#about" className="text-xl font-medium text-white" onClick={toggleMenu}>אודות</a>
         <a href="#contact" className="text-xl font-medium text-white" onClick={toggleMenu}>צרו קשר</a>
-        <Button className="w-full bg-podcast-yellow text-black hover:bg-podcast-yellow/90">
-          האזינו עכשיו
-        </Button>
+        <a href="#platforms" className="w-full block">
+          <Button className="w-full bg-podcast-yellow text-black hover:bg-podcast-yellow/90">
+            האזינו עכשיו
+          </Button>
+        </a>
       </nav>
     </header>
   );
