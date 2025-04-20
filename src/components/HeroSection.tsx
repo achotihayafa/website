@@ -18,12 +18,13 @@ const HeroSection = () => {
           </div>
           
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-extrabold mb-8 opacity-0 animate-fade-in-delay-1">
-            חקירת רגשות דרך <span className="gradient-text">עדשה להטב״קית</span>
+            אחותי היפה - 
+            פודקאסט על רגשות, אבל בעצם פודקאסט להטב"קי
           </h1>
           
           <p className="text-lg md:text-xl mb-10 text-white/80 max-w-2xl opacity-0 animate-fade-in-delay-2">
-            הצטרפו אלינו מדי שבוע בזמן שאנו מנווטים את המורכבות היפה של רגשות וזהויות.
-            מרחב בטוח לסיפורים, תובנות ושיחות משמעותיות.
+            הצטרפו אלינו מדי שבוע למסע מצחיק ומרגש בין סיפורים וזיכרונות.
+            הפודקאסט יוצר מרחב לדיונים כנים על זהות, מיניות, משפחה וחיים להטב"קים - בדיוק בשביל מי שמחפשים לפתוח את הלב.
           </p>
           
           <div className="flex flex-wrap gap-4 opacity-0 animate-fade-in-delay-2">
@@ -39,10 +40,10 @@ const HeroSection = () => {
             <Button 
               variant="outline" 
               size="lg"
-              onClick={() => document.getElementById('episodes')?.scrollIntoView({ behavior: 'smooth' })}
+              onClick={() => document.getElementById('BestEpisodes')?.scrollIntoView({ behavior: 'smooth' })}
               className="text-white border-white hover:bg-white/10"
             >
-              גלו פרקים
+             פרקים מומלצים
             </Button>
           </div>
         </div>
