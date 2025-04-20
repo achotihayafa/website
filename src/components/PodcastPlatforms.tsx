@@ -1,12 +1,12 @@
 import React from 'react';
-import { FaSpotify, SiApplepodcasts, FaYoutube, SiPodcastaddict, SiPocketcasts } from 'react-icons/fa';
+import { SiSpotify, SiApplepodcasts, SiYoutube, SiPodcastaddict, SiPocketcasts } from 'react-icons/si';
 
 const PodcastPlatforms = () => {
   const platforms = [
     {
       name: "Spotify",
       link: "https://open.spotify.com/show/0ZpvzCEuDeKQhBw74YEmp9",
-      icon: <FaSpotify className="h-8 w-8" />
+      icon: <SiSpotify className="h-8 w-8" />
     },
     {
       name: "Apple Podcasts",
@@ -14,9 +14,9 @@ const PodcastPlatforms = () => {
       icon: <SiApplepodcasts className="h-8 w-8" />
     },
     {
-      name: "YouTube4646",
+      name: "YouTube",
       link: "https://www.youtube.com/@AchotiHaYafa",
-      icon: <FaYoutube className="h-8 w-8" />
+      icon: <SiYoutube className="h-8 w-8" />
     },
     {
       name: "Podcast Addict",
