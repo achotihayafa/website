@@ -17,14 +17,14 @@ interface BestEpisode {
 
 const bestEpisodes: BestEpisode[] = [
   {
-    title: "מה הסיפור של הקהילה הגאה בישראל",
-    description: "שיחה מרתקת על ההיסטוריה והתפתחות הקהילה הגאה בישראל, מה השתנה ומה עוד צריך להשתנות.",
+    title: "חוסר תקווה, אבל בעצם דיברנו על יציאה מהארון",
+    description: "סיפור היציאה מהארון של צחי - הרגע המכונן שעיצב את המשפחה שלנו מחדש, ושבאופן מסוים הוביל גם להחלטה להקליט את הפודקאסט שלנו..",
     links: {
-      spotify: "https://open.spotify.com/episode/1",
-      youtube: "https://youtube.com/watch?v=1",
+      spotify: "https://open.spotify.com/episode/7JwXyGiwuNKIDf7K2Ql8h7?si=k8cYKC-SR0KJFhQkfkAg3g",
+      youtube: "https://www.youtube.com/watch?v=E_N46UmlvpI",
       apple: "https://podcasts.apple.com/episode/1"
     },
-    imageUrl: "https://images.unsplash.com/photo-1582562124811-c09040d0a901"
+    imageUrl: "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/40378400/40378400-1745085957161-162c3719af97d.jpg"
   },
   {
     title: "זהות מגדרית בעולם המודרני",
@@ -79,7 +79,7 @@ const BestEpisodes = () => {
                         target="_blank" 
                         rel="noopener noreferrer"
                         className="text-white/60 hover:text-podcast-yellow transition-colors"
-                        aria-label="האזן ב-Spotify"
+                        aria-label="האזינו ב-Spotify"
                       >
                         <Music2 size={24} />
                       </a>
@@ -90,7 +90,7 @@ const BestEpisodes = () => {
                         target="_blank" 
                         rel="noopener noreferrer"
                         className="text-white/60 hover:text-podcast-magenta transition-colors"
-                        aria-label="צפה ב-YouTube"
+                        aria-label="האזינו ב-YouTube"
                       >
                         <Youtube size={24} />
                       </a>
@@ -101,7 +101,7 @@ const BestEpisodes = () => {
                         target="_blank" 
                         rel="noopener noreferrer"
                         className="text-white/60 hover:text-white transition-colors"
-                        aria-label="האזן ב-Apple Podcasts"
+                        aria-label="האזינו ב-Apple Podcasts"
                       >
                         <Apple size={24} />
                       </a>
