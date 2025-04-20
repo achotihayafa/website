@@ -18,33 +18,33 @@ interface BestEpisode {
 const bestEpisodes: BestEpisode[] = [
   {
     title: "חוסר תקווה, אבל בעצם דיברנו על יציאה מהארון",
-    description: "סיפור היציאה מהארון של צחי - הרגע המכונן שעיצב את המשפחה שלנו מחדש, ושבאופן מסוים הוביל גם להחלטה להקליט את הפודקאסט שלנו..",
+    description: "סיפור היציאה מהארון של צחי - הרגע המכונן שעיצב את המשפחה שלנו מחדש, ושבאופן מסוים הוביל גם להחלטה להקליט את הפודקאסט שלנו.",
     links: {
       spotify: "https://open.spotify.com/episode/7JwXyGiwuNKIDf7K2Ql8h7?si=k8cYKC-SR0KJFhQkfkAg3g",
       youtube: "https://www.youtube.com/watch?v=E_N46UmlvpI",
-      apple: "https://podcasts.apple.com/episode/1"
+      apple: "https://podcasts.apple.com/us/podcast/%D7%97%D7%95%D7%A1%D7%A8-%D7%AA%D7%A7%D7%95%D7%95%D7%94-%D7%90%D7%91%D7%9C-%D7%91%D7%A2%D7%A6%D7%9D-%D7%93%D7%99%D7%91%D7%A8%D7%A0%D7%95-%D7%A2%D7%9C-%D7%99%D7%A6%D7%99%D7%90%D7%94-%D7%9E%D7%94%D7%90%D7%A8%D7%95%D7%9F/id1728358395?i=1000703704686"
     },
     imageUrl: "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/40378400/40378400-1745085957161-162c3719af97d.jpg"
   },
   {
-    title: "זהות מגדרית בעולם המודרני",
-    description: "דיון עמוק על משמעות המגדר בימינו, סטריאוטיפים חברתיים והדרך לקבלה עצמית.",
+    title: "גבורה, אבל בעצם דיברנו על איך להציל את עצמי",
+    description: "פרק מאזינות מיוחד - חמש מאזינות סיפרו את סיפור הגבורה האישי שלהן.",
     links: {
-      spotify: "https://open.spotify.com/episode/2",
-      youtube: "https://youtube.com/watch?v=2",
-      apple: "https://podcasts.apple.com/episode/2"
+      spotify: "https://open.spotify.com/episode/2gxt1hu1Jh3z2HKltTScWP?si=C2oYXGyYSvClgFVeJADXHQ",
+      youtube: "https://www.youtube.com/watch?v=-pR_-UlKEh0",
+      apple: "https://podcasts.apple.com/us/podcast/%D7%92%D7%91%D7%95%D7%A8%D7%94-%D7%90%D7%91%D7%9C-%D7%91%D7%A2%D7%A6%D7%9D-%D7%93%D7%99%D7%91%D7%A8%D7%A0%D7%95-%D7%A2%D7%9C-%D7%90%D7%99%D7%9A-%D7%9C%D7%94%D7%A6%D7%99%D7%9C-%D7%90%D7%AA-%D7%A2%D7%A6%D7%9E%D7%99/id1728358395?i=1000681635168"
     },
-    imageUrl: "https://images.unsplash.com/photo-1618160702438-9b02ab6515c9"
+    imageUrl: "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/40378400/40378400-1728145139144-71eff87bfd383.jpg"
   },
   {
-    title: "אהבה, זוגיות ומה שביניהם",
-    description: "שיחה כנה על מערכות יחסים בקהילה הגאה, אתגרים ייחודיים והדרך למציאת אהבה.",
+    title: "אבל, אבל בעצם דיברנו על האבל הפרטי שלנו",
+    description: "סיפור הקשר שלנו עם בן דודה שלנו, אביתר, שנהרג בצוק איתן. על הדיסוננס בין האבל הפרטי לאבל הציבורי, ואיך המוות שלו השפיע על כל אחד מבני המשפחה.",
     links: {
-      spotify: "https://open.spotify.com/episode/3",
-      youtube: "https://youtube.com/watch?v=3",
-      apple: "https://podcasts.apple.com/episode/3"
+      spotify: "https://open.spotify.com/episode/0S4JmDWDphqIgvEaxPzsmN?si=nzRNqNMHShCp4_QNgzqMOA",
+      youtube: "https://www.youtube.com/watch?v=ZMeVAO3qccM",
+      apple: "https://podcasts.apple.com/us/podcast/%D7%90%D7%91%D7%9C-%D7%90%D7%91%D7%9C-%D7%91%D7%A2%D7%A6%D7%9D-%D7%93%D7%99%D7%91%D7%A8%D7%A0%D7%95-%D7%A2%D7%9C-%D7%94%D7%90%D7%91%D7%9C-%D7%94%D7%A4%D7%A8%D7%98%D7%99-%D7%A9%D7%9C%D7%A0%D7%95/id1728358395?i=1000654893822"
     },
-    imageUrl: "https://images.unsplash.com/photo-1493962853295-0fd70327578a"
+    imageUrl: "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/40378400/40378400-1728145139144-71eff87bfd383.jpg"
   }
 ];
 
@@ -54,7 +54,7 @@ const BestEpisodes = () => {
       <div className="container px-6">
         <div className="mb-12">
           <h2 className="text-4xl md:text-5xl font-bold text-podcast-magenta mb-4">פרקים מומלצים</h2>
-          <p className="text-white/80 text-lg">הפרקים האהובים עלינו במיוחד</p>
+          <p className="text-white/80 text-lg">פרקים אהובים עלינו במיוחד</p>
         </div>
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
