@@ -56,14 +56,12 @@ const EpisodeCard = ({
     >
       <CardContent className="p-0">
         {imageUrl && (
-          <div className="h-40 overflow-hidden">
-            <AspectRatio ratio={1}>
-              <img 
-                src={imageUrl} 
-                alt={title} 
-                className="w-full h-full object-cover transform transition-transform duration-300 group-hover:scale-105"
-              />
-            </AspectRatio>
+          <div className="aspect-square overflow-hidden">
+            <img 
+              src={imageUrl} 
+              alt={title} 
+              className="w-full h-full object-cover transform transition-transform duration-300 group-hover:scale-105"
+            />
           </div>
         )}
         <div className={cn(
