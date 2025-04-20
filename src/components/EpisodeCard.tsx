@@ -7,8 +7,6 @@ import { cn } from '@/lib/utils';
 interface EpisodeCardProps {
   title: string;
   description: string;
-  duration: string;
-  date: string;
   spotifyLink: string;
   audioUrl: string;
   imageUrl?: string;
@@ -19,8 +17,6 @@ interface EpisodeCardProps {
 const EpisodeCard = ({
   title,
   description,
-  duration,
-  date,
   spotifyLink,
   audioUrl,
   imageUrl,
