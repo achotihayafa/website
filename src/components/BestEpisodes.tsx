@@ -36,7 +36,7 @@ const bestEpisodes: BestEpisode[] = [
     title: "גבורה, אבל בעצם דיברנו על איך להציל את עצמי",
     description: "פרק מאזינות מיוחד - חמש מאזינות סיפרו את סיפור הגבורה האישי שלהן.",
     links: {
-      file: "https://anchor.fm/s/f1452300/episodes/ep-e31g1rt/a-bbc123.mp3",
+      file: "https://anchor.fm/s/f1452300/podcast/play/96190587/https%3A%2F%2Fd3ctxlq1ktw2nl.cloudfront.net%2Fstaging%2F2024-11-23%2F392010396-44100-2-6998d530623d6.m4a",
       spotify: "https://open.spotify.com/episode/2gxt1hu1Jh3z2HKltTScWP?si=C2oYXGyYSvClgFVeJADXHQ",
       youtube: "https://www.youtube.com/watch?v=-pR_-UlKEh0",
       apple: "https://podcasts.apple.com/us/podcast/.../id1728358395?i=1000681635168"
@@ -47,7 +47,7 @@ const bestEpisodes: BestEpisode[] = [
     title: "אבל, אבל בעצם דיברנו על האבל הפרטי שלנו",
     description: "סיפור הקשר שלנו עם בן דודה שלנו, אביתר, שנהרג בצוק איתן. על הדיסוננס בין האבל הפרטי לאבל הציבורי, ואיך המוות שלו השפיע על כל אחד מבני המשפחה.",
     links: {
-      file: "https://anchor.fm/s/f1452300/episodes/ep-e31g1ru/a-ccc123.mp3",
+      file: "https://anchor.fm/s/f1452300/podcast/play/86371760/https%3A%2F%2Fd3ctxlq1ktw2nl.cloudfront.net%2Fstaging%2F2024-4-6%2F376700196-44100-2-7f0ab9a0557f9.m4a",
       spotify: "https://open.spotify.com/episode/0S4JmDWDphqIgvEaxPzsmN?si=nzRNqNMHShCp4_QNgzqMOA",
       youtube: "https://www.youtube.com/watch?v=ZMeVAO3qccM",
       apple: "https://podcasts.apple.com/us/podcast/.../id1728358395?i=1000654893822"
