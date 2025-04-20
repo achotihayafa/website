@@ -1,3 +1,4 @@
+
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Merriweather:wght@300;400;700&family=Assistant:wght@200;300;400;500;600;700;800&family=Karantina:wght@300;400;700&display=swap');
 
 @tailwind base;
@@ -6,35 +7,35 @@
 
 @layer base {
   :root {
-    --background: hsl(331, 73%, 48%); /* Changed to d52a78 */
-    --foreground: hsl(0, 0%, 100%); /* Changed to white for better contrast */
+    --background: 0 0% 0%; /* Changed to black */
+    --foreground: 0 0% 100%;
 
-    --card: hsl(0, 0%, 100%);
-    --card-foreground: hsl(240, 10%, 3.9%);
+    --card: 0 0% 3%;
+    --card-foreground: 0 0% 100%;
 
-    --popover: hsl(0, 0%, 100%);
-    --popover-foreground: hsl(240, 10%, 3.9%);
+    --popover: 0 0% 3%;
+    --popover-foreground: 0 0% 100%;
 
-    --primary: hsl(331, 73%, 48%);
-    --primary-foreground: hsl(0, 0%, 98%);
+    --primary: 331 73% 48%; /* Keeping pink */
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: hsl(60, 99%, 54%);
-    --secondary-foreground: hsl(240, 5.9%, 10%);
+    --secondary: 60 99% 54%; /* Keeping yellow */
+    --secondary-foreground: 0 0% 0%;
 
-    --muted: hsl(240, 4.8%, 95.9%);
-    --muted-foreground: hsl(240, 3.8%, 46.1%);
+    --muted: 0 0% 15%;
+    --muted-foreground: 0 0% 65%;
 
-    --accent: hsl(240, 4.8%, 95.9%);
-    --accent-foreground: hsl(240, 5.9%, 10%);
+    --accent: 331 73% 48%;
+    --accent-foreground: 0 0% 100%;
 
-    --destructive: hsl(0, 84.2%, 60.2%);
-    --destructive-foreground: hsl(0, 0%, 98%);
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
 
-    --border: hsl(240, 5.9%, 90%);
-    --input: hsl(240, 5.9%, 90%);
-    --ring: hsl(331, 73%, 48%);
+    --border: 0 0% 20%;
+    --input: 0 0% 20%;
+    --ring: 331 73% 48%;
 
-    --radius: 0.75rem;
+    --radius: 0.5rem;
   }
 }
 
@@ -48,24 +49,25 @@
   }
 
   body {
-    @apply bg-background text-foreground font-body;
+    @apply bg-black text-foreground font-body;
     font-family: 'Assistant', sans-serif;
   }
 
   h1, h2, h3, h4, h5, h6 {
-    @apply font-display font-bold text-white; /* Changed to white for better contrast */
+    @apply font-display font-bold text-white;
     font-family: 'Karantina', cursive;
   }
 }
 
 .gradient-text {
-  @apply bg-clip-text text-transparent bg-gradient-to-r from-podcast-yellow to-white; /* Changed gradient */
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-podcast-yellow to-podcast-magenta;
 }
 
 .episode-card-gradient {
-  background: linear-gradient(135deg, rgba(252, 254, 20, 0.2) 0%, rgba(255, 255, 255, 0.1) 100%); /* Updated for better contrast */
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.95) 0%, rgba(0, 0, 0, 0.8) 100%);
 }
 
 .hero-shape {
-  @apply absolute top-0 left-0 w-1/2 h-full bg-podcast-yellow rounded-br-[300px] -z-10 opacity-10;
+  @apply absolute top-0 left-0 w-1/2 h-full bg-podcast-yellow rounded-br-[300px] -z-10 opacity-5;
 }
+
