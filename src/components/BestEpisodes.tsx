@@ -2,6 +2,7 @@
 import React from 'react';
 import { Card, CardContent } from "@/components/ui/card";
 import { Music2, Youtube, Apple } from "lucide-react";
+import { AspectRatio } from "@/components/ui/aspect-ratio";
 
 interface BestEpisode {
   title: string;
@@ -10,7 +11,8 @@ interface BestEpisode {
     spotify?: string;
     youtube?: string;
     apple?: string;
-  }
+  };
+  imageUrl: string;
 }
 
 const bestEpisodes: BestEpisode[] = [
@@ -21,7 +23,8 @@ const bestEpisodes: BestEpisode[] = [
       spotify: "https://open.spotify.com/episode/1",
       youtube: "https://youtube.com/watch?v=1",
       apple: "https://podcasts.apple.com/episode/1"
-    }
+    },
+    imageUrl: "https://images.unsplash.com/photo-1582562124811-c09040d0a901"
   },
   {
     title: "זהות מגדרית בעולם המודרני",
@@ -30,7 +33,8 @@ const bestEpisodes: BestEpisode[] = [
       spotify: "https://open.spotify.com/episode/2",
       youtube: "https://youtube.com/watch?v=2",
       apple: "https://podcasts.apple.com/episode/2"
-    }
+    },
+    imageUrl: "https://images.unsplash.com/photo-1618160702438-9b02ab6515c9"
   },
   {
     title: "אהבה, זוגיות ומה שביניהם",
@@ -39,34 +43,8 @@ const bestEpisodes: BestEpisode[] = [
       spotify: "https://open.spotify.com/episode/3",
       youtube: "https://youtube.com/watch?v=3",
       apple: "https://podcasts.apple.com/episode/3"
-    }
-  },
-  {
-    title: "להיות הורה גאה",
-    description: "סיפורים אישיים על הורות בקהילה הגאה, האתגרים והשמחות שבדרך.",
-    links: {
-      spotify: "https://open.spotify.com/episode/4",
-      youtube: "https://youtube.com/watch?v=4",
-      apple: "https://podcasts.apple.com/episode/4"
-    }
-  },
-  {
-    title: "יציאה מהארון בגיל מאוחר",
-    description: "שיחה מרגשת על התמודדות עם זהות מינית בגיל מבוגר והשינויים בחיים.",
-    links: {
-      spotify: "https://open.spotify.com/episode/5",
-      youtube: "https://youtube.com/watch?v=5",
-      apple: "https://podcasts.apple.com/episode/5"
-    }
-  },
-  {
-    title: "אקטיביזם וזכויות להט״ב",
-    description: "דיון על המאבק לשוויון זכויות, הישגי העבר והאתגרים שעוד לפנינו.",
-    links: {
-      spotify: "https://open.spotify.com/episode/6",
-      youtube: "https://youtube.com/watch?v=6",
-      apple: "https://podcasts.apple.com/episode/6"
-    }
+    },
+    imageUrl: "https://images.unsplash.com/photo-1493962853295-0fd70327578a"
   }
 ];
 
@@ -82,44 +60,53 @@ const BestEpisodes = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {bestEpisodes.map((episode, index) => (
             <Card key={index} className="bg-podcast-darkgray/30 border-white/10 hover:border-podcast-magenta/50 transition-all duration-300">
-              <CardContent className="p-6">
-                <h3 className="text-2xl font-bold mb-3 text-podcast-yellow">{episode.title}</h3>
-                <p className="text-white/70 mb-6 line-clamp-3">{episode.description}</p>
-                
-                <div className="flex gap-4">
-                  {episode.links.spotify && (
-                    <a 
-                      href={episode.links.spotify} 
-                      target="_blank" 
-                      rel="noopener noreferrer"
-                      className="text-white/60 hover:text-podcast-yellow transition-colors"
-                      aria-label="האזן ב-Spotify"
-                    >
-                      <Music2 size={24} />
-                    </a>
-                  )}
-                  {episode.links.youtube && (
-                    <a 
-                      href={episode.links.youtube} 
-                      target="_blank" 
-                      rel="noopener noreferrer"
-                      className="text-white/60 hover:text-podcast-magenta transition-colors"
-                      aria-label="צפה ב-YouTube"
-                    >
-                      <Youtube size={24} />
-                    </a>
-                  )}
-                  {episode.links.apple && (
-                    <a 
-                      href={episode.links.apple} 
-                      target="_blank" 
-                      rel="noopener noreferrer"
-                      className="text-white/60 hover:text-white transition-colors"
-                      aria-label="האזן ב-Apple Podcasts"
-                    >
-                      <Apple size={24} />
-                    </a>
-                  )}
+              <CardContent className="p-0">
+                <AspectRatio ratio={1}>
+                  <img 
+                    src={episode.imageUrl} 
+                    alt={episode.title} 
+                    className="w-full h-full object-cover"
+                  />
+                </AspectRatio>
+                <div className="p-6">
+                  <h3 className="text-2xl font-bold mb-3 text-podcast-yellow">{episode.title}</h3>
+                  <p className="text-white/70 mb-6 line-clamp-3">{episode.description}</p>
+                  
+                  <div className="flex gap-4">
+                    {episode.links.spotify && (
+                      <a 
+                        href={episode.links.spotify} 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="text-white/60 hover:text-podcast-yellow transition-colors"
+                        aria-label="האזן ב-Spotify"
+                      >
+                        <Music2 size={24} />
+                      </a>
+                    )}
+                    {episode.links.youtube && (
+                      <a 
+                        href={episode.links.youtube} 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="text-white/60 hover:text-podcast-magenta transition-colors"
+                        aria-label="צפה ב-YouTube"
+                      >
+                        <Youtube size={24} />
+                      </a>
+                    )}
+                    {episode.links.apple && (
+                      <a 
+                        href={episode.links.apple} 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="text-white/60 hover:text-white transition-colors"
+                        aria-label="האזן ב-Apple Podcasts"
+                      >
+                        <Apple size={24} />
+                      </a>
+                    )}
+                  </div>
                 </div>
               </CardContent>
             </Card>

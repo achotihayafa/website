@@ -28,7 +28,7 @@ const Navbar = () => {
     >
       <div className="container flex items-center justify-between">
         <a href="/" className="flex items-center">
-          <span className="text-xl md:text-2xl font-display font-bold gradient-text">Feel Good</span>
+          <span className="text-xl md:text-2xl font-display font-bold text-white">Feel Good</span>
         </a>
 
         {/* Desktop Navigation */}
@@ -36,16 +36,18 @@ const Navbar = () => {
           <a href="#episodes" className="font-medium text-white hover:text-podcast-yellow transition-colors">פרקים</a>
           <a href="#about" className="font-medium text-white hover:text-podcast-yellow transition-colors">אודות</a>
           <a href="#contact" className="font-medium text-white hover:text-podcast-yellow transition-colors">צרו קשר</a>
-          <Button className="bg-podcast-yellow text-black hover:bg-podcast-yellow/90">האזינו עכשיו</Button>
+          <Button className="bg-podcast-yellow text-black hover:bg-podcast-yellow/90">
+            האזינו עכשיו
+          </Button>
         </nav>
 
         {/* Mobile Menu Button */}
         <button 
           className="md:hidden text-2xl text-white" 
           onClick={toggleMenu}
-          aria-label="פתח תפריט"
+          aria-label={menuOpen ? "סגור תפריט" : "פתח תפריט"}
         >
-          {menuOpen ? <X /> : <Menu />}
+          {menuOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
       </div>
 
@@ -56,10 +58,19 @@ const Navbar = () => {
           menuOpen ? 'translate-x-0' : 'translate-x-full'
         )}
       >
+        <button 
+          className="absolute top-6 right-6 text-white"
+          onClick={toggleMenu}
+          aria-label="סגור תפריט"
+        >
+          <X size={24} />
+        </button>
         <a href="#episodes" className="text-xl font-medium text-white" onClick={toggleMenu}>פרקים</a>
         <a href="#about" className="text-xl font-medium text-white" onClick={toggleMenu}>אודות</a>
         <a href="#contact" className="text-xl font-medium text-white" onClick={toggleMenu}>צרו קשר</a>
-        <Button className="w-full bg-podcast-yellow text-black hover:bg-podcast-yellow/90">האזינו עכשיו</Button>
+        <Button className="w-full bg-podcast-yellow text-black hover:bg-podcast-yellow/90">
+          האזינו עכשיו
+        </Button>
       </nav>
     </header>
   );
