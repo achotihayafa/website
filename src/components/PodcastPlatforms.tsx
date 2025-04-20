@@ -14,7 +14,7 @@ const PodcastPlatforms = () => {
       icon: <SiApplepodcasts className="h-8 w-8" />
     },
     {
-      name: "YouTube",
+      name: "YouTube4646",
       link: "https://www.youtube.com/@AchotiHaYafa",
       icon: <FaYoutube className="h-8 w-8" />
     },
