@@ -23,6 +23,20 @@ const LatestEpisodes = () => {
             />
           </AspectRatio>
         </div>
+        
+        <div className="w-full max-w-4xl mx-auto2">
+          <AspectRatio ratio={16/9} className="bg-podcast-darkgray/20">
+            <iframe 
+              src="https://www.podbean.com/player-v2/?i=https://anchor.fm/s/f1452300/podcast/rss&share=1&download=1&rtl=0" 
+              width="100%" 
+              height="100%"
+              allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
+              loading="lazy"
+              className="border-0"
+            />
+          </AspectRatio>
+        </div>
+        
       </div>
     </section>
   );
