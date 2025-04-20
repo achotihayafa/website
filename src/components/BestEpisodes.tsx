@@ -82,7 +82,7 @@ const BestEpisodes = () => {
                         href={episode.links.spotify} 
                         target="_blank" 
                         rel="noopener noreferrer"
-                        className="text-white/80 hover:text-podcast-yellow transition-colors"
+                        className="text-white/80 hover:text-podcast-magenta transition-colors"
                         aria-label="האזינו ב-Spotify"
                       >
                         <SiSpotify size={24} />
@@ -93,7 +93,7 @@ const BestEpisodes = () => {
                         href={episode.links.youtube} 
                         target="_blank" 
                         rel="noopener noreferrer"
-                        className="text-white/60 hover:text-podcast-magenta transition-colors"
+                        className="text-white/80 hover:text-podcast-magenta transition-colors"
                         aria-label="האזינו ב-YouTube"
                       >
                         <SiYoutube size={24} />
@@ -104,7 +104,7 @@ const BestEpisodes = () => {
                         href={episode.links.apple} 
                         target="_blank" 
                         rel="noopener noreferrer"
-                        className="text-white/60 hover:text-white transition-colors"
+                        className="text-white/80 hover:text-podcast-magenta transition-colors"
                         aria-label="האזינו ב-Apple Podcasts"
                       >
                         <SiApplepodcasts size={24} />
