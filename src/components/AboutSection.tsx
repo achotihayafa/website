@@ -7,8 +7,6 @@ const AboutSection = () => {
   const hosts = [
     {
       name: "צחי כהן",
-      role: "מנחה",
-      bio: "צחי הוא מומחה ביוצרי תוכן. הוא עבד בעבר בגוגל וביומנס והיום הוא פרילנסר.",
       image: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=300&q=80",
       social: {
         instagram: "https://www.instagram.com/tzachicohen",
@@ -17,8 +15,6 @@ const AboutSection = () => {
     },
     {
       name: "יהונתן כהן",
-      role: "מנחה",
-      bio: "יהונתן הוא מנהל פרויקטים.",
       image: "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=300&q=80",
       social: {
         instagram: "https://www.instagram.com/yehonatanc",
@@ -38,9 +34,10 @@ const AboutSection = () => {
 
           <p className="text-lg text-white/80">
             “אחותי היפה" הוא פודקאסט המגיש שיחות עומק על רגשות, זהות וחוויות להטב"קיות. הפודקאסט, בהנחיית האחים צחי ויהונתן כהן, עוסק בכל פרק ברגש אחר מתוך “Atlas of the Heart” של ברנה בראון וממשיך למסע אינטימי בין זיכרונות וסיפורים, בניסיון להבין את הרגש ולפתוח את הלב.
+            בין סיפורי הילדות, טיולים ברחבי העולם דייטים כושלים, “אחותי היפה” מדבר אל הלב ומציע נקודת מבט ייחודית על פגיעות, שייכות, וגאווה.
           </p>
           <p className="text-lg text-white/80">
-            בין סיפורי הילדות, טיולים ברחבי העולם דייטים כושלים, “אחותי היפה” מדבר אל הלב ומציע נקודת מבט ייחודית על פגיעות, שייכות, וגאווה.
+            צחי ויהונתן גדלו במשפחה דתית בירושלים, לאבא מורה ולאמא שעוסקת בגיל-הרך. כיום הם מתגוררים בתל-אביב יפו.
           </p>
         </div>
 
