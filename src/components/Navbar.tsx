@@ -28,7 +28,7 @@ const Navbar = () => {
     >
       <div className="container flex items-center justify-between">
         <a href="/" className="flex items-center">
-          <span className="text-xl md:text-2xl font-display font-bold text-white">Feel Good</span>
+          <span className="text-xl md:text-2xl font-display font-bold text-white">אחותי היפה</span>
         </a>
 
         {/* Desktop Navigation */}
