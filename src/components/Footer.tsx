@@ -15,7 +15,7 @@ const Footer = () => {
           </div>
           
           <div>
-            <h3 className="text-lg font-bold mb-4">קישורים מהירים</h3>
+            <h3 className="text-lg font-bold mb-4">תפריט</h3>
             <ul className="space-y-2">
               <li><a href="#episodes" className="text-gray-300 hover:text-podcast-yellow transition-colors">פרקים</a></li>
               <li><a href="#about" className="text-gray-300 hover:text-podcast-yellow transition-colors">אודות</a></li>
