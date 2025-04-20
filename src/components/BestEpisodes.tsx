@@ -25,7 +25,7 @@ const bestEpisodes: BestEpisode[] = [
     title: "חוסר תקווה, אבל בעצם דיברנו על יציאה מהארון",
     description: "סיפור היציאה מהארון של צחי - הרגע המכונן שעיצב את המשפחה שלנו מחדש, ושבאופן מסוים הוביל גם להחלטה להקליט את הפודקאסט שלנו.",
     links: {
-      file: "https://anchor.fm/s/f1452300/episodes/ep-e31g1rp/a-aabc123.mp3", // Replace with your real RSS audio URL
+      file: "https://anchor.fm/s/f1452300/podcast/play/101238073/https%3A%2F%2Fd3ctxlq1ktw2nl.cloudfront.net%2Fstaging%2F2025-3-13%2F398331935-44100-2-268f9ea872e3.m4a", 
       spotify: "https://open.spotify.com/episode/7JwXyGiwuNKIDf7K2Ql8h7?si=k8cYKC-SR0KJFhQkfkAg3g",
       youtube: "https://www.youtube.com/watch?v=E_N46UmlvpI",
       apple: "https://podcasts.apple.com/us/podcast/.../id1728358395?i=1000703704686"
