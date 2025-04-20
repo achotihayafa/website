@@ -23,7 +23,7 @@ const Navbar = () => {
     <header 
       className={cn(
         'fixed w-full z-50 transition-all duration-300',
-        isScrolled ? 'py-4 bg-podcast-magenta shadow-md' : 'py-6 bg-transparent'
+        isScrolled ? 'py-4 bg-podcast-magenta shadow-md' : 'py-6 bg-podcast-magenta'
       )}
     >
       <div className="container flex items-center justify-between">
