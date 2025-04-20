@@ -63,7 +63,7 @@ const EpisodeCard = ({
                 alt={title} 
                 className="w-full h-full object-cover transform transition-transform duration-300 group-hover:scale-105"
               />
-            </AspectRatio ratio>
+            </AspectRatio>
           </div>
         )}
         <div className={cn(
