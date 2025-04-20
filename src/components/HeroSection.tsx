@@ -14,7 +14,7 @@ const HeroSection = () => {
             <div className="w-10 h-10 rounded-full bg-podcast-yellow flex items-center justify-center text-podcast-darkgray ml-3">
               <Headphones size={20} />
             </div>
-            <span className="text-lg font-medium">הפודקאסט Feel Good</span>
+            <span className="text-lg font-medium">אחותי היפה</span>
           </div>
           
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-extrabold mb-8 opacity-0 animate-fade-in-delay-1">
@@ -50,7 +50,7 @@ const HeroSection = () => {
       </div>
       
       <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
-        <a href="#episodes" aria-label="גלול לפרקים">
+        <a href="#platforms" aria-label="לכל הפלטפורמות">
           <ArrowDown className="text-white" />
         </a>
       </div>
