@@ -97,12 +97,12 @@ const EpisodeCard = ({
               {isPlaying ? (
                 <>
                   <Pause size={18} className="ml-1" />
-                  הפסק האזנה
+                  הפסק
                 </>
               ) : (
                 <>
                   <Play size={18} className="ml-1" />
-                  האזן עכשיו
+                  האזינו עכשיו
                 </>
               )}
             </button>
