@@ -1,7 +1,11 @@
 
 import React from 'react';
 import { Card, CardContent } from "@/components/ui/card";
-import { Music2, Youtube, Apple } from "lucide-react";
+import { 
+  SiSpotify, 
+  SiYoutube, 
+  SiApplepodcasts 
+} from "react-icons/si";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
 
 interface BestEpisode {
@@ -81,7 +85,7 @@ const BestEpisodes = () => {
                         className="text-white/60 hover:text-podcast-yellow transition-colors"
                         aria-label="האזינו ב-Spotify"
                       >
-                        <Music2 size={24} />
+                        <SiSpotify size={24} />
                       </a>
                     )}
                     {episode.links.youtube && (
