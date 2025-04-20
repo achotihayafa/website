@@ -33,7 +33,7 @@ const Navbar = () => {
 
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center space-x-8">
-          <a href="#episodes" className="font-medium text-white hover:text-podcast-yellow transition-colors">פרקים</a>
+          <a href="#best" className="font-medium text-white hover:text-podcast-yellow transition-colors">פרקים מומלצים</a>
           <a href="#about" className="font-medium text-white hover:text-podcast-yellow transition-colors">אודות</a>
           <a href="#contact" className="font-medium text-white hover:text-podcast-yellow transition-colors">צרו קשר</a>
           <Button className="bg-podcast-yellow text-black hover:bg-podcast-yellow/90">
