@@ -96,7 +96,7 @@ const BestEpisodes = () => {
                         className="text-white/60 hover:text-podcast-magenta transition-colors"
                         aria-label="האזינו ב-YouTube"
                       >
-                        <Youtube size={24} />
+                        <SiYoutube size={24} />
                       </a>
                     )}
                     {episode.links.apple && (
@@ -107,7 +107,7 @@ const BestEpisodes = () => {
                         className="text-white/60 hover:text-white transition-colors"
                         aria-label="האזינו ב-Apple Podcasts"
                       >
-                        <Apple size={24} />
+                        <SiApplepodcasts size={24} />
                       </a>
                     )}
                   </div>
