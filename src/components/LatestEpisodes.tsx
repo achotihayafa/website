@@ -24,10 +24,10 @@ const LatestEpisodes = () => {
           </AspectRatio>
         </div>
         
-        <div className="w-full max-w-4xl mx-auto2">
+        <div className="Apple-embed">
           <AspectRatio ratio={16/9} className="bg-podcast-darkgray/20">
             <iframe 
-              src="https://player.pinecast.com/feed/f1452300" 
+              src="https://embed.podcasts.apple.com/us/podcast/%D7%90%D7%97%D7%95%D7%AA%D7%99-%D7%94%D7%99%D7%A4%D7%94/id1728358395" 
               width="100%" 
               height="100%"
               allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
