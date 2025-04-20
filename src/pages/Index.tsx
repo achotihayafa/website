@@ -2,6 +2,7 @@
 import React from 'react';
 import Navbar from '@/components/Navbar';
 import HeroSection from '@/components/HeroSection';
+import BestEpisodes from '@/components/BestEpisodes';
 import LatestEpisodes from '@/components/LatestEpisodes';
 import AboutSection from '@/components/AboutSection';
 import PodcastPlatforms from '@/components/PodcastPlatforms';
@@ -12,6 +13,7 @@ const Index = () => {
     <div className="min-h-screen">
       <Navbar />
       <HeroSection />
+      <BestEpisodes />
       <LatestEpisodes />
       <PodcastPlatforms />
       <AboutSection />
