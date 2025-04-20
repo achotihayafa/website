@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { Card, CardContent } from "@/components/ui/card";
-import { Apple, Spotify, Youtube } from "lucide-react";
+import { Music2, Youtube, Apple } from "lucide-react";
 
 interface BestEpisode {
   title: string;
@@ -95,7 +95,7 @@ const BestEpisodes = () => {
                       className="text-white/60 hover:text-podcast-yellow transition-colors"
                       aria-label="האזן ב-Spotify"
                     >
-                      <Spotify size={24} />
+                      <Music2 size={24} />
                     </a>
                   )}
                   {episode.links.youtube && (
