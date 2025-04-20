@@ -57,8 +57,8 @@ const BestEpisodes = () => {
     <section className="py-20 bg-black">
       <div className="container px-6">
         <div className="mb-12">
-          <h2 className="text-4xl md:text-5xl font-bold text-podcast-magenta mb-4">פרקים מומלצים</h2>
-          <p className="text-white/80 text-lg">האזינו לפרקים שאהובים עלינו במיוחד</p>
+          <h2 className="text-4xl md:text-5xl font text-podcast-magenta mb-4">פרקים מומלצים</h2>
+          <p className="text-white text-lg">האזינו לפרקים שאהובים עלינו במיוחד</p>
         </div>
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
