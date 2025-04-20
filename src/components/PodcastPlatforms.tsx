@@ -33,7 +33,7 @@ const PodcastPlatforms = () => {
   return (
     <section id="platforms" className="py-16 bg-black/10">
       <div className="container px-6">
-        <h2 className="text-4xl md:text-5xl mb-10 text-center">האזינו לנו</h2>
+        <h2 className="text-4xl md:text-5xl mb-10 text-center">האזינו לנו עכשיו בכל הפלטפורמות</h2>
         
         <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 gap-8 max-w-4xl mx-auto">
           {platforms.map((platform) => (
