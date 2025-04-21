@@ -94,7 +94,7 @@ const BestEpisodes = () => {
                   <img 
                     src={episode.imageUrl} 
                     alt={episode.title} 
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110 hover:scale-110 rounded-2xl"
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110 hover:scale-110"
                   />
                 </AspectRatio>
                 {/* Audio + Play Button */}
