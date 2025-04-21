@@ -21,7 +21,7 @@ const HeroSection = () => {
         <div className="max-w-3xl mx-auto md:mx-0 flex-1 w-full">
           <h1
             className="text-4xl md:text-6xl lg:text-7xl mb-8 opacity-0 animate-fade-in-delay-1 bg-gradient-to-r from-white via-podcast-yellow to-podcast-magenta bg-clip-text text-transparent font-display"
-            style={{ transform: 'scaleX(1.2)', display: 'inline-block' }}
+            style={{ transform: 'scaleX(1.9)', display: 'inline-block' }}
           >
             <span className="block">פודקאסט על רגשות,</span>
             <span className="block">אבל בעצם פודקאסט להטב"קי</span>
