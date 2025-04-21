@@ -24,7 +24,7 @@ const Navbar = () => {
         'fixed w-full z-50 transition-all duration-300',
         isScrolled ? 'py-4 bg-podcast-magenta shadow-md' : 'py-7 bg-podcast-magenta'
       )}
-      style={{ minHeight: 88 }}
+      style={{ minHeight: 50 }}
     >
       <div className="container flex items-center justify-between">
         <a href="/" className="flex items-center">
@@ -71,7 +71,7 @@ const Navbar = () => {
         <a href="#best" className="text-xl font-medium text-white" onClick={toggleMenu}>פרקים מומלצים</a>
         <a href="#about" className="text-xl font-medium text-white" onClick={toggleMenu}>אודות</a>
         <a href="#btl" className="text-xl font-medium text-white" onClick={toggleMenu}>בין השורות</a>
-        <a href="#platforms" className="w-full block">
+        <a href="#platforms" className="w-full block font-medium" onClick={toggleMenu}>
           <Button className="w-full bg-podcast-yellow text-black hover:bg-podcast-yellow/90">
             האזינו עכשיו
           </Button>
