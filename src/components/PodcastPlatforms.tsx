@@ -40,15 +40,19 @@ const PodcastPlatforms = () => {
       {/* Main content */}
       <div className="container px-6 relative z-10">
       <h2
-        className="text-4xl md:text-5xl mb-6 text-center font-bold bg-gradient-to-r from-podcast-yellow to-white bg-clip-text text-transparent"
-        style={{
-          transform: 'scaleX(1.2)',
-          transformOrigin: 'center',
-          display: 'inline-block',
-        }}
+        className="text-4xl md:text-5xl mb-6 font-bold bg-gradient-to-r from-podcast-yellow to-white bg-clip-text text-transparent text-center"
       >
-        האזינו לנו עכשיו בכל הפלטפורמות
+        <span
+          style={{
+            display: 'inline-block',
+            transform: 'scaleX(1.2)',
+            transformOrigin: 'center',
+          }}
+        >
+          האזינו לנו עכשיו בכל הפלטפורמות
+        </span>
       </h2>
+
 
         
         <p className="text-center text-lg text-white/80 max-w-2xl mx-auto mb-12">
