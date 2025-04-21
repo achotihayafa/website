@@ -105,10 +105,12 @@ const BestEpisodes = () => {
                       src={episode.links.file}
                     />
                     <button
-                       onClick={() => togglePlay(index)}
-                       className="absolute bottom-4 left-4 bg-podcast-magenta rounded-full p-2 text-white hover:bg-black transition-colors z-10"
-                       aria-label="הפעל פרק"
-                     >
+                      onClick={() => togglePlay(index)}
+                      className="absolute bottom-4 left-4 bg-podcast-magenta rounded-full p-2 text-white hover:bg-black transition-colors z-10"
+                      aria-label="הפעל פרק"
+                    >
+                      {playingIndex === index ? <FaPause /> : <FaPlay />}
+                    </button>
                   </>
                 )}
 
