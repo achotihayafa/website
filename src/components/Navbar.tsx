@@ -12,7 +12,6 @@ const Navbar = () => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 10);
     };
-
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
@@ -23,10 +22,11 @@ const Navbar = () => {
     <header 
       className={cn(
         'fixed w-full z-50 transition-all duration-300',
-        isScrolled ? 'py-4 bg-podcast-magenta shadow-md' : 'py-6 bg-podcast-magenta'
+        isScrolled ? 'py-4 bg-podcast-magenta shadow-md' : 'py-7 bg-podcast-magenta'
       )}
+      style={{ minHeight: 88 }}
     >
-      <div className="container flex items-center justify-between">
+      <div className="container flex items-center justify-between min-h-[72px] max-w-screen-2xl">
         <a href="/" className="flex items-center">
           <img 
             src="/lovable-uploads/ab5fd662-cd0e-400c-9b54-6ea329252036.png" 
@@ -34,19 +34,17 @@ const Navbar = () => {
             className="h-10" 
           />
         </a>
-
         {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center space-x-8">
-          <a href="#best" className="font-medium text-white hover:text-podcast-yellow transition-colors">פרקים מומלצים</a>
-          <a href="#about" className="font-medium text-white hover:text-podcast-yellow transition-colors">אודות</a>
-          <a href="#btl" className="font-medium text-white hover:text-podcast-yellow transition-colors">בין השורות</a>
+        <nav className="hidden md:flex items-center gap-12 flex-nowrap">
+          <a href="#best" className="font-medium text-white hover:text-podcast-yellow transition-colors whitespace-nowrap">פרקים מומלצים</a>
+          <a href="#about" className="font-medium text-white hover:text-podcast-yellow transition-colors whitespace-nowrap">אודות</a>
+          <a href="#btl" className="font-medium text-white hover:text-podcast-yellow transition-colors whitespace-nowrap">בין השורות</a>
           <a href="#platforms" className="w-full block">
-            <Button className="bg-podcast-yellow text-black hover:bg-podcast-yellow/90">
+            <Button className="bg-podcast-yellow text-black hover:bg-podcast-yellow/90 whitespace-nowrap px-7">
               האזינו עכשיו
             </Button>
           </a>
         </nav>
-
         {/* Mobile Menu Button */}
         <button 
           className="md:hidden text-2xl text-white" 
@@ -56,7 +54,6 @@ const Navbar = () => {
           {menuOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
       </div>
-
       {/* Mobile Navigation */}
       <nav 
         className={cn(

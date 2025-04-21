@@ -1,12 +1,11 @@
 
 import React, { useRef, useState } from 'react';
-import { Loader } from 'lucide-react';
 import { Card, CardContent } from "@/components/ui/card";
-import { SiSpotify, SiYoutube, SiApplepodcasts } from "react-icons/si";
+import { SiSpotify, SiYoutube, SiApplepodcasts, SiInstagram } from "react-icons/si";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
 import { useQuery } from '@tanstack/react-query';
 import { fetchRssFeed } from '@/utils/rssParser';
-import { Play, Pause } from "lucide-react";
+import { FaPlay, FaPause } from "react-icons/fa";
 
 // Utility to decode HTML entities
 function decodeHtml(html: string): string {
@@ -15,7 +14,7 @@ function decodeHtml(html: string): string {
   return textarea.value;
 }
 
-// Main podcast page links for platforms:
+// Platform main links
 const PODCAST_LINKS = {
   spotify: "https://open.spotify.com/show/0ZpvzCEuDeKQhBw74YEmp9",
   youtube: "https://www.youtube.com/@AchotiHaYafa",
@@ -32,7 +31,7 @@ const LatestEpisodes = () => {
   const [playingIndex, setPlayingIndex] = useState<number | null>(null);
 
   // Handles play/pause actions, ensuring only one episode plays
-  const togglePlay = (index: number, audioUrl: string) => {
+  const togglePlay = (index: number) => {
     const currentAudio = audioRefs.current[index];
     if (!currentAudio) return;
 
@@ -66,10 +65,9 @@ const LatestEpisodes = () => {
             האזינו לשיחות האחרונות שלנו
           </p>
         </div>
-
         {isLoading ? (
           <div className="flex justify-center items-center py-20">
-            <Loader className="animate-spin text-white" size={40} />
+            <span className="animate-spin text-white text-2xl">⏳</span>
           </div>
         ) : error ? (
           <div className="text-center py-10">
@@ -81,19 +79,19 @@ const LatestEpisodes = () => {
               <Card
                 key={index}
                 className="relative bg-podcast-darkgray/30 border-white/10 hover:border-podcast-yellow/50 transition-all duration-300 overflow-hidden"
+                style={{ borderRadius: '1rem' }}
               >
                 <CardContent className="p-0 relative">
-                  <AspectRatio ratio={1} className="overflow-hidden group">
+                  <AspectRatio ratio={1} className="overflow-hidden">
                     {episode.imageUrl && (
                       <img
                         src={episode.imageUrl}
                         alt={decodeHtml(episode.title)}
                         className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110 hover:scale-110"
-                        style={{ borderRadius: '1rem' }}
+                        style={{ borderRadius: '0' }} // No rounding for image itself
                       />
                     )}
                   </AspectRatio>
-
                   {/* Audio + Play Button */}
                   {episode.audioUrl && (
                     <>
@@ -103,20 +101,18 @@ const LatestEpisodes = () => {
                         preload="none"
                       />
                       <button
-                        onClick={() => togglePlay(index, episode.audioUrl)}
+                        onClick={() => togglePlay(index)}
                         className="absolute bottom-4 left-4 bg-podcast-yellow rounded-full p-2 text-white hover:bg-black transition-colors z-10"
                         aria-label={playingIndex === index ? "הפסק פרק" : "הפעל פרק"}
                       >
-
-                        {playingIndex === index ? <Pause /> : <Play />}
+                        {playingIndex === index ? <FaPause /> : <FaPlay />}
                       </button>
                     </>
                   )}
-
                   <div className="p-6">
                     <h3 className="text-2xl font mb-3 text-podcast-yellow">{decodeHtml(episode.title)}</h3>
                     <p className="text-white/80 mb-6 line-clamp-3">{decodeHtml(episode.description)}</p>
-
+                    {/* Platform Links */}
                     <div className="flex gap-4">
                       <a
                         href={PODCAST_LINKS.spotify}
