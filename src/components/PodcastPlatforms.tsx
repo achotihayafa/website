@@ -79,7 +79,7 @@ const PodcastPlatforms = () => {
                   {platform.icon}
                 </div>
                 <span className="text-sm font-medium">{platform.name}</span>
-              </motion.a> {/* Fixed the closing tag here */}
+              </motion.a> 
             ))}
           </div>
         </div>
