@@ -42,7 +42,7 @@ const bestEpisodes: BestEpisode[] = [
       youtube: "https://www.youtube.com/watch?v=-pR_-UlKEh0",
       apple: "https://podcasts.apple.com/us/podcast/.../id1728358395?i=1000681635168"
     },
-    imageUrl: "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/40378400/40378400-1728145139144-71eff87bfd383.jpg"
+    imageUrl: "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/40378400/40378400-1745245467313-35fc7e376c851.jpg"
   },
   {
     title: "אבל, אבל בעצם דיברנו על האבל הפרטי שלנו",
