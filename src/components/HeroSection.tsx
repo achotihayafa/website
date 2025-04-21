@@ -20,12 +20,12 @@ const HeroSection = () => {
         {/* Right Side (Text & Actions) */}
         <div className="max-w-3xl mx-auto md:mx-0 flex-1 w-full">
           <h1
-            className="text-4xl md:text-6xl lg:text-7xl mb-8 opacity-0 animate-fade-in-delay-1 bg-gradient-to-r from-white via-podcast-yellow to-podcast-magenta bg-clip-text text-transparent font-display"
-            style={{ transform: 'scaleX(1.9)', display: 'inline-block' }}
+            className="text-4xl md:text-6xl lg:text-7xl mb-8 text-center font-display font-bold bg-gradient-to-r from-white via-podcast-yellow to-podcast-magenta bg-clip-text text-transparent transform scale-x-110 origin-center inline-block opacity-0 animate-fade-in-delay-1"
           >
             <span className="block">פודקאסט על רגשות,</span>
             <span className="block">אבל בעצם פודקאסט להטב"קי</span>
           </h1>
+
 
           
           <p className="text-lg md:text-xl mb-10 text-white/80 max-w-2xl opacity-0 animate-fade-in-delay-2 bg-gradient-to-r from-white to-white/80 bg-clip-text text-transparent">
