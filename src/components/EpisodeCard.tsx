@@ -81,11 +81,14 @@ const EpisodeCard = ({
           <div className="flex justify-between items-center">
             <button
               onClick={togglePlay}
-              className="bg-podcast-yellow rounded-full p-2 text-white hover:bg-black transition-colors"
+              className="bg-podcast-yellow rounded-full p-2 group hover:bg-black transition-colors"
               aria-label="הפעל פרק"
             >
-              {isPlaying ? <Pause size={20} /> : <Play size={20} />}
+              <span className="text-white group-hover:text-podcast-yellow transition-colors">
+                {isPlaying ? <Pause size={20} /> : <Play size={20} />}
+              </span>
             </button>
+
 
             <a 
               href={spotifyLink}
