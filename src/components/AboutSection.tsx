@@ -30,7 +30,7 @@ const AboutSection = () => {
       <div className="container px-6">
         <div className="max-w-3xl mx-auto text-center mb-16">
           <div className="w-12 h-12 rounded-full bg-podcast-magenta flex items-center justify-center mx-auto mb-4">
-            <Heart className="text-podcast-darkgray" size={24} />
+            <Heart className="text-podcast-black" size={24} />
           </div>
           <h2 className="text-3xl md:text-4xl font-bold mb-4">אודות הפודקאסט "אחותי היפה"</h2>
 
