@@ -3,7 +3,7 @@ import React from 'react';
 import { Headphones, ArrowDown } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 
-const podcastCover = "/lovable-uploads/cover.png";
+const podcastCover = "/lovable-uploads/cover.jpg";
 
 const HeroSection = () => {
   return (
