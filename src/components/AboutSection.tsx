@@ -45,7 +45,8 @@ const AboutSection = () => {
           </p>
         </div>
 
-        <h3 className="text-2xl md:text-3xl mb-4" style={{
+        {/* Centered Title */}
+        <h3 className="text-2xl md:text-3xl mb-4 text-center" style={{
             transform: 'scaleX(1.2)', 
             transformOrigin: 'left',
             display: 'inline-block',
@@ -53,13 +54,14 @@ const AboutSection = () => {
           }}>
           המנחים
         </h3>
-        <p className="text-lg text-white/80 text-right mb-6">
+        {/* Centered Description */}
+        <p className="text-lg text-white/80 text-center mb-6">
           צחי ויהונתן גדלו במשפחה דתית בירושלים, לאבא מורה ולאמא שעוסקת בגיל-הרך. כיום הם מתגוררים בתל-אביב יפו.
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
           {hosts.map((host, index) => (
-            <div key={index} className="flex flex-col md:flex-row gap-6 items-center bg-white/5 rounded-lg p-6">
+            <div key={index} className="flex flex-col md:flex-row gap-6 items-start bg-white/5 rounded-lg p-6">
               <div className="w-32 h-32 rounded-full overflow-hidden flex-shrink-0 border-4 border-podcast-magenta">
                 <img 
                   src={host.image} 
