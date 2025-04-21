@@ -53,12 +53,13 @@
   }
 
   h1, h2, h3, h4, h5, h6 {
-    /* Remove bold from Karantina headings */
     @apply font-display text-white;
     font-family: 'Karantina', cursive;
     font-weight: 400 !important;
+    transform: scaleX(1.2);
+    display: inline-block; /* Required for transform to work */
   }
-}
+  }
 
 @layer utilities {
   .hero-glow {
