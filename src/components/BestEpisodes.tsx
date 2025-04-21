@@ -1,4 +1,3 @@
-
 import React, { useRef, useState } from 'react';
 import { Card, CardContent } from "@/components/ui/card";
 import { 
@@ -79,97 +78,96 @@ const BestEpisodes = () => {
   };
 
   return (
-      <section id="best" className="py-20 bg-black">
-        <div className="container px-6">
-          <div className="mb-12">
-            <h2
-              className="text-4xl md:text-5xl font text-podcast-magenta mb-4"
-              style={{
-                transform: 'scaleX(1.2)',
-                transformOrigin: 'right',
-                display: 'inline-block',
-              }}
-            >
-              פרקים מומלצים
-            </h2>
-            <p className="text-white/80 text-lg">האזינו לפרקים שאהובים עלינו במיוחד</p>
-          </div>
+    <section id="best" className="py-20 bg-black">
+      <div className="container px-6">
+        <div className="mb-12">
+          <h2
+            className="text-4xl md:text-5xl font text-podcast-magenta mb-4 text-center"
+            style={{
+              transform: 'scaleX(1.2)',
+              transformOrigin: 'center',
+              display: 'inline-block',
+            }}
+          >
+            פרקים מומלצים
+          </h2>
+          <p className="text-white/80 text-lg text-center">האזינו לפרקים שאהובים עלינו במיוחד</p>
         </div>
+      </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {bestEpisodes.map((episode, index) => (
-            <Card key={index} className="relative bg-podcast-darkgray/30 border-white/10 hover:border-podcast-magenta/50 transition-all duration-300 overflow-hidden">
-              <CardContent className="p-0 relative">
-                <AspectRatio ratio={1} className="overflow-hidden">
-                  <img 
-                    src={episode.imageUrl} 
-                    alt={episode.title} 
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110 hover:scale-110"
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {bestEpisodes.map((episode, index) => (
+          <Card key={index} className="relative bg-podcast-darkgray/30 border-white/10 hover:border-podcast-magenta/50 transition-all duration-300 overflow-hidden">
+            <CardContent className="p-0 relative">
+              <AspectRatio ratio={1} className="overflow-hidden">
+                <img 
+                  src={episode.imageUrl} 
+                  alt={episode.title} 
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110 hover:scale-110"
+                />
+              </AspectRatio>
+              {/* Audio + Play Button */}
+              {episode.links.file && (
+                <>
+                  <audio
+                    ref={(el) => (audioRefs.current[index] = el)}
+                    src={episode.links.file}
                   />
-                </AspectRatio>
-                {/* Audio + Play Button */}
-                {episode.links.file && (
-                  <>
-                    <audio
-                      ref={(el) => (audioRefs.current[index] = el)}
-                      src={episode.links.file}
-                    />
-                    <button
-                      onClick={() => togglePlay(index)}
-                      className="absolute bottom-4 left-4 bg-podcast-magenta rounded-full p-2 group hover:bg-white transition-colors z-10"
-                      aria-label="הפעל פרק"
-                    >
-                      <span className="text-white group-hover:text-podcast-magenta transition-colors">
-                        {playingIndex === index ? <FaPause /> : <FaPlay />}
-                      </span>
-                    </button>
-                  </>
-                )}
+                  <button
+                    onClick={() => togglePlay(index)}
+                    className="absolute bottom-4 left-4 bg-podcast-magenta rounded-full p-2 group hover:bg-white transition-colors z-10"
+                    aria-label="הפעל פרק"
+                  >
+                    <span className="text-white group-hover:text-podcast-magenta transition-colors">
+                      {playingIndex === index ? <FaPause /> : <FaPlay />}
+                    </span>
+                  </button>
+                </>
+              )}
 
-                <div className="p-6">
-                  <h3 className="text-3xl font mb-3 text-podcast-magenta">{episode.title}</h3>
-                  <p className="text-white/80 mb-6 line-clamp-3">{episode.description}</p>
-                  
-                  <div className="flex gap-4">
-                    {episode.links.spotify && (
-                      <a 
-                        href={episode.links.spotify} 
-                        target="_blank" 
-                        rel="noopener noreferrer"
-                        className="text-white/80 hover:text-podcast-magenta transition-colors"
-                        aria-label="האזינו ב-Spotify"
-                      >
-                        <SiSpotify size={24} />
-                      </a>
-                    )}
-                    {episode.links.youtube && (
-                      <a 
-                        href={episode.links.youtube} 
-                        target="_blank" 
-                        rel="noopener noreferrer"
-                        className="text-white/80 hover:text-podcast-magenta transition-colors"
-                        aria-label="האזינו ב-YouTube"
-                      >
-                        <SiYoutube size={24} />
-                      </a>
-                    )}
-                    {episode.links.apple && (
-                      <a 
-                        href={episode.links.apple} 
-                        target="_blank" 
-                        rel="noopener noreferrer"
-                        className="text-white/80 hover:text-podcast-magenta transition-colors"
-                        aria-label="האזינו ב-Apple Podcasts"
-                      >
-                        <SiApplepodcasts size={24} />
-                      </a>
-                    )}
-                  </div>
+              <div className="p-6">
+                <h3 className="text-3xl font mb-3 text-podcast-magenta">{episode.title}</h3>
+                <p className="text-white/80 mb-6 line-clamp-3">{episode.description}</p>
+                
+                <div className="flex gap-4">
+                  {episode.links.spotify && (
+                    <a 
+                      href={episode.links.spotify} 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="text-white/80 hover:text-podcast-magenta transition-colors"
+                      aria-label="האזינו ב-Spotify"
+                    >
+                      <SiSpotify size={24} />
+                    </a>
+                  )}
+                  {episode.links.youtube && (
+                    <a 
+                      href={episode.links.youtube} 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="text-white/80 hover:text-podcast-magenta transition-colors"
+                      aria-label="האזינו ב-YouTube"
+                    >
+                      <SiYoutube size={24} />
+                    </a>
+                  )}
+                  {episode.links.apple && (
+                    <a 
+                      href={episode.links.apple} 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="text-white/80 hover:text-podcast-magenta transition-colors"
+                      aria-label="האזינו ב-Apple Podcasts"
+                    >
+                      <SiApplepodcasts size={24} />
+                    </a>
+                  )}
                 </div>
-              </CardContent>
-            </Card>
-          ))}
-        </div>
+              </div>
+            </CardContent>
+          </Card>
+        ))}
       </div>
     </section>
   );
