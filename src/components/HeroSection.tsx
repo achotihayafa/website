@@ -27,7 +27,8 @@ const HeroSection = () => {
           </div>
           
           <h1 className="text-4xl md:text-6xl lg:text-7xl mb-8 opacity-0 animate-fade-in-delay-1 bg-gradient-to-r from-white via-podcast-yellow to-podcast-magenta bg-clip-text text-transparent"> 
-            <span className="block">פודקאסט על רגשות, אבל בעצם פודקאסט להטב"קי</span>
+            <span className="block">פודקאסט על רגשות,</span>
+            <span className="block">אבל בעצם פודקאסט להטב"קי</span>
           </h1>
           
           <p className="text-lg md:text-xl mb-10 text-white/80 max-w-2xl opacity-0 animate-fade-in-delay-2 bg-gradient-to-r from-white to-white/80 bg-clip-text text-transparent">
