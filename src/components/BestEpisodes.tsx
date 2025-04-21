@@ -1,3 +1,4 @@
+
 import React, { useRef, useState } from 'react';
 import { Card, CardContent } from "@/components/ui/card";
 import { 
@@ -15,7 +16,7 @@ interface BestEpisode {
     spotify?: string;
     youtube?: string;
     apple?: string;
-    file?: string; // Add direct audio file link if available
+    file?: string;
   };
   imageUrl: string;
 }
@@ -87,16 +88,15 @@ const BestEpisodes = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {bestEpisodes.map((episode, index) => (
-            <Card key={index} className="relative bg-podcast-darkgray/30 border-white/10 hover:border-podcast-magenta/50 transition-all duration-300">
-              <CardContent className="p-0">
-                <AspectRatio ratio={1}>
+            <Card key={index} className="relative bg-podcast-darkgray/30 border-white/10 hover:border-podcast-magenta/50 transition-all duration-300 overflow-hidden">
+              <CardContent className="p-0 relative">
+                <AspectRatio ratio={1} className="rounded-2xl overflow-hidden">
                   <img 
                     src={episode.imageUrl} 
                     alt={episode.title} 
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110 hover:scale-110 rounded-2xl"
                   />
                 </AspectRatio>
-
                 {/* Audio + Play Button */}
                 {episode.links.file && (
                   <>
@@ -106,7 +106,7 @@ const BestEpisodes = () => {
                     />
                     <button
                       onClick={() => togglePlay(index)}
-                      className="absolute bottom-4 left-4 bg-black/70 rounded-full p-2 text-white hover:bg-podcast-magenta transition-colors"
+                      className="absolute bottom-4 left-4 bg-black/70 rounded-full p-2 text-white hover:bg-podcast-magenta transition-colors z-10"
                       aria-label="הפעל פרק"
                     >
                       {playingIndex === index ? <FaPause /> : <FaPlay />}

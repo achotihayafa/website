@@ -6,20 +6,14 @@ import { AspectRatio } from "@/components/ui/aspect-ratio";
 const BTLSection = () => {
   return (
     <section id="btl" className="py-20 bg-black relative overflow-hidden">
-      {/* Background decorative elements */}
-      <div className="absolute inset-0 opacity-20">
-        <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-podcast-yellow to-transparent"></div>
-        <div className="absolute top-0 right-1/4 h-40 w-1 bg-gradient-to-b from-podcast-yellow to-transparent"></div>
-        <div className="absolute bottom-0 left-1/3 h-40 w-1 bg-gradient-to-t from-podcast-yellow to-transparent"></div>
-      </div>
-      
+      {/* Decorative background completely removed */}
       <div className="container px-6 relative z-10">
         <div className="flex items-center mb-8">
           <div className="w-12 h-12 rounded-full bg-podcast-yellow flex items-center justify-center ml-4">
             <Music className="text-podcast-darkgray" size={24} />
           </div>
           <div>
-            <h2 className="text-3xl md:text-4xl font-bold">BTL - Between The Lines</h2>
+            <h2 className="text-3xl md:text-4xl">BTL - Between The Lines</h2>
           </div>
         </div>
 

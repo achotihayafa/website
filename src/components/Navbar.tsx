@@ -39,10 +39,12 @@ const Navbar = () => {
         <nav className="hidden md:flex items-center space-x-8">
           <a href="#best" className="font-medium text-white hover:text-podcast-yellow transition-colors">פרקים מומלצים</a>
           <a href="#about" className="font-medium text-white hover:text-podcast-yellow transition-colors">אודות</a>
-          <a href="#contact" className="font-medium text-white hover:text-podcast-yellow transition-colors">צרו קשר</a>
-          <Button className="bg-podcast-yellow text-black hover:bg-podcast-yellow/90">
-            האזינו עכשיו
-          </Button>
+          <a href="#btl" className="font-medium text-white hover:text-podcast-yellow transition-colors">בין השורות</a>
+          <a href="#platforms" className="w-full block">
+            <Button className="bg-podcast-yellow text-black hover:bg-podcast-yellow/90">
+              האזינו עכשיו
+            </Button>
+          </a>
         </nav>
 
         {/* Mobile Menu Button */}
@@ -69,9 +71,9 @@ const Navbar = () => {
         >
           <X size={24} />
         </button>
-        <a href="#episodes" className="text-xl font-medium text-white" onClick={toggleMenu}>פרקים</a>
+        <a href="#best" className="text-xl font-medium text-white" onClick={toggleMenu}>פרקים מומלצים</a>
         <a href="#about" className="text-xl font-medium text-white" onClick={toggleMenu}>אודות</a>
-        <a href="#contact" className="text-xl font-medium text-white" onClick={toggleMenu}>צרו קשר</a>
+        <a href="#btl" className="text-xl font-medium text-white" onClick={toggleMenu}>בין השורות</a>
         <a href="#platforms" className="w-full block">
           <Button className="w-full bg-podcast-yellow text-black hover:bg-podcast-yellow/90">
             האזינו עכשיו

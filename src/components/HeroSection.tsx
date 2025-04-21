@@ -3,34 +3,22 @@ import React from 'react';
 import { Headphones, ArrowDown } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 
+const podcastCover = "/lovable-uploads/ab5fd662-cd0e-400c-9b54-6ea329252036.png";
+
 const HeroSection = () => {
   return (
     <section className="relative min-h-screen flex items-center pt-24 overflow-hidden">
-      {/* Dynamic background shapes */}
-      <div className="absolute inset-0 z-0">
-        <div className="absolute top-[10%] left-[5%] w-72 h-72 rounded-full bg-gradient-to-r from-podcast-magenta/30 to-podcast-magenta/5 blur-3xl animate-pulse-slow"></div>
-        <div className="absolute bottom-[20%] right-[10%] w-96 h-96 rounded-full bg-gradient-to-r from-podcast-yellow/30 to-podcast-yellow/5 blur-3xl animate-pulse-slow" style={{animationDelay: '1s'}}></div>
-        <div className="absolute top-[40%] right-[30%] w-60 h-60 rounded-full bg-blue-500/20 blur-3xl animate-pulse-slow" style={{animationDelay: '2s'}}></div>
+      {/* Animated colorful circles background */}
+      <div className="absolute inset-0 -z-10 pointer-events-none">
+        <div className="absolute top-[20%] left-[10%] w-80 h-80 rounded-full bg-gradient-to-br from-podcast-magenta/30 via-podcast-yellow/30 to-podcast-magenta/10 blur-3xl animate-pulse-slow"></div>
+        <div className="absolute bottom-0 right-0 w-96 h-96 rounded-full bg-gradient-to-br from-podcast-yellow/40 via-podcast-magenta/10 to-white/0 blur-3xl animate-pulse-slow" style={{animationDelay: '0.8s'}}></div>
+        <div className="absolute top-[55%] right-[30%] w-48 h-48 rounded-full bg-gradient-to-br from-podcast-magenta/30 to-podcast-yellow/10 blur-2xl animate-pulse-slow" style={{animationDelay: '2s'}}></div>
       </div>
-      
-      {/* Audio waves animation */}
-      <div className="absolute inset-0 z-0 opacity-30">
-        <div className="absolute bottom-0 left-0 right-0 h-32 flex items-end justify-center space-x-1">
-          {[...Array(40)].map((_, i) => (
-            <div 
-              key={i}
-              className="w-1 bg-podcast-yellow animate-[wave_1.5s_ease-in-out_infinite]"
-              style={{
-                height: `${Math.sin(i * 0.2) * 25 + 30}%`,
-                animationDuration: `${0.8 + Math.random() * 1}s`,
-              }}
-            ></div>
-          ))}
-        </div>
-      </div>
-      
-      <div className="container mx-auto px-6 py-16 md:py-32 relative z-10">
-        <div className="max-w-3xl mx-auto md:mx-0">
+
+      {/* Hero content arrangement for image on left */}
+      <div className="container mx-auto px-6 py-16 md:py-32 relative z-10 flex flex-col-reverse md:flex-row items-center gap-12">
+        {/* Right Side (Text & Actions) */}
+        <div className="max-w-3xl mx-auto md:mx-0 flex-1 w-full">
           <div className="flex items-center mb-6 opacity-0 animate-fade-in">
             <div className="w-10 h-10 rounded-full bg-podcast-yellow flex items-center justify-center text-podcast-darkgray ml-3">
               <Headphones size={20} />
@@ -38,7 +26,7 @@ const HeroSection = () => {
             <span className="text-lg font-medium">אחותי היפה</span>
           </div>
           
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-extrabold mb-8 opacity-0 animate-fade-in-delay-1 bg-gradient-to-r from-white via-podcast-yellow to-podcast-magenta bg-clip-text text-transparent">
+          <h1 className="text-4xl md:text-6xl lg:text-7xl mb-8 opacity-0 animate-fade-in-delay-1 bg-gradient-to-r from-white via-podcast-yellow to-podcast-magenta bg-clip-text text-transparent">
             אחותי היפה - 
             <span className="block">פודקאסט על רגשות, אבל בעצם פודקאסט להטב"קי</span>
           </h1>
@@ -61,15 +49,24 @@ const HeroSection = () => {
             <Button 
               variant="outline" 
               size="lg"
-              onClick={() => document.getElementById('platforms')?.scrollIntoView({ behavior: 'smooth' })}
+              onClick={() => document.getElementById('best')?.scrollIntoView({ behavior: 'smooth' })}
               className="text-white border-white hover:bg-white/10"
             >
              פרקים מומלצים
             </Button>
           </div>
         </div>
+        {/* Left Side (Podcast Cover) */}
+        <div className="flex-1 flex justify-center items-center mb-10 md:mb-0">
+          <img 
+            src={podcastCover}
+            alt="Podcast Cover"
+            className="w-64 h-64 md:w-80 md:h-80 object-cover rounded-3xl shadow-2xl border-4 border-white/10 transition-transform duration-300 hover:scale-105"
+          />
+        </div>
       </div>
       
+      {/* Arrow to platforms */}
       <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
         <a href="#platforms" aria-label="לכל הפלטפורמות">
           <ArrowDown className="text-white" />
