@@ -45,7 +45,7 @@ const AboutSection = () => {
           </p>
         </div>
 
-        <h3 className="text-2xl md:text-3xl mb-4 text-center" style={{
+        <h3 className="text-2xl md:text-3xl mb-4 text-right" style={{
             transform: 'scaleX(1.2)', 
             transformOrigin: 'left',
             display: 'inline-block',
@@ -53,7 +53,7 @@ const AboutSection = () => {
           }}>
           המנחים
         </h3>
-        <p className="text-lg text-white/80 text-center mb-6">
+        <p className="text-lg text-white/80 text-right mb-6">
           צחי ויהונתן גדלו במשפחה דתית בירושלים, לאבא מורה ולאמא שעוסקת בגיל-הרך. כיום הם מתגוררים בתל-אביב יפו.
         </p>
 
@@ -67,9 +67,9 @@ const AboutSection = () => {
                   className="w-full h-full object-cover"
                 />
               </div>
-              <div className="flex flex-col items-center">
+              <div className="flex flex-col items-start">
                 <h4
-                  className="text-2xl font-bold mb-1"
+                  className="text-2xl font-bold mb-1 text-right"
                   style={{
                     transform: 'scaleX(1.2)',
                     transformOrigin: 'left',
@@ -79,8 +79,8 @@ const AboutSection = () => {
                 >
                   {host.name}
                 </h4>
-                <p className="text-white/80 mb-4 text-center">{host.bio}</p>
-                <div className="flex gap-3 justify-center">
+                <p className="text-white/80 mb-4 text-right">{host.bio}</p>
+                <div className="flex gap-3 justify-start">
                   <a 
                     href={host.social.instagram} 
                     target="_blank" 
