@@ -41,9 +41,10 @@ const AboutSection = () => {
         </div>
 
         <h3 className="text-2xl md:text-3xl font-bold mb-10 text-center">המנחים</h3>
-          <p className="text-lg text-white/80">
+          <p className="text-lg text-white/80 text-center">
             צחי ויהונתן גדלו במשפחה דתית בירושלים, לאבא מורה ולאמא שעוסקת בגיל-הרך. כיום הם מתגוררים בתל-אביב יפו.
           </p>
+        </p>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
           {hosts.map((host, index) => (
             <div key={index} className="flex flex-col md:flex-row gap-6 items-center bg-white/5 rounded-lg p-6">
