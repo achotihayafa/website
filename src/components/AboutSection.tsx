@@ -40,7 +40,7 @@ const AboutSection = () => {
           </p>
         </div>
 
-        <h3 className="text-2xl md:text-4xl mb-4 text-center">המנחים</h3>
+        <h3 className="text-2xl md:text-3xl mb-4 text-center">המנחים</h3>
         <p className="text-lg text-white/80 text-center mb-6">
           צחי ויהונתן גדלו במשפחה דתית בירושלים, לאבא מורה ולאמא שעוסקת בגיל-הרך. כיום הם מתגוררים בתל-אביב יפו.
         </p>
