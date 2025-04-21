@@ -5,24 +5,22 @@ import { AspectRatio } from "@/components/ui/aspect-ratio";
 
 const BTLSection = () => {
   return (
-    <section id="btl" className="py-20 bg-black relative overflow-hidden">
-      {/* Decorative background completely removed */}
-      <div className="container px-6 relative z-10">
-        <div className="flex items-center mb-8">
-          <div className="w-12 h-12 rounded-full bg-podcast-yellow flex items-center justify-center ml-4">
-            <Music className="text-podcast-darkgray" size={24} />
-          </div>
-          <div>
-            <h2 className="text-3xl md:text-4xl">בין השורות</h2>
-          </div>
-        </div>
+<section id="btl" className="py-20 bg-black relative overflow-hidden">
+  <div className="container px-6 relative z-10">
+    <div className="max-w-3xl mx-auto text-center mb-16">
+      <div className="w-12 h-12 rounded-full bg-podcast-yellow flex items-center justify-center mx-auto mb-4">
+        <Music className="text-podcast-darkgray" size={24} />
+      </div>
+      <h2 className="text-3xl md:text-4xl font-bold mb-4">בין השורות</h2>
+    </div>
+  </div>
 
         <div className="max-w-3xl mx-auto mb-12">
           <p className="text-lg text-white/80 mb-4">
             האזינו לפלייליסט "בין השורות" - מסע מוזיקלי שמתכתב עם הפרקים של הפודקאסט.
           </p>
           <p className="text-lg text-white/80">
-            בכל סוף פרק אנחנו בוחרות שיר שמתאר את הרגשות שעלו בנו במהלך הפרק ויחד נוצרה רשימה של שירים שנעים בין שמחה, כאב, אהבה וחרטה.
+            בכל סוף פרק אנחנו בוחרות שיר שמתאר את הרגשות שעלו בנו במהלך הפרק ויחד נוצר פס הקול שמלווה אותנו בפרקים ובחיים: רשימה של שירים שנעים בין שמחה, כאב, אהבה וחרטה.
             </p>
           
         </div>
