@@ -13,24 +13,18 @@ const BTLSection = () => {
             <Music className="text-podcast-darkgray" size={24} />
           </div>
           <div>
-            <h2 className="text-3xl md:text-4xl">BTL - Between The Lines</h2>
+            <h2 className="text-3xl md:text-4xl">בין השורות</h2>
           </div>
         </div>
 
         <div className="max-w-3xl mx-auto mb-12">
           <p className="text-lg text-white/80 mb-4">
-            פרויקט מוזיקלי חדש שמאחד את שתי האהבות הגדולות שלנו - מוזיקה ושיחות עומק על רגשות. בפרויקט זה אנחנו יוצרים פלייליסטים שמתכתבים עם הנושאים של הפרקים שלנו.
+            האזינו לפלייליסט "בין השורות" - מסע מוזיקלי שמתכתב עם הפרקים של הפודקאסט.
           </p>
           <p className="text-lg text-white/80">
-            האזינו לפלייליסט BTL הראשון - מסע מוזיקלי שמתכתב עם הפרקים הראשונים של הפודקאסט, נע בין שמחה, כאב, אהבה וחרטה, ומשלב בין שירים ישראלים, להיטים בינלאומיים וגילויים חדשים.
-          </p>
+            בכל סוף פרק אנחנו בוחרות שיר שמתאר את הרגשות שעלו בנו במהלך הפרק ויחד נוצרה רשימה של שירים שנעים בין שמחה, כאב, אהבה וחרטה.
+            </p>
           
-          <div className="flex items-center justify-center mt-8 mb-12">
-            <div className="w-10 h-10 rounded-full bg-podcast-yellow flex items-center justify-center ml-3">
-              <Headphones size={18} />
-            </div>
-            <span className="text-lg font-medium text-podcast-yellow">BTL // Between The Lines</span>
-          </div>
         </div>
         
         <div className="w-full max-w-3xl mx-auto">
