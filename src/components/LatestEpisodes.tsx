@@ -83,7 +83,7 @@ const LatestEpisodes = () => {
                 className="relative bg-podcast-darkgray/30 border-white/10 hover:border-podcast-yellow/50 transition-all duration-300 overflow-hidden"
               >
                 <CardContent className="p-0 relative">
-                  <AspectRatio ratio={1} className="overflow-hidden rounded-xl group">
+                  <AspectRatio ratio={1} className="overflow-hidden group">
                     {episode.imageUrl && (
                       <img
                         src={episode.imageUrl}
