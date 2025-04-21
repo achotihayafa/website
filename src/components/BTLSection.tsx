@@ -49,4 +49,27 @@ const BTLSection = () => {
             האזינו לפלייליסט "בין השורות" - מסע מוזיקלי שמתכתב עם הפרקים של הפודקאסט.
           </p>
           <p className="text-lg text-white/80">
-            בכל סוף פרק אנחנו בוחרות שיר שמתאר את הרגשות שעלו בנו במהלך הפרק ויחד נוצר פס הקול שמלווה
+            בכל סוף פרק אנחנו בוחרות שיר שמתאר את הרגשות שעלו בנו במהלך הפרק ויחד נוצר פס הקול שמלווה אותנו בפרקים ובחיים: רשימה של שירים שנעים בין שמחה, כאב, אהבה וחרטה.
+          </p>
+        </div>
+
+        <div className="w-full max-w-3xl mx-auto">
+          <AspectRatio ratio={4 / 3} className="bg-podcast-darkgray/20 rounded-lg overflow-hidden">
+            <iframe 
+              src="https://open.spotify.com/embed/playlist/0iOGSgO1T9lSHQlVfhoHc9?utm_source=generator&theme=0" 
+              width="100%" 
+              height="100%"
+              frameBorder="0" 
+              allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
+              loading="lazy"
+              className="rounded-lg"
+              title="בין השורות פלייליסט"
+            ></iframe>
+          </AspectRatio>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default BTLSection;
