@@ -106,10 +106,12 @@ const BestEpisodes = () => {
                     />
                     <button
                       onClick={() => togglePlay(index)}
-                      className="absolute bottom-4 left-4 bg-podcast-magenta rounded-full p-2 text-white hover:bg-black transition-colors z-10"
+                      className="absolute bottom-4 left-4 bg-podcast-magenta rounded-full p-2 group hover:bg-black transition-colors z-10"
                       aria-label="הפעל פרק"
                     >
-                      {playingIndex === index ? <FaPause /> : <FaPlay />}
+                      <span className="text-white group-hover:text-podcast-magenta transition-colors">
+                        {playingIndex === index ? <FaPause /> : <FaPlay />}
+                      </span>
                     </button>
                   </>
                 )}
