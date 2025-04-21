@@ -26,7 +26,7 @@ const Navbar = () => {
       )}
       style={{ minHeight: 88 }}
     >
-      <div className="container flex items-center justify-between min-h-[72px] max-w-screen-2xl">
+      <div className="container flex items-center justify-between">
         <a href="/" className="flex items-center">
           <img 
             src="/lovable-uploads/ab5fd662-cd0e-400c-9b54-6ea329252036.png" 
