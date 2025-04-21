@@ -19,13 +19,6 @@ const HeroSection = () => {
       <div className="container mx-auto px-6 py-16 md:py-32 relative z-10 flex flex-col-reverse md:flex-row items-center gap-12">
         {/* Right Side (Text & Actions) */}
         <div className="max-w-3xl mx-auto md:mx-0 flex-1 w-full">
-          <div className="flex items-center mb-6 opacity-0 animate-fade-in">
-            <div className="w-10 h-10 rounded-full bg-podcast-yellow flex items-center justify-center text-podcast-darkgray ml-3">
-              <Headphones size={20} />
-            </div>
-            <span className="text-lg font-medium">אחותי היפה</span>
-          </div>
-          
           <h1 className="text-4xl md:text-6xl lg:text-7xl mb-8 opacity-0 animate-fade-in-delay-1 bg-gradient-to-r from-white via-podcast-yellow to-podcast-magenta bg-clip-text text-transparent"> 
             <span className="block">פודקאסט על רגשות,</span>
             <span className="block">אבל בעצם פודקאסט להטב"קי</span>
