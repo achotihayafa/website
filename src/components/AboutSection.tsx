@@ -29,7 +29,7 @@ const AboutSection = () => {
     <section id="about" className="py-20">
       <div className="container px-6">
         <div className="max-w-3xl mx-auto text-center mb-16">
-          <div className="w-12 h-12 rounded-full bg-podcast-yellow flex items-center justify-center mx-auto mb-4">
+          <div className="w-12 h-12 rounded-full bg-podcast-magenta flex items-center justify-center mx-auto mb-4">
             <Heart className="text-podcast-darkgray" size={24} />
           </div>
           <h2 className="text-3xl md:text-4xl font-bold mb-4">אודות הפודקאסט "אחותי היפה"</h2>
@@ -41,14 +41,15 @@ const AboutSection = () => {
         </div>
 
         <h3 className="text-2xl md:text-3xl font-bold mb-10 text-center">המנחים</h3>
-          <p className="text-lg text-white/80 text-center">
-            צחי ויהונתן גדלו במשפחה דתית בירושלים, לאבא מורה ולאמא שעוסקת בגיל-הרך. כיום הם מתגוררים בתל-אביב יפו.
-          </p>
+        <p className="text-lg text-white/80 text-center mb-6">
+          צחי ויהונתן גדלו במשפחה דתית בירושלים, לאבא מורה ולאמא שעוסקת בגיל-הרך. כיום הם מתגוררים בתל-אביב יפו.
         </p>
+
+
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
           {hosts.map((host, index) => (
             <div key={index} className="flex flex-col md:flex-row gap-6 items-center bg-white/5 rounded-lg p-6">
-              <div className="w-32 h-32 rounded-full overflow-hidden flex-shrink-0 border-4 border-podcast-yellow">
+              <div className="w-32 h-32 rounded-full overflow-hidden flex-shrink-0 border-4 border-podcast-magenta">
                 <img 
                   src={host.image} 
                   alt={host.name} 
