@@ -1,9 +1,25 @@
 
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { Music, Loader } from 'lucide-react';
-import EpisodeCard from './EpisodeCard';
-import { fetchRssFeed } from '@/utils/rssParser';
+import { Card, CardContent } from "@/components/ui/card";
+import { SiSpotify, SiYoutube, SiApplepodcasts } from "react-icons/si";
+import { AspectRatio } from "@/components/ui/aspect-ratio";
 import { useQuery } from '@tanstack/react-query';
+import { fetchRssFeed } from '@/utils/rssParser';
+
+// Utility to decode HTML entities
+function decodeHtml(html: string): string {
+  const textarea = document.createElement("textarea");
+  textarea.innerHTML = html;
+  return textarea.value;
+}
+
+// Main podcast page links for platforms:
+const PODCAST_LINKS = {
+  spotify: "https://open.spotify.com/show/0ZpvzCEuDeKQhBw74YEmp9",
+  youtube: "https://www.youtube.com/@AchotiHaYafa",
+  apple: "https://podcasts.apple.com/us/podcast/אחותי-היפה/id1728358395",
+};
 
 const LatestEpisodes = () => {
   const { data: episodes, isLoading, error } = useQuery({
@@ -12,16 +28,15 @@ const LatestEpisodes = () => {
   });
 
   return (
-    <section id="episodes" className="py-20 bg-podcast-darkgray/10">
+    <section id="episodes" className="py-20 bg-black">
       <div className="container px-6">
-        <div className="flex items-center mb-12">
-          <div className="w-12 h-12 rounded-full bg-podcast-yellow flex items-center justify-center ml-4">
-            <Music className="text-podcast-darkgray" size={24} />
-          </div>
-          <div>
-            <h2 className="text-3xl md:text-4xl font-bold">פרקים אחרונים</h2>
-            <p className="text-white/80">האזינו לשיחות האחרונות שלנו</p>
-          </div>
+        <div className="mb-12">
+          <h2 className="text-4xl md:text-5xl font text-podcast-yellow mb-4">
+            פרקים אחרונים
+          </h2>
+          <p className="text-white/80 text-lg">
+            האזינו לשיחות האחרונות שלנו
+          </p>
         </div>
 
         {isLoading ? (
@@ -35,21 +50,64 @@ const LatestEpisodes = () => {
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {episodes?.slice(0, 6).map((episode, index) => (
-              <EpisodeCard
+              <Card
                 key={index}
-                title={episode.title}
-                description={episode.description}
-                spotifyLink={episode.spotifyLink}
-                audioUrl={episode.audioUrl}
-                imageUrl={episode.imageUrl}
-              />
+                className="relative bg-podcast-darkgray/30 border-white/10 hover:border-podcast-yellow/50 transition-all duration-300 overflow-hidden"
+              >
+                <CardContent className="p-0 relative">
+                  <AspectRatio ratio={1} className="overflow-hidden rounded-xl">
+                    {episode.imageUrl && (
+                      <img
+                        src={episode.imageUrl}
+                        alt={episode.title}
+                        className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
+                        style={{ borderRadius: '1rem' }}
+                      />
+                    )}
+                  </AspectRatio>
+
+                  <div className="p-6">
+                    <h3 className="text-2xl font mb-3 text-podcast-yellow">{decodeHtml(episode.title)}</h3>
+                    <p className="text-white/80 mb-6 line-clamp-3">{decodeHtml(episode.description)}</p>
+                    <div className="flex gap-4">
+                      <a
+                        href={PODCAST_LINKS.spotify}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-white/80 hover:text-podcast-yellow transition-colors"
+                        aria-label="האזינו ב-Spotify"
+                      >
+                        <SiSpotify size={24} />
+                      </a>
+                      <a
+                        href={PODCAST_LINKS.youtube}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-white/80 hover:text-podcast-yellow transition-colors"
+                        aria-label="האזינו ב-YouTube"
+                      >
+                        <SiYoutube size={24} />
+                      </a>
+                      <a
+                        href={PODCAST_LINKS.apple}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-white/80 hover:text-podcast-yellow transition-colors"
+                        aria-label="האזינו ב-Apple Podcasts"
+                      >
+                        <SiApplepodcasts size={24} />
+                      </a>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
             ))}
           </div>
         )}
-
       </div>
     </section>
   );
 };
 
 export default LatestEpisodes;
+
