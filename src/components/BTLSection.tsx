@@ -10,7 +10,17 @@ const BTLSection = () => {
           <div className="w-12 h-12 rounded-full bg-podcast-yellow flex items-center justify-center mx-auto mb-4">
             <Music className="text-podcast-darkgray" size={24} />
           </div>
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">בין השורות</h2>
+          <h2
+            className="text-3xl md:text-4xl font-bold mb-4"
+            style={{
+              transform: 'scaleX(1.2)',
+              transformOrigin: 'left',
+              display: 'inline-block',
+              width: 'max-content',
+            }}
+          >
+            בין השורות
+          </h2>
         </div>
 
         <div className="max-w-3xl mx-auto mb-5 text-center">
