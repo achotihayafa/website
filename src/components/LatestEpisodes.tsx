@@ -102,11 +102,12 @@ const LatestEpisodes = () => {
                       />
                       <button
                         onClick={() => togglePlay(index)}
-                        className="absolute bottom-4 left-4 bg-podcast-yellow rounded-full p-2 text-black hover:bg-black transition-colors z-10"
+                        className="absolute bottom-4 left-4 bg-podcast-yellow rounded-full p-2 text-black hover:bg-black hover:text-podcast-yellow transition-colors z-10"
                         aria-label={playingIndex === index ? "הפסק פרק" : "הפעל פרק"}
                       >
                         {playingIndex === index ? <FaPause /> : <FaPlay />}
                       </button>
+
                     </>
                   )}
                   <div className="p-6">
