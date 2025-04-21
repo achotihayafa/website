@@ -55,7 +55,7 @@ const AboutSection = () => {
                 />
               </div>
               <div>
-                <h4 className="text-xl font-bold mb-1">{host.name}</h4>
+                <h4 className="text-2xl font-bold mb-1">{host.name}</h4>
                 {/* No role property in host object */}
                 <p className="text-white/80 mb-4">{host.bio}</p>
                 <div className="flex gap-3">
