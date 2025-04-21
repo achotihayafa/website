@@ -19,8 +19,9 @@ const Footer = () => {
               className="text-3xl mb-4 font-display"
               style={{ 
                 transform: 'scaleX(1.2)', 
-                transformOrigin: 'left', 
-                display: 'inline-block' 
+                transformOrigin: 'left',
+                display: 'inline-block', 
+                width: 'max-content' 
               }}
             >
               אחותי היפה
@@ -42,6 +43,7 @@ const Footer = () => {
                 transform: 'scaleX(1.2)',
                 transformOrigin: 'left',
                 display: 'inline-block',
+                width: 'max-content',
               }}
             >
               עקבו והאזינו
