@@ -25,7 +25,7 @@ const Footer = () => {
               }}
             >
               אחותי היפה
-            </h3>            
+            </h3>
             <ul className="space-y-2">
               <li><a href="#platforms" className="text-gray-300 hover:text-podcast-yellow transition-colors">האזינו עכשיו</a></li>
               <li><a href="#best" className="text-gray-300 hover:text-podcast-yellow transition-colors">פרקים מומלצים</a></li>
@@ -48,7 +48,7 @@ const Footer = () => {
             >
               עקבו והאזינו
             </h3>
-            <div className="flex flex-col gap-4 items-start">
+            <div className="flex flex-col gap-4 items-start sm:items-center sm:flex-row sm:gap-6">
               <a href={PODCAST_LINKS.instagram} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-gray-300 hover:text-podcast-yellow transition-colors">
                 <SiInstagram size={28} /> <span className="hidden sm:inline">Instagram</span>
               </a>
