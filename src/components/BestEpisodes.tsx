@@ -53,7 +53,7 @@ const bestEpisodes: BestEpisode[] = [
       youtube: "https://www.youtube.com/watch?v=ZMeVAO3qccM",
       apple: "https://podcasts.apple.com/us/podcast/.../id1728358395?i=1000654893822"
     },
-    imageUrl: "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/40378400/40378400-1728145139144-71eff87bfd383.jpg"
+    imageUrl: "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/40378400/40378400-1745265668670-ca57ae5512fc2.jpg"
   }
 ];
 
