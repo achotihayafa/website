@@ -6,7 +6,7 @@ const BTLSection = () => {
   return (
     <section id="btl" className="py-20 bg-black relative overflow-hidden">
       <div className="container px-6 relative z-10">
-        <div className="max-w-3xl mx-auto text-center mb-16">
+        <div className="max-w-3xl mx-auto text-center mb-5">
           <div className="w-12 h-12 rounded-full bg-podcast-yellow flex items-center justify-center mx-auto mb-4">
             <Music className="text-podcast-darkgray" size={24} />
           </div>
