@@ -57,7 +57,7 @@ const LatestEpisodes = () => {
           <h2
             className="text-4xl md:text-5xl font-bold text-podcast-yellow mb-4 text-center"
             style={{
-              transform: 'scaleX(1.2)',
+              transform: 'scaleX(1.9)',
               transformOrigin: 'center',
             }}
           >
