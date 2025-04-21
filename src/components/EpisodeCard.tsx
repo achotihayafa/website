@@ -70,7 +70,7 @@ const EpisodeCard = ({
             </span>
           )}
           
-          <h3 className="text-xl md:text-2xl font-bold mb-2 line-clamp-2">
+          <h3 className="text-xl md:text-3xl font-bold mb-2 line-clamp-2">
             {title}
           </h3>
           
