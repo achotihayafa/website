@@ -45,18 +45,14 @@ const PodcastPlatforms = () => {
       {/* Main content */}
       <div className="container px-6 relative z-10">
 
-        {/* Title with centered scaleX */}
         <div className="flex justify-center mb-6">
           <h2
-            className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-podcast-yellow to-white bg-clip-text text-transparent"
-            style={{
-              transform: 'scaleX(1.2)',
-              transformOrigin: 'center',
-            }}
+            className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-podcast-yellow to-white bg-clip-text text-transparent text-center transform scale-x-110 origin-center inline-block"
           >
             האזינו לנו עכשיו בכל הפלטפורמות
           </h2>
         </div>
+
 
         <p className="text-center text-lg text-white/80 max-w-2xl mx-auto mb-12">
           הפודקאסט "אחותי היפה" זמין בכל פלטפורמות הפודקאסטים המובילות.
