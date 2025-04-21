@@ -6,7 +6,28 @@ import { Button } from "@/components/ui/button";
 const HeroSection = () => {
   return (
     <section className="relative min-h-screen flex items-center pt-24 overflow-hidden">
-      <div className="hero-shape"></div>
+      {/* Dynamic background shapes */}
+      <div className="absolute inset-0 z-0">
+        <div className="absolute top-[10%] left-[5%] w-72 h-72 rounded-full bg-gradient-to-r from-podcast-magenta/30 to-podcast-magenta/5 blur-3xl animate-pulse-slow"></div>
+        <div className="absolute bottom-[20%] right-[10%] w-96 h-96 rounded-full bg-gradient-to-r from-podcast-yellow/30 to-podcast-yellow/5 blur-3xl animate-pulse-slow" style={{animationDelay: '1s'}}></div>
+        <div className="absolute top-[40%] right-[30%] w-60 h-60 rounded-full bg-blue-500/20 blur-3xl animate-pulse-slow" style={{animationDelay: '2s'}}></div>
+      </div>
+      
+      {/* Audio waves animation */}
+      <div className="absolute inset-0 z-0 opacity-30">
+        <div className="absolute bottom-0 left-0 right-0 h-32 flex items-end justify-center space-x-1">
+          {[...Array(40)].map((_, i) => (
+            <div 
+              key={i}
+              className="w-1 bg-podcast-yellow animate-[wave_1.5s_ease-in-out_infinite]"
+              style={{
+                height: `${Math.sin(i * 0.2) * 25 + 30}%`,
+                animationDuration: `${0.8 + Math.random() * 1}s`,
+              }}
+            ></div>
+          ))}
+        </div>
+      </div>
       
       <div className="container mx-auto px-6 py-16 md:py-32 relative z-10">
         <div className="max-w-3xl mx-auto md:mx-0">
@@ -17,12 +38,12 @@ const HeroSection = () => {
             <span className="text-lg font-medium">אחותי היפה</span>
           </div>
           
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-extrabold mb-8 opacity-0 animate-fade-in-delay-1">
+          <h1 className="text-4xl md:text-6xl lg:text-7xl font-extrabold mb-8 opacity-0 animate-fade-in-delay-1 bg-gradient-to-r from-white via-podcast-yellow to-podcast-magenta bg-clip-text text-transparent">
             אחותי היפה - 
-            פודקאסט על רגשות, אבל בעצם פודקאסט להטב"קי
+            <span className="block">פודקאסט על רגשות, אבל בעצם פודקאסט להטב"קי</span>
           </h1>
           
-          <p className="text-lg md:text-xl mb-10 text-white/80 max-w-2xl opacity-0 animate-fade-in-delay-2">
+          <p className="text-lg md:text-xl mb-10 text-white/80 max-w-2xl opacity-0 animate-fade-in-delay-2 bg-gradient-to-r from-white to-white/80 bg-clip-text text-transparent">
             הצטרפו אלינו מדי שבוע למסע מצחיק ומרגש בין סיפורים וזיכרונות.
             הפודקאסט יוצר מרחב לדיונים כנים על זהות, מיניות, משפחה וחיים להטב"קים - בדיוק בשביל מי שמחפשים לפתוח את הלב.
           </p>
@@ -30,7 +51,7 @@ const HeroSection = () => {
           <div className="flex flex-wrap gap-4 opacity-0 animate-fade-in-delay-2">
             <Button 
               size="lg" 
-              className="bg-podcast-yellow text-black hover:bg-podcast-yellow/90"
+              className="bg-podcast-yellow text-black hover:bg-podcast-yellow/90 shadow-lg shadow-podcast-yellow/20"
               onClick={() => window.open("https://open.spotify.com/show/0ZpvzCEuDeKQhBw74YEmp9?si=WpeRZqDaS5CRs-R3JyGipQ", "_blank")}
             >
               <Headphones className="ml-2" />
@@ -40,7 +61,7 @@ const HeroSection = () => {
             <Button 
               variant="outline" 
               size="lg"
-              onClick={() => document.getElementById('BestEpisodes')?.scrollIntoView({ behavior: 'smooth' })}
+              onClick={() => document.getElementById('platforms')?.scrollIntoView({ behavior: 'smooth' })}
               className="text-white border-white hover:bg-white/10"
             >
              פרקים מומלצים

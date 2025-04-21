@@ -28,7 +28,11 @@ const Navbar = () => {
     >
       <div className="container flex items-center justify-between">
         <a href="/" className="flex items-center">
-          <span className="text-xl md:text-2xl font-display font-bold text-white">אחותי היפה</span>
+          <img 
+            src="/lovable-uploads/ab5fd662-cd0e-400c-9b54-6ea329252036.png" 
+            alt="אחותי היפה"
+            className="h-10" 
+          />
         </a>
 
         {/* Desktop Navigation */}

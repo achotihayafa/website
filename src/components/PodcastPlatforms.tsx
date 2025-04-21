@@ -1,55 +1,82 @@
+
 import React from 'react';
 import { SiSpotify, SiApplepodcasts, SiYoutube, SiPodcastaddict, SiPocketcasts } from 'react-icons/si';
+import { motion } from 'framer-motion';
 
 const PodcastPlatforms = () => {
   const platforms = [
     {
       name: "Spotify",
       link: "https://open.spotify.com/show/0ZpvzCEuDeKQhBw74YEmp9",
-      icon: <SiSpotify className="h-8 w-8" />
+      icon: <SiSpotify className="h-10 w-10" />
     },
     {
       name: "Apple Podcasts",
       link: "https://podcasts.apple.com/us/podcast/אחותי-היפה/id1728358395",
-      icon: <SiApplepodcasts className="h-8 w-8" />
+      icon: <SiApplepodcasts className="h-10 w-10" />
     },
     {
       name: "YouTube",
       link: "https://www.youtube.com/@AchotiHaYafa",
-      icon: <SiYoutube className="h-8 w-8" />
+      icon: <SiYoutube className="h-10 w-10" />
     },
     {
       name: "Podcast Addict",
       link: "https://podcastaddict.com/podcast/%D7%90%D7%97%D7%95%D7%AA%D7%99%20%D7%94%D7%99%D7%A4%D7%94/5306867",
-      icon: <SiPodcastaddict className="h-8 w-8" />
+      icon: <SiPodcastaddict className="h-10 w-10" />
     },
     {
       name: "Pocket Casts",
       link: "https://pca.st/zapd6uv9",
-      icon: <SiPocketcasts className="h-8 w-8" />
+      icon: <SiPocketcasts className="h-10 w-10" />
     }
   ];
 
   return (
-    <section id="platforms" className="py-16 bg-black/10">
-      <div className="container px-6">
-        <h2 className="text-4xl md:text-5xl mb-10 text-center">האזינו לנו עכשיו בכל הפלטפורמות</h2>
+    <section id="platforms" className="py-20 relative overflow-hidden">
+      {/* Background gradient */}
+      <div className="absolute inset-0 bg-gradient-to-b from-black via-podcast-magenta/10 to-black"></div>
+      
+      {/* Main content */}
+      <div className="container px-6 relative z-10">
+        <h2 className="text-4xl md:text-5xl mb-6 text-center font-bold bg-gradient-to-r from-podcast-yellow to-white bg-clip-text text-transparent">
+          האזינו לנו עכשיו בכל הפלטפורמות
+        </h2>
         
-        <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 gap-8 max-w-4xl mx-auto">
-          {platforms.map((platform) => (
-            <a 
-              key={platform.name} 
-              href={platform.link}
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="flex flex-col items-center gap-2 text-center hover:text-podcast-yellow transition-colors"
-              title={platform.name}
-            >
-              {platform.icon}
-              <span className="text-sm">{platform.name}</span>
-            </a>
-          ))}
+        <p className="text-center text-lg text-white/80 max-w-2xl mx-auto mb-12">
+          הפודקאסט "אחותי היפה" זמין בכל פלטפורמות הפודקאסט המובילות. בחרו את הפלטפורמה המועדפת עליכם והצטרפו למסע המרגש שלנו.
+        </p>
+        
+        <div className="max-w-4xl mx-auto">
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-6">
+            {platforms.map((platform, index) => (
+              <motion.a 
+                key={platform.name} 
+                href={platform.link}
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="flex flex-col items-center gap-3 p-6 text-center bg-white/5 rounded-xl hover:bg-podcast-yellow/10 hover:scale-105 transition-all duration-300"
+                title={platform.name}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: index * 0.1 }}
+                whileHover={{ 
+                  scale: 1.05,
+                  boxShadow: "0 10px 25px -5px rgba(252, 254, 20, 0.3)"
+                }}
+              >
+                <div className="text-podcast-yellow mb-2">
+                  {platform.icon}
+                </div>
+                <span className="text-sm font-medium">{platform.name}</span>
+              </motion.a>
+            ))}
+          </div>
         </div>
+        
+        {/* Decorative circles */}
+        <div className="absolute -bottom-20 -right-20 w-64 h-64 rounded-full border border-podcast-yellow/20 opacity-50"></div>
+        <div className="absolute -top-20 -left-20 w-80 h-80 rounded-full border border-podcast-yellow/30 opacity-30"></div>
       </div>
     </section>
   );

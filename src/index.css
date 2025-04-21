@@ -1,3 +1,4 @@
+
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Merriweather:wght@300;400;700&family=Assistant:wght@200;300;400;500;600;700;800&family=Karantina:wght@300;400;700&display=swap');
 
 @tailwind base;
@@ -58,3 +59,17 @@
   }
 }
 
+@layer utilities {
+  .hero-glow {
+    text-shadow: 0 0 20px rgba(252, 254, 20, 0.5);
+  }
+  
+  .bg-gradient-radial {
+    background-image: radial-gradient(circle, var(--tw-gradient-stops));
+  }
+}
+
+@keyframes wave {
+  0%, 100% { transform: scaleY(1); }
+  50% { transform: scaleY(0.5); }
+}

@@ -39,8 +39,6 @@ const LatestEpisodes = () => {
                 key={index}
                 title={episode.title}
                 description={episode.description}
-                duration={episode.duration}
-                date={episode.date}
                 spotifyLink={episode.spotifyLink}
                 audioUrl={episode.audioUrl}
                 imageUrl={episode.imageUrl}
