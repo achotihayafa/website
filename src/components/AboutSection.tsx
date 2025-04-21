@@ -32,7 +32,7 @@ const AboutSection = () => {
           <div className="w-12 h-12 rounded-full bg-podcast-magenta flex items-center justify-center mx-auto mb-4">
             <Heart className="text-podcast-black" size={24} />
           </div>
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">אודות הפודקאסט "אחותי היפה"</h2>
+          <h2 className="text-3xl md:text-4xl mb-4">אודות הפודקאסט "אחותי היפה"</h2>
 
           <p className="text-lg text-white/80">
             “אחותי היפה" הוא פודקאסט המגיש שיחות עומק על רגשות, זהות וחוויות להטב"קיות. הפודקאסט, בהנחיית האחים צחי ויהונתן כהן, עוסק בכל פרק ברגש אחר מתוך “Atlas of the Heart” של ברנה בראון וממשיך למסע אינטימי בין זיכרונות וסיפורים, בניסיון להבין את הרגש ולפתוח את הלב.
@@ -40,7 +40,7 @@ const AboutSection = () => {
           </p>
         </div>
 
-        <h3 className="text-2xl md:text-4xl font-bold mb-4 text-center">המנחים</h3>
+        <h3 className="text-2xl md:text-4xl mb-4 text-center">המנחים</h3>
         <p className="text-lg text-white/80 text-center mb-6">
           צחי ויהונתן גדלו במשפחה דתית בירושלים, לאבא מורה ולאמא שעוסקת בגיל-הרך. כיום הם מתגוררים בתל-אביב יפו.
         </p>
