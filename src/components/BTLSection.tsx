@@ -13,7 +13,7 @@ const BTLSection = () => {
           <h2 className="text-3xl md:text-4xl font-bold mb-4">בין השורות</h2>
         </div>
 
-        <div className="max-w-3xl mx-auto mb-12 text-center">
+        <div className="max-w-3xl mx-auto mb-5 text-center">
           <p className="text-lg text-white/80 mb-4">
             האזינו לפלייליסט "בין השורות" - מסע מוזיקלי שמתכתב עם הפרקים של הפודקאסט.
           </p>
