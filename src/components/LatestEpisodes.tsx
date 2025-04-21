@@ -1,11 +1,12 @@
 
-import React from 'react';
-import { Music, Loader } from 'lucide-react';
+import React, { useRef, useState } from 'react';
+import { Loader } from 'lucide-react';
 import { Card, CardContent } from "@/components/ui/card";
 import { SiSpotify, SiYoutube, SiApplepodcasts } from "react-icons/si";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
 import { useQuery } from '@tanstack/react-query';
 import { fetchRssFeed } from '@/utils/rssParser';
+import { Play, Pause } from "lucide-react";
 
 // Utility to decode HTML entities
 function decodeHtml(html: string): string {
@@ -26,6 +27,33 @@ const LatestEpisodes = () => {
     queryKey: ['episodes'],
     queryFn: fetchRssFeed,
   });
+
+  const audioRefs = useRef<Array<HTMLAudioElement | null>>([]);
+  const [playingIndex, setPlayingIndex] = useState<number | null>(null);
+
+  // Handles play/pause actions, ensuring only one episode plays
+  const togglePlay = (index: number, audioUrl: string) => {
+    const currentAudio = audioRefs.current[index];
+    if (!currentAudio) return;
+
+    if (playingIndex === index && !currentAudio.paused) {
+      currentAudio.pause();
+      setPlayingIndex(null);
+    } else {
+      audioRefs.current.forEach((audio, i) => {
+        if (i !== index && audio) audio.pause();
+      });
+      currentAudio.play();
+      setPlayingIndex(index);
+    }
+  };
+
+  // Pause all audios on unmount
+  React.useEffect(() => {
+    return () => {
+      audioRefs.current.forEach(audio => audio && audio.pause());
+    };
+  }, []);
 
   return (
     <section id="episodes" className="py-20 bg-black">
@@ -55,20 +83,39 @@ const LatestEpisodes = () => {
                 className="relative bg-podcast-darkgray/30 border-white/10 hover:border-podcast-yellow/50 transition-all duration-300 overflow-hidden"
               >
                 <CardContent className="p-0 relative">
-                  <AspectRatio ratio={1} className="overflow-hidden rounded-xl">
+                  <AspectRatio ratio={1} className="overflow-hidden rounded-xl group">
                     {episode.imageUrl && (
                       <img
                         src={episode.imageUrl}
-                        alt={episode.title}
-                        className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
+                        alt={decodeHtml(episode.title)}
+                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110 hover:scale-110"
                         style={{ borderRadius: '1rem' }}
                       />
                     )}
                   </AspectRatio>
 
+                  {/* Audio + Play Button */}
+                  {episode.audioUrl && (
+                    <>
+                      <audio
+                        ref={el => (audioRefs.current[index] = el)}
+                        src={episode.audioUrl}
+                        preload="none"
+                      />
+                      <button
+                        onClick={() => togglePlay(index, episode.audioUrl)}
+                        className="absolute bottom-4 left-4 bg-black/70 rounded-full p-2 text-white hover:bg-podcast-yellow transition-colors z-10 border-2 border-podcast-yellow"
+                        aria-label={playingIndex === index ? "הפסק פרק" : "הפעל פרק"}
+                      >
+                        {playingIndex === index ? <Pause /> : <Play />}
+                      </button>
+                    </>
+                  )}
+
                   <div className="p-6">
                     <h3 className="text-2xl font mb-3 text-podcast-yellow">{decodeHtml(episode.title)}</h3>
                     <p className="text-white/80 mb-6 line-clamp-3">{decodeHtml(episode.description)}</p>
+
                     <div className="flex gap-4">
                       <a
                         href={PODCAST_LINKS.spotify}
@@ -110,4 +157,3 @@ const LatestEpisodes = () => {
 };
 
 export default LatestEpisodes;
-
