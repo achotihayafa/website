@@ -104,22 +104,11 @@ const BestEpisodes = () => {
                       ref={(el) => (audioRefs.current[index] = el)}
                       src={episode.links.file}
                     />
-                  <button 
-                    onClick={togglePlay}
-                    className="flex items-center text-podcast-magenta hover:text-white transition-colors font-medium"
-                  >
-                    {isPlaying ? (
-                      <>
-                        <Pause size={18} className="ml-1" />
-                        הפסק
-                      </>
-                    ) : (
-                      <>
-                        <Play size={18} className="ml-1" />
-                        האזינו עכשיו
-                      </>
-                    )}
-                  </button>
+                    <button
+                       onClick={() => togglePlay(index)}
+                       className="absolute bottom-4 left-4 bg-podcast-magenta rounded-full p-2 text-white hover:bg-black transition-colors z-10"
+                       aria-label="הפעל פרק"
+                     >
                   </>
                 )}
 
