@@ -16,7 +16,7 @@ const Footer = () => {
         <div className="flex flex-col md:flex-row justify-between gap-14 mb-8">
           {/* Menu column (match navbar order) */}
           <div>
-            <h3 className="text-lg mb-4">אחותי היפה</h3>
+            <h3 className="text-3x1 mb-4">אחותי היפה</h3>
             <ul className="space-y-2">
               <li><a href="#platforms" className="text-gray-300 hover:text-podcast-yellow transition-colors">האזינו עכשיו</a></li>
               <li><a href="#best" className="text-gray-300 hover:text-podcast-yellow transition-colors">פרקים מומלצים</a></li>
