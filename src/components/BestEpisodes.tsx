@@ -90,7 +90,7 @@ const BestEpisodes = () => {
           {bestEpisodes.map((episode, index) => (
             <Card key={index} className="relative bg-podcast-darkgray/30 border-white/10 hover:border-podcast-magenta/50 transition-all duration-300 overflow-hidden">
               <CardContent className="p-0 relative">
-                <AspectRatio ratio={1} className="rounded-2xl overflow-hidden">
+                <AspectRatio ratio={1} className="overflow-hidden">
                   <img 
                     src={episode.imageUrl} 
                     alt={episode.title} 
