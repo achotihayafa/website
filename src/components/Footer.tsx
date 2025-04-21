@@ -26,7 +26,8 @@ const Footer = () => {
             >
               אחותי היפה
             </h3>
-            <ul className="space-y-2">
+            <ul className="space-y-2 pl-0">
+              {/* Removed default padding */}
               <li><a href="#platforms" className="text-gray-300 hover:text-podcast-yellow transition-colors">האזינו עכשיו</a></li>
               <li><a href="#best" className="text-gray-300 hover:text-podcast-yellow transition-colors">פרקים מומלצים</a></li>
               <li><a href="#latest" className="text-gray-300 hover:text-podcast-yellow transition-colors">פרקים אחרונים</a></li>
