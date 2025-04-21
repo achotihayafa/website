@@ -55,7 +55,7 @@ const LatestEpisodes = () => {
   }, []);
 
   return (
-    <section id="episodes" className="py-20 bg-black">
+    <section id="latest" className="py-20 bg-black">
       <div className="container px-6">
         <div className="mb-12">
           <h2 className="text-4xl md:text-5xl font text-podcast-yellow mb-4">
