@@ -1,6 +1,5 @@
 import React from 'react';
-import { Heart, Mic, Star, Instagram, Linkedin } from 'lucide-react';
-import { Card, CardContent } from "@/components/ui/card";
+import { Heart, Instagram, Linkedin } from 'lucide-react';
 
 const AboutSection = () => {
   const hosts = [
@@ -31,15 +30,12 @@ const AboutSection = () => {
           <div className="w-12 h-12 rounded-full bg-podcast-magenta flex items-center justify-center mx-auto mb-4">
             <Heart className="text-podcast-black" size={24} />
           </div>
-          <h2
-            className="text-3xl md:text-4xl mb-4"
-            style={{
-              transform: 'scaleX(1.2)',
+          <h2 className="text-3xl md:text-4xl mb-4" style={{
+              transform: 'scaleX(1.2)', 
               transformOrigin: 'left',
               display: 'inline-block',
               width: 'max-content',
-            }}
-          >
+            }}>
             אודות הפודקאסט "אחותי היפה"
           </h2>
 
@@ -49,20 +45,18 @@ const AboutSection = () => {
           </p>
         </div>
 
-        <h3
-          className="text-2xl md:text-3xl mb-4 text-center"
-          style={{
-            transform: 'scaleX(1.2)',
+        <h3 className="text-2xl md:text-3xl mb-4 text-center" style={{
+            transform: 'scaleX(1.2)', 
             transformOrigin: 'left',
             display: 'inline-block',
             width: 'max-content',
-          }}
-        >
+          }}>
           המנחים
         </h3>
         <p className="text-lg text-white/80 text-center mb-6">
           צחי ויהונתן גדלו במשפחה דתית בירושלים, לאבא מורה ולאמא שעוסקת בגיל-הרך. כיום הם מתגוררים בתל-אביב יפו.
         </p>
+
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
           {hosts.map((host, index) => (
             <div key={index} className="flex flex-col md:flex-row gap-6 items-center bg-white/5 rounded-lg p-6">
@@ -73,7 +67,7 @@ const AboutSection = () => {
                   className="w-full h-full object-cover"
                 />
               </div>
-              <div>
+              <div className="flex flex-col items-center">
                 <h4
                   className="text-2xl font-bold mb-1"
                   style={{
@@ -85,9 +79,8 @@ const AboutSection = () => {
                 >
                   {host.name}
                 </h4>
-                {/* No role property in host object */}
-                <p className="text-white/80 mb-4">{host.bio}</p>
-                <div className="flex gap-3">
+                <p className="text-white/80 mb-4 text-center">{host.bio}</p>
+                <div className="flex gap-3 justify-center">
                   <a 
                     href={host.social.instagram} 
                     target="_blank" 
