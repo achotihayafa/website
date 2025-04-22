@@ -152,7 +152,7 @@ const LatestEpisodes = () => {
         <div className="flex justify-center mt-12">
           <a 
             href="/episodes" 
-            className="bg-podcast-yellow text-black px-6 py-2 rounded-full hover:bg-white transition-colors duration-300"
+            className="bg-podcast-yellow text-black font-bold px-6 py-2 rounded-full hover:bg-white transition-colors duration-300"
             style={{
               transformOrigin: 'center',
             }}
