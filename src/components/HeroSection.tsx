@@ -51,14 +51,14 @@ const HeroSection = () => {
           </p>
 
           <div className="flex flex-wrap gap-4 opacity-0 animate-fade-in-delay-2">
-            <Button size="lg" onClick={() => window.open("https://open.spotify.com/show/0ZpvzCEuDeKQhBw74YEmp9?si=WpeRZqDaS5CRs-R3JyGipQ", "_blank")} className="bg-podcast-yellow text-black hover:bg-podcast-yellow/90 shadow-lg shadow-podcast-yellow/20 font-bold text-lg">
+            <Button size="lg" onClick={() => window.open("https://open.spotify.com/show/0ZpvzCEuDeKQhBw74YEmp9?si=WpeRZqDaS5CRs-R3JyGipQ", "_blank")} className="bg-podcast-yellow text-black hover:bg-podcast-yellow/90 shadow-lg shadow-podcast-yellow/20 font-bold text-lg px-[20px]">
               <Headphones className="ml-2" />
               האזינו ב-Spotify
             </Button>
 
             <Button variant="outline" size="lg" onClick={() => document.getElementById('best')?.scrollIntoView({
             behavior: 'smooth'
-          })} className="text-white border-white hover:bg-white/10 text-base font-semibold">
+          })} className="text-white border-white hover:bg-white/10 text-base font-semibold px-[18px]">
               פרקים מומלצים
             </Button>
           </div>
