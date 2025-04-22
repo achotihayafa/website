@@ -1,12 +1,12 @@
 import React, { useRef, useState } from 'react';
 import { Card, CardContent } from "@/components/ui/card";
-import { SiSpotify, SiYoutube, SiApplepodcasts, SiInstagram } from "react-icons/si";
+import { SiSpotify, SiYoutube, SiApplepodcasts } from "react-icons/si";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
 import { useQuery } from '@tanstack/react-query';
 import { fetchRssFeed } from '@/utils/rssParser';
 import { FaPlay, FaPause } from "react-icons/fa";
+import { Separator } from "@/components/ui/separator";
 
-// Utility to decode HTML entities
 function decodeHtml(html: string): string {
   const textarea = document.createElement("textarea");
   textarea.innerHTML = html;
@@ -58,7 +58,9 @@ const LatestEpisodes = () => {
             className="text-4xl md:text-5xl font-bold text-podcast-yellow mb-4 text-center"
             style={{
               transform: 'scaleX(1.2)',
-              transformOrigin: 'center',
+              transformOrigin: 'right',
+              display: 'inline-block',
+              width: 'auto'
             }}
           >
             פרקים אחרונים
@@ -67,18 +69,6 @@ const LatestEpisodes = () => {
         <p className="text-white/80 text-lg text-center mb-10">
           האזינו לשיחות האחרונות שלנו
         </p>
-        <div className="flex justify-center mb-10">
-          <a 
-            href="/episodes" 
-            className="bg-podcast-yellow text-black px-6 py-2 rounded-full hover:bg-white transition-colors duration-300"
-            style={{
-              transform: 'scaleX(1.2)',
-              transformOrigin: 'center',
-            }}
-          >
-            לכל הפרקים
-          </a>
-        </div>
 
         {isLoading ? (
           <div className="flex justify-center items-center py-20">
@@ -124,15 +114,17 @@ const LatestEpisodes = () => {
                   )}
                   <div className="p-6">
                     <h3
-                      className="text-3xl font-bold mb-3 text-podcast-yellow"
+                      className="text-3xl font-bold mb-3 text-podcast-yellow text-right"
                       style={{
                         transform: 'scaleX(1.2)',
-                        transformOrigin: 'center',
+                        transformOrigin: 'right',
+                        width: 'auto',
+                        display: 'inline-block'
                       }}
                     >
                       {decodeHtml(episode.title)}
                     </h3>
-                    <p className="text-white/80 mb-6 line-clamp-3">{decodeHtml(episode.description)}</p>
+                    <p className="text-white/80 mb-6 line-clamp-3 text-right">{decodeHtml(episode.description)}</p>
                     <div className="flex gap-4">
                       <a
                         href={PODCAST_LINKS.spotify}
@@ -168,7 +160,21 @@ const LatestEpisodes = () => {
             ))}
           </div>
         )}
+
+        <div className="flex justify-center mt-12">
+          <a 
+            href="/episodes" 
+            className="bg-podcast-yellow text-black px-6 py-2 rounded-full hover:bg-white transition-colors duration-300"
+            style={{
+              transform: 'scaleX(1.2)',
+              transformOrigin: 'center',
+            }}
+          >
+            לכל הפרקים
+          </a>
+        </div>
       </div>
+      <Separator className="mt-20 bg-white/10" />
     </section>
   );
 };
