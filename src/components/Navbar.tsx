@@ -26,7 +26,7 @@ const Navbar = () => {
           <a href="#about" className="font-medium text-white hover:text-podcast-yellow transition-colors whitespace-nowrap">אודות</a>
           <a href="#btl" className="font-medium text-white hover:text-podcast-yellow transition-colors whitespace-nowrap">בין השורות</a>
           <a href="#platforms" className="w-full block">
-            <Button className="bg-podcast-yellow text-black hover:bg-podcast-yellow/90 whitespace-nowrap px-7 font-bold">
+            <Button className="bg-podcast-yellow text-black hover:bg-podcast-yellow/90 whitespace-nowrap px-[20px] text-base font-bold">
               האזינו עכשיו
             </Button>
           </a>
