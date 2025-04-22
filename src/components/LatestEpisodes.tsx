@@ -2,6 +2,7 @@
 import React, { useRef, useState } from 'react';
 import { Card, CardContent } from "@/components/ui/card";
 import { SiSpotify, SiYoutube, SiApplepodcasts, SiInstagram } from "react-icons/si";
+import { Mic } from 'lucide-react'; 
 import { AspectRatio } from "@/components/ui/aspect-ratio";
 import { useQuery } from '@tanstack/react-query';
 import { fetchRssFeed } from '@/utils/rssParser';
@@ -55,16 +56,24 @@ const LatestEpisodes = () => {
   }, []);
 
   return (
-    <section id="latest" className="py-20 bg-black">
-      <div className="container px-6">
-        <div className="mb-12">
-          <h2 className="text-4xl md:text-5xl font text-podcast-yellow mb-4">
-            פרקים אחרונים
-          </h2>
-          <p className="text-white/80 text-lg">
-            האזינו לשיחות האחרונות שלנו
-          </p>
+    import { Mic } from 'lucide-react'; // Replace 'Heart' import if necessary
+
+      <section id="latest" className="py-20 bg-black text-center">
+        <div className="container px-6">
+          <div className="mb-12 flex flex-col items-center">
+            <div className="w-14 h-14 rounded-full bg-podcast-yellow flex items-center justify-center mb-4">
+              <Mic className="text-podcast-black" size={28} />
+            </div>
+            <h2 className="text-4xl md:text-5xl font-display font-bold text-podcast-yellow mb-4">
+              פרקים אחרונים
+            </h2>
+            <p className="text-white/80 text-lg">
+              האזינו לשיחות האחרונות שלנו
+            </p>
+          </div>
         </div>
+      </section>
+
         {isLoading ? (
           <div className="flex justify-center items-center py-20">
             <span className="animate-spin text-white text-2xl">⏳</span>
