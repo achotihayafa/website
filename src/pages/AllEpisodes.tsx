@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { useQuery } from '@tanstack/react-query';
 import { Card, CardContent } from "@/components/ui/card";
@@ -8,6 +7,7 @@ import { FaPlay, FaPause, FaCalendarAlt, FaClock } from "react-icons/fa";
 import { fetchRssFeed } from '@/utils/rssParser';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+import SectionDivider from '@/components/SectionDivider';
 
 // Utility to decode HTML entities
 function decodeHtml(html: string): string {
@@ -167,16 +167,18 @@ const AllEpisodes = () => {
             <div className="mb-12">
               <h1
                 className="text-5xl md:text-6xl font-bold text-podcast-yellow mb-6 text-center"
-                style={{
-                  transform: 'scaleX(1.2)',
-                  transformOrigin: 'center',
-                }}
               >
                 כל הפרקים
               </h1>
               <p className="text-white/80 text-lg text-center mb-10">
                 האזינו לכל פרקי הפודקאסט אחותי היפה
               </p>
+            </div>
+
+            {/* Background Elements */}
+            <div className="absolute inset-0 overflow-hidden pointer-events-none -z-10">
+              <div className="absolute top-40 left-0 w-64 h-64 rounded-full bg-podcast-magenta/10 blur-3xl"></div>
+              <div className="absolute bottom-40 right-0 w-72 h-72 rounded-full bg-podcast-yellow/10 blur-3xl"></div>
             </div>
 
             {isLoading ? (
@@ -232,10 +234,6 @@ const AllEpisodes = () => {
                         </div>
                         <h3
                           className="text-3xl font-bold mb-3 text-podcast-yellow"
-                          style={{
-                            transform: 'scaleX(1.2)',
-                            transformOrigin: 'right',
-                          }}
                         >
                           {decodeHtml(episode.title)}
                         </h3>
@@ -277,6 +275,7 @@ const AllEpisodes = () => {
             )}
           </div>
         </div>
+        <SectionDivider variant="mixed" />
         <Footer />
       </div>
     </>

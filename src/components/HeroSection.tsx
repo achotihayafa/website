@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { Headphones, ArrowDown } from 'lucide-react';
 import { Button } from "@/components/ui/button";
@@ -25,22 +26,19 @@ const HeroSection = () => {
 
   return (
     <section className="relative min-h-screen flex items-center pt-24 overflow-hidden">
+      {/* Enhanced background with more pink */}
       <div className="absolute inset-0 -z-10 pointer-events-none">
-        <div className="absolute top-[20%] left-[10%] w-80 h-80 rounded-full bg-gradient-to-br from-podcast-magenta/30 via-podcast-yellow/30 to-podcast-magenta/10 blur-3xl animate-pulse-slow"></div>
-        <div className="absolute bottom-0 right-0 w-96 h-96 rounded-full bg-gradient-to-br from-podcast-yellow/40 via-podcast-magenta/10 to-white/0 blur-3xl animate-pulse-slow" style={{ animationDelay: '0.8s' }}></div>
-        <div className="absolute top-[55%] right-[30%] w-48 h-48 rounded-full bg-gradient-to-br from-podcast-magenta/30 to-podcast-yellow/10 blur-2xl animate-pulse-slow" style={{ animationDelay: '2s' }}></div>
+        <div className="absolute top-[10%] left-[5%] w-96 h-96 rounded-full bg-gradient-to-br from-podcast-magenta/40 via-podcast-yellow/20 to-podcast-magenta/30 blur-3xl animate-pulse-slow"></div>
+        <div className="absolute top-[40%] right-[15%] w-72 h-72 rounded-full bg-gradient-to-br from-podcast-magenta/50 via-podcast-magenta/30 to-white/0 blur-3xl animate-pulse-slow" style={{ animationDelay: '0.5s' }}></div>
+        <div className="absolute bottom-0 right-0 w-96 h-96 rounded-full bg-gradient-to-br from-podcast-yellow/30 via-podcast-magenta/20 to-white/0 blur-3xl animate-pulse-slow" style={{ animationDelay: '0.8s' }}></div>
+        <div className="absolute top-[55%] right-[30%] w-48 h-48 rounded-full bg-gradient-to-br from-podcast-magenta/40 to-podcast-yellow/10 blur-2xl animate-pulse-slow" style={{ animationDelay: '2s' }}></div>
+        <div className="absolute bottom-[20%] left-[20%] w-64 h-64 rounded-full bg-podcast-magenta/30 blur-3xl animate-pulse-slow" style={{ animationDelay: '1.5s' }}></div>
       </div>
 
       <div className="container mx-auto px-6 py-16 md:py-32 relative z-10 flex flex-col-reverse md:flex-row items-center gap-12">
         <div className="max-w-3xl mx-auto md:mx-0 flex-1 w-full">
           <h1
             className="text-4xl md:text-6xl lg:text-7xl mb-8 text-right font-display font-bold bg-gradient-to-r from-white via-podcast-yellow to-podcast-magenta bg-clip-text text-transparent opacity-0 animate-fade-in-delay-1"
-            style={{
-              transform: 'scaleX(1.2)',
-              transformOrigin: 'right',
-              display: 'inline-block',
-              width: 'auto'
-            }}
           >
             <span className="block">פודקאסט על רגשות,</span>
             <span className="block">אבל בעצם פודקאסט להטב"קי</span>
@@ -72,11 +70,14 @@ const HeroSection = () => {
           </div>
         </div>
         <div className="flex-1 flex justify-center items-center mb-10 md:mb-0">
-          <img
-            src={podcastCover}
-            alt="Podcast Cover"
-            className="w-64 h-64 md:w-80 md:h-80 object-cover rounded-3xl shadow-2xl border-4 border-white/10 transition-transform duration-300 hover:scale-105"
-          />
+          <div className="relative">
+            <div className="absolute -inset-4 bg-gradient-to-r from-podcast-magenta/60 via-podcast-yellow/30 to-podcast-magenta/40 rounded-full blur-xl animate-pulse-slow"></div>
+            <img
+              src={podcastCover}
+              alt="Podcast Cover"
+              className="relative w-64 h-64 md:w-80 md:h-80 object-cover rounded-3xl shadow-2xl border-4 border-white/10 transition-transform duration-300 hover:scale-105 z-10"
+            />
+          </div>
         </div>
       </div>
 

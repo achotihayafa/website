@@ -1,5 +1,6 @@
 
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { SiSpotify, SiYoutube, SiApplepodcasts, SiInstagram } from "react-icons/si";
 
 const PODCAST_LINKS = {
@@ -11,43 +12,33 @@ const PODCAST_LINKS = {
 
 const Footer = () => {
   return (
-    <footer className="bg-black/80 text-white py-12">
+    <footer className="bg-black/80 text-white py-12 relative">
+      {/* Background Elements */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none -z-10">
+        <div className="absolute -top-20 right-20 w-48 h-48 rounded-full bg-podcast-magenta/10 blur-3xl"></div>
+        <div className="absolute -bottom-10 left-10 w-36 h-36 rounded-full bg-podcast-yellow/10 blur-3xl"></div>
+      </div>
+      
       <div className="container px-6 max-w-screen-2xl">
-        <div className="flex flex-col gap-14 mb-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-14 mb-8">
           {/* Menu column */}
           <div>
-            <h3
-              className="text-3xl mb-4 font-display text-right"
-              style={{ 
-                transform: 'scaleX(1.2)', 
-                transformOrigin: 'right',
-                display: 'inline-block', 
-                width: 'auto' 
-              }}
-            >
+            <h3 className="text-3xl mb-6 font-display text-right">
               אחותי היפה
             </h3>
-            <div className="flex flex-col gap-2">
-              <a href="#platforms" className="text-gray-300 hover:text-podcast-yellow transition-colors">האזינו עכשיו</a>
-              <a href="#best" className="text-gray-300 hover:text-podcast-yellow transition-colors">פרקים מומלצים</a>
-              <a href="#latest" className="text-gray-300 hover:text-podcast-yellow transition-colors">פרקים אחרונים</a>
-              <a href="/episodes" className="text-gray-300 hover:text-podcast-yellow transition-colors">כל הפרקים</a>
-              <a href="#about" className="text-gray-300 hover:text-podcast-yellow transition-colors">אודות</a>
-              <a href="#btl" className="text-gray-300 hover:text-podcast-yellow transition-colors">בין השורות</a>
+            <div className="flex flex-col gap-4">
+              <a href="/#platforms" className="text-gray-300 hover:text-podcast-yellow transition-colors">האזינו עכשיו</a>
+              <a href="/#best" className="text-gray-300 hover:text-podcast-yellow transition-colors">פרקים מומלצים</a>
+              <a href="/#latest" className="text-gray-300 hover:text-podcast-yellow transition-colors">פרקים אחרונים</a>
+              <Link to="/episodes" className="text-gray-300 hover:text-podcast-yellow transition-colors">כל הפרקים</Link>
+              <a href="/#about" className="text-gray-300 hover:text-podcast-yellow transition-colors">אודות</a>
+              <a href="/#btl" className="text-gray-300 hover:text-podcast-yellow transition-colors">בין השורות</a>
             </div>
           </div>
 
           {/* Icons/links column */}
           <div>
-            <h3
-              className="text-3xl mb-4 font-display text-right"
-              style={{
-                transform: 'scaleX(1.2)',
-                transformOrigin: 'right',
-                display: 'inline-block',
-                width: 'auto',
-              }}
-            >
+            <h3 className="text-3xl mb-6 font-display text-right">
               עקבו והאזינו
             </h3>
             <div className="flex flex-col gap-4">
