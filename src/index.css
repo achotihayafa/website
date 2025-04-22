@@ -56,6 +56,8 @@
     @apply font-display text-white;
     font-family: 'Karantina', cursive;
     font-weight: 400 !important;
+    transform: scaleX(1.2);
+    transform-origin: center;
   }
 }
 
