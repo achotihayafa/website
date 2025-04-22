@@ -65,11 +65,11 @@ const BestEpisodes = () => {
   return <section id="best" className="py-20 bg-black">
       <div className="container px-6">
         <div className="mb-12">
-          <h2 className="text-4xl md:text-5xl font text-podcast-magenta mb-4 text-center" style={{
+          <h2 style={{
           transform: 'scaleX(1.2)',
           transformOrigin: 'center',
           display: 'inline-block'
-        }}>
+        }} className="text-4xl font text-podcast-magenta mb-4 text-center md:text-5xl">
             פרקים מומלצים
           </h2>
           <p className="text-white/80 text-lg text-center">האזינו לפרקים שאהובים עלינו במיוחד</p>
