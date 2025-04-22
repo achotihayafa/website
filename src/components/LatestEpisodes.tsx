@@ -149,6 +149,18 @@ const LatestEpisodes = () => {
             ))}
           </div>
         )}
+        <div className="flex justify-center mt-12">
+          <a 
+            href="/episodes" 
+            className="bg-podcast-yellow text-black px-6 py-2 rounded-full hover:bg-white transition-colors duration-300"
+            style={{
+              transformOrigin: 'center',
+            }}
+          >
+            לכל הפרקים
+          </a>
+        </div>
+
       </div>
     </section>
   );
