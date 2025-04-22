@@ -232,10 +232,6 @@ const AllEpisodes = () => {
                         </div>
                         <h3
                           className="text-3xl font-bold mb-3 text-podcast-yellow"
-                          style={{
-                            transform: 'scaleX(1.2)',
-                            transformOrigin: 'right',
-                          }}
                         >
                           {decodeHtml(episode.title)}
                         </h3>
