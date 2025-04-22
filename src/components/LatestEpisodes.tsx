@@ -67,14 +67,7 @@ const LatestEpisodes = () => {
         <p className="text-white/80 text-lg text-center mb-10">
           האזינו לשיחות האחרונות שלנו
         </p>
-        <div className="flex justify-center mb-10">
-          <a 
-            href="/episodes" 
-            className="bg-podcast-yellow text-black px-6 py-2 rounded-full hover:bg-white transition-colors duration-300"
-          >
-            לכל הפרקים
-          </a>
-        </div>
+
 
         {isLoading ? (
           <div className="flex justify-center items-center py-20">
@@ -160,6 +153,14 @@ const LatestEpisodes = () => {
             ))}
           </div>
         )}
+                <div className="flex justify-center mb-10">
+          <a 
+            href="/episodes" 
+            className="bg-podcast-yellow text-black px-6 py-2 rounded-full hover:bg-white transition-colors duration-300"
+          >
+            לכל הפרקים
+          </a>
+        </div>
       </div>
     </section>
   );
