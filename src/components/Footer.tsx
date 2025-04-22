@@ -21,48 +21,23 @@ const Footer = () => {
           {/* Menu column */}
           <div className="w-full md:w-1/2">
             <h3 className="text-3xl mb-4 font-display">אחותי היפה</h3>
-            <ul className="space-y-2">
-              <li>
-                <a
-                  href="#platforms"
-                  className="text-gray-300 hover:text-podcast-yellow transition-colors"
-                >
-                  האזינו עכשיו
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#best"
-                  className="text-gray-300 hover:text-podcast-yellow transition-colors"
-                >
-                  פרקים מומלצים
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#latest"
-                  className="text-gray-300 hover:text-podcast-yellow transition-colors"
-                >
-                  פרקים אחרונים
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#about"
-                  className="text-gray-300 hover:text-podcast-yellow transition-colors"
-                >
-                  אודות
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#btl"
-                  className="text-gray-300 hover:text-podcast-yellow transition-colors"
-                >
-                  בין השורות
-                </a>
-              </li>
-            </ul>
+            <div className="flex flex-col gap-1">
+              <a href="#platforms" className="text-gray-300 hover:text-podcast-yellow transition-colors">
+                האזינו עכשיו
+              </a>
+              <a href="#best" className="text-gray-300 hover:text-podcast-yellow transition-colors">
+                פרקים מומלצים
+              </a>
+              <a href="#latest" className="text-gray-300 hover:text-podcast-yellow transition-colors">
+                פרקים אחרונים
+              </a>
+              <a href="#about" className="text-gray-300 hover:text-podcast-yellow transition-colors">
+                אודות
+              </a>
+              <a href="#btl" className="text-gray-300 hover:text-podcast-yellow transition-colors">
+                בין השורות
+              </a>
+            </div>
           </div>
 
           {/* Links column */}
