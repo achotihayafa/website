@@ -1,6 +1,5 @@
 
 import React, { useRef, useState } from 'react';
-import { Heart } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { 
   SiSpotify, 
@@ -81,15 +80,11 @@ const BestEpisodes = () => {
 
   return (
     <section id="best" className="py-20 bg-black">
-      <div className="container px-6 text-center">
+      <div className="container px-6">
         <div className="mb-12">
-          <div className="flex justify-center items-center gap-2 mb-4">
-            <Heart className="text-podcast-magenta w-8 h-8" />
-            <h2 className="text-4xl md:text-5xl font text-podcast-magenta">פרקים נבחרים</h2>
-          </div>
+          <h2 className="text-4xl md:text-5xl font text-podcast-magenta mb-4">פרקים מומלצים</h2>
           <p className="text-white/80 text-lg">האזינו לפרקים שאהובים עלינו במיוחד</p>
         </div>
-    </section>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {bestEpisodes.map((episode, index) => (

@@ -34,24 +34,23 @@ const HeroSection = () => {
           </p>
           
           <div className="flex flex-wrap gap-4 opacity-0 animate-fade-in-delay-2">
-          <Button 
-            size="lg" 
-            className="bg-podcast-yellow text-black hover:bg-podcast-yellow/90 shadow-lg shadow-podcast-yellow/20 text-xl"
-            onClick={() => window.open("https://open.spotify.com/show/0ZpvzCEuDeKQhBw74YEmp9?si=WpeRZqDaS5CRs-R3JyGipQ", "_blank")}
-          >
-            <Headphones className="ml-2" />
-            האזינו ב-Spotify
-          </Button>
-          
-          <Button 
-            variant="outline" 
-            size="lg"
-            onClick={() => document.getElementById('best')?.scrollIntoView({ behavior: 'smooth' })}
-            className="text-white border-white hover:bg-white/10 text-xl"
-          >
-            פרקים מומלצים
-          </Button>
-
+            <Button 
+              size="lg" 
+              className="bg-podcast-yellow text-black hover:bg-podcast-yellow/90 shadow-lg shadow-podcast-yellow/20"
+              onClick={() => window.open("https://open.spotify.com/show/0ZpvzCEuDeKQhBw74YEmp9?si=WpeRZqDaS5CRs-R3JyGipQ", "_blank")}
+            >
+              <Headphones className="ml-2" />
+              האזינו ב-Spotify
+            </Button>
+            
+            <Button 
+              variant="outline" 
+              size="lg"
+              onClick={() => document.getElementById('best')?.scrollIntoView({ behavior: 'smooth' })}
+              className="text-white border-white hover:bg-white/10"
+            >
+             פרקים מומלצים
+            </Button>
           </div>
         </div>
         {/* Left Side (Podcast Cover) */}

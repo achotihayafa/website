@@ -15,31 +15,37 @@ const Footer = () => {
         <div className="flex flex-col md:flex-row justify-between gap-14 mb-8">
           {/* Menu column */}
           <div className="w-full md:w-1/2">
-            <h3 className="text-3xl mb-4 font-display">
+            <h3
+              className="text-3xl mb-4 font-display"
+              style={{ 
+                transform: 'scaleX(1.2)', 
+                transformOrigin: 'left',
+                display: 'inline-block', 
+                width: 'max-content' 
+              }}
+            >
               אחותי היפה
-            </h3>
-            <div className="flex flex-col gap-2">
-              <a href="#platforms" className="text-gray-300 hover:text-podcast-yellow transition-colors">
-                האזינו עכשיו
-              </a>
-              <a href="#best" className="text-gray-300 hover:text-podcast-yellow transition-colors">
-                פרקים מומלצים
-              </a>
-              <a href="#latest" className="text-gray-300 hover:text-podcast-yellow transition-colors">
-                פרקים אחרונים
-              </a>
-              <a href="#about" className="text-gray-300 hover:text-podcast-yellow transition-colors">
-                אודות
-              </a>
-              <a href="#btl" className="text-gray-300 hover:text-podcast-yellow transition-colors">
-                בין השורות
-              </a>
-            </div>
+            </h3>            
+            <ul className="space-y-2">
+              <li><a href="#platforms" className="text-gray-300 hover:text-podcast-yellow transition-colors">האזינו עכשיו</a></li>
+              <li><a href="#best" className="text-gray-300 hover:text-podcast-yellow transition-colors">פרקים מומלצים</a></li>
+              <li><a href="#latest" className="text-gray-300 hover:text-podcast-yellow transition-colors">פרקים אחרונים</a></li>
+              <li><a href="#about" className="text-gray-300 hover:text-podcast-yellow transition-colors">אודות</a></li>
+              <li><a href="#btl" className="text-gray-300 hover:text-podcast-yellow transition-colors">בין השורות</a></li>
+            </ul>
           </div>
 
           {/* Icons/links column */}
           <div className="w-full md:w-1/2">
-            <h3 className="text-3xl mb-4 font-display">
+            <h3
+              className="text-3xl mb-4 font-display"
+              style={{
+                transform: 'scaleX(1.2)',
+                transformOrigin: 'left',
+                display: 'inline-block',
+                width: 'max-content',
+              }}
+            >
               עקבו והאזינו
             </h3>
             <div className="flex flex-col gap-4 items-start">

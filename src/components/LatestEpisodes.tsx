@@ -1,7 +1,7 @@
-import React, { useRef, useState, useEffect } from 'react';
+
+import React, { useRef, useState } from 'react';
 import { Card, CardContent } from "@/components/ui/card";
-import { SiSpotify, SiYoutube, SiApplepodcasts } from "react-icons/si";
-import { Mic } from 'lucide-react'; 
+import { SiSpotify, SiYoutube, SiApplepodcasts, SiInstagram } from "react-icons/si";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
 import { useQuery } from '@tanstack/react-query';
 import { fetchRssFeed } from '@/utils/rssParser';
@@ -30,6 +30,7 @@ const LatestEpisodes = () => {
   const audioRefs = useRef<Array<HTMLAudioElement | null>>([]);
   const [playingIndex, setPlayingIndex] = useState<number | null>(null);
 
+  // Handles play/pause actions, ensuring only one episode plays
   const togglePlay = (index: number) => {
     const currentAudio = audioRefs.current[index];
     if (!currentAudio) return;
@@ -46,27 +47,111 @@ const LatestEpisodes = () => {
     }
   };
 
-  useEffect(() => {
+  // Pause all audios on unmount
+  React.useEffect(() => {
     return () => {
       audioRefs.current.forEach(audio => audio && audio.pause());
     };
   }, []);
 
   return (
-    <section id="latest" className="py-20 bg-black text-center">
+    <section id="latest" className="py-20 bg-black">
       <div className="container px-6">
-        <div className="mb-12 flex flex-col items-center">
-          <div className="w-14 h-14 rounded-full bg-podcast-yellow flex items-center justify-center mb-4">
-            <Mic className="text-podcast-black" size={28} />
-          </div>
-          <h2 className="text-4xl md:text-5xl font-display font-bold text-podcast-yellow mb-4">
+        <div className="mb-12">
+          <h2 className="text-4xl md:text-5xl font text-podcast-yellow mb-4">
             פרקים אחרונים
           </h2>
           <p className="text-white/80 text-lg">
             האזינו לשיחות האחרונות שלנו
           </p>
         </div>
-
         {isLoading ? (
           <div className="flex justify-center items-center py-20">
             <span className="animate-spin text-white text-2xl">⏳</span>
+          </div>
+        ) : error ? (
+          <div className="text-center py-10">
+            <p className="text-white text-xl">אירעה שגיאה בטעינת הפרקים. נסו שוב מאוחר יותר.</p>
+          </div>
+        ) : (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {episodes?.slice(0, 6).map((episode, index) => (
+              <Card
+                key={index}
+                className="relative bg-podcast-darkgray/30 border-white/10 hover:border-podcast-yellow/50 transition-all duration-300 overflow-hidden"
+                style={{ borderRadius: '1rem' }}
+              >
+                <CardContent className="p-0 relative">
+                  <AspectRatio ratio={1} className="overflow-hidden">
+                    {episode.imageUrl && (
+                      <img
+                        src={episode.imageUrl}
+                        alt={decodeHtml(episode.title)}
+                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110 hover:scale-110"
+                        style={{ borderRadius: '0' }} // No rounding for image itself
+                      />
+                    )}
+                  </AspectRatio>
+                  {/* Audio + Play Button */}
+                  {episode.audioUrl && (
+                    <>
+                      <audio
+                        ref={el => (audioRefs.current[index] = el)}
+                        src={episode.audioUrl}
+                        preload="none"
+                      />
+                      <button
+                        onClick={() => togglePlay(index)}
+                        className="absolute bottom-4 left-4 bg-podcast-yellow rounded-full p-2 text-black hover:bg-black hover:text-podcast-yellow transition-colors z-10"
+                        aria-label={playingIndex === index ? "הפסק פרק" : "הפעל פרק"}
+                      >
+                        {playingIndex === index ? <FaPause /> : <FaPlay />}
+                      </button>
+
+                    </>
+                  )}
+                  <div className="p-6">
+                    <h3 className="text-3xl font mb-3 text-podcast-yellow">{decodeHtml(episode.title)}</h3>
+                    <p className="text-white/80 mb-6 line-clamp-3">{decodeHtml(episode.description)}</p>
+                    {/* Platform Links */}
+                    <div className="flex gap-4">
+                      <a
+                        href={PODCAST_LINKS.spotify}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-white/80 hover:text-podcast-yellow transition-colors"
+                        aria-label="האזינו ב-Spotify"
+                      >
+                        <SiSpotify size={24} />
+                      </a>
+                      <a
+                        href={PODCAST_LINKS.youtube}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-white/80 hover:text-podcast-yellow transition-colors"
+                        aria-label="האזינו ב-YouTube"
+                      >
+                        <SiYoutube size={24} />
+                      </a>
+                      <a
+                        href={PODCAST_LINKS.apple}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-white/80 hover:text-podcast-yellow transition-colors"
+                        aria-label="האזינו ב-Apple Podcasts"
+                      >
+                        <SiApplepodcasts size={24} />
+                      </a>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        )}
+      </div>
+    </section>
+  );
+};
+
+export default LatestEpisodes;
