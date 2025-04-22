@@ -104,6 +104,7 @@ const LatestEpisodes = () => {
           <a href="/episodes" className="bg-podcast-yellow text-black text-bold px-6 rounded-full hover:bg-white transition-colors duration-300 py-[12px] my-[33px]">לכל הפרקים</a>
         </div>
       </div>
+          <Separator className="mt-60 bg-white/10" />
     </section>;
 };
 export default LatestEpisodes;
