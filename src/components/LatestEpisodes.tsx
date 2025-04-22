@@ -1,4 +1,3 @@
-
 import React, { useRef, useState } from 'react';
 import { Card, CardContent } from "@/components/ui/card";
 import { SiSpotify, SiYoutube, SiApplepodcasts, SiInstagram } from "react-icons/si";
@@ -6,6 +5,7 @@ import { AspectRatio } from "@/components/ui/aspect-ratio";
 import { useQuery } from '@tanstack/react-query';
 import { fetchRssFeed } from '@/utils/rssParser';
 import { FaPlay, FaPause } from "react-icons/fa";
+import FileText from "@/components/ui/file-text";
 
 // Utility to decode HTML entities
 function decodeHtml(html: string): string {
@@ -57,14 +57,18 @@ const LatestEpisodes = () => {
   return (
     <section id="latest" className="py-20 bg-black">
       <div className="container px-6">
-        <div className="mb-12">
-          <h2 className="text-4xl md:text-5xl font text-podcast-yellow mb-4">
-            פרקים אחרונים
-          </h2>
-          <p className="text-white/80 text-lg">
-            האזינו לשיחות האחרונות שלנו
-          </p>
+        <div className="flex items-center gap-4 mb-12">
+          <FileText className="text-podcast-yellow" size={32} />
+          <div>
+            <h2 className="text-4xl md:text-5xl text-podcast-yellow mb-4">
+              פרקים אחרונים
+            </h2>
+            <p className="text-white/80 text-lg">
+              האזינו לשיחות האחרונות שלנו
+            </p>
+          </div>
         </div>
+
         {isLoading ? (
           <div className="flex justify-center items-center py-20">
             <span className="animate-spin text-white text-2xl">⏳</span>
@@ -74,7 +78,7 @@ const LatestEpisodes = () => {
             <p className="text-white text-xl">אירעה שגיאה בטעינת הפרקים. נסו שוב מאוחר יותר.</p>
           </div>
         ) : (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
             {episodes?.slice(0, 6).map((episode, index) => (
               <Card
                 key={index}
@@ -149,6 +153,15 @@ const LatestEpisodes = () => {
             ))}
           </div>
         )}
+
+        <div className="flex justify-center mt-12">
+          <a 
+            href="/episodes" 
+            className="inline-flex items-center px-8 py-3 bg-podcast-yellow text-black rounded-full hover:bg-black hover:text-podcast-yellow transition-colors"
+          >
+            לכל הפרקים
+          </a>
+        </div>
       </div>
     </section>
   );
