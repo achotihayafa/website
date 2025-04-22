@@ -89,7 +89,7 @@ const BestEpisodes = () => {
               display: 'inline-block',
             }}
           >
-            פרקים מומלצים
+            פרקים נבחרים
           </h2>
           <p className="text-white/80 text-lg text-center">האזינו לפרקים שאהובים עלינו במיוחד</p>
         </div>
