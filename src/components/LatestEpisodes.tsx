@@ -81,7 +81,7 @@ const LatestEpisodes = () => {
                       </button>
                     </>}
                   <div className="p-6">
-                    <h3 className="text-3xl font-bold mb-3 text-podcast-yellow mx-[24px]">
+                    <h3 className="text-3xl font-bold mb-3 text-podcast-yellow mx-[32px]">
                       {decodeHtml(episode.title)}
                     </h3>
                     <p className="text-white/80 mb-6 line-clamp-3">{decodeHtml(episode.description)}</p>
@@ -101,7 +101,9 @@ const LatestEpisodes = () => {
               </Card>)}
           </div>}
                 <div className="flex justify-center mb-10">
-          <a href="/episodes" className="bg-podcast-yellow text-black text-bold px-6 rounded-full hover:bg-white transition-colors duration-300 py-[12px] my-[33px]">לכל הפרקים</a>
+          <a href="/episodes" className="bg-podcast-yellow text-black px-6 py-2 rounded-full hover:bg-white transition-colors duration-300">
+            לכל הפרקים
+          </a>
         </div>
       </div>
     </section>;
