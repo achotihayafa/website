@@ -56,8 +56,6 @@ const LatestEpisodes = () => {
   }, []);
 
   return (
-    import { Mic } from 'lucide-react'; // Replace 'Heart' import if necessary
-
       <section id="latest" className="py-20 bg-black text-center">
         <div className="container px-6">
           <div className="mb-12 flex flex-col items-center">
