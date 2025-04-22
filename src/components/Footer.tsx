@@ -1,11 +1,16 @@
 import React from 'react';
-import { SiSpotify, SiYoutube, SiApplepodcasts, SiInstagram } from "react-icons/si";
+import {
+  SiSpotify,
+  SiYoutube,
+  SiApplepodcasts,
+  SiInstagram,
+} from 'react-icons/si';
 
 const PODCAST_LINKS = {
-  spotify: "https://open.spotify.com/show/0ZpvzCEuDeKQhBw74YEmp9",
-  youtube: "https://www.youtube.com/@AchotiHaYafa",
-  apple: "https://podcasts.apple.com/us/podcast/אחותי-היפה/id1728358395",
-  instagram: "https://www.instagram.com/achotihayafa/"
+  spotify: 'https://open.spotify.com/show/0ZpvzCEuDeKQhBw74YEmp9',
+  youtube: 'https://www.youtube.com/@AchotiHaYafa',
+  apple: 'https://podcasts.apple.com/us/podcast/אחותי-היפה/id1728358395',
+  instagram: 'https://www.instagram.com/achotihayafa/',
 };
 
 const Footer = () => {
@@ -15,38 +20,90 @@ const Footer = () => {
         <div className="flex flex-col md:flex-row justify-between gap-14 mb-8">
           {/* Menu column */}
           <div className="w-full md:w-1/2">
-            <h3
-              className="text-3xl mb-4 font-display"
-            >
-              אחותי היפה
-            </h3>            
+            <h3 className="text-3xl mb-4 font-display">אחותי היפה</h3>
             <ul className="space-y-2">
-              <li><a href="#platforms" className="text-gray-300 hover:text-podcast-yellow transition-colors">האזינו עכשיו</a></li>
-              <li><a href="#best" className="text-gray-300 hover:text-podcast-yellow transition-colors">פרקים מומלצים</a></li>
-              <li><a href="#latest" className="text-gray-300 hover:text-podcast-yellow transition-colors">פרקים אחרונים</a></li>
-              <li><a href="#about" className="text-gray-300 hover:text-podcast-yellow transition-colors">אודות</a></li>
-              <li><a href="#btl" className="text-gray-300 hover:text-podcast-yellow transition-colors">בין השורות</a></li>
+              <li>
+                <a
+                  href="#platforms"
+                  className="text-gray-300 hover:text-podcast-yellow transition-colors"
+                >
+                  האזינו עכשיו
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#best"
+                  className="text-gray-300 hover:text-podcast-yellow transition-colors"
+                >
+                  פרקים מומלצים
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#latest"
+                  className="text-gray-300 hover:text-podcast-yellow transition-colors"
+                >
+                  פרקים אחרונים
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#about"
+                  className="text-gray-300 hover:text-podcast-yellow transition-colors"
+                >
+                  אודות
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#btl"
+                  className="text-gray-300 hover:text-podcast-yellow transition-colors"
+                >
+                  בין השורות
+                </a>
+              </li>
             </ul>
           </div>
 
-          {/* Icons/links column */}
+          {/* Links column */}
           <div className="w-full md:w-1/2">
-            <h3
-              className="text-3xl mb-4 font-display">
-              עקבו והאזינו
-            </h3>
+            <h3 className="text-3xl mb-4 font-display">עקבו והאזינו</h3>
             <div className="flex flex-col gap-4 items-start">
-              <a href={PODCAST_LINKS.instagram} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-gray-300 hover:text-podcast-yellow transition-colors">
-                <SiInstagram size={28} /> <span className="hidden sm:inline">Instagram</span>
+              <a
+                href={PODCAST_LINKS.instagram}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 text-gray-300 hover:text-podcast-yellow transition-colors"
+              >
+                <SiInstagram size={28} />
+                <span className="hidden sm:inline">Instagram</span>
               </a>
-              <a href={PODCAST_LINKS.spotify} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-gray-300 hover:text-podcast-yellow transition-colors">
-                <SiSpotify size={28} /> <span className="hidden sm:inline">Spotify</span>
+              <a
+                href={PODCAST_LINKS.spotify}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 text-gray-300 hover:text-podcast-yellow transition-colors"
+              >
+                <SiSpotify size={28} />
+                <span className="hidden sm:inline">Spotify</span>
               </a>
-              <a href={PODCAST_LINKS.youtube} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-gray-300 hover:text-podcast-yellow transition-colors">
-                <SiYoutube size={28} /> <span className="hidden sm:inline">YouTube</span>
+              <a
+                href={PODCAST_LINKS.youtube}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 text-gray-300 hover:text-podcast-yellow transition-colors"
+              >
+                <SiYoutube size={28} />
+                <span className="hidden sm:inline">YouTube</span>
               </a>
-              <a href={PODCAST_LINKS.apple} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-gray-300 hover:text-podcast-yellow transition-colors">
-                <SiApplepodcasts size={28} /> <span className="hidden sm:inline">Apple Podcasts</span>
+              <a
+                href={PODCAST_LINKS.apple}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 text-gray-300 hover:text-podcast-yellow transition-colors"
+              >
+                <SiApplepodcasts size={28} />
+                <span className="hidden sm:inline">Apple Podcasts</span>
               </a>
             </div>
           </div>
