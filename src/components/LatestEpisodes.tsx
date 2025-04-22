@@ -71,10 +71,6 @@ const LatestEpisodes = () => {
           <a 
             href="/episodes" 
             className="bg-podcast-yellow text-black px-6 py-2 rounded-full hover:bg-white transition-colors duration-300"
-            style={{
-              transform: 'scaleX(1.2)',
-              transformOrigin: 'center',
-            }}
           >
             לכל הפרקים
           </a>
@@ -125,10 +121,6 @@ const LatestEpisodes = () => {
                   <div className="p-6">
                     <h3
                       className="text-3xl font-bold mb-3 text-podcast-yellow"
-                      style={{
-                        transform: 'scaleX(1.2)',
-                        transformOrigin: 'center',
-                      }}
                     >
                       {decodeHtml(episode.title)}
                     </h3>
