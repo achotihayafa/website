@@ -101,7 +101,7 @@ const LatestEpisodes = () => {
               </Card>)}
           </div>}
                 <div className="flex justify-center mb-10">
-          <a href="/episodes" className="bg-podcast-yellow text-black px-6 py-2 rounded-full hover:bg-white transition-colors duration-300">
+          <a href="/episodes" className="bg-podcast-yellow text-black text-bold px-6 rounded-full hover:bg-white transition-colors duration-300 py-[12px] my-[33px]">
             לכל הפרקים
           </a>
         </div>
