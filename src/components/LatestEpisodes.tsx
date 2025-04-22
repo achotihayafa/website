@@ -81,7 +81,7 @@ const LatestEpisodes = () => {
                       </button>
                     </>}
                   <div className="p-6">
-                    <h3 className="text-3xl font-bold mb-3 text-podcast-yellow mx-[32px]">
+                    <h3 className="text-3xl font-bold mb-3 text-podcast-yellow mx-[30px]">
                       {decodeHtml(episode.title)}
                     </h3>
                     <p className="text-white/80 mb-6 line-clamp-3">{decodeHtml(episode.description)}</p>
