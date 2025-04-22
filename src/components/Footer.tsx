@@ -15,16 +15,25 @@ const Footer = () => {
         <div className="flex flex-col md:flex-row justify-between gap-14 mb-8">
           {/* Menu column */}
           <div className="w-full md:w-1/2">
-            <h3 className="text-3xl mb-4 font-display">
+            <h3
+              className="text-3xl mb-4 font-display"
+              style={{ 
+                transform: 'scaleX(1.2)', 
+                transformOrigin: 'left',
+                display: 'inline-block', 
+                width: 'max-content' 
+              }}
+            >
               אחותי היפה
-            </h3>            
-            <ul className="space-y-2">
-              <li><a href="/#platforms" className="text-gray-300 hover:text-podcast-yellow transition-colors">האזינו עכשיו</a></li>
-              <li><a href="/#best" className="text-gray-300 hover:text-podcast-yellow transition-colors">פרקים מומלצים</a></li>
-              <li><a href="/#latest" className="text-gray-300 hover:text-podcast-yellow transition-colors">פרקים אחרונים</a></li>
+            </h3>
+            <ul className="space-y-2 pl-0">
+              {/* Removed default padding */}
+              <li><a href="#platforms" className="text-gray-300 hover:text-podcast-yellow transition-colors">האזינו עכשיו</a></li>
+              <li><a href="#best" className="text-gray-300 hover:text-podcast-yellow transition-colors">פרקים מומלצים</a></li>
+              <li><a href="#latest" className="text-gray-300 hover:text-podcast-yellow transition-colors">פרקים אחרונים</a></li>
               <li><a href="/episodes" className="text-gray-300 hover:text-podcast-yellow transition-colors">כל הפרקים</a></li>
-              <li><a href="/#about" className="text-gray-300 hover:text-podcast-yellow transition-colors">אודות</a></li>
-              <li><a href="/#btl" className="text-gray-300 hover:text-podcast-yellow transition-colors">בין השורות</a></li>
+              <li><a href="#about" className="text-gray-300 hover:text-podcast-yellow transition-colors">אודות</a></li>
+              <li><a href="#btl" className="text-gray-300 hover:text-podcast-yellow transition-colors">בין השורות</a></li>
             </ul>
           </div>
 
@@ -41,7 +50,7 @@ const Footer = () => {
             >
               עקבו והאזינו
             </h3>
-            <div className="flex flex-col gap-4 items-start">
+            <div className="flex flex-col gap-4 items-start sm:items-center sm:flex-row sm:gap-6">
               <a href={PODCAST_LINKS.instagram} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-gray-300 hover:text-podcast-yellow transition-colors">
                 <SiInstagram size={28} /> <span className="hidden sm:inline">Instagram</span>
               </a>

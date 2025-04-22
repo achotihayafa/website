@@ -5,7 +5,6 @@ import { AspectRatio } from "@/components/ui/aspect-ratio";
 import { useQuery } from '@tanstack/react-query';
 import { fetchRssFeed } from '@/utils/rssParser';
 import { FaPlay, FaPause } from "react-icons/fa";
-import FileText from "@/components/ui/file-text";
 
 // Utility to decode HTML entities
 function decodeHtml(html: string): string {
@@ -14,7 +13,6 @@ function decodeHtml(html: string): string {
   return textarea.value;
 }
 
-// Platform main links
 const PODCAST_LINKS = {
   spotify: "https://open.spotify.com/show/0ZpvzCEuDeKQhBw74YEmp9",
   youtube: "https://www.youtube.com/@AchotiHaYafa",
@@ -30,7 +28,6 @@ const LatestEpisodes = () => {
   const audioRefs = useRef<Array<HTMLAudioElement | null>>([]);
   const [playingIndex, setPlayingIndex] = useState<number | null>(null);
 
-  // Handles play/pause actions, ensuring only one episode plays
   const togglePlay = (index: number) => {
     const currentAudio = audioRefs.current[index];
     if (!currentAudio) return;
@@ -47,7 +44,6 @@ const LatestEpisodes = () => {
     }
   };
 
-  // Pause all audios on unmount
   React.useEffect(() => {
     return () => {
       audioRefs.current.forEach(audio => audio && audio.pause());
@@ -57,16 +53,31 @@ const LatestEpisodes = () => {
   return (
     <section id="latest" className="py-20 bg-black">
       <div className="container px-6">
-        <div className="flex items-center gap-4 mb-12">
-          <FileText className="text-podcast-yellow" size={32} />
-          <div>
-            <h2 className="text-4xl md:text-5xl text-podcast-yellow mb-4">
-              פרקים אחרונים
-            </h2>
-            <p className="text-white/80 text-lg">
-              האזינו לשיחות האחרונות שלנו
-            </p>
-          </div>
+        <div className="mb-12 flex justify-center">
+          <h2
+            className="text-4xl md:text-5xl font-bold text-podcast-yellow mb-4 text-center"
+            style={{
+              transform: 'scaleX(1.2)',
+              transformOrigin: 'center',
+            }}
+          >
+            פרקים אחרונים
+          </h2>
+        </div>
+        <p className="text-white/80 text-lg text-center mb-10">
+          האזינו לשיחות האחרונות שלנו
+        </p>
+        <div className="flex justify-center mb-10">
+          <a 
+            href="/episodes" 
+            className="bg-podcast-yellow text-black px-6 py-2 rounded-full hover:bg-white transition-colors duration-300"
+            style={{
+              transform: 'scaleX(1.2)',
+              transformOrigin: 'center',
+            }}
+          >
+            לכל הפרקים
+          </a>
         </div>
 
         {isLoading ? (
@@ -78,7 +89,7 @@ const LatestEpisodes = () => {
             <p className="text-white text-xl">אירעה שגיאה בטעינת הפרקים. נסו שוב מאוחר יותר.</p>
           </div>
         ) : (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {episodes?.slice(0, 6).map((episode, index) => (
               <Card
                 key={index}
@@ -92,11 +103,9 @@ const LatestEpisodes = () => {
                         src={episode.imageUrl}
                         alt={decodeHtml(episode.title)}
                         className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110 hover:scale-110"
-                        style={{ borderRadius: '0' }} // No rounding for image itself
                       />
                     )}
                   </AspectRatio>
-                  {/* Audio + Play Button */}
                   {episode.audioUrl && (
                     <>
                       <audio
@@ -111,13 +120,19 @@ const LatestEpisodes = () => {
                       >
                         {playingIndex === index ? <FaPause /> : <FaPlay />}
                       </button>
-
                     </>
                   )}
                   <div className="p-6">
-                    <h3 className="text-3xl font mb-3 text-podcast-yellow">{decodeHtml(episode.title)}</h3>
+                    <h3
+                      className="text-3xl font-bold mb-3 text-podcast-yellow"
+                      style={{
+                        transform: 'scaleX(1.2)',
+                        transformOrigin: 'center',
+                      }}
+                    >
+                      {decodeHtml(episode.title)}
+                    </h3>
                     <p className="text-white/80 mb-6 line-clamp-3">{decodeHtml(episode.description)}</p>
-                    {/* Platform Links */}
                     <div className="flex gap-4">
                       <a
                         href={PODCAST_LINKS.spotify}
@@ -153,15 +168,6 @@ const LatestEpisodes = () => {
             ))}
           </div>
         )}
-
-        <div className="flex justify-center mt-12">
-          <a 
-            href="/episodes" 
-            className="inline-flex items-center px-8 py-3 bg-podcast-yellow text-black rounded-full hover:bg-black hover:text-podcast-yellow transition-colors"
-          >
-            לכל הפרקים
-          </a>
-        </div>
       </div>
     </section>
   );
