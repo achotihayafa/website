@@ -17,12 +17,6 @@ const Footer = () => {
           <div className="w-full md:w-1/2">
             <h3
               className="text-3xl mb-4 font-display"
-              style={{ 
-                transform: 'scaleX(1.2)', 
-                transformOrigin: 'right',
-                display: 'inline-block', 
-                width: 'max-content' 
-              }}
             >
               אחותי היפה
             </h3>            
@@ -38,14 +32,7 @@ const Footer = () => {
           {/* Icons/links column */}
           <div className="w-full md:w-1/2">
             <h3
-              className="text-3xl mb-4 font-display"
-              style={{
-                transform: 'scaleX(1.2)',
-                transformOrigin: 'left',
-                display: 'inline-block',
-                width: 'max-content',
-              }}
-            >
+              className="text-3xl mb-4 font-display">
               עקבו והאזינו
             </h3>
             <div className="flex flex-col gap-4 items-start">
