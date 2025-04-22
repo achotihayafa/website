@@ -41,7 +41,7 @@ const HeroSection = () => {
         {/* Right Side (Text & Actions) */}
         <div className="max-w-3xl mx-auto md:mx-0 flex-1 w-full">
           <h1
-            className="text-4xl md:text-6xl lg:text-7xl mb-8 text-center font-display font-bold bg-gradient-to-r from-white via-podcast-yellow to-podcast-magenta bg-clip-text text-transparent transform scale-x-110 origin-center inline-block opacity-0 animate-fade-in-delay-1"
+            className="text-4xl md:text-6xl lg:text-7xl mb-8 font-display font-bold bg-gradient-to-r from-white via-podcast-yellow to-podcast-magenta bg-clip-text text-transparent transform scale-x-110 origin-center inline-block opacity-0 animate-fade-in-delay-1"
           >
             <span className="block">פודקאסט על רגשות,</span>
             <span className="block">אבל בעצם פודקאסט להטב"קי</span>
