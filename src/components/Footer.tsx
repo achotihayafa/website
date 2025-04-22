@@ -19,7 +19,7 @@ const Footer = () => {
               className="text-3xl mb-4 font-display"
               style={{ 
                 transform: 'scaleX(1.2)', 
-                transformOrigin: 'left',
+                transformOrigin: 'right',
                 display: 'inline-block', 
                 width: 'max-content' 
               }}
