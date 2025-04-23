@@ -4,7 +4,6 @@ import { SiSpotify, SiYoutube, SiApplepodcasts } from "react-icons/si";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
 import { FaPlay, FaPause } from "react-icons/fa";
 import { List } from 'lucide-react';
-
 interface BestEpisode {
   title: string;
   description: string;
@@ -16,7 +15,6 @@ interface BestEpisode {
   };
   imageUrl: string;
 }
-
 const bestEpisodes: BestEpisode[] = [{
   title: "חוסר תקווה, אבל בעצם דיברנו על יציאה מהארון",
   description: "סיפור היציאה מהארון של צחי - הרגע המכונן שעיצב את המשפחה שלנו מחדש, ושבאופן מסוים הוביל גם להחלטה להקליט את הפודקאסט שלנו.",
@@ -48,11 +46,9 @@ const bestEpisodes: BestEpisode[] = [{
   },
   imageUrl: "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/40378400/40378400-1745265668670-ca57ae5512fc2.jpg"
 }];
-
 const BestEpisodes = () => {
   const audioRefs = useRef<Array<HTMLAudioElement | null>>([]);
   const [playingIndex, setPlayingIndex] = useState<number | null>(null);
-
   const togglePlay = (index: number) => {
     const currentAudio = audioRefs.current[index];
     if (!currentAudio) return;
@@ -67,9 +63,7 @@ const BestEpisodes = () => {
       setPlayingIndex(index);
     }
   };
-
-  return (
-    <section id="best" className="py-20 bg-black">
+  return <section id="best" className="py-20 bg-black">
       <div className="container px-6">
         <div className="mb-12 text-center">
           <div className="w-12 h-12 rounded-full bg-podcast-magenta flex items-center justify-center mx-auto mb-4">
@@ -83,26 +77,23 @@ const BestEpisodes = () => {
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {bestEpisodes.map((episode, index) => (
-          <Card key={index} className="relative bg-podcast-darkgray/30 border-white/10 hover:border-podcast-magenta/50 transition-all duration-300 overflow-hidden">
+        {bestEpisodes.map((episode, index) => <Card key={index} className="relative bg-podcast-darkgray/30 border-white/10 hover:border-podcast-magenta/50 transition-all duration-300 overflow-hidden">
             <CardContent className="p-0 relative">
               <AspectRatio ratio={1} className="overflow-hidden">
                 <img src={episode.imageUrl} alt={episode.title} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110 hover:scale-110" />
               </AspectRatio>
               {/* Audio + Play Button */}
-              {episode.links.file && (
-                <>
+              {episode.links.file && <>
                   <audio ref={el => audioRefs.current[index] = el} src={episode.links.file} />
                   <button onClick={() => togglePlay(index)} className="absolute bottom-4 left-4 bg-podcast-magenta rounded-full p-2 group hover:bg-white transition-colors z-10" aria-label="הפעל פרק">
                     <span className="text-white group-hover:text-podcast-magenta transition-colors">
                       {playingIndex === index ? <FaPause /> : <FaPlay />}
                     </span>
                   </button>
-                </>
-              )}
+                </>}
 
               <div className="p-6">
-                <h3 className="text-3xl font mb-3 text-podcast-magenta mx-[32px]">{episode.title}</h3>
+                <h3 className="text-3xl font mb-3 text-podcast-magenta mx-0">{episode.title}</h3>
                 <p className="text-white/80 mb-6 line-clamp-3">{episode.description}</p>
                 
                 <div className="flex gap-4">
@@ -118,11 +109,8 @@ const BestEpisodes = () => {
                 </div>
               </div>
             </CardContent>
-          </Card>
-        ))}
+          </Card>)}
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default BestEpisodes;
