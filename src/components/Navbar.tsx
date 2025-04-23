@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 import { cn } from '@/lib/utils';
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -27,23 +28,23 @@ const Navbar = () => {
       style={{ minHeight: 50 }}
     >
       <div className="container flex items-center justify-between">
-        <a href="/" className="flex items-center">
+        <Link to="/" className="flex items-center">
           <img 
             src="/lovable-uploads/ab5fd662-cd0e-400c-9b54-6ea329252036.png" 
             alt="אחותי היפה"
             className="h-10" 
           />
-        </a>
+        </Link>
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center gap-12 flex-nowrap">
-          <a href="#best" className="font-medium text-white hover:text-podcast-yellow transition-colors whitespace-nowrap">פרקים מומלצים</a>
-          <a href="#about" className="font-medium text-white hover:text-podcast-yellow transition-colors whitespace-nowrap">אודות</a>
-          <a href="#btl" className="font-medium text-white hover:text-podcast-yellow transition-colors whitespace-nowrap">בין השורות</a>
-          <a href="#platforms" className="w-full block">
+          <Link to="/#best" className="font-medium text-white hover:text-podcast-yellow transition-colors whitespace-nowrap">פרקים מומלצים</Link>
+          <Link to="/#about" className="font-medium text-white hover:text-podcast-yellow transition-colors whitespace-nowrap">אודות</Link>
+          <Link to="/#btl" className="font-medium text-white hover:text-podcast-yellow transition-colors whitespace-nowrap">בין השורות</Link>
+          <Link to="/#platforms" className="w-full block">
             <Button className="bg-podcast-yellow text-black hover:bg-podcast-yellow/90 whitespace-nowrap px-7">
               האזינו עכשיו
             </Button>
-          </a>
+          </Link>
         </nav>
         {/* Mobile Menu Button */}
         <button 
@@ -57,7 +58,7 @@ const Navbar = () => {
       {/* Mobile Navigation */}
       <nav 
         className={cn(
-          'fixed inset-0 bg-podcast-magenta pt-24 px-6 flex flex-col items-center space-y-8 md:hidden transition-transform duration-300 ease-in-out',
+          'fixed inset-0 bg-podcast-magenta pt-24 px-6 flex flex-col items-center space-y-8 md:hidden transition-transform duration-300 ease-in-out z-50',
           menuOpen ? 'translate-x-0' : 'translate-x-full'
         )}
       >
@@ -68,14 +69,14 @@ const Navbar = () => {
         >
           <X size={24} />
         </button>
-        <a href="#best" className="text-xl font-medium text-white" onClick={toggleMenu}>פרקים מומלצים</a>
-        <a href="#about" className="text-xl font-medium text-white" onClick={toggleMenu}>אודות</a>
-        <a href="#btl" className="text-xl font-medium text-white" onClick={toggleMenu}>בין השורות</a>
-        <a href="#platforms" className="w-full block font-medium" onClick={toggleMenu}>
+        <Link to="/#best" className="text-xl font-medium text-white" onClick={toggleMenu}>פרקים מומלצים</Link>
+        <Link to="/#about" className="text-xl font-medium text-white" onClick={toggleMenu}>אודות</Link>
+        <Link to="/#btl" className="text-xl font-medium text-white" onClick={toggleMenu}>בין השורות</Link>
+        <Link to="/#platforms" className="w-full block font-medium" onClick={toggleMenu}>
           <Button className="w-full bg-podcast-yellow text-black hover:bg-podcast-yellow/90">
             האזינו עכשיו
           </Button>
-        </a>
+        </Link>
       </nav>
     </header>
   );
