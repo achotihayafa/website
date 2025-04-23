@@ -24,7 +24,7 @@ const HeroSection = () => {
   }, []);
 
   return (
-    <section className="relative min-h-screen flex items-center pt-24 overflow-hidden">
+    <section className="relative min-h-screen flex items-center pt-24 overflow-hidden bg-black">
       <div className="absolute inset-0 -z-10 pointer-events-none">
         <div className="absolute top-[20%] left-[10%] w-80 h-80 rounded-full bg-gradient-to-br from-podcast-magenta/30 via-podcast-yellow/30 to-podcast-magenta/10 blur-3xl animate-pulse-slow"></div>
         <div className="absolute bottom-0 right-0 w-96 h-96 rounded-full bg-gradient-to-br from-podcast-yellow/40 via-podcast-magenta/10 to-white/0 blur-3xl animate-pulse-slow" style={{ animationDelay: '0.8s' }}></div>
