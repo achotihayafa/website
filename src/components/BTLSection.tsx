@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Music } from 'lucide-react';
 import { AspectRatio } from "@/components/ui/aspect-ratio";
