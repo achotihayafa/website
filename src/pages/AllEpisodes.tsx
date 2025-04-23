@@ -2,6 +2,24 @@ import React from 'react';
 import { useQuery } from '@tanstack/react-query';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+import { fetchRssFeed } from '@/utils/rssParser';
+import { Card, CardContent } from "@/components/ui/card";
+import { AspectRatio } from "@/components/ui/aspect-ratio";
+import { SiSpotify, SiYoutube, SiApplepodcasts } from "react-icons/si";
+import { FaPlay, FaPause, FaCalendarAlt, FaClock } from "react-icons/fa";
+
+// Utility to decode HTML entities
+function decodeHtml(html: string): string {
+  const textarea = document.createElement("textarea");
+  textarea.innerHTML = html;
+  return textarea.value;
+}
+
+const PODCAST_LINKS = {
+  spotify: "https://open.spotify.com/show/0ZpvzCEuDeKQhBw74YEmp9",
+  youtube: "https://www.youtube.com/@AchotiHaYafa",
+  apple: "https://podcasts.apple.com/us/podcast/אחותי-היפה/id1728358395"
+};
 
 const AllEpisodes = () => {
   const { data: episodes, isLoading, error } = useQuery({
