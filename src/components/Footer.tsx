@@ -15,19 +15,10 @@ const Footer = () => {
         <div className="flex flex-col md:flex-row justify-between gap-14 mb-8">
           {/* Menu column */}
           <div className="w-full md:w-1/2">
-            <h3
-              className="text-3xl mb-4 font-display"
-              style={{ 
-                transform: 'scaleX(1.2)', 
-                transformOrigin: 'left',
-                display: 'inline-block', 
-                width: 'max-content' 
-              }}
-            >
+            <h3 className="text-3xl mb-4 font-display">
               אחותי היפה
             </h3>
             <ul className="space-y-2 pl-0">
-              {/* Removed default padding */}
               <li><a href="#platforms" className="text-gray-300 hover:text-podcast-yellow transition-colors">האזינו עכשיו</a></li>
               <li><a href="#best" className="text-gray-300 hover:text-podcast-yellow transition-colors">פרקים מומלצים</a></li>
               <li><a href="#latest" className="text-gray-300 hover:text-podcast-yellow transition-colors">פרקים אחרונים</a></li>
@@ -39,15 +30,7 @@ const Footer = () => {
 
           {/* Icons/links column */}
           <div className="w-full md:w-1/2">
-            <h3
-              className="text-3xl mb-4 font-display"
-              style={{
-                transform: 'scaleX(1.2)',
-                transformOrigin: 'left',
-                display: 'inline-block',
-                width: 'max-content',
-              }}
-            >
+            <h3 className="text-3xl mb-4 font-display">
               עקבו והאזינו
             </h3>
             <div className="flex flex-col gap-4 items-start sm:items-center sm:flex-row sm:gap-6">
@@ -67,7 +50,6 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* Footer bottom */}
         <div className="border-t border-white/10 pt-6 flex flex-col md:flex-row justify-between items-center">
           <p className="text-gray-400 text-sm">
             © {new Date().getFullYear()} אחותי היפה. כל הזכויות שמורות.

@@ -7,10 +7,8 @@ const podcastCover = "/lovable-uploads/cover.jpg";
 const HeroSection = () => {
   const [isScrolled, setIsScrolled] = useState(false);
 
-  // Handle scroll event
   useEffect(() => {
     const handleScroll = () => {
-      // Set state to true if scrolled down, false if at the top
       if (window.scrollY > 100) {
         setIsScrolled(true);
       } else {
@@ -18,10 +16,8 @@ const HeroSection = () => {
       }
     };
 
-    // Add scroll event listener
     window.addEventListener('scroll', handleScroll);
 
-    // Clean up the event listener when component unmounts
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
@@ -29,19 +25,16 @@ const HeroSection = () => {
 
   return (
     <section className="relative min-h-screen flex items-center pt-24 overflow-hidden">
-      {/* Animated colorful circles background */}
       <div className="absolute inset-0 -z-10 pointer-events-none">
         <div className="absolute top-[20%] left-[10%] w-80 h-80 rounded-full bg-gradient-to-br from-podcast-magenta/30 via-podcast-yellow/30 to-podcast-magenta/10 blur-3xl animate-pulse-slow"></div>
         <div className="absolute bottom-0 right-0 w-96 h-96 rounded-full bg-gradient-to-br from-podcast-yellow/40 via-podcast-magenta/10 to-white/0 blur-3xl animate-pulse-slow" style={{ animationDelay: '0.8s' }}></div>
         <div className="absolute top-[55%] right-[30%] w-48 h-48 rounded-full bg-gradient-to-br from-podcast-magenta/30 to-podcast-yellow/10 blur-2xl animate-pulse-slow" style={{ animationDelay: '2s' }}></div>
       </div>
 
-      {/* Hero content arrangement for image on left */}
       <div className="container mx-auto px-6 py-16 md:py-32 relative z-10 flex flex-col-reverse md:flex-row items-center gap-12">
-        {/* Right Side (Text & Actions) */}
         <div className="max-w-3xl mx-auto md:mx-0 flex-1 w-full">
           <h1
-            className="text-4xl md:text-6xl lg:text-7xl mb-8 font-display font-bold bg-gradient-to-r from-white via-podcast-yellow to-podcast-magenta bg-clip-text text-transparent transform scale-x-110 origin-center inline-block opacity-0 animate-fade-in-delay-1"
+            className="text-4xl md:text-6xl lg:text-7xl mb-8 font-display font-bold bg-gradient-to-r from-white via-podcast-yellow to-podcast-magenta bg-clip-text text-transparent"
           >
             <span className="block">פודקאסט על רגשות,</span>
             <span className="block">אבל בעצם פודקאסט להטב"קי</span>
@@ -72,7 +65,6 @@ const HeroSection = () => {
             </Button>
           </div>
         </div>
-        {/* Left Side (Podcast Cover) */}
         <div className="flex-1 flex justify-center items-center mb-10 md:mb-0">
           <img
             src={podcastCover}
@@ -82,7 +74,6 @@ const HeroSection = () => {
         </div>
       </div>
 
-      {/* Arrow to platforms */}
       {!isScrolled && (
         <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
           <a href="#platforms" aria-label="לכל הפלטפורמות">

@@ -1,26 +1,7 @@
-
 import React from 'react';
 import { useQuery } from '@tanstack/react-query';
-import { Card, CardContent } from "@/components/ui/card";
-import { AspectRatio } from "@/components/ui/aspect-ratio";
-import { SiSpotify, SiYoutube, SiApplepodcasts } from "react-icons/si";
-import { FaPlay, FaPause, FaCalendarAlt, FaClock } from "react-icons/fa";
-import { fetchRssFeed } from '@/utils/rssParser';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
-
-// Utility to decode HTML entities
-function decodeHtml(html: string): string {
-  const textarea = document.createElement("textarea");
-  textarea.innerHTML = html;
-  return textarea.value;
-}
-
-const PODCAST_LINKS = {
-  spotify: "https://open.spotify.com/show/0ZpvzCEuDeKQhBw74YEmp9",
-  youtube: "https://www.youtube.com/@AchotiHaYafa",
-  apple: "https://podcasts.apple.com/us/podcast/אחותי-היפה/id1728358395",
-};
 
 const AllEpisodes = () => {
   const { data: episodes, isLoading, error } = useQuery({
@@ -39,7 +20,6 @@ const AllEpisodes = () => {
       currentAudio.pause();
       setPlayingIndex(null);
     } else {
-      // Pause any other playing audio
       audioRefs.current.forEach((audio, i) => {
         if (i !== index && audio) audio.pause();
       });
@@ -50,12 +30,10 @@ const AllEpisodes = () => {
 
   React.useEffect(() => {
     return () => {
-      // Clean up audio when component unmounts
       audioRefs.current.forEach(audio => audio && audio.pause());
     };
   }, []);
 
-  // Generate JSON-LD for Schema.org markup
   const generateJsonLd = () => {
     if (!episodes || episodes.length === 0) return null;
 
@@ -89,12 +67,9 @@ const AllEpisodes = () => {
     return JSON.stringify(podcastData);
   };
 
-  // Add metadata to the document head
   React.useEffect(() => {
-    // Update title
     document.title = "כל הפרקים - אחותי היפה | פודקאסט על רגשות אבל בעצם פודקאסט להטב\"קי";
     
-    // Create meta for description
     let descMeta = document.querySelector('meta[name="description"]');
     if (!descMeta) {
       descMeta = document.createElement('meta');
@@ -103,7 +78,6 @@ const AllEpisodes = () => {
     }
     descMeta.setAttribute('content', "כל פרקי הפודקאסט אחותי היפה - פודקאסט על רגשות אבל בעצם פודקאסט להטב״קי");
     
-    // Create meta for keywords
     let keywordsMeta = document.querySelector('meta[name="keywords"]');
     if (!keywordsMeta) {
       keywordsMeta = document.createElement('meta');
@@ -112,7 +86,6 @@ const AllEpisodes = () => {
     }
     keywordsMeta.setAttribute('content', "אחותי היפה, פודקאסט, להטב, גאווה, רגשות, צחי כהן, יהונתן זיני");
     
-    // Create meta for og:title
     let ogTitleMeta = document.querySelector('meta[property="og:title"]');
     if (!ogTitleMeta) {
       ogTitleMeta = document.createElement('meta');
@@ -121,7 +94,6 @@ const AllEpisodes = () => {
     }
     ogTitleMeta.setAttribute('content', "כל הפרקים - אחותי היפה");
     
-    // Create meta for og:description
     let ogDescMeta = document.querySelector('meta[property="og:description"]');
     if (!ogDescMeta) {
       ogDescMeta = document.createElement('meta');
@@ -130,7 +102,6 @@ const AllEpisodes = () => {
     }
     ogDescMeta.setAttribute('content', "כל פרקי הפודקאסט אחותי היפה - פודקאסט על רגשות אבל בעצם פודקאסט להטב״קי");
     
-    // Create meta for og:type
     let ogTypeMeta = document.querySelector('meta[property="og:type"]');
     if (!ogTypeMeta) {
       ogTypeMeta = document.createElement('meta');
@@ -139,7 +110,6 @@ const AllEpisodes = () => {
     }
     ogTypeMeta.setAttribute('content', "website");
     
-    // Add JSON-LD Schema
     let jsonLdScript = document.querySelector('script[type="application/ld+json"]');
     if (!jsonLdScript) {
       jsonLdScript = document.createElement('script');
@@ -150,14 +120,12 @@ const AllEpisodes = () => {
       jsonLdScript.textContent = generateJsonLd();
     }
     
-    // Cleanup function
     return () => {
-      // Optional: Remove schema script when component unmounts
       const script = document.querySelector('script[type="application/ld+json"]');
       if (script) script.remove();
     };
   }, [episodes]);
-  
+
   return (
     <>
       <div className="min-h-screen">
@@ -165,13 +133,7 @@ const AllEpisodes = () => {
         <div className="pt-32 pb-20 bg-black"> 
           <div className="container px-6">
             <div className="mb-12">
-              <h1
-                className="text-5xl md:text-6xl font-bold text-podcast-yellow mb-6 text-center"
-                style={{
-                  transform: 'scaleX(1.2)',
-                  transformOrigin: 'center',
-                }}
-              >
+              <h1 className="text-5xl md:text-6xl font-bold text-podcast-yellow mb-6 text-center">
                 כל הפרקים
               </h1>
               <p className="text-white/80 text-lg text-center mb-10">

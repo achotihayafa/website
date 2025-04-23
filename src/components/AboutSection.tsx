@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Heart, Mic, Star, Instagram, Linkedin } from 'lucide-react';
 import { Card, CardContent } from "@/components/ui/card";
@@ -56,7 +55,6 @@ const AboutSection = () => {
               </div>
               <div>
                 <h4 className="text-2xl font-bold mb-1">{host.name}</h4>
-                {/* No role property in host object */}
                 <p className="text-white/80 mb-4">{host.bio}</p>
                 <div className="flex gap-3">
                   <a 

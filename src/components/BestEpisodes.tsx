@@ -3,6 +3,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { SiSpotify, SiYoutube, SiApplepodcasts } from "react-icons/si";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
 import { FaPlay, FaPause } from "react-icons/fa";
+
 interface BestEpisode {
   title: string;
   description: string;
@@ -14,6 +15,7 @@ interface BestEpisode {
   };
   imageUrl: string;
 }
+
 const bestEpisodes: BestEpisode[] = [{
   title: "חוסר תקווה, אבל בעצם דיברנו על יציאה מהארון",
   description: "סיפור היציאה מהארון של צחי - הרגע המכונן שעיצב את המשפחה שלנו מחדש, ושבאופן מסוים הוביל גם להחלטה להקליט את הפודקאסט שלנו.",
@@ -45,9 +47,11 @@ const bestEpisodes: BestEpisode[] = [{
   },
   imageUrl: "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/40378400/40378400-1745265668670-ca57ae5512fc2.jpg"
 }];
+
 const BestEpisodes = () => {
   const audioRefs = useRef<Array<HTMLAudioElement | null>>([]);
   const [playingIndex, setPlayingIndex] = useState<number | null>(null);
+
   const togglePlay = (index: number) => {
     const currentAudio = audioRefs.current[index];
     if (!currentAudio) return;
@@ -62,14 +66,11 @@ const BestEpisodes = () => {
       setPlayingIndex(index);
     }
   };
+
   return <section id="best" className="py-20 bg-black">
       <div className="container px-6">
         <div className="mb-12">
-          <h2 className="text-4xl md:text-5xl font text-podcast-magenta mb-4 text-center" style={{
-          transform: 'scaleX(1.2)',
-          transformOrigin: 'center',
-          display: 'inline-block'
-        }}>
+          <h2 className="text-4xl md:text-5xl font text-podcast-magenta mb-4 text-center">
             פרקים מומלצים
           </h2>
           <p className="text-white/80 text-lg text-center">האזינו לפרקים שאהובים עלינו במיוחד</p>
@@ -113,4 +114,5 @@ const BestEpisodes = () => {
       </div>
     </section>;
 };
+
 export default BestEpisodes;

@@ -50,10 +50,7 @@ const LatestEpisodes = () => {
   return <section id="latest" className="py-20 bg-black">
       <div className="container px-6">
         <div className="mb-12 flex justify-center">
-          <h2 className="text-4xl md:text-5xl font-bold text-podcast-yellow mb-4 text-center" style={{
-          transform: 'scaleX(1.2)',
-          transformOrigin: 'center'
-        }}>
+          <h2 className="text-4xl md:text-5xl font-bold text-podcast-yellow mb-4 text-center">
             פרקים אחרונים
           </h2>
         </div>
