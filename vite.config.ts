@@ -14,6 +14,7 @@ export default defineConfig(({ mode }) => ({
       jsxImportSource: 'react',
       tsDecorators: true,
     }),
+    base: '/website/',
     mode === 'development' &&
     componentTagger(),
   ].filter(Boolean),
