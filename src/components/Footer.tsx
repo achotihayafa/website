@@ -53,7 +53,7 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="border-t border-white/1 pt-6 flex flex-col md:flex-row justify-between items-center">
+        <div className="w-full">
           <p className="text-gray-400 text-sm">
             © {new Date().getFullYear()} אחותי היפה. כל הזכויות שמורות.
           </p>
