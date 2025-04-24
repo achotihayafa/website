@@ -7,7 +7,7 @@ const AboutSection = () => {
   const hosts = [
     {
       name: "צחי כהן",
-      bio: "צחי הוא מומחה לשיווק בעזרת יוצרי תוכן. הוא עבד בעבר בחברות כמו Google ו-Humanz. כיום הוא מרצה ומייעץ לחברות בנושאים שונים. יש לו תואר שני בפסיכולוגיה מהאוניברסיטה העברית בירושלים.",
+      bio: "(הוא/אתה) צחי הוא מומחה לשיווק בעזרת יוצרי תוכן. הוא עבד בעבר בחברות כמו Google ו-Humanz. כיום הוא מרצה ומייעץ לחברות בנושאים שונים. יש לו תואר שני בפסיכולוגיה מהאוניברסיטה העברית בירושלים.",
       image: `${import.meta.env.BASE_URL}tzachi.jpg`,
       social: {
         instagram: "https://www.instagram.com/tzachicohen",
@@ -16,7 +16,7 @@ const AboutSection = () => {
     },
     {
       name: "יהונתן כהן",
-      bio: "יהונתן היא מנהלת פרויקטים המתמחה בהובלת מוצרים דיגיטליים מורכבים. יש לו תואר ראשון בקוגניציה ובפסיכולוגיה מהאוניברסיטה העברית בירושלים.",
+      bio: "(היא/הוא) יהונתן היא מנהלת פרויקטים המתמחה בהובלת מוצרים דיגיטליים מורכבים. יש לו תואר ראשון בקוגניציה ובפסיכולוגיה מהאוניברסיטה העברית בירושלים.",
       image: `${import.meta.env.BASE_URL}yehonatan.jpg`,
       social: {
         instagram: "https://www.instagram.com/yehonatanc",
@@ -54,7 +54,7 @@ const AboutSection = () => {
                 />
               </div>
               <div>
-                <h4 className="text-2xl font-bold mb-1">{host.name}</h4>
+                <h4 className="text-2xl mb-1">{host.name}</h4>
                 <p className="text-white/80 mb-4">{host.bio}</p>
                 <div className="flex gap-3">
                   <a 

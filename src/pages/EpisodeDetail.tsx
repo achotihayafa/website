@@ -16,10 +16,9 @@ const decodeHtml = (html: string) => {
 };
 
 const formatDescriptionAsHtml = (raw: string) => {
-  const html = decodeHtml(raw)
-    .replace(/\n/g, "<br />")                       // Line breaks
-    .replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>"); // Markdown-style bold
-  return html;
+  return decodeHtml(raw)
+    .replace(/<(?!\/?a\b|br\b)[^>]*>/gi, '') // Allow only <a> and <br>
+    .replace(/&nbsp;/g, ' ');
 };
 
 const EpisodeDetail = () => {
@@ -69,77 +68,83 @@ const EpisodeDetail = () => {
         <Navbar />
 
         <section className="pt-32 pb-20">
-          <div className="container px-6 max-w-4xl mx-auto">
-            <div className="mb-8">
-              <AspectRatio ratio={1} className="overflow-hidden rounded-xl mb-6 relative">
-                <img
-                  src={episode.imageUrl}
-                  alt={decodeHtml(episode.title)}
-                  className="w-full h-full object-cover"
+          <div className="container px-6 max-w-6xl mx-auto">
+            <div className="flex flex-col md:flex-row gap-12">
+              
+              {/* Left: Text */}
+              <div className="flex-1">
+                <h1 className="text-4xl font-bold text-podcast-yellow mb-4">{decodeHtml(episode.title)}</h1>
+
+                <div className="flex gap-6 text-white/70 mb-4 text-sm">
+                  <span className="flex items-center gap-2">
+                    <FaCalendarAlt /> {episode.date}
+                  </span>
+                  <span className="flex items-center gap-2">
+                    <FaClock /> {episode.duration}
+                  </span>
+                </div>
+
+                <div
+                  className="text-white/90 leading-relaxed"
+                  dangerouslySetInnerHTML={{ __html: formatDescriptionAsHtml(episode.description) }}
                 />
-                {episode.audioUrl && (
-                  <>
-                    <audio ref={(el) => (audioRef.current = el)} src={episode.audioUrl} preload="none" />
-                    <button
-                      onClick={handlePlay}
-                      className="absolute bottom-4 left-4 bg-podcast-yellow rounded-full p-3 text-black hover:bg-black hover:text-podcast-yellow transition-colors z-10"
-                      aria-label={playing ? "הפסק פרק" : "הפעל פרק"}
+
+                {/* Platforms */}
+                <div className="flex gap-4 mt-8">
+                  {episode.spotifyLink && (
+                    <a
+                      href={episode.spotifyLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-white/80 hover:text-podcast-yellow transition-colors"
+                      aria-label="האזינו ב-Spotify"
                     >
-                      {playing ? <FaPause size={16} /> : <FaPlay size={16} />}
-                    </button>
-                  </>
-                )}
-              </AspectRatio>
-            </div>
-
-            <div className="mb-8">
-              <h1 className="text-4xl font-bold text-podcast-yellow mb-4">{decodeHtml(episode.title)}</h1>
-
-              <div className="flex gap-6 text-white/70 mb-4 text-sm">
-                <span className="flex items-center gap-2">
-                  <FaCalendarAlt /> {episode.date}
-                </span>
-                <span className="flex items-center gap-2">
-                  <FaClock /> {episode.duration}
-                </span>
+                      <SiSpotify size={28} />
+                    </a>
+                  )}
+                  <a
+                    href="https://www.youtube.com/@AchotiHaYafa"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-white/80 hover:text-podcast-yellow transition-colors"
+                    aria-label="האזינו ב-YouTube"
+                  >
+                    <SiYoutube size={28} />
+                  </a>
+                  <a
+                    href="https://podcasts.apple.com/us/podcast/אחותי-היפה/id1728358395"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-white/80 hover:text-podcast-yellow transition-colors"
+                    aria-label="האזינו ב-Apple Podcasts"
+                  >
+                    <SiApplepodcasts size={28} />
+                  </a>
+                </div>
               </div>
 
-              <div
-                className="text-white/90 whitespace-pre-wrap leading-relaxed"
-                dangerouslySetInnerHTML={{ __html: formatDescriptionAsHtml(episode.description) }}
-              />
-            </div>
-
-            <div className="flex gap-4 mt-8">
-              {episode.spotifyLink && (
-                <a
-                  href={episode.spotifyLink}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-white/80 hover:text-podcast-yellow transition-colors"
-                  aria-label="האזינו ב-Spotify"
-                >
-                  <SiSpotify size={28} />
-                </a>
-              )}
-              <a
-                href="https://www.youtube.com/@AchotiHaYafa"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-white/80 hover:text-podcast-yellow transition-colors"
-                aria-label="האזינו ב-YouTube"
-              >
-                <SiYoutube size={28} />
-              </a>
-              <a
-                href="https://podcasts.apple.com/us/podcast/אחותי-היפה/id1728358395"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-white/80 hover:text-podcast-yellow transition-colors"
-                aria-label="האזינו ב-Apple Podcasts"
-              >
-                <SiApplepodcasts size={28} />
-              </a>
+              {/* Right: Image + Play */}
+              <div className="flex-1">
+                <AspectRatio ratio={1} className="overflow-hidden rounded-xl relative">
+                  <img
+                    src={episode.imageUrl}
+                    alt={decodeHtml(episode.title)}
+                    className="w-full h-full object-cover"
+                  />
+                  {episode.audioUrl && (
+                    <>
+                      <audio ref={(el) => (audioRef.current = el)} src={episode.audioUrl} preload="none" />
+                      <button
+                        onClick={handlePlay}
+                        className="absolute bottom-4 left-4 bg-podcast-yellow rounded-full p-3 text-black hover:bg-black hover:text-podcast-yellow transition-colors z-10"
+                        aria-label={playing ? "הפסק פרק" : "הפעל פרק"}
+                      >
+                        {playing ? <FaPause size={16} /> : <FaPlay size={16} />}
+                      </button>
+                    </>
+                  )}
+                </AspectRatio>
+              </div>
             </div>
           </div>
         </section>
