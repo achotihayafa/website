@@ -16,9 +16,17 @@ const decodeHtml = (html: string) => {
 };
 
 const formatDescriptionAsHtml = (raw: string) => {
-  return decodeHtml(raw)
-    .replace(/<(?!\/?a\b|br\b)[^>]*>/gi, '') // Allow only <a> and <br>
-    .replace(/&nbsp;/g, ' ');
+  const decoded = decodeHtml(raw)
+    .replace(/<(?!br\b)[^>]*>/gi, '')  // Remove all tags except <br>
+    .replace(/&nbsp;/g, ' ');          // Normalize whitespace
+
+  // Convert plain URLs to anchor tags
+  const linked = decoded.replace(
+    /https?:\/\/[^\s<]+/g,
+    (url) => `<a href="${url}" target="_blank" rel="noopener noreferrer" class="text-podcast-yellow underline break-words">${url}</a>`
+  );
+
+  return linked;
 };
 
 const EpisodeDetail = () => {
@@ -69,7 +77,7 @@ const EpisodeDetail = () => {
 
         <section className="pt-32 pb-20">
           <div className="container px-6 max-w-6xl mx-auto">
-            <div className="flex flex-col md:flex-row gap-12">
+            <div className="flex flex-col md:flex-row-reverse gap-12">
               
               {/* Left: Text */}
               <div className="flex-1">

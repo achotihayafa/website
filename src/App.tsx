@@ -7,6 +7,8 @@ import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import AllEpisodes from "./pages/AllEpisodes";
 import EpisodeDetail from "./pages/EpisodeDetail";
+import ScrollToTop from "@/components/ScrollToTop";
+
 
 
 const queryClient = new QueryClient();
@@ -16,6 +18,7 @@ const App = () => (
     <TooltipProvider>
       <Toaster />
       <Sonner />
+      <ScrollToTop />
       <Routes>
         <Route path="/" element={<Index />} />
         <Route path="/episodes" element={<AllEpisodes />} />
