@@ -30,9 +30,9 @@ const Navbar = () => {
       <div className="container flex items-center justify-between">
         <Link to="/" className="flex items-center">
           <img 
-            src="/lovable-uploads/ab5fd662-cd0e-400c-9b54-6ea329252036.png" 
-            alt="אחותי היפה"
-            className="h-10" 
+          src={`${import.meta.env.BASE_URL}namelogo.png`} 
+          alt="אחותי היפה"
+          className="h-10" 
           />
         </Link>
         {/* Desktop Navigation */}

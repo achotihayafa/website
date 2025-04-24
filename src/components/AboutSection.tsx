@@ -8,7 +8,7 @@ const AboutSection = () => {
     {
       name: "צחי כהן",
       bio: "צחי הוא מומחה לשיווק בעזרת יוצרי תוכן. הוא עבד בעבר בחברות כמו Google ו-Humanz. כיום הוא מרצה ומייעץ לחברות בנושאים שונים. יש לו תואר שני בפסיכולוגיה מהאוניברסיטה העברית בירושלים.",
-      image: "/lovable-uploads/tzachi.jpg",
+      image: `${import.meta.env.BASE_URL}tzachi.jpg`,
       social: {
         instagram: "https://www.instagram.com/tzachicohen",
         linkedin: "https://www.linkedin.com/in/tzachi-cohen-74992b182/"
@@ -17,13 +17,14 @@ const AboutSection = () => {
     {
       name: "יהונתן כהן",
       bio: "יהונתן היא מנהלת פרויקטים המתמחה בהובלת מוצרים דיגיטליים מורכבים. יש לו תואר ראשון בקוגניציה ובפסיכולוגיה מהאוניברסיטה העברית בירושלים.",
-      image: "/lovable-uploads/yehonatan.jpg",
+      image: `${import.meta.env.BASE_URL}yehonatan.jpg`,
       social: {
         instagram: "https://www.instagram.com/yehonatanc",
         linkedin: "https://www.linkedin.com/in/yehonatan-cohen-pmo/"
       }
     }
   ];
+ 
 
   return (
     <section id="about" className="py-20">

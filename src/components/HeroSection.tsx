@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Headphones, ArrowDown } from 'lucide-react';
 import { Button } from "@/components/ui/button";
-const podcastCover = "/lovable-uploads/cover.jpg";
+const podcastCover = `${import.meta.env.BASE_URL}cover.jpg`;
 const HeroSection = () => {
   const [isScrolled, setIsScrolled] = useState(false);
 
