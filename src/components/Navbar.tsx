@@ -47,11 +47,12 @@ const Navbar = () => {
           <button onClick={() => goToSection('best')} className="font-medium text-white hover:text-podcast-yellow transition-colors whitespace-nowrap">פרקים נבחרים</button>
           <button onClick={() => goToSection('about')} className="font-medium text-white hover:text-podcast-yellow transition-colors whitespace-nowrap">אודות</button>
           <button onClick={() => goToSection('btl')} className="font-medium text-white hover:text-podcast-yellow transition-colors whitespace-nowrap">בין השורות</button>
-          <button onClick={() => goToSection('platforms')} className="w-full block">
-            <Button className="bg-podcast-yellow text-black font-bold hover:bg-podcast-yellow/90 whitespace-nowrap px-7">
-              האזינו עכשיו
-            </Button>
-          </button>
+          <Button
+            onClick={() => goToSection('platforms')}
+            className="bg-podcast-yellow text-black font-bold hover:bg-podcast-yellow/90 whitespace-nowrap px-7"
+          >
+            האזינו עכשיו
+          </Button>
         </nav>
 
         {/* Mobile Menu Button */}
