@@ -4,7 +4,8 @@ import {
   SiApplepodcasts,
   SiYoutube,
   SiPodcastaddict,
-  SiPocketcasts
+  SiPocketcasts,
+  SiCastbox
 } from 'react-icons/si';
 import { motion } from 'framer-motion';
 
@@ -34,6 +35,11 @@ const PodcastPlatforms = () => {
       name: 'Pocket Casts',
       link: 'https://pca.st/zapd6uv9',
       icon: <SiPocketcasts className="h-10 w-10" />
+    },
+    {
+      name: 'CastBox',
+      link: 'https://castbox.fm/channel/id6028686',
+      icon: <SiCastbox className="h-10 w-10" />
     }
   ];
 
@@ -58,7 +64,7 @@ const PodcastPlatforms = () => {
         </p>
 
         <div className="max-w-4xl mx-auto">
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-6">
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-6">
             {platforms.map((platform, index) => (
               <motion.a
                 key={platform.name}

@@ -51,11 +51,16 @@
     font-family: 'Assistant', sans-serif;
   }
 
-  h1, h2, h3, h4, h5, h6 {
+  h1, h2, h3 {
     /* Remove bold from Karantina headings */
     @apply font-display text-white;
     font-family: 'Karantina', cursive;
     font-weight: 400 !important;
+  }
+
+  h4, h5, h6 {
+    @apply font-display text-white;
+    font-family: 'Assistant', sans-serif;
   }
 }
 

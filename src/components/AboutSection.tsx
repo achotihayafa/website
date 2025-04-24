@@ -58,11 +58,11 @@ const AboutSection = () => {
                 />
               </div>
               <div>
-                <h4 className="text-2xl font-bold mb-1 font-body inline-flex items-center gap-1">
+                <h4 className="font-extrabold mb-1 inline-flex items-center gap-1">
                 {host.name}
-                <span className="text-white/80 text-base ml-2 font-normal font-body">{host.pronouns}</span>
+                <span className="font-normal text-white/80 text-base ml-2">{host.pronouns}</span>
                   </h4>
-                <p className="text-white/80 mb-4">{host.bio}</p>
+                <p className="text-white/70 mb-4">{host.bio}</p>
                 <div className="flex gap-3">
                   <a
                     href={host.social.instagram}

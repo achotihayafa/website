@@ -30,16 +30,19 @@ const HeroSection = () => {
       <div className="container mx-auto px-4 py-8 md:py-32 relative z-10 flex flex-col-reverse md:flex-row items-center gap-8 md:gap-12">
         {/* Right Side (Text) */}
         <div className="max-w-3xl mx-auto md:mx-0 flex-1 w-full">
-          <motion.h1
-            className="text-4xl md:text-6xl lg:text-7xl mb-6 text-center md:text-right font-display font-bold transform origin-center inline-block"
-            initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: 40 }}
-            transition={{ duration: 0.8 }}
-          >
-            <span className="block text-podcast-magenta">פודקאסט על רגשות,</span>
-            <span className="block text-podcast-yellow">אבל בעצם פודקאסט להטב"קי</span>
-          </motion.h1>
+        <motion.h1
+          className="text-4xl md:text-6xl lg:text-7xl mb-6 text-center md:text-center font-display font-bold mx-auto md:mx-0 w-fit"
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: 40 }}
+          transition={{ duration: 0.8 }}
+        >
+          <div className="inline-block md:scale-x-110 origin-right text-right md:text-inherit text-center">
+            <span className="block text-center md:text-right text-podcast-magenta">פודקאסט על רגשות,</span>
+            <span className="block text-center md:text-right text-podcast-yellow">אבל בעצם פודקאסט להטב"קי</span>
+          </div>
+        </motion.h1>
+
 
           <motion.p
             className="text-lg md:text-xl mb-8 text-white/80 max-w-2xl text-center md:text-right mx-auto md:mx-0"
@@ -61,7 +64,7 @@ const HeroSection = () => {
           >
             <Button
               size="lg"
-              className="w-full md:w-auto text-xl bg-podcast-yellow text-black hover:bg-podcast-yellow/90 shadow-lg shadow-podcast-yellow/20 flex items-center justify-center"
+              className="w-full font-bold md:w-auto text-xl bg-podcast-yellow text-black hover:bg-podcast-yellow/90 shadow-lg shadow-podcast-yellow/20 flex items-center justify-center"
               onClick={() =>
                 window.open("https://open.spotify.com/show/0ZpvzCEuDeKQhBw74YEmp9?si=WpeRZqDaS5CRs-R3JyGipQ", "_blank")
               }
