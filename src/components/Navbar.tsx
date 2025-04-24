@@ -29,7 +29,7 @@ const Navbar = () => {
     <header
       className={cn(
         'fixed w-full z-50 transition-all duration-300',
-        isScrolled ? 'py-4 bg-podcast-magenta shadow-md' : 'py-7 bg-podcast-magenta'
+        isScrolled ? 'py-3 md:py-4 bg-podcast-magenta shadow-md' : 'py-5 md:py-7 bg-podcast-magenta'
       )}
       style={{ minHeight: 50 }}
     >
@@ -67,7 +67,7 @@ const Navbar = () => {
       {/* Mobile Navigation */}
       <nav
         className={cn(
-          'fixed inset-0 bg-podcast-magenta pt-24 px-6 flex flex-col items-center space-y-8 md:hidden transition-transform duration-300 ease-in-out z-50',
+          'fixed inset-0 bg-podcast-magenta pt-20 px-6 flex flex-col items-center space-y-8 md:hidden transition-transform duration-300 ease-in-out z-50',
           menuOpen ? 'translate-x-0' : 'translate-x-full'
         )}
       >
@@ -78,6 +78,16 @@ const Navbar = () => {
         >
           <X size={24} />
         </button>
+
+        {/* Logo in Mobile Menu */}
+        <Link to="/" className="mb-4" onClick={closeMenu}>
+          <img
+            src={`${import.meta.env.BASE_URL}namelogo.png`}
+            alt="אחותי היפה"
+            className="h-10"
+          />
+        </Link>
+
         <button onClick={() => goToSection('best')} className="text-xl font-medium text-white">פרקים נבחרים</button>
         <button onClick={() => goToSection('about')} className="text-xl font-medium text-white">אודות</button>
         <button onClick={() => goToSection('btl')} className="text-xl font-medium text-white">בין השורות</button>

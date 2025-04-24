@@ -31,22 +31,22 @@ const HeroSection = () => {
         {/* Right Side (Text) */}
         <div className="max-w-3xl mx-auto md:mx-0 flex-1 w-full">
           <motion.h1
-            className="text-4xl md:text-6xl lg:text-7xl mb-6 text-center font-display font-bold transform origin-center inline-block"
+            className="text-4xl md:text-6xl lg:text-7xl mb-6 text-center md:text-right font-display font-bold transform origin-center inline-block"
             initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 40 }}
             transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
           >
-            <span className="block text-right text-podcast-magenta">פודקאסט על רגשות,</span>
+            <span className="block text-podcast-magenta">פודקאסט על רגשות,</span>
             <span className="block text-podcast-yellow">אבל בעצם פודקאסט להטב"קי</span>
           </motion.h1>
 
           <motion.p
             className="text-lg md:text-xl mb-8 text-white/80 max-w-2xl text-center md:text-right mx-auto md:mx-0"
             initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 30 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            viewport={{ once: true }}
           >
             הצטרפו אלינו מדי שבוע למסע מצחיק ומרגש בין סיפורים וזיכרונות.
             הפודקאסט יוצר מרחב לדיונים כנים על זהות, מיניות, משפחה וחיים להטב"קים - בדיוק בשביל מי שמחפשים לפתוח את הלב.
@@ -55,9 +55,9 @@ const HeroSection = () => {
           <motion.div
             className="flex flex-wrap gap-4 justify-center md:justify-start"
             initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 30 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            viewport={{ once: true }}
           >
             <Button
               size="lg"
@@ -85,11 +85,11 @@ const HeroSection = () => {
 
         {/* Left Side (Image) */}
         <motion.div
-          className="flex-1 flex justify-center items-center mb-6 md:mb-0"
+          className="flex-1 flex justify-center items-center mb-2 md:mb-0"
           initial={{ opacity: 0, scale: 0.9 }}
-          whileInView={{ opacity: 1, scale: 1 }}
+          animate={{ opacity: 1, scale: 1 }}
+          exit={{ opacity: 0, scale: 0.9 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          viewport={{ once: true }}
         >
           <img
             src={podcastCover}
@@ -99,12 +99,13 @@ const HeroSection = () => {
         </motion.div>
       </div>
 
-      {/* Down arrow */}
+      {/* Down arrow (only visible on desktop) */}
       {!isScrolled && (
         <motion.div
-          className="absolute bottom-6 left-1/2 transform -translate-x-1/2 animate-bounce"
+          className="absolute bottom-6 left-1/2 transform -translate-x-1/2 animate-bounce hidden md:block"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
           transition={{ delay: 1 }}
         >
           <a href="./#platforms" aria-label="לכל הפלטפורמות">

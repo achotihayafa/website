@@ -38,16 +38,16 @@ const Footer = () => {
             </h3>
             <div className="flex flex-col gap-4 items-start sm:items-center sm:flex-row sm:gap-6">
               <a href={PODCAST_LINKS.instagram} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-gray-300 hover:text-podcast-yellow transition-colors">
-                <SiInstagram size={28} /> <span className="hidden sm:inline">Instagram</span>
+                <SiInstagram size={28} /> <span>Instagram</span>
               </a>
               <a href={PODCAST_LINKS.spotify} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-gray-300 hover:text-podcast-yellow transition-colors">
-                <SiSpotify size={28} /> <span className="hidden sm:inline">Spotify</span>
+                <SiSpotify size={28} /> <span>Spotify</span>
               </a>
               <a href={PODCAST_LINKS.youtube} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-gray-300 hover:text-podcast-yellow transition-colors">
-                <SiYoutube size={28} /> <span className="hidden sm:inline">YouTube</span>
+                <SiYoutube size={28} /> <span>YouTube</span>
               </a>
               <a href={PODCAST_LINKS.apple} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-gray-300 hover:text-podcast-yellow transition-colors">
-                <SiApplepodcasts size={28} /> <span className="hidden sm:inline">Apple Podcasts</span>
+                <SiApplepodcasts size={28} /> <span>Apple Podcasts</span>
               </a>
             </div>
           </div>

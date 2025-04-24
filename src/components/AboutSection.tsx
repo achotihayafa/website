@@ -58,7 +58,7 @@ const AboutSection = () => {
                 />
               </div>
               <div>
-                <h4 className="text-2xl font-bold mb-1 font-body">
+                <h4 className="text-2xl font-bold mb-1 font-body inline-flex items-center gap-1">
                 {host.name}
                 <span className="text-white/80 text-base ml-2 font-normal font-body">{host.pronouns}</span>
                   </h4>
