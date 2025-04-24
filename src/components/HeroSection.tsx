@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Headphones, ArrowDown } from 'lucide-react';
+import { SiSpotify } from "react-icons/si";
+
 import { Button } from "@/components/ui/button";
 const podcastCover = `${import.meta.env.BASE_URL}cover.jpg`;
 const HeroSection = () => {
@@ -51,16 +53,27 @@ const HeroSection = () => {
           </p>
 
           <div className="flex flex-wrap gap-4 opacity-0 animate-fade-in-delay-2">
-            <Button size="lg" className="bg-podcast-yellow text-black hover:bg-podcast-yellow/90 shadow-lg shadow-podcast-yellow/20" onClick={() => window.open("https://open.spotify.com/show/0ZpvzCEuDeKQhBw74YEmp9?si=WpeRZqDaS5CRs-R3JyGipQ", "_blank")}>
-              <Headphones className="ml-2" />
-              האזינו ב-Spotify
-            </Button>
+          <Button
+            size="lg"
+            className="w-full md:w-auto text-xl bg-podcast-yellow text-black hover:bg-podcast-yellow/90 shadow-lg shadow-podcast-yellow/20 flex items-center justify-center"
+            onClick={() =>
+              window.open("https://open.spotify.com/show/0ZpvzCEuDeKQhBw74YEmp9?si=WpeRZqDaS5CRs-R3JyGipQ", "_blank")
+            }
+          >
+            <SiSpotify className="ml-2" size={24} />
+            האזינו ב-Spotify
+          </Button>
 
-            <Button variant="outline" size="lg" onClick={() => document.getElementById('best')?.scrollIntoView({
-            behavior: 'smooth'
-          })} className="text-white border-white hover:bg-white/10">
-              פרקים מומלצים
-            </Button>
+          <Button
+            variant="outline"
+            size="lg"
+            className="w-full md:w-auto text-xl text-white border-white hover:bg-white/10"
+            onClick={() =>
+              document.getElementById('best')?.scrollIntoView({ behavior: 'smooth' })
+            }
+          >
+            פרקים נבחרים
+          </Button>
           </div>
         </div>
         {/* Left Side (Podcast Cover) */}

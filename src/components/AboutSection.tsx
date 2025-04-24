@@ -31,9 +31,9 @@ const AboutSection = () => {
       <div className="container px-6">
         <div className="max-w-3xl mx-auto text-center mb-16">
           <div className="w-12 h-12 rounded-full bg-podcast-magenta flex items-center justify-center mx-auto mb-4">
-            <Info className="text-podcast-black" size={24} />
+            <Info className="text-black" size={24} />
           </div>
-          <h2 className="text-4xl md:text-4xl mb-4 text-podcast-magenta">אודות הפודקאסט</h2>
+          <h2 className="text-4xl md:text-5xl mb-4 text-podcast-magenta">אודות הפודקאסט</h2>
           <p className="text-lg text-white/80">
             “אחותי היפה" הוא פודקאסט המגיש שיחות עומק על רגשות, זהות וחוויות להטב"קיות. הפודקאסט, בהנחיית האחים צחי ויהונתן כהן, עוסק בכל פרק ברגש אחר מתוך “Atlas of the Heart” של ברנה בראון וממשיך למסע אינטימי בין זיכרונות וסיפורים, בניסיון להבין את הרגש ולפתוח את הלב.
             בין סיפורי הילדות, טיולים ברחבי העולם דייטים כושלים, “אחותי היפה” מדבר אל הלב ומציע נקודת מבט ייחודית על פגיעות, שייכות, וגאווה.

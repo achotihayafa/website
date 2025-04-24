@@ -32,17 +32,17 @@ const BTLSection = () => {
           <div className="w-12 h-12 rounded-full bg-podcast-yellow flex items-center justify-center mx-auto mb-4">
             <Music className="text-podcast-darkgray" size={24} />
           </div>
-          <h2 className="text-4xl md:text-4xl font-bold mb-4 text-podcast-yellow">
+          <h2 className="text-4xl md:text-5xl mb-4 text-podcast-yellow">
             בין השורות
           </h2>
         </div>
 
         <div className="max-w-3xl mx-auto mb-5 text-center">
           <p className="text-lg text-white/80 mb-4">
-            האזינו לפלייליסט "בין השורות" - מסע מוזיקלי שמתכתב עם הפרקים של הפודקאסט.
+          בכל סוף פרק אנחנו בוחרות שיר שמתאר את הרגשות שעלו בנו במהלך הפרק ויחד נוצר פס הקול שמלווה אותנו בפרקים ובחיים: רשימה של שירים שנעים בין שמחה, כאב, אהבה וחרטה.
           </p>
           <p className="text-lg text-white/80">
-            בכל סוף פרק אנחנו בוחרות שיר שמתאר את הרגשות שעלו בנו במהלך הפרק ויחד נוצר פס הקול שמלווה אותנו בפרקים ובחיים: רשימה של שירים שנעים בין שמחה, כאב, אהבה וחרטה.
+          האזינו לפלייליסט "בין השורות" - מסע מוזיקלי שמתכתב עם הפרקים של הפודקאסט.
           </p>
         </div>
 

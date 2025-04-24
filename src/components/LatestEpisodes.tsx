@@ -64,7 +64,7 @@ const LatestEpisodes = () => {
           <div className="w-12 h-12 rounded-full bg-podcast-yellow flex items-center justify-center mx-auto mb-4">
             <Clock className="text-black" size={24} />
           </div>
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-podcast-yellow">
+          <h2 className="text-4xl md:text-5xl mb-4 text-podcast-yellow">
             פרקים אחרונים
           </h2>
           <p className="text-white/80 text-lg text-center">האזינו לשיחות האחרונות שלנו</p>
@@ -159,7 +159,7 @@ const LatestEpisodes = () => {
         )}
 
         {/* Button to All Episodes */}
-        <div className="flex justify-center mt-12 mb-40">
+        <div className="flex justify-center mt-12 mb-12">
           <Link
             to="/episodes"
             className="bg-podcast-yellow text-black font-bold px-6 py-2 rounded-full hover:bg-white transition-colors duration-300"
