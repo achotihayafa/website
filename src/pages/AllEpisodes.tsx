@@ -265,5 +265,6 @@ const AllEpisodes = () => {
       </div>
     </>
   );
-  
+};
+
 export default AllEpisodes;

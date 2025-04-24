@@ -6,6 +6,8 @@ import { Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import AllEpisodes from "./pages/AllEpisodes";
+import EpisodeDetail from "./pages/EpisodeDetail";
+
 
 const queryClient = new QueryClient();
 
