@@ -46,7 +46,7 @@ const PodcastPlatforms = () => {
       <div className="container px-6 relative z-10">
         <div className="mb-6 text-center">
           <h2
-            className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-podcast-yellow to-white bg-clip-text text-transparent inline-block transform scale-x-110 origin-center"
+            className="text-4xl md:text-5xl text-yellow font-bold bg-gradient-to-r inline-block transform scale-x-110 origin-center"
             dir="rtl"
           >
             האזינו לנו עכשיו בכל הפלטפורמות

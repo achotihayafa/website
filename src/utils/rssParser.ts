@@ -29,6 +29,12 @@ export const fetchRssFeed = async (): Promise<Episode[]> => {
       // ✅ Extract episode ID from <link>
       const link = item.querySelector("link")?.textContent || "";
       const id = link.split("/").pop() || `episode-${index}`; // fallback to index
+      
+      // description
+      const cleanDescription = description
+      .replace(/<(?!\/?a\b|br\b)[^>]*>/gi, '')  // keep <a> and <br>, remove everything else
+      .replace(/&nbsp;/g, ' ');                 // optional: normalize &nbsp;
+
 
       // Duration
       let duration = "";
@@ -71,7 +77,7 @@ export const fetchRssFeed = async (): Promise<Episode[]> => {
       episodes.push({
         id, // ✅ added
         title,
-        description: description.replace(/<[^>]*>/g, ''), // Strip HTML
+        description: cleanDescription,
         duration: formattedDuration,
         date: formattedDate,
         spotifyLink: "https://open.spotify.com/show/0ZpvzCEuDeKQhBw74YEmp9",
