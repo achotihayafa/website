@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { SiSpotify, SiYoutube, SiApplepodcasts, SiInstagram } from "react-icons/si";
 
 const PODCAST_LINKS = {
@@ -11,20 +12,22 @@ const PODCAST_LINKS = {
 const Footer = () => {
   return (
     <footer className="bg-black/80 text-white py-12">
+      <div className="border-t border-white/10 mb-10" />
       <div className="container px-6 max-w-screen-2xl">
         <div className="flex flex-col md:flex-row justify-between gap-14 mb-8">
+          
           {/* Menu column */}
           <div className="w-full md:w-1/2">
             <h3 className="text-3xl mb-4 font-display">
               אחותי היפה
             </h3>
             <ul className="space-y-2 pl-0">
-              <li><a href="./#platforms" className="text-gray-300 hover:text-podcast-yellow transition-colors">האזינו עכשיו</a></li>
-              <li><a href="./#best" className="text-gray-300 hover:text-podcast-yellow transition-colors">פרקים נבחרים</a></li>
-              <li><a href="./#latest" className="text-gray-300 hover:text-podcast-yellow transition-colors">פרקים אחרונים</a></li>
-              <li><a href="./episodes" className="text-gray-300 hover:text-podcast-yellow transition-colors">כל הפרקים</a></li>
-              <li><a href="./#about" className="text-gray-300 hover:text-podcast-yellow transition-colors">אודות</a></li>
-              <li><a href="./#btl" className="text-gray-300 hover:text-podcast-yellow transition-colors">בין השורות</a></li>
+              <li><Link to="/#platforms" className="text-gray-300 hover:text-podcast-yellow transition-colors">האזינו עכשיו</Link></li>
+              <li><Link to="/#best" className="text-gray-300 hover:text-podcast-yellow transition-colors">פרקים נבחרים</Link></li>
+              <li><Link to="/#latest" className="text-gray-300 hover:text-podcast-yellow transition-colors">פרקים אחרונים</Link></li>
+              <li><Link to="/episodes" className="text-gray-300 hover:text-podcast-yellow transition-colors">כל הפרקים</Link></li>
+              <li><Link to="/#about" className="text-gray-300 hover:text-podcast-yellow transition-colors">אודות</Link></li>
+              <li><Link to="/#btl" className="text-gray-300 hover:text-podcast-yellow transition-colors">בין השורות</Link></li>
             </ul>
           </div>
 
@@ -50,7 +53,7 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="border-t border-white/10 pt-6 flex flex-col md:flex-row justify-between items-center">
+        <div className="border-t border-white/1 pt-6 flex flex-col md:flex-row justify-between items-center">
           <p className="text-gray-400 text-sm">
             © {new Date().getFullYear()} אחותי היפה. כל הזכויות שמורות.
           </p>

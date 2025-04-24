@@ -78,9 +78,9 @@ const BestEpisodes = () => {
       <div className="container px-6">
         <div className="mb-12 text-center">
           <div className="w-12 h-12 rounded-full bg-podcast-magenta flex items-center justify-center mx-auto mb-4">
-            <Heart className="text-black" size={24} /> 
+            <Heart className="text-black font-bold" size={24} /> 
           </div>
-          <h2 className="text-4xl md:text-5xl mb-4 text-podcast-magenta"> 
+          <h2 className="text-4xl md:text-5xl mb-4 text-podcast-magenta transform scale-x-110"> 
             פרקים נבחרים
           </h2>
           <p className="text-white/80 text-lg">האזינו לפרקים שאהובים עלינו במיוחד</p>

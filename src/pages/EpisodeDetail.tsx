@@ -80,7 +80,7 @@ const EpisodeDetail = () => {
             <div className="flex flex-col md:flex-row-reverse gap-12">
               
               {/* Left: Text */}
-              <div className="flex-1">
+              <div className="w-full md:w-2/3">
                 <h1 className="text-4xl font-bold text-podcast-yellow mb-4">{decodeHtml(episode.title)}</h1>
 
                 <div className="flex gap-6 text-white/70 mb-4 text-sm">
@@ -132,7 +132,7 @@ const EpisodeDetail = () => {
               </div>
 
               {/* Right: Image + Play */}
-              <div className="flex-1">
+              <div className="w-full md:w-1/3">
                 <AspectRatio ratio={1} className="overflow-hidden rounded-xl relative">
                   <img
                     src={episode.imageUrl}
