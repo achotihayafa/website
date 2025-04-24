@@ -73,7 +73,7 @@ const Navbar = () => {
         <Link to="./#about" className="text-xl font-medium text-white" onClick={toggleMenu}>אודות</Link>
         <Link to="./#btl" className="text-xl font-medium text-white" onClick={toggleMenu}>בין השורות</Link>
         <Link to="./#platforms" className="w-full block font-medium" onClick={toggleMenu}>
-          <Button className="w-full bg-podcast-yellow text-black hover:bg-podcast-yellow/90">
+          <Button className="text-xl font-bold w-full bg-podcast-yellow text-black hover:bg-podcast-yellow/90">
             האזינו עכשיו
           </Button>
         </Link>

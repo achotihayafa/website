@@ -7,6 +7,8 @@ import { Card, CardContent } from "@/components/ui/card";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
 import { SiSpotify, SiYoutube, SiApplepodcasts } from "react-icons/si";
 import { FaPlay, FaPause, FaCalendarAlt, FaClock } from "react-icons/fa";
+import { Link } from 'react-router-dom';
+
 
 // Utility to decode HTML entities
 function decodeHtml(html: string): string {
@@ -86,8 +88,8 @@ const AllEpisodes = () => {
   };
 
   React.useEffect(() => {
-    document.title = "כל הפרקים - אחותי היפה | פודקאסט על רגשות אבל בעצם פודקאסט להטב\"קי";
-    
+    document.title = 'כל הפרקים - אחותי היפה | פודקאסט על רגשות אבל בעצם פודקאסט להטב\"קי';
+
     let descMeta = document.querySelector('meta[name="description"]');
     if (!descMeta) {
       descMeta = document.createElement('meta');
@@ -102,7 +104,7 @@ const AllEpisodes = () => {
       keywordsMeta.setAttribute('name', 'keywords');
       document.head.appendChild(keywordsMeta);
     }
-    keywordsMeta.setAttribute('content', "אחותי היפה, פודקאסט, להטב, גאווה, רגשות, צחי כהן, יהונתן זיני");
+    keywordsMeta.setAttribute('content', "אחותי היפה, פודקאסט, להטב, גאווה, רגשות, צחי כהן, יהונתן כהן");
     
     let ogTitleMeta = document.querySelector('meta[property="og:title"]');
     if (!ogTitleMeta) {
@@ -148,7 +150,7 @@ const AllEpisodes = () => {
     <>
       <div className="min-h-screen">
         <Navbar />
-        <div className="pt-32 pb-20 bg-black"> 
+        <div className="pt-32 pb-20 bg-black">
           <div className="container px-6">
             <div className="mb-12">
               <h1 className="text-5xl md:text-6xl font-bold text-podcast-yellow mb-6 text-center">
@@ -158,7 +160,7 @@ const AllEpisodes = () => {
                 האזינו לכל פרקי הפודקאסט אחותי היפה
               </p>
             </div>
-
+  
             {isLoading ? (
               <div className="flex justify-center items-center py-20">
                 <span className="animate-spin text-white text-2xl">⏳</span>
@@ -173,29 +175,33 @@ const AllEpisodes = () => {
                   <Card
                     key={index}
                     className="relative bg-podcast-darkgray/30 border-white/10 hover:border-podcast-yellow/50 transition-all duration-300 overflow-hidden group"
-                    style={{ borderRadius: '1rem' }}
+                    style={{ borderRadius: "1rem" }}
                   >
                     <CardContent className="p-0 relative">
                       <AspectRatio ratio={1} className="overflow-hidden">
                         {episode.imageUrl && (
-                          <img
-                            src={episode.imageUrl}
-                            alt={decodeHtml(episode.title)}
-                            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                          />
+                          <Link to={`/episodes/${episode.id}`}>
+                            <img
+                              src={episode.imageUrl}
+                              alt={decodeHtml(episode.title)}
+                              className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                            />
+                          </Link>
                         )}
                       </AspectRatio>
                       {episode.audioUrl && (
                         <>
                           <audio
-                            ref={el => (audioRefs.current[index] = el)}
+                            ref={(el) => (audioRefs.current[index] = el)}
                             src={episode.audioUrl}
                             preload="none"
                           />
                           <button
                             onClick={() => togglePlay(index)}
                             className="absolute bottom-4 left-4 bg-podcast-yellow rounded-full p-3 text-black hover:bg-black hover:text-podcast-yellow transition-colors z-10"
-                            aria-label={playingIndex === index ? "הפסק פרק" : "הפעל פרק"}
+                            aria-label={
+                              playingIndex === index ? "הפסק פרק" : "הפעל פרק"
+                            }
                           >
                             {playingIndex === index ? <FaPause size={16} /> : <FaPlay size={16} />}
                           </button>
@@ -210,12 +216,14 @@ const AllEpisodes = () => {
                             <FaClock className="text-podcast-yellow" /> {episode.duration}
                           </span>
                         </div>
-                        <h3
-                          className="text-3xl font-bold mb-3 text-podcast-yellow"
-                        >
-                          {decodeHtml(episode.title)}
+                        <h3 className="text-3xl font-bold mb-3 text-podcast-yellow">
+                          <Link to={`/episodes/${episode.id}`} className="hover:underline">
+                            {decodeHtml(episode.title)}
+                          </Link>
                         </h3>
-                        <p className="text-white/80 mb-6 line-clamp-3">{decodeHtml(episode.description)}</p>
+                        <p className="text-white/80 mb-6 line-clamp-3">
+                          {decodeHtml(episode.description)}
+                        </p>
                         <div className="flex gap-4">
                           <a
                             href={PODCAST_LINKS.spotify}
@@ -257,6 +265,5 @@ const AllEpisodes = () => {
       </div>
     </>
   );
-};
-
+  
 export default AllEpisodes;
