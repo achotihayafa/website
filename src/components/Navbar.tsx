@@ -92,11 +92,12 @@ const Navbar = () => {
         <button onClick={() => goToSection('best')} className="text-xl font-medium text-white">פרקים נבחרים</button>
         <button onClick={() => goToSection('about')} className="text-xl font-medium text-white">אודות</button>
         <button onClick={() => goToSection('btl')} className="text-xl font-medium text-white">בין השורות</button>
-        <button onClick={() => goToSection('platforms')} className="w-full block font-medium">
-          <Button className="text-xl font-bold w-full bg-podcast-yellow text-black hover:bg-podcast-yellow/90">
-            האזינו עכשיו
-          </Button>
-        </button>
+        <Button
+          onClick={() => goToSection('platforms')}
+          className="text-xl font-bold w-full bg-podcast-yellow text-black hover:bg-podcast-yellow/90"
+        >
+          האזינו עכשיו
+        </Button>
       </nav>
     </header>
   );
