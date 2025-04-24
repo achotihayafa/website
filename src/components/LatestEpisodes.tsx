@@ -6,6 +6,8 @@ import { useQuery } from '@tanstack/react-query';
 import { fetchRssFeed } from '@/utils/rssParser';
 import { FaPlay, FaPause } from "react-icons/fa";
 import { ListOrdered } from 'lucide-react';
+import { Link } from 'react-router-dom';
+
 
 // Utility to decode HTML entities
 function decodeHtml(html: string): string {
@@ -98,10 +100,10 @@ const LatestEpisodes = () => {
                 </CardContent>
               </Card>)}
           </div>}
-        <div className="flex justify-center mb-10">
-          <a href="./episodes" className="bg-podcast-yellow text-black px-6 py-2 rounded-full hover:bg-white transition-colors duration-300">
-            לכל הפרקים
-          </a>
+        <div className="flex justify-center mb-20">
+          <Link to="/episodes" className="bg-podcast-yellow text-black px-6 py-2 rounded-full hover:bg-white transition-colors duration-300">
+          לכל הפרקים
+          </Link>
         </div>
       </div>
     </section>;
