@@ -20,7 +20,7 @@ const Footer = () => {
             </h3>
             <ul className="space-y-2 pl-0">
               <li><a href="./#platforms" className="text-gray-300 hover:text-podcast-yellow transition-colors">האזינו עכשיו</a></li>
-              <li><a href="./#best" className="text-gray-300 hover:text-podcast-yellow transition-colors">פרקים מומלצים</a></li>
+              <li><a href="./#best" className="text-gray-300 hover:text-podcast-yellow transition-colors">פרקים נבחרים</a></li>
               <li><a href="./#latest" className="text-gray-300 hover:text-podcast-yellow transition-colors">פרקים אחרונים</a></li>
               <li><a href="./episodes" className="text-gray-300 hover:text-podcast-yellow transition-colors">כל הפרקים</a></li>
               <li><a href="./#about" className="text-gray-300 hover:text-podcast-yellow transition-colors">אודות</a></li>

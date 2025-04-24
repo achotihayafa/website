@@ -40,9 +40,9 @@ const HeroSection = () => {
       <div className="container mx-auto px-6 py-16 md:py-32 relative z-10 flex flex-col-reverse md:flex-row items-center gap-12">
         {/* Right Side (Text & Actions) */}
         <div className="max-w-3xl mx-auto md:mx-0 flex-1 w-full">
-          <h1 className="text-4xl md:text-6xl lg:text-7xl mb-8 text-center font-display font-bold bg-gradient-to-r from-white via-podcast-yellow to-podcast-magenta bg-clip-text text-transparent transform origin-center inline-block opacity-0 animate-fade-in-delay-1">
-            <span className="block text-right">פודקאסט על רגשות,</span>
-            <span className="block">אבל בעצם פודקאסט להטב"קי</span>
+          <h1 className="text-4xl md:text-6xl lg:text-7xl mb-8 text-center font-display font-bold transform origin-center inline-block opacity-0 animate-fade-in-delay-1">
+            <span className="block text-right text-podcast-magenta">פודקאסט על רגשות,</span>
+            <span className="block text-podcast-yellow">אבל בעצם פודקאסט להטב"קי</span>
           </h1>
 
           <p className="text-lg md:text-xl mb-10 text-white/80 max-w-2xl opacity-0 animate-fade-in-delay-2 bg-gradient-to-r from-white to-white/80 bg-clip-text text-transparent">

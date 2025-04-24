@@ -69,7 +69,7 @@ const Navbar = () => {
         >
           <X size={24} />
         </button>
-        <Link to="./#best" className="text-xl font-medium text-white" onClick={toggleMenu}>פרקים מומלצים</Link>
+        <Link to="./#best" className="text-xl font-medium text-white" onClick={toggleMenu}>פרקים נבחרים</Link>
         <Link to="./#about" className="text-xl font-medium text-white" onClick={toggleMenu}>אודות</Link>
         <Link to="./#btl" className="text-xl font-medium text-white" onClick={toggleMenu}>בין השורות</Link>
         <Link to="./#platforms" className="w-full block font-medium" onClick={toggleMenu}>
