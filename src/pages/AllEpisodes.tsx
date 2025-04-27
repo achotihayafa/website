@@ -9,12 +9,20 @@ import { SiSpotify, SiYoutube, SiApplepodcasts } from "react-icons/si";
 import { FaPlay, FaPause, FaCalendarAlt, FaClock } from "react-icons/fa";
 import { Link } from 'react-router-dom';
 
-
 // Utility to decode HTML entities
 function decodeHtml(html: string): string {
   const textarea = document.createElement("textarea");
   textarea.innerHTML = html;
   return textarea.value;
+}
+
+// Utility to strip HTML and convert <br> to space
+function stripHtmlAndBr(html: string): string {
+  const decoded = decodeHtml(html);
+  return decoded
+    .replace(/<br\s*\/?>/gi, ' ')  // Convert <br> to space
+    .replace(/<[^>]+>/g, '')       // Remove all other tags
+    .trim();
 }
 
 const PODCAST_LINKS = {
@@ -73,7 +81,7 @@ const AllEpisodes = () => {
         "@type": "PodcastEpisode",
         "position": index + 1,
         "name": decodeHtml(episode.title),
-        "description": decodeHtml(episode.description),
+        "description": stripHtmlAndBr(episode.description),
         "datePublished": episode.date,
         "duration": episode.duration,
         "url": episode.audioUrl,
@@ -97,7 +105,7 @@ const AllEpisodes = () => {
       document.head.appendChild(descMeta);
     }
     descMeta.setAttribute('content', "כל פרקי הפודקאסט אחותי היפה - פודקאסט על רגשות אבל בעצם פודקאסט להטב״קי");
-    
+
     let keywordsMeta = document.querySelector('meta[name="keywords"]');
     if (!keywordsMeta) {
       keywordsMeta = document.createElement('meta');
@@ -105,7 +113,7 @@ const AllEpisodes = () => {
       document.head.appendChild(keywordsMeta);
     }
     keywordsMeta.setAttribute('content', "אחותי היפה, פודקאסט, להטב, גאווה, רגשות, צחי כהן, יהונתן כהן");
-    
+
     let ogTitleMeta = document.querySelector('meta[property="og:title"]');
     if (!ogTitleMeta) {
       ogTitleMeta = document.createElement('meta');
@@ -113,7 +121,7 @@ const AllEpisodes = () => {
       document.head.appendChild(ogTitleMeta);
     }
     ogTitleMeta.setAttribute('content', "כל הפרקים - אחותי היפה");
-    
+
     let ogDescMeta = document.querySelector('meta[property="og:description"]');
     if (!ogDescMeta) {
       ogDescMeta = document.createElement('meta');
@@ -121,7 +129,7 @@ const AllEpisodes = () => {
       document.head.appendChild(ogDescMeta);
     }
     ogDescMeta.setAttribute('content', "כל פרקי הפודקאסט אחותי היפה - פודקאסט על רגשות אבל בעצם פודקאסט להטב״קי");
-    
+
     let ogTypeMeta = document.querySelector('meta[property="og:type"]');
     if (!ogTypeMeta) {
       ogTypeMeta = document.createElement('meta');
@@ -129,7 +137,7 @@ const AllEpisodes = () => {
       document.head.appendChild(ogTypeMeta);
     }
     ogTypeMeta.setAttribute('content', "website");
-    
+
     let jsonLdScript = document.querySelector('script[type="application/ld+json"]');
     if (!jsonLdScript) {
       jsonLdScript = document.createElement('script');
@@ -139,7 +147,7 @@ const AllEpisodes = () => {
     if (episodes && episodes.length > 0) {
       jsonLdScript.textContent = generateJsonLd();
     }
-    
+
     return () => {
       const script = document.querySelector('script[type="application/ld+json"]');
       if (script) script.remove();
@@ -160,7 +168,7 @@ const AllEpisodes = () => {
                 האזינו לכל פרקי הפודקאסט אחותי היפה
               </p>
             </div>
-  
+
             {isLoading ? (
               <div className="flex justify-center items-center py-20">
                 <span className="animate-spin text-white text-2xl">⏳</span>
@@ -199,9 +207,7 @@ const AllEpisodes = () => {
                           <button
                             onClick={() => togglePlay(index)}
                             className="absolute bottom-4 left-4 bg-podcast-yellow rounded-full p-3 text-black hover:bg-black hover:text-podcast-yellow transition-colors z-10"
-                            aria-label={
-                              playingIndex === index ? "הפסק פרק" : "הפעל פרק"
-                            }
+                            aria-label={playingIndex === index ? "הפסק פרק" : "הפעל פרק"}
                           >
                             {playingIndex === index ? <FaPause size={16} /> : <FaPlay size={16} />}
                           </button>
@@ -222,34 +228,16 @@ const AllEpisodes = () => {
                           </Link>
                         </h3>
                         <p className="text-white/80 mb-6 line-clamp-3">
-                          {decodeHtml(episode.description)}
+                          {stripHtmlAndBr(episode.description)}
                         </p>
                         <div className="flex gap-4">
-                          <a
-                            href={PODCAST_LINKS.spotify}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="text-white/80 hover:text-podcast-yellow transition-colors"
-                            aria-label="האזינו ב-Spotify"
-                          >
+                          <a href={PODCAST_LINKS.spotify} target="_blank" rel="noopener noreferrer" className="text-white/80 hover:text-podcast-yellow transition-colors" aria-label="האזינו ב-Spotify">
                             <SiSpotify size={24} />
                           </a>
-                          <a
-                            href={PODCAST_LINKS.youtube}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="text-white/80 hover:text-podcast-yellow transition-colors"
-                            aria-label="האזינו ב-YouTube"
-                          >
+                          <a href={PODCAST_LINKS.youtube} target="_blank" rel="noopener noreferrer" className="text-white/80 hover:text-podcast-yellow transition-colors" aria-label="האזינו ב-YouTube">
                             <SiYoutube size={24} />
                           </a>
-                          <a
-                            href={PODCAST_LINKS.apple}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="text-white/80 hover:text-podcast-yellow transition-colors"
-                            aria-label="האזינו ב-Apple Podcasts"
-                          >
+                          <a href={PODCAST_LINKS.apple} target="_blank" rel="noopener noreferrer" className="text-white/80 hover:text-podcast-yellow transition-colors" aria-label="האזינו ב-Apple Podcasts">
                             <SiApplepodcasts size={24} />
                           </a>
                         </div>

@@ -15,6 +15,15 @@ function decodeHtml(html: string): string {
   return textarea.value;
 }
 
+// Utility to strip all HTML and replace <br> with space
+function stripHtmlAndBr(html: string): string {
+  const decoded = decodeHtml(html);
+  return decoded
+    .replace(/<br\s*\/?>/gi, ' ')  // Replace <br> with space
+    .replace(/<[^>]+>/g, '')       // Strip all other HTML tags
+    .trim();
+}
+
 const PODCAST_LINKS = {
   spotify: "https://open.spotify.com/show/0ZpvzCEuDeKQhBw74YEmp9",
   youtube: "https://www.youtube.com/@AchotiHaYafa",
@@ -120,7 +129,9 @@ const LatestEpisodes = () => {
                       <h3 className="text-3xl font-bold mb-3 text-podcast-yellow mx-0">
                         {decodeHtml(episode.title)}
                       </h3>
-                      <p className="text-white/80 mb-6 line-clamp-3">{decodeHtml(episode.description)}</p>
+                      <p className="text-white/80 mb-6 line-clamp-3">
+                        {stripHtmlAndBr(episode.description)}
+                      </p>
                     </div>
                     <div className="flex gap-4 mt-auto">
                       <a

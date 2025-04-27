@@ -32,12 +32,13 @@ export const fetchRssFeed = async (): Promise<Episode[]> => {
       
       // description
       const cleanDescription = description
-      .replace(/<\/p>\s*<p>/gi, '<br>')       // Replace paragraph breaks with double line breaks
-      .replace(/<p[^>]*>/gi, '')                  // Remove opening <p> tags
-      .replace(/<\/p>/gi, '')                     // Remove closing </p>
-      .replace(/<(?!br\b)[^>]*>/gi, '')           // Strip everything except <br>
-      .replace(/\n+/g, '<br />')                  // Convert newlines to <br>
-      .replace(/&nbsp;/g, ' ');                   // Normalize spaces
+        .replace(/<\/p>\s*<p>/gi, '<br>')                   // Replace paragraph breaks with <br>
+        .replace(/<p[^>]*>/gi, '')                          // Remove opening <p> tags
+        .replace(/<\/p>/gi, '')                             // Remove closing </p>
+        .replace(/<(?!\/?(br|strong)\b)[^>]*>/gi, '')       // Keep <br> and <strong> tags, strip others
+        .replace(/\n+/g, '<br />')                          // Convert newlines to <br />
+        .replace(/&nbsp;/g, ' ');                           // Normalize spaces
+
 
       // Duration
       let duration = "";

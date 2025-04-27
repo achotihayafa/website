@@ -82,13 +82,22 @@ const Navbar = () => {
         </button>
 
         {/* Logo in Mobile Menu */}
-        <Link to="/" className="mb-4" onClick={closeMenu}>
+        <button
+          onClick={() => {
+            navigate('/');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+            closeMenu();
+          }}
+          className="mb-4"
+          aria-label="דף הבית"
+        >
           <img
             src={`${import.meta.env.BASE_URL}namelogo.png`}
             alt="אחותי היפה"
             className="h-10"
           />
-        </Link>
+        </button>
+
 
         <button onClick={() => goToSection('best')} className="text-xl font-medium text-white">פרקים נבחרים</button>
         <button onClick={() => goToSection('latest')} className="text-xl font-medium text-white">פרקים אחרונים</button>
