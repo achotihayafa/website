@@ -80,7 +80,7 @@ const BestEpisodes = () => {
           <div className="w-12 h-12 rounded-full bg-podcast-magenta flex items-center justify-center mx-auto mb-4">
             <Heart className="text-black font-bold" size={24} /> 
           </div>
-          <h2 className="text-4xl md:text-5xl mb-4 text-podcast-magenta transform scale-x-110"> 
+          <h2 className="text-4xl md:text-5xl mb-4 text-podcast-magenta transform scale-x-120"> 
             פרקים נבחרים
           </h2>
           <p className="text-white/80 text-lg">האזינו לפרקים שאהובים עלינו במיוחד</p>
@@ -118,7 +118,9 @@ const BestEpisodes = () => {
                 )}
 
                 <div className="p-6">
-                  <h3 className="text-3xl font mb-3 text-podcast-magenta">{episode.title}</h3>
+                <h3 className="text-3xl font mb-3 text-podcast-magenta transform scale-x-110 inline-block origin-right">
+                    {episode.title}
+                  </h3>
                   <p className="text-white/80 mb-6 line-clamp-3">{episode.description}</p>
 
                   <div className="flex gap-4">
