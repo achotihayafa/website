@@ -77,8 +77,32 @@ const EpisodeDetail = () => {
 
         <section className="pt-32 pb-20">
           <div className="container px-6 max-w-6xl mx-auto">
-            <div className="flex flex-col md:flex-row-reverse gap-12">
+            <div className="flex flex-col md:flex-row gap-12">
               
+              {/* Right: Image + Play */}
+              <div className="w-full md:w-1/3">
+                <AspectRatio ratio={1} className="overflow-hidden rounded-xl relative">
+                  <img
+                    src={episode.imageUrl}
+                    alt={decodeHtml(episode.title)}
+                    className="w-full h-full object-cover"
+                  />
+                  {episode.audioUrl && (
+                    <>
+                      <audio ref={(el) => (audioRef.current = el)} src={episode.audioUrl} preload="none" />
+                      <button
+                        onClick={handlePlay}
+                        className="absolute bottom-4 left-4 bg-podcast-yellow rounded-full p-3 text-black hover:bg-black hover:text-podcast-yellow transition-colors z-10"
+                        aria-label={playing ? "הפסק פרק" : "הפעל פרק"}
+                      >
+                        {playing ? <FaPause size={16} /> : <FaPlay size={16} />}
+                      </button>
+                    </>
+                  )}
+                </AspectRatio>
+              </div>
+
+
               {/* Left: Text */}
               <div className="w-full md:w-2/3">
                 <h1 className="text-4xl font-bold text-podcast-yellow mb-4">{decodeHtml(episode.title)}</h1>
@@ -131,28 +155,7 @@ const EpisodeDetail = () => {
                 </div>
               </div>
 
-              {/* Right: Image + Play */}
-              <div className="w-full md:w-1/3">
-                <AspectRatio ratio={1} className="overflow-hidden rounded-xl relative">
-                  <img
-                    src={episode.imageUrl}
-                    alt={decodeHtml(episode.title)}
-                    className="w-full h-full object-cover"
-                  />
-                  {episode.audioUrl && (
-                    <>
-                      <audio ref={(el) => (audioRef.current = el)} src={episode.audioUrl} preload="none" />
-                      <button
-                        onClick={handlePlay}
-                        className="absolute bottom-4 left-4 bg-podcast-yellow rounded-full p-3 text-black hover:bg-black hover:text-podcast-yellow transition-colors z-10"
-                        aria-label={playing ? "הפסק פרק" : "הפעל פרק"}
-                      >
-                        {playing ? <FaPause size={16} /> : <FaPlay size={16} />}
-                      </button>
-                    </>
-                  )}
-                </AspectRatio>
-              </div>
+
             </div>
           </div>
         </section>

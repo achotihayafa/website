@@ -38,7 +38,7 @@ const HeroSection = () => {
           transition={{ duration: 0.8 }}
         >
           <div className="inline-block md:scale-x-110 origin-right text-right md:text-inherit text-center">
-            <span className="block text-center md:text-right text-podcast-magenta">פודקאסט על רגשות,</span>
+            <span className="block text-center md:text-right text-podcast-yellow">פודקאסט על רגשות,</span>
             <span className="block text-center md:text-right text-podcast-yellow">אבל בעצם פודקאסט להטב"קי</span>
           </div>
         </motion.h1>
