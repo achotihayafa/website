@@ -31,17 +31,22 @@ const HeroSection = () => {
         {/* Right Side (Text) */}
         <div className="max-w-3xl mx-auto md:mx-0 flex-1 w-full">
         <motion.h1
-          className="text-4xl md:text-6xl lg:text-7xl mb-6 text-center md:text-center font-display font-bold mx-auto md:mx-0 w-fit"
+          className="text-4xl md:text-6xl lg:text-7xl mb-6 font-display font-bold text-center md:text-right mx-auto md:mx-0 md:ml-auto max-w-xl"
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: 40 }}
           transition={{ duration: 0.8 }}
         >
-          <div className="inline-block md:scale-x-120 origin-right text-right md:text-inherit text-center">
-            <span className="block text-center md:text-right text-podcast-yellow">פודקאסט על רגשות,</span>
-            <span className="block text-center md:text-right text-podcast-yellow">אבל בעצם פודקאסט להטב"קי</span>
+          <div className="text-center md:text-right">
+            <span className="block text-podcast-magenta transform scale-x-120 origin-right">
+              פודקאסט על רגשות,
+            </span>
+            <span className="block text-podcast-yellow transform scale-x-120 origin-right">
+              אבל בעצם פודקאסט להטב"קי
+            </span>
           </div>
         </motion.h1>
+
 
 
           <motion.p
@@ -66,7 +71,7 @@ const HeroSection = () => {
               size="lg"
               className="w-full font-bold md:w-auto text-xl bg-podcast-yellow text-black hover:bg-podcast-yellow/90 shadow-lg shadow-podcast-yellow/20 flex items-center justify-center"
               onClick={() =>
-                window.open("https://open.spotify.com/show/0ZpvzCEuDeKQhBw74YEmp9?si=WpeRZqDaS5CRs-R3JyGipQ", "_blank")
+                window.open("https://open.spotify.com/show/0ZpvzCEuDeKQhBw74YEmp9?si=MjucC2YbRyqI4Iee2HYbHw", "_blank")
               }
             >
               <SiSpotify className="ml-2" size={24} />

@@ -125,7 +125,7 @@ const EpisodeDetail = () => {
                 <div className="flex gap-4 mt-8">
                   {episode.spotifyLink && (
                     <a
-                      href={episode.spotifyLink}
+                      href="https://open.spotify.com/show/0ZpvzCEuDeKQhBw74YEmp9?si=MjucC2YbRyqI4Iee2HYbHw"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="text-white/80 hover:text-podcast-yellow transition-colors"

@@ -32,7 +32,7 @@ const BTLSection = () => {
           <div className="w-12 h-12 rounded-full bg-podcast-yellow flex items-center justify-center mx-auto mb-4">
             <Music className="text-black font-bold" size={24} />
           </div>
-          <h2 className="text-4xl md:text-5xl mb-4 text-podcast-yellow transform scale-x-110">
+          <h2 className="text-4xl md:text-5xl mb-4 text-podcast-yellow transform scale-x-120">
             בין השורות
           </h2>
         </div>

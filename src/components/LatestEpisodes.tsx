@@ -25,7 +25,7 @@ function stripHtmlAndBr(html: string): string {
 }
 
 const PODCAST_LINKS = {
-  spotify: "https://open.spotify.com/show/0ZpvzCEuDeKQhBw74YEmp9",
+  spotify: "https://open.spotify.com/show/0ZpvzCEuDeKQhBw74YEmp9?si=MjucC2YbRyqI4Iee2HYbHw",
   youtube: "https://www.youtube.com/@AchotiHaYafa",
   apple: "https://podcasts.apple.com/us/podcast/אחותי-היפה/id1728358395"
 };
@@ -73,7 +73,7 @@ const LatestEpisodes = () => {
           <div className="w-12 h-12 rounded-full bg-podcast-yellow flex items-center justify-center mx-auto mb-4">
             <Clock className="text-black font-bold" size={24} />
           </div>
-          <h2 className="text-4xl md:text-5xl mb-4 text-podcast-yellow transform scale-x-110">
+          <h2 className="text-4xl md:text-5xl mb-4 text-podcast-yellow transform scale-x-120">
             פרקים אחרונים
           </h2>
           <p className="text-white/80 text-lg text-center">האזינו לשיחות האחרונות שלנו</p>
@@ -126,7 +126,7 @@ const LatestEpisodes = () => {
 
                   <div className="p-6 flex flex-col justify-between flex-grow">
                     <div>
-                      <h3 className="text-3xl font-bold mb-3 text-podcast-yellow mx-0">
+                      <h3 className="text-3xl mb-3 text-podcast-yellow">
                         {decodeHtml(episode.title)}
                       </h3>
                       <p className="text-white/80 mb-6 line-clamp-3">

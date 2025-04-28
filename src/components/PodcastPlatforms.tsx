@@ -13,7 +13,7 @@ const PodcastPlatforms = () => {
   const platforms = [
     {
       name: 'Spotify',
-      link: 'https://open.spotify.com/show/0ZpvzCEuDeKQhBw74YEmp9',
+      link: 'https://open.spotify.com/show/0ZpvzCEuDeKQhBw74YEmp9?si=MjucC2YbRyqI4Iee2HYbHw',
       icon: <SiSpotify className="h-10 w-10" />
     },
     {
@@ -52,7 +52,7 @@ const PodcastPlatforms = () => {
       <div className="container px-6 relative z-10">
         <div className="mb-6 text-center">
           <h2
-            className="text-4xl md:text-5xl text-podcast-yellow font-bold bg-gradient-to-r inline-block transform scale-x-110 origin-center"
+            className="text-4xl md:text-5xl text-podcast-yellow font-bold bg-gradient-to-r inline-block transform scale-x-120 origin-center"
             dir="rtl"
           >
             האזינו לנו עכשיו בכל הפלטפורמות

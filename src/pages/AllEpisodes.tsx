@@ -26,7 +26,7 @@ function stripHtmlAndBr(html: string): string {
 }
 
 const PODCAST_LINKS = {
-  spotify: "https://open.spotify.com/show/0ZpvzCEuDeKQhBw74YEmp9",
+  spotify: "https://open.spotify.com/show/0ZpvzCEuDeKQhBw74YEmp9?si=MjucC2YbRyqI4Iee2HYbHw",
   youtube: "https://www.youtube.com/@AchotiHaYafa",
   apple: "https://podcasts.apple.com/us/podcast/אחותי-היפה/id1728358395"
 };

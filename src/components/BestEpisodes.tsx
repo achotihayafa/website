@@ -118,7 +118,7 @@ const BestEpisodes = () => {
                 )}
 
                 <div className="p-6">
-                <h3 className="text-3xl font mb-3 text-podcast-magenta transform scale-x-110 inline-block origin-right">
+                <h3 className="text-3xl mb-3 text-podcast-magenta">
                     {episode.title}
                   </h3>
                   <p className="text-white/80 mb-6 line-clamp-3">{episode.description}</p>
