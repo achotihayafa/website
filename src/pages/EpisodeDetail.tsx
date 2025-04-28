@@ -64,13 +64,25 @@ const EpisodeDetail = () => {
       <Helmet>
         <title>{decodeHtml(episode.title)} | אחותי היפה</title>
         <meta name="description" content={decodeHtml(episode.description).slice(0, 160)} />
+
+        {/* Open Graph Meta Tags */}
         <meta property="og:title" content={decodeHtml(episode.title)} />
         <meta property="og:description" content={decodeHtml(episode.description)} />
         <meta property="og:image" content={episode.imageUrl} />
+        <meta property="og:image:alt" content={`עטיפת הפרק - ${decodeHtml(episode.title)}`} />
         <meta property="og:type" content="article" />
         <meta property="og:url" content={`https://achotihayafa.github.io/website/episodes/${episode.id}`} />
+
+        {/* Canonical Link */}
         <link rel="canonical" href={`https://achotihayafa.github.io/website/episodes/${episode.id}`} />
+
+        {/* Twitter Meta Tags */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={decodeHtml(episode.title)} />
+        <meta name="twitter:description" content={decodeHtml(episode.description)} />
+        <meta name="twitter:image" content={episode.imageUrl} />
       </Helmet>
+
 
       <div className="min-h-screen bg-black text-white">
         <Navbar />

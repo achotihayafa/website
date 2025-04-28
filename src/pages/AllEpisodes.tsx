@@ -9,6 +9,9 @@ import { SiSpotify, SiYoutube, SiApplepodcasts } from "react-icons/si";
 import { FaPlay, FaPause, FaCalendarAlt, FaClock } from "react-icons/fa";
 import { Link } from 'react-router-dom';
 
+// ✅ Open Graph image constant
+const OG_IMAGE_URL = 'https://achotihayafa.github.io/website/opengraph.png';
+
 // Utility to decode HTML entities
 function decodeHtml(html: string): string {
   const textarea = document.createElement("textarea");
@@ -74,7 +77,7 @@ const AllEpisodes = () => {
       "image": episodes[0]?.imageUrl,
       "author": {
         "@type": "Person",
-        "name": "צחי כהן ויהונתן זיני"
+        "name": "צחי כהן ויהונתן כהן"
       },
       "webFeed": "https://anchor.fm/s/f1452300/podcast/rss",
       "episode": episodes.map((episode, index) => ({
@@ -98,45 +101,34 @@ const AllEpisodes = () => {
   React.useEffect(() => {
     document.title = 'כל הפרקים - אחותי היפה | פודקאסט על רגשות אבל בעצם פודקאסט להטב\"קי';
 
-    let descMeta = document.querySelector('meta[name="description"]');
-    if (!descMeta) {
-      descMeta = document.createElement('meta');
-      descMeta.setAttribute('name', 'description');
-      document.head.appendChild(descMeta);
-    }
-    descMeta.setAttribute('content', "כל פרקי הפודקאסט אחותי היפה - פודקאסט על רגשות אבל בעצם פודקאסט להטב״קי");
+    const metaTags = [
+      { name: 'description', content: 'כל פרקי הפודקאסט אחותי היפה - פודקאסט על רגשות אבל בעצם פודקאסט להטב״קי' },
+      { name: 'keywords', content: 'אחותי היפה, פודקאסט, להטב, גאווה, רגשות, צחי כהן, יהונתן כהן' },
+      { property: 'og:title', content: 'כל הפרקים - אחותי היפה' },
+      { property: 'og:description', content: 'כל פרקי הפודקאסט אחותי היפה - פודקאסט על רגשות אבל בעצם פודקאסט להטב״קי' },
+      { property: 'og:type', content: 'website' },
+      { property: 'og:image', content: OG_IMAGE_URL },
+      { property: 'og:image:alt', content: 'אחותי היפה' },
+      { name: 'twitter:card', content: 'summary_large_image' },
+      { name: 'twitter:image', content: OG_IMAGE_URL },
+    ];
 
-    let keywordsMeta = document.querySelector('meta[name="keywords"]');
-    if (!keywordsMeta) {
-      keywordsMeta = document.createElement('meta');
-      keywordsMeta.setAttribute('name', 'keywords');
-      document.head.appendChild(keywordsMeta);
-    }
-    keywordsMeta.setAttribute('content', "אחותי היפה, פודקאסט, להטב, גאווה, רגשות, צחי כהן, יהונתן כהן");
-
-    let ogTitleMeta = document.querySelector('meta[property="og:title"]');
-    if (!ogTitleMeta) {
-      ogTitleMeta = document.createElement('meta');
-      ogTitleMeta.setAttribute('property', 'og:title');
-      document.head.appendChild(ogTitleMeta);
-    }
-    ogTitleMeta.setAttribute('content', "כל הפרקים - אחותי היפה");
-
-    let ogDescMeta = document.querySelector('meta[property="og:description"]');
-    if (!ogDescMeta) {
-      ogDescMeta = document.createElement('meta');
-      ogDescMeta.setAttribute('property', 'og:description');
-      document.head.appendChild(ogDescMeta);
-    }
-    ogDescMeta.setAttribute('content', "כל פרקי הפודקאסט אחותי היפה - פודקאסט על רגשות אבל בעצם פודקאסט להטב״קי");
-
-    let ogTypeMeta = document.querySelector('meta[property="og:type"]');
-    if (!ogTypeMeta) {
-      ogTypeMeta = document.createElement('meta');
-      ogTypeMeta.setAttribute('property', 'og:type');
-      document.head.appendChild(ogTypeMeta);
-    }
-    ogTypeMeta.setAttribute('content', "website");
+    metaTags.forEach(tag => {
+      const selector = tag.name
+        ? `meta[name="${tag.name}"]`
+        : `meta[property="${tag.property}"]`;
+      let meta = document.querySelector(selector);
+      if (!meta) {
+        meta = document.createElement('meta');
+        if (tag.name) {
+          meta.setAttribute('name', tag.name);
+        } else if (tag.property) {
+          meta.setAttribute('property', tag.property);
+        }
+        document.head.appendChild(meta);
+      }
+      meta.setAttribute('content', tag.content);
+    });
 
     let jsonLdScript = document.querySelector('script[type="application/ld+json"]');
     if (!jsonLdScript) {

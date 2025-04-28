@@ -31,23 +31,15 @@ const HeroSection = () => {
         {/* Right Side (Text) */}
         <div className="max-w-3xl mx-auto md:mx-0 flex-1 w-full">
         <motion.h1
-          className="text-4xl md:text-6xl lg:text-7xl mb-6 font-display font-bold text-center md:text-right mx-auto md:mx-0 md:ml-auto max-w-xl"
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: 40 }}
-          transition={{ duration: 0.8 }}
-        >
-          <div className="text-center md:text-right">
-            <span className="block text-podcast-magenta transform scale-x-120 origin-right">
-              פודקאסט על רגשות,
-            </span>
-            <span className="block text-podcast-yellow transform scale-x-120 origin-right">
-              אבל בעצם פודקאסט להטב"קי
-            </span>
-          </div>
-        </motion.h1>
-
-
+            className="text-4xl md:text-6xl lg:text-7xl mb-6 text-center md:text-right font-display font-bold transform origin-center inline-block"
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 40 }}
+            transition={{ duration: 0.8 }}
+          >
+            <span className="block text-podcast-magenta">פודקאסט על רגשות,</span>
+            <span className="block text-podcast-yellow">אבל בעצם פודקאסט להטב"קי</span>
+          </motion.h1>
 
           <motion.p
             className="text-lg md:text-xl mb-8 text-white/80 max-w-2xl text-center md:text-right mx-auto md:mx-0"

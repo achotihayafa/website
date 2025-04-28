@@ -73,7 +73,7 @@ const LatestEpisodes = () => {
           <div className="w-12 h-12 rounded-full bg-podcast-yellow flex items-center justify-center mx-auto mb-4">
             <Clock className="text-black font-bold" size={24} />
           </div>
-          <h2 className="text-4xl md:text-5xl mb-4 text-podcast-yellow transform scale-x-120">
+          <h2 className="text-4xl md:text-5xl mb-4 text-podcast-yellow">
             פרקים אחרונים
           </h2>
           <p className="text-white/80 text-lg text-center">האזינו לשיחות האחרונות שלנו</p>
