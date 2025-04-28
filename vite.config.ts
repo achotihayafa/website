@@ -1,7 +1,7 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react-swc";
 import path from "path";
-// import componentTagger from './path-to-componentTagger' // Uncomment if you have this plugin
+import cnamePlugin from 'vite-plugin-cname'
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
@@ -15,6 +15,9 @@ export default defineConfig(({ mode }) => ({
       jsxImportSource: 'react',
       tsDecorators: true,
     }),
+    cnamePlugin({
+      domain: 'achotihayafa.com'
+    })
     // mode === 'development' && componentTagger(), // Uncomment if defined
   ].filter(Boolean), // filters out `false` if in production
   resolve: {
