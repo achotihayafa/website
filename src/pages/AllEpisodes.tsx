@@ -1,4 +1,5 @@
 import React from 'react';
+import { Helmet } from 'react-helmet-async';
 import { useQuery } from '@tanstack/react-query';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
@@ -9,22 +10,19 @@ import { SiSpotify, SiYoutube, SiApplepodcasts } from "react-icons/si";
 import { FaPlay, FaPause, FaCalendarAlt, FaClock } from "react-icons/fa";
 import { Link } from 'react-router-dom';
 
-// ✅ Open Graph image constant
 const OG_IMAGE_URL = 'https://achotihayafa.github.io/website/opengraph.png';
 
-// Utility to decode HTML entities
 function decodeHtml(html: string): string {
   const textarea = document.createElement("textarea");
   textarea.innerHTML = html;
   return textarea.value;
 }
 
-// Utility to strip HTML and convert <br> to space
 function stripHtmlAndBr(html: string): string {
   const decoded = decodeHtml(html);
   return decoded
-    .replace(/<br\s*\/?>/gi, ' ')  // Convert <br> to space
-    .replace(/<[^>]+>/g, '')       // Remove all other tags
+    .replace(/<br\s*\/?>/gi, ' ')
+    .replace(/<[^>]+>/g, '')
     .trim();
 }
 
@@ -74,7 +72,7 @@ const AllEpisodes = () => {
       "name": "אחותי היפה",
       "description": "פודקאסט על רגשות אבל בעצם פודקאסט להטב\"קי",
       "url": "https://open.spotify.com/show/0ZpvzCEuDeKQhBw74YEmp9",
-      "image": episodes[0]?.imageUrl,
+      "image": episodes[0]?.imageUrl || OG_IMAGE_URL,
       "inLanguage": "he",
       "author": {
         "@type": "Person",
@@ -99,58 +97,35 @@ const AllEpisodes = () => {
     return JSON.stringify(podcastData);
   };
 
-  React.useEffect(() => {
-    document.title = 'כל הפרקים - אחותי היפה | פודקאסט על רגשות אבל בעצם פודקאסט להטב\"קי';
-
-    const metaTags = [
-      { name: 'description', content: 'כל פרקי הפודקאסט "אחותי היפה" – שיחות על רגשות, זהות, משפחה וחיים קוויריים. בהנחיית האחים הגאים צחי ויהונתן כהן. בכל פרק רגש חדש.' },
-      { name: 'keywords', content: 'אחותי היפה, פודקאסט, להטב, גאווה, רגשות, פודקסט קווירי, פודקאסט על רגשות, פודקאסט גאה בעברית, ברנה בראון, צחי כהן, יהונתן כהן' },
-      { property: 'og:title', content: 'כל פרקי הפודקאסט אחותי היפה - פודקאסט על רגשות אבל בעצם פודקאסט להטב״קי' },
-      { property: 'og:description', content: 'כל פרקי הפודקאסט "אחותי היפה" – שיחות על רגשות, זהות, משפחה וחיים קוויריים. בהנחיית האחים הגאים צחי ויהונתן כהן. בכל פרק רגש חדש.' },
-      { property: 'og:type', content: 'website' },
-      { property: 'og:image', content: OG_IMAGE_URL },
-      { property: 'og:image:alt', content: 'אחותי היפה' },
-      { name: 'twitter:card', content: 'summary_large_image' },
-      { name: 'twitter:image', content: OG_IMAGE_URL },
-    ];
-
-    metaTags.forEach(tag => {
-      const selector = tag.name
-        ? `meta[name="${tag.name}"]`
-        : `meta[property="${tag.property}"]`;
-      let meta = document.querySelector(selector);
-      if (!meta) {
-        meta = document.createElement('meta');
-        if (tag.name) {
-          meta.setAttribute('name', tag.name);
-        } else if (tag.property) {
-          meta.setAttribute('property', tag.property);
-        }
-        document.head.appendChild(meta);
-      }
-      meta.setAttribute('content', tag.content);
-    });
-
-    let jsonLdScript = document.querySelector('script[type="application/ld+json"]');
-    if (!jsonLdScript) {
-      jsonLdScript = document.createElement('script');
-      jsonLdScript.setAttribute('type', 'application/ld+json');
-      document.head.appendChild(jsonLdScript);
-    }
-    if (episodes && episodes.length > 0) {
-      jsonLdScript.textContent = generateJsonLd();
-    }
-
-    return () => {
-      const script = document.querySelector('script[type="application/ld+json"]');
-      if (script) script.remove();
-    };
-  }, [episodes]);
-
   return (
     <>
+      <Helmet>
+        <title>כל הפרקים - אחותי היפה | פודקאסט על רגשות אבל בעצם פודקאסט להטב"קי</title>
+        <meta name="description" content='כל פרקי הפודקאסט "אחותי היפה" – שיחות על רגשות, זהות, משפחה וחיים קוויריים. בהנחיית האחים הגאים צחי ויהונתן כהן. בכל פרק רגש חדש.' />
+        <meta name="keywords" content="אחותי היפה, פודקאסט, להטב, גאווה, רגשות, פודקסט קווירי, פודקאסט על רגשות, פודקאסט גאה בעברית, ברנה בראון, צחי כהן, יהונתן כהן" />
+        
+        {/* OpenGraph */}
+        <meta property="og:title" content="כל פרקי הפודקאסט אחותי היפה - פודקאסט על רגשות אבל בעצם פודקאסט להטב״קי" />
+        <meta property="og:description" content='כל פרקי הפודקאסט "אחותי היפה" – שיחות על רגשות, זהות, משפחה וחיים קוויריים. בהנחיית האחים הגאים צחי ויהונתן כהן. בכל פרק רגש חדש.' />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content={OG_IMAGE_URL} />
+        <meta property="og:image:alt" content="אחותי היפה" />
+        
+        {/* Twitter */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:image" content={OG_IMAGE_URL} />
+
+        {/* JSON-LD Structured Data */}
+        {episodes && episodes.length > 0 && (
+          <script type="application/ld+json">
+            {generateJsonLd()}
+          </script>
+        )}
+      </Helmet>
+
       <div className="min-h-screen">
         <Navbar />
+
         <div className="pt-32 pb-20 bg-black">
           <div className="container px-6">
             <div className="mb-12">
@@ -158,7 +133,7 @@ const AllEpisodes = () => {
                 כל הרגשות – כל הפרקים
               </h1>
               <p className="text-white/80 text-lg text-center mb-10">
-              שיחות מלב אל לב של האחים הגאים צחי ויהונתן כהן – על אהבה, פחד, שייכות, ויציאה מהארון
+                שיחות מלב אל לב של האחים הגאים צחי ויהונתן כהן – על אהבה, פחד, שייכות, ויציאה מהארון
               </p>
             </div>
 
@@ -186,10 +161,12 @@ const AllEpisodes = () => {
                               src={episode.imageUrl}
                               alt={decodeHtml(episode.title)}
                               className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                              loading="lazy"
                             />
                           </Link>
                         )}
                       </AspectRatio>
+
                       {episode.audioUrl && (
                         <>
                           <audio
@@ -206,6 +183,7 @@ const AllEpisodes = () => {
                           </button>
                         </>
                       )}
+
                       <div className="p-6">
                         <div className="flex justify-between items-center mb-3">
                           <span className="flex items-center gap-1 text-white/70 text-sm">
@@ -215,14 +193,17 @@ const AllEpisodes = () => {
                             <FaClock className="text-podcast-yellow" /> {episode.duration}
                           </span>
                         </div>
+
                         <h3 className="text-3xl font-bold mb-3 text-podcast-yellow">
                           <Link to={`/episodes/${episode.id}`} className="hover:underline">
                             {decodeHtml(episode.title)}
                           </Link>
                         </h3>
+
                         <p className="text-white/80 mb-6 line-clamp-3">
                           {stripHtmlAndBr(episode.description)}
                         </p>
+
                         <div className="flex gap-4">
                           <a href={PODCAST_LINKS.spotify} target="_blank" rel="noopener noreferrer" className="text-white/80 hover:text-podcast-yellow transition-colors" aria-label="האזינו ב-Spotify">
                             <SiSpotify size={24} />
@@ -242,18 +223,21 @@ const AllEpisodes = () => {
             )}
           </div>
         </div>
+
+        {/* CTA to Spotify */}
         <div className="text-center mt-20 mb-10">
           <p className="text-xl text-white/80 mb-6">
             רוצה לא לפספס את הפרק הבא?
           </p>
           <a
-            href="https://open.spotify.com/show/0ZpvzCEuDeKQhBw74YEmp9?si=MjucC2YbRyqI4Iee2HYbHw"
+            href={PODCAST_LINKS.spotify}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-block bg-podcast-yellow text-black text-lg font-bold px-8 py-3 rounded-full hover:bg-white hover:text-podcast-yellow transition-colors duration-300 shadow-lg shadow-podcast-yellow/30"
+            className="inline-flex items-center gap-3 bg-podcast-yellow text-black text-lg font-bold px-8 py-3 rounded-full hover:bg-white hover:text-black transition-colors duration-300 shadow-lg shadow-podcast-yellow/30"
             aria-label="עקבו אחרינו בספוטיפיי"
           >
-            זה הזמן לעקוב אחרינו בספוטיפיי 🎧
+            <SiSpotify size={24} />
+            זה הזמן לעקוב אחרינו בספוטיפיי
           </a>
         </div>
 

@@ -103,6 +103,7 @@ const LatestEpisodes = () => {
                         src={episode.imageUrl}
                         alt={`${episode.title} – פרק מתוך הפודקאסט אחותי היפה`}
                         className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110 hover:scale-110"
+                        loading="lazy"
                       />
                     )}
                   </AspectRatio>

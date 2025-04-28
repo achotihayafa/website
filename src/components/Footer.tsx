@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { SiSpotify, SiYoutube, SiApplepodcasts, SiInstagram } from "react-icons/si";
 
 const PODCAST_LINKS = {
-  spotify: "https://open.spotify.com/show/0ZpvzCEuDeKQhBw74YEmp9",
+  spotify: "https://open.spotify.com/show/0ZpvzCEuDeKQhBw74YEmp9?si=MjucC2YbRyqI4Iee2HYbHw",
   youtube: "https://www.youtube.com/@AchotiHaYafa",
   apple: "https://podcasts.apple.com/us/podcast/אחותי-היפה/id1728358395",
   instagram: "https://www.instagram.com/achotihayafa/"

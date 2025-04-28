@@ -9,6 +9,11 @@ import { AspectRatio } from "@/components/ui/aspect-ratio";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
+function stripHtml(html: string): string {
+  const doc = new DOMParser().parseFromString(html, 'text/html');
+  return doc.body.textContent || '';
+}
+
 const decodeHtml = (html: string) => {
   const textarea = document.createElement("textarea");
   textarea.innerHTML = html;
@@ -66,7 +71,7 @@ const EpisodeDetail = () => {
 
         {/* Open Graph Meta Tags */}
         <meta property="og:title" content={decodeHtml(episode.title)} />
-        <meta property="og:description" content={decodeHtml(episode.description)} />
+        <meta property="og:description" content={stripHtml(episode.description)} />
         <meta property="og:image" content={episode.imageUrl} />
         <meta property="og:image:alt" content={`עטיפת הפרק - ${decodeHtml(episode.title)}`} />
         <meta property="og:type" content="article" />
@@ -78,7 +83,7 @@ const EpisodeDetail = () => {
         {/* Twitter Meta Tags */}
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={decodeHtml(episode.title)} />
-        <meta name="twitter:description" content={decodeHtml(episode.description)} />
+        <meta name="twitter:description" content={stripHtml(episode.description)} />
         <meta name="twitter:image" content={episode.imageUrl} />
 
         {/* PodcastEpisode Schema */}
@@ -87,7 +92,7 @@ const EpisodeDetail = () => {
             "@context": "https://schema.org",
             "@type": "PodcastEpisode",
             "name": decodeHtml(episode.title),
-            "description": decodeHtml(episode.description),
+            "description": stripHtml(episode.description),
             "datePublished": episode.date,
             "associatedMedia": {
               "@type": "MediaObject",
@@ -100,6 +105,34 @@ const EpisodeDetail = () => {
             }
           })}
         </script>
+
+        <script type="application/ld+json">
+        {JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "אחותי היפה",
+              "item": "https://achotihayafa.github.io/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "כל הפרקים",
+              "item": "https://achotihayafa.github.io/episodes"
+            },
+            {
+              "@type": "ListItem",
+              "position": 3,
+              "name": decodeHtml(episode.title),
+              "item": `https://achotihayafa.github.io/website/episodes/${episode.id}`
+            }
+          ]
+        })}
+        </script>
+
       </Helmet>
 
       <div className="min-h-screen bg-black text-white">
@@ -116,6 +149,7 @@ const EpisodeDetail = () => {
                     src={episode.imageUrl}
                     alt={decodeHtml(episode.title)}
                     className="w-full h-full object-cover"
+                    loading="lazy"
                   />
                   {episode.audioUrl && (
                     <>

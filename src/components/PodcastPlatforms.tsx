@@ -34,6 +34,11 @@ const PodcastPlatforms = () => {
       name: 'Pocket Casts',
       link: 'https://pca.st/zapd6uv9',
       icon: <SiPocketcasts className="h-10 w-10" />
+    },
+    {
+      name: 'CastBox',
+      link: 'https://castbox.fm/channel/id6028686',
+      icon: <SiCastbox className="h-10 w-10" />
     }
   ];
 
@@ -60,9 +65,11 @@ const PodcastPlatforms = () => {
           </h2>
         </div>
 
+        <p className="text-center text-lg text-white/80 max-w-2xl mx-auto mb-4">
+        האזינו לנו בנסיעה, בטיול עם הכלבה, במיטה מתחת לפוך או בדרך לעבודה. עקבו אחרינו, והצטרפו למסע על רגשות, זהות, משפחה, ומה שביניהם.
+        </p>
         <p className="text-center text-lg text-white/80 max-w-2xl mx-auto mb-12">
-          "אחותי היפה" מחכה לכם בכל הפלטפורמות. האזינו לנו בנסיעה, בטיול עם הכלבה, במיטה מתחת לפוך או בדרך לעבודה.
-          עקבו אחרינו, והצטרפו למסע על רגשות, זהות, משפחה, ומה שביניהם.
+        "אחותי היפה" מחכה לכם בכל פלטפורמות ההסכתים:
         </p>
 
         <div className="max-w-4xl mx-auto">
