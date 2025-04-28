@@ -14,9 +14,6 @@ export default defineConfig(({ mode }) => ({
     react({
       jsxImportSource: 'react',
       tsDecorators: true,
-    }),
-    cnamePlugin({
-      domain: 'achotihayafa.com'
     })
     // mode === 'development' && componentTagger(), // Uncomment if defined
   ].filter(Boolean), // filters out `false` if in production

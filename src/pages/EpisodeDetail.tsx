@@ -75,10 +75,10 @@ const EpisodeDetail = () => {
         <meta property="og:image" content={episode.imageUrl} />
         <meta property="og:image:alt" content={`עטיפת הפרק - ${decodeHtml(episode.title)}`} />
         <meta property="og:type" content="article" />
-        <meta property="og:url" content={`https://achotihayafa.github.io/website/episodes/${episode.id}`} />
+        <meta property="og:url" content={`https://achotihayafa.com/episodes/${episode.id}`} />
 
         {/* Canonical Link */}
-        <link rel="canonical" href={`https://achotihayafa.github.io/website/episodes/${episode.id}`} />
+        <link rel="canonical" href={`https://achotihayafa.com/episodes/${episode.id}`} />
 
         {/* Twitter Meta Tags */}
         <meta name="twitter:card" content="summary_large_image" />
@@ -101,7 +101,7 @@ const EpisodeDetail = () => {
             "partOfSeries": {
               "@type": "PodcastSeries",
               "name": "אחותי היפה",
-              "url": "https://achotihayafa.github.io/"
+              "url": "https://achotihayafa.com/"
             }
           })}
         </script>
@@ -115,19 +115,19 @@ const EpisodeDetail = () => {
               "@type": "ListItem",
               "position": 1,
               "name": "אחותי היפה",
-              "item": "https://achotihayafa.github.io/"
+              "item": "hhttps://achotihayafa.com/"
             },
             {
               "@type": "ListItem",
               "position": 2,
               "name": "כל הפרקים",
-              "item": "https://achotihayafa.github.io/episodes"
+              "item": "https://achotihayafa.com/episodes"
             },
             {
               "@type": "ListItem",
               "position": 3,
               "name": decodeHtml(episode.title),
-              "item": `https://achotihayafa.github.io/website/episodes/${episode.id}`
+              "item": `https://achotihayafa.com/episodes/${episode.id}`
             }
           ]
         })}

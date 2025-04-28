@@ -10,7 +10,7 @@ import { SiSpotify, SiYoutube, SiApplepodcasts } from "react-icons/si";
 import { FaPlay, FaPause, FaCalendarAlt, FaClock } from "react-icons/fa";
 import { Link } from 'react-router-dom';
 
-const OG_IMAGE_URL = 'https://achotihayafa.github.io/website/opengraph.png';
+const OG_IMAGE_URL = 'https://achotihayafa.com/opengraph.png';
 
 function decodeHtml(html: string): string {
   const textarea = document.createElement("textarea");
