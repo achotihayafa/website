@@ -30,8 +30,9 @@ const HeroSection = () => {
       <div className="container mx-auto px-4 py-8 md:py-32 relative z-10 flex flex-col-reverse md:flex-row items-center gap-8 md:gap-12">
         {/* Right Side (Text) */}
         <div className="max-w-3xl mx-auto md:mx-0 flex-1 w-full">
+        <h1 className="sr-only">אחותי היפה – פודקאסט על רגשות, אבל בעצם פודקאסט להטב"קי</h1> 
         <motion.h1
-            className="text-4xl md:text-6xl lg:text-7xl mb-6 text-center md:text-right font-display font-bold transform origin-center inline-block"
+            className="text-4xl md:text-6xl lg:text-7xl mb-6 text-center md:text-right font-display font-bold transform origin-center inline-block w-full"
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 40 }}
@@ -48,8 +49,8 @@ const HeroSection = () => {
             exit={{ opacity: 0, y: 30 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
+            אחותי היפה הוא פודקאסט קווירי בעברית, שבו אנחנו פותחות את הלב דרך שיחות על רגשות, זהות, מיניות, משפחה ורגשות.
             הצטרפו אלינו מדי שבוע למסע מצחיק ומרגש בין סיפורים וזיכרונות.
-            הפודקאסט יוצר מרחב לדיונים כנים על זהות, מיניות, משפחה וחיים להטב"קים - בדיוק בשביל מי שמחפשים לפתוח את הלב.
           </motion.p>
 
           <motion.div

@@ -4,8 +4,7 @@ import {
   SiApplepodcasts,
   SiYoutube,
   SiPodcastaddict,
-  SiPocketcasts,
-  SiCastbox
+  SiPocketcasts
 } from 'react-icons/si';
 import { motion } from 'framer-motion';
 
@@ -13,7 +12,7 @@ const PodcastPlatforms = () => {
   const platforms = [
     {
       name: 'Spotify',
-      link: 'https://open.spotify.com/show/0ZpvzCEuDeKQhBw74YEmp9?si=MjucC2YbRyqI4Iee2HYbHw',
+      link: 'https://open.spotify.com/show/0ZpvzCEuDeKQhBw74YEmp9',
       icon: <SiSpotify className="h-10 w-10" />
     },
     {
@@ -35,16 +34,18 @@ const PodcastPlatforms = () => {
       name: 'Pocket Casts',
       link: 'https://pca.st/zapd6uv9',
       icon: <SiPocketcasts className="h-10 w-10" />
-    },
-    {
-      name: 'CastBox',
-      link: 'https://castbox.fm/channel/id6028686',
-      icon: <SiCastbox className="h-10 w-10" />
     }
   ];
 
   return (
-    <section id="platforms" className="py-20 relative overflow-hidden">
+    <motion.section
+      id="platforms"
+      className="py-20 relative overflow-hidden"
+      initial={{ opacity: 0, y: 50 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.4 }}
+      transition={{ duration: 0.6, ease: 'easeOut' }}
+    >
       {/* Background gradient */}
       <div className="absolute inset-0 bg-gradient-to-b from-black via-podcast-magenta/10 to-black"></div>
 
@@ -52,19 +53,20 @@ const PodcastPlatforms = () => {
       <div className="container px-6 relative z-10">
         <div className="mb-6 text-center">
           <h2
-            className="text-4xl md:text-5xl text-podcast-yellow font-bold bg-gradient-to-r inline-block"
+            className="text-4xl md:text-5xl text-podcast-yellow font-bold bg-gradient-to-r inline-block transform scale-x-110 origin-center"
             dir="rtl"
           >
-            האזינו לנו עכשיו בכל הפלטפורמות
+            הפודקאסט שלנו אצלכן באוזניים
           </h2>
         </div>
+
         <p className="text-center text-lg text-white/80 max-w-2xl mx-auto mb-12">
-          הפודקאסט "אחותי היפה" זמין בכל פלטפורמות הפודקאסטים המובילות.
-          בואו להאזין לנו ולהצטרף למסע המרגש שלנו.
+          "אחותי היפה" מחכה לכם בכל הפלטפורמות. האזינו לנו בנסיעה, בטיול עם הכלבה, במיטה מתחת לפוך או בדרך לעבודה.
+          עקבו אחרינו, והצטרפו למסע על רגשות, זהות, משפחה, ומה שביניהם.
         </p>
 
         <div className="max-w-4xl mx-auto">
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-6">
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-6">
             {platforms.map((platform, index) => (
               <motion.a
                 key={platform.name}
@@ -85,12 +87,12 @@ const PodcastPlatforms = () => {
                   {platform.icon}
                 </div>
                 <span className="text-sm font-medium">{platform.name}</span>
-              </motion.a> 
+              </motion.a>
             ))}
           </div>
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 };
 

@@ -34,34 +34,32 @@ const AboutSection = () => {
           <div className="w-12 h-12 rounded-full bg-podcast-magenta flex items-center justify-center mx-auto mb-4">
             <Info className="text-black" size={24} />
           </div>
-          <h2 className="text-4xl md:text-5xl mb-4 text-podcast-magenta">על אודות הפודקאסט</h2>
+          <h2 className="text-4xl md:text-5xl mb-4 text-podcast-magenta">מי אנחנו</h2>
+          <p className="text-lg text-white/80 mb-4">
+            “אחותי היפה" הוא פודקאסט המגיש שיחות עומק על רגשות, זהות וחוויות להטב"קיות. בכל פרק אנחנו – צחי ויהונתן כהן, אחים כבר יותר משלושים שנה – בוחרים רגש מתוך הספר “Atlas of the Heart” של ברנה בראון וממשיכים למסע אינטימי בין זיכרונות וסיפורים, בניסיון לפתוח את הלב ולהבין מה אנחנו באמת מרגישים.
+            בין סיפורי הילדות, טיולים ברחבי העולם ודייטים כושלים, “אחותי היפה” מדבר אל הלב ומציע נקודת מבט ייחודית על פגיעות, שייכות, וגאווה.
+          </p>
           <p className="text-lg text-white/80">
-            “אחותי היפה" הוא פודקאסט המגיש שיחות עומק על רגשות, זהות וחוויות להטב"קיות. הפודקאסט, בהנחיית האחים צחי ויהונתן כהן, עוסק בכל פרק ברגש אחר מתוך “Atlas of the Heart” של ברנה בראון וממשיך למסע אינטימי בין זיכרונות וסיפורים, בניסיון להבין את הרגש ולפתוח את הלב.
-            בין סיפורי הילדות, טיולים ברחבי העולם דייטים כושלים, “אחותי היפה” מדבר אל הלב ומציע נקודת מבט ייחודית על פגיעות, שייכות, וגאווה.
+          “אחותי היפה” עומד בגאווה לצד פודקאסטים להט"בים אחרים בעברית כמו "המניפה", "יוצאות", "זן נדיר", ו"תולדות המיניות" – כולם מייצרים מרחב לשיחות חשובות על הקהילה הגאה בישראל.
           </p>
         </div>
 
-        {/* Hosts Description */}
-        <p className="text-lg text-white/80 text-center mb-6">
-          צחי ויהונתן גדלו במשפחה דתית בירושלים, לאבא מורה ולאמא שעוסקת בגיל-הרך. כיום הם מתגוררים בתל-אביב יפו.
-        </p>
-
         {/* Hosts Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto mb-16">
           {hosts.map((host, index) => (
             <div key={index} className="flex flex-col md:flex-row gap-6 items-center bg-white/5 rounded-lg p-6">
               <div className="w-32 h-32 rounded-full overflow-hidden flex-shrink-0 border-4 border-podcast-magenta">
                 <img
                   src={host.image}
-                  alt={host.name}
+                  alt={`תמונה של ${host.name}`}
                   className="w-full h-full object-cover"
                 />
               </div>
               <div>
                 <h4 className="font-extrabold mb-1 inline-flex items-center gap-1">
-                {host.name}
-                <span className="font-normal text-white/80 text-base ml-2">{host.pronouns}</span>
-                  </h4>
+                  {host.name}
+                  <span className="font-normal text-white/80 text-base ml-2">{host.pronouns}</span>
+                </h4>
                 <p className="text-white/70 mb-4">{host.bio}</p>
                 <div className="flex gap-3">
                   <a
@@ -91,6 +89,14 @@ const AboutSection = () => {
             </div>
           ))}
         </div>
+
+        {/* Brené Brown Section */}
+        <h2 className="text-3xl md:text-4xl mb-4 text-white text-center">ברנה בראון</h2>
+        <p className="text-lg text-white/80 text-center max-w-3xl mx-auto">
+          ברנה בראון (Brené Brown) היא חוקרת אמריקאית פורצת דרך בתחומי הפגיעות, הבושה והאמפתיה, והיא מקור ההשראה לפודקאסט שלנו.
+          הספר שלה, “אטלס של הלב”, מיפה עשרות רגשות שונים, והוא עוזר לנו לתאר את מה שקורה לנו בלב ובראש.  
+          דרכה, אנחנו לומדים להבחין בין תקווה לאובדן, בין בדידות לקשר, ומזמינים אתכן להקשיב ולהרגיש יחד איתנו.
+        </p>
       </div>
     </section>
   );

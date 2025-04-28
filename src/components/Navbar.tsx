@@ -46,7 +46,7 @@ const Navbar = () => {
         <nav className="hidden md:flex items-center gap-12 flex-nowrap">
           <button onClick={() => goToSection('best')} className="font-medium text-white hover:text-podcast-yellow transition-colors whitespace-nowrap">פרקים נבחרים</button>
           <button onClick={() => goToSection('latest')} className="font-medium text-white hover:text-podcast-yellow transition-colors whitespace-nowrap">פרקים אחרונים</button>
-          <button onClick={() => goToSection('about')} className="font-medium text-white hover:text-podcast-yellow transition-colors whitespace-nowrap">אודות</button>
+          <button onClick={() => goToSection('about')} className="font-medium text-white hover:text-podcast-yellow transition-colors whitespace-nowrap">מי אנחנו</button>
           <button onClick={() => goToSection('btl')} className="font-medium text-white hover:text-podcast-yellow transition-colors whitespace-nowrap">בין השורות</button>
           <Button
             onClick={() => goToSection('platforms')}
@@ -101,7 +101,7 @@ const Navbar = () => {
 
         <button onClick={() => goToSection('best')} className="text-xl font-medium text-white">פרקים נבחרים</button>
         <button onClick={() => goToSection('latest')} className="text-xl font-medium text-white">פרקים אחרונים</button>
-        <button onClick={() => goToSection('about')} className="text-xl font-medium text-white">אודות</button>
+        <button onClick={() => goToSection('about')} className="text-xl font-medium text-white">מי אנחנו</button>
         <button onClick={() => goToSection('btl')} className="text-xl font-medium text-white">בין השורות</button>
         <Button
           onClick={() => goToSection('platforms')}

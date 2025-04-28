@@ -76,7 +76,7 @@ const LatestEpisodes = () => {
           <h2 className="text-4xl md:text-5xl mb-4 text-podcast-yellow">
             פרקים אחרונים
           </h2>
-          <p className="text-white/80 text-lg text-center">האזינו לשיחות האחרונות שלנו</p>
+          <p className="text-white/80 text-lg text-center">האזינו לשיחות חדשות על רגשות, קוויריות, משפחה ומה שביניהם</p>
         </div>
 
         {/* Content */}
@@ -101,7 +101,7 @@ const LatestEpisodes = () => {
                     {episode.imageUrl && (
                       <img
                         src={episode.imageUrl}
-                        alt={decodeHtml(episode.title)}
+                        alt={`${episode.title} – פרק מתוך הפודקאסט אחותי היפה`}
                         className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110 hover:scale-110"
                       />
                     )}
@@ -175,7 +175,7 @@ const LatestEpisodes = () => {
             to="/episodes"
             className="bg-podcast-yellow text-black font-bold px-6 py-2 rounded-full hover:bg-white transition-colors duration-300"
           >
-            לכל הפרקים
+            רוצה עוד? כל הפרקים כאן
           </Link>
         </div>
       </div>

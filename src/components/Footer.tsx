@@ -26,7 +26,7 @@ const Footer = () => {
               <li><Link to="/#best" className="text-gray-300 hover:text-podcast-yellow transition-colors">פרקים נבחרים</Link></li>
               <li><Link to="/#latest" className="text-gray-300 hover:text-podcast-yellow transition-colors">פרקים אחרונים</Link></li>
               <li><Link to="/episodes" className="text-gray-300 hover:text-podcast-yellow transition-colors">כל הפרקים</Link></li>
-              <li><Link to="/#about" className="text-gray-300 hover:text-podcast-yellow transition-colors">אודות</Link></li>
+              <li><Link to="/#about" className="text-gray-300 hover:text-podcast-yellow transition-colors">מי אנחנו</Link></li>
               <li><Link to="/#btl" className="text-gray-300 hover:text-podcast-yellow transition-colors">בין השורות</Link></li>
             </ul>
           </div>
