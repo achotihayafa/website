@@ -17,10 +17,9 @@ const decodeHtml = (html: string) => {
 
 const formatDescriptionAsHtml = (raw: string) => {
   const decoded = decodeHtml(raw)
-    .replace(/<(?!br\b)[^>]*>/gi, '')  // Remove all tags except <br>
-    .replace(/&nbsp;/g, ' ');          // Normalize whitespace
+    .replace(/<(?!br\b)[^>]*>/gi, '')
+    .replace(/&nbsp;/g, ' ');
 
-  // Convert plain URLs to anchor tags
   const linked = decoded.replace(
     /https?:\/\/[^\s<]+/g,
     (url) => `<a href="${url}" target="_blank" rel="noopener noreferrer" class="text-podcast-yellow underline break-words">${url}</a>`
@@ -81,8 +80,27 @@ const EpisodeDetail = () => {
         <meta name="twitter:title" content={decodeHtml(episode.title)} />
         <meta name="twitter:description" content={decodeHtml(episode.description)} />
         <meta name="twitter:image" content={episode.imageUrl} />
-      </Helmet>
 
+        {/* PodcastEpisode Schema */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "PodcastEpisode",
+            "name": decodeHtml(episode.title),
+            "description": decodeHtml(episode.description),
+            "datePublished": episode.date,
+            "associatedMedia": {
+              "@type": "MediaObject",
+              "contentUrl": episode.audioUrl
+            },
+            "partOfSeries": {
+              "@type": "PodcastSeries",
+              "name": "אחותי היפה",
+              "url": "https://achotihayafa.github.io/"
+            }
+          })}
+        </script>
+      </Helmet>
 
       <div className="min-h-screen bg-black text-white">
         <Navbar />
@@ -91,7 +109,7 @@ const EpisodeDetail = () => {
           <div className="container px-6 max-w-6xl mx-auto">
             <div className="flex flex-col md:flex-row gap-12">
               
-              {/* Right: Image + Play */}
+              {/* Right: Image + Play + Platforms */}
               <div className="w-full md:w-1/3">
                 <AspectRatio ratio={1} className="overflow-hidden rounded-xl relative">
                   <img
@@ -112,8 +130,38 @@ const EpisodeDetail = () => {
                     </>
                   )}
                 </AspectRatio>
-              </div>
 
+                {/* Platforms under the picture */}
+                <div className="flex gap-6 justify-center mt-8">
+                  <a
+                    href="https://open.spotify.com/show/0ZpvzCEuDeKQhBw74YEmp9?si=MjucC2YbRyqI4Iee2HYbHw"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-white hover:text-podcast-yellow transition-colors"
+                    aria-label="האזינו ב-Spotify"
+                  >
+                    <SiSpotify size={36} />
+                  </a>
+                  <a
+                    href="https://www.youtube.com/@AchotiHaYafa"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-white hover:text-podcast-yellow transition-colors"
+                    aria-label="האזינו ב-YouTube"
+                  >
+                    <SiYoutube size={36} />
+                  </a>
+                  <a
+                    href="https://podcasts.apple.com/us/podcast/אחותי-היפה/id1728358395"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-white hover:text-podcast-yellow transition-colors"
+                    aria-label="האזינו ב-Apple Podcasts"
+                  >
+                    <SiApplepodcasts size={36} />
+                  </a>
+                </div>
+              </div>
 
               {/* Left: Text */}
               <div className="w-full md:w-2/3">
@@ -132,43 +180,27 @@ const EpisodeDetail = () => {
                   className="text-white/90 leading-relaxed"
                   dangerouslySetInnerHTML={{ __html: formatDescriptionAsHtml(episode.description) }}
                 />
-
-                {/* Platforms */}
-                <div className="flex gap-4 mt-8">
-                  {episode.spotifyLink && (
-                    <a
-                      href="https://open.spotify.com/show/0ZpvzCEuDeKQhBw74YEmp9?si=MjucC2YbRyqI4Iee2HYbHw"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-white/80 hover:text-podcast-yellow transition-colors"
-                      aria-label="האזינו ב-Spotify"
-                    >
-                      <SiSpotify size={28} />
-                    </a>
-                  )}
-                  <a
-                    href="https://www.youtube.com/@AchotiHaYafa"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-white/80 hover:text-podcast-yellow transition-colors"
-                    aria-label="האזינו ב-YouTube"
-                  >
-                    <SiYoutube size={28} />
-                  </a>
-                  <a
-                    href="https://podcasts.apple.com/us/podcast/אחותי-היפה/id1728358395"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-white/80 hover:text-podcast-yellow transition-colors"
-                    aria-label="האזינו ב-Apple Podcasts"
-                  >
-                    <SiApplepodcasts size={28} />
-                  </a>
-                </div>
               </div>
-
-
             </div>
+
+            {/* CTA to Spotify */}
+            <div className="text-center mt-20 mb-10">
+              <p className="text-xl text-white/80 mb-6">
+                רוצה לא לפספס את הפרק הבא?
+              </p>
+              <a
+                href="https://open.spotify.com/show/0ZpvzCEuDeKQhBw74YEmp9?si=MjucC2YbRyqI4Iee2HYbHw"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-3 bg-podcast-yellow text-black text-lg font-bold px-8 py-3 rounded-full hover:bg-white hover:text-black transition-colors duration-300 shadow-lg shadow-podcast-yellow/30"
+                aria-label="עקבו אחרינו בספוטיפיי"
+              >
+                <SiSpotify size={24} />
+                זה הזמן לעקוב אחרינו בספוטיפיי
+              </a>
+            </div>
+
+
           </div>
         </section>
 

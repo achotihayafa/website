@@ -83,7 +83,7 @@ const BestEpisodes = () => {
           <h2 className="text-4xl md:text-5xl mb-4 text-podcast-magenta"> 
             פרקים נבחרים
           </h2>
-          <p className="text-white/80 text-lg">האזינו לפרקים שאנחנו חוזרים אליהם שוב ושוב – כאלה ששינו אותנו, הצחיקו אותנו, או שברו לנו את הלב</p>
+          <p className="text-white/80 text-lg">האזינו לפרקים שאנחנו חוזרים אליהם שוב ושוב – כאלה ששינו אותנו, הצחיקו אותנו, או שברו לנו את הלב.</p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">

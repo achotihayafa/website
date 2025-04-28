@@ -75,6 +75,7 @@ const AllEpisodes = () => {
       "description": "פודקאסט על רגשות אבל בעצם פודקאסט להטב\"קי",
       "url": "https://open.spotify.com/show/0ZpvzCEuDeKQhBw74YEmp9",
       "image": episodes[0]?.imageUrl,
+      "inLanguage": "he",
       "author": {
         "@type": "Person",
         "name": "צחי כהן ויהונתן כהן"
@@ -102,10 +103,10 @@ const AllEpisodes = () => {
     document.title = 'כל הפרקים - אחותי היפה | פודקאסט על רגשות אבל בעצם פודקאסט להטב\"קי';
 
     const metaTags = [
-      { name: 'description', content: 'כל פרקי הפודקאסט אחותי היפה - פודקאסט על רגשות אבל בעצם פודקאסט להטב״קי' },
-      { name: 'keywords', content: 'אחותי היפה, פודקאסט, להטב, גאווה, רגשות, צחי כהן, יהונתן כהן' },
-      { property: 'og:title', content: 'כל הפרקים - אחותי היפה' },
-      { property: 'og:description', content: 'כל פרקי הפודקאסט אחותי היפה - פודקאסט על רגשות אבל בעצם פודקאסט להטב״קי' },
+      { name: 'description', content: 'כל פרקי הפודקאסט "אחותי היפה" – שיחות על רגשות, זהות, משפחה וחיים קוויריים. בהנחיית האחים הגאים צחי ויהונתן כהן. בכל פרק רגש חדש.' },
+      { name: 'keywords', content: 'אחותי היפה, פודקאסט, להטב, גאווה, רגשות, פודקסט קווירי, פודקאסט על רגשות, פודקאסט גאה בעברית, ברנה בראון, צחי כהן, יהונתן כהן' },
+      { property: 'og:title', content: 'כל פרקי הפודקאסט אחותי היפה - פודקאסט על רגשות אבל בעצם פודקאסט להטב״קי' },
+      { property: 'og:description', content: 'כל פרקי הפודקאסט "אחותי היפה" – שיחות על רגשות, זהות, משפחה וחיים קוויריים. בהנחיית האחים הגאים צחי ויהונתן כהן. בכל פרק רגש חדש.' },
       { property: 'og:type', content: 'website' },
       { property: 'og:image', content: OG_IMAGE_URL },
       { property: 'og:image:alt', content: 'אחותי היפה' },
@@ -154,10 +155,10 @@ const AllEpisodes = () => {
           <div className="container px-6">
             <div className="mb-12">
               <h1 className="text-5xl md:text-6xl font-bold text-podcast-yellow mb-6 text-center">
-                כל הפרקים
+                כל הרגשות – כל הפרקים
               </h1>
               <p className="text-white/80 text-lg text-center mb-10">
-                האזינו לכל פרקי הפודקאסט אחותי היפה
+              שיחות מלב אל לב של האחים הגאים צחי ויהונתן כהן – על אהבה, פחד, שייכות, ויציאה מהארון
               </p>
             </div>
 
@@ -241,6 +242,21 @@ const AllEpisodes = () => {
             )}
           </div>
         </div>
+        <div className="text-center mt-20 mb-10">
+          <p className="text-xl text-white/80 mb-6">
+            רוצה לא לפספס את הפרק הבא?
+          </p>
+          <a
+            href="https://open.spotify.com/show/0ZpvzCEuDeKQhBw74YEmp9?si=MjucC2YbRyqI4Iee2HYbHw"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block bg-podcast-yellow text-black text-lg font-bold px-8 py-3 rounded-full hover:bg-white hover:text-podcast-yellow transition-colors duration-300 shadow-lg shadow-podcast-yellow/30"
+            aria-label="עקבו אחרינו בספוטיפיי"
+          >
+            זה הזמן לעקוב אחרינו בספוטיפיי 🎧
+          </a>
+        </div>
+
         <Footer />
       </div>
     </>

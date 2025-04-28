@@ -76,7 +76,7 @@ const LatestEpisodes = () => {
           <h2 className="text-4xl md:text-5xl mb-4 text-podcast-yellow">
             פרקים אחרונים
           </h2>
-          <p className="text-white/80 text-lg text-center">האזינו לשיחות חדשות על רגשות, קוויריות, משפחה ומה שביניהם</p>
+          <p className="text-white/80 text-lg text-center">האזינו לשיחות חדשות על רגשות, קוויריות, משפחה ומה שביניהם.</p>
         </div>
 
         {/* Content */}
