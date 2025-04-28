@@ -1,33 +1,29 @@
-import { BrowserRouter } from "react-router-dom";
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { TooltipProvider } from "@/components/ui/tooltip";
-import { Toaster } from "@/components/ui/toaster"; // Assuming you keep Toaster
-// import { Toaster as Sonner } from "@/components/ui/sonner"; // REMOVE if not using
-import ScrollToTop from "@/components/ScrollToTop";
+import { Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
-import NotFound from "./pages/NotFound";
 import AllEpisodes from "./pages/AllEpisodes";
 import EpisodeDetail from "./pages/EpisodeDetail";
-
-const queryClient = new QueryClient();
+import NotFound from "./pages/NotFound";
+import ScrollToTop from "@/components/ScrollToTop";
+import { Toaster } from "@/components/ui/toaster"; // Use your Toaster
+// ❌ Don't import BrowserRouter here! It's already in main.tsx
 
 const App = () => (
-  <QueryClientProvider client={queryClient}>
-    <TooltipProvider>
-      <BrowserRouter basename="/">
-        <Toaster />
-        {/* <Sonner /> // Remove one of them */}
-        <ScrollToTop />
-        <Routes>
-          <Route path="/" element={<Index />} />
-          <Route path="/episodes" element={<AllEpisodes />} />
-          <Route path="/episodes/:id" element={<EpisodeDetail />} />
-          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      </BrowserRouter>
-    </TooltipProvider>
-  </QueryClientProvider>
+  <>
+    {/* Scrolls to top on every page navigation */}
+    <ScrollToTop />
+
+    {/* Global notification system */}
+    <Toaster />
+
+    {/* Your app routes */}
+    <Routes>
+      <Route path="/" element={<Index />} />
+      <Route path="/episodes" element={<AllEpisodes />} />
+      <Route path="/episodes/:id" element={<EpisodeDetail />} />
+      {/* Catches all unknown URLs */}
+      <Route path="*" element={<NotFound />} />
+    </Routes>
+  </>
 );
 
 export default App;
