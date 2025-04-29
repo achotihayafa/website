@@ -42,15 +42,16 @@ const LatestEpisodes = () => {
 
   const audioRefs = useRef<Array<HTMLAudioElement | null>>([]);
   const [playingIndex, setPlayingIndex] = useState<number | null>(null);
-
+  
   const togglePlay = (index: number) => {
     const currentAudio = audioRefs.current[index];
     if (!currentAudio) return;
-
+  
     if (playingIndex === index && !currentAudio.paused) {
       currentAudio.pause();
       setPlayingIndex(null);
     } else {
+      // Pause all others
       audioRefs.current.forEach((audio, i) => {
         if (i !== index && audio) audio.pause();
       });
@@ -58,10 +59,12 @@ const LatestEpisodes = () => {
       setPlayingIndex(index);
     }
   };
-
+  
+  // Optional: Cleanup effect if audio is paused on unmount
   useEffect(() => {
+    const refsSnapshot = [...audioRefs.current];
     return () => {
-      audioRefs.current.forEach(audio => audio && audio.pause());
+      refsSnapshot.forEach(audio => audio?.pause());
     };
   }, []);
 

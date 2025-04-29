@@ -1,11 +1,9 @@
 import { Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import AllEpisodes from "./pages/AllEpisodes";
-import EpisodeDetail from "./pages/EpisodeDetail";
 import NotFound from "./pages/NotFound";
 import ScrollToTop from "@/components/ScrollToTop";
 import { Toaster } from "@/components/ui/toaster"; // Use your Toaster
-// ❌ Don't import BrowserRouter here! It's already in main.tsx
 
 const App = () => (
   <>
@@ -19,7 +17,8 @@ const App = () => (
     <Routes>
       <Route path="/" element={<Index />} />
       <Route path="/episodes" element={<AllEpisodes />} />
-      <Route path="/episodes/:id" element={<EpisodeDetail />} />
+      {/* This will automatically use the [id].tsx page */}
+      <Route path="/episodes/:id" element={<AllEpisodes />} />
       {/* Catches all unknown URLs */}
       <Route path="*" element={<NotFound />} />
     </Routes>
