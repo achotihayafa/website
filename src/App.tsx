@@ -1,6 +1,6 @@
 import { Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
-import AllEpisodes from "./pages/AllEpisodes";
+import AllEpisodes from "./pages/episodes/AllEpisodes";
 import NotFound from "./pages/NotFound";
 import ScrollToTop from "@/components/ScrollToTop";
 import { Toaster } from "@/components/ui/toaster"; // Use your Toaster
