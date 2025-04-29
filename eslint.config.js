@@ -2,18 +2,12 @@ import js from "@eslint/js";
 import globals from "globals";
 import reactHooks from "eslint-plugin-react-hooks";
 import reactRefresh from "eslint-plugin-react-refresh";
-import tseslint from "typescript-eslint"; // correct source for the flat config
+import tseslint from "typescript-eslint";
 import next from "eslint-plugin-next";
 
 export default tseslint.config(
   { ignores: ["dist"] },
   {
-    extends: [
-      js.configs.recommended,
-      ...tseslint.configs.recommended,
-      "plugin:next/recommended",
-      "plugin:next/core-web-vitals",
-    ],
     files: ["**/*.{ts,tsx}"],
     languageOptions: {
       ecmaVersion: 2020,
@@ -22,11 +16,14 @@ export default tseslint.config(
     plugins: {
       "react-hooks": reactHooks,
       "react-refresh": reactRefresh,
-      "next": next, // Ensure the key is a string here
+      "next": next,
     },
     rules: {
-      ...reactHooks.configs.recommended.rules,
-      ...next.configs.recommended.rules,
+      ...js.configs.recommended.rules,             // JS recommended rules
+      ...tseslint.configs.recommended[0].rules,     // TS recommended rules (important, it's an array!)
+      ...next.configs.recommended.rules,            // Next.js recommended rules
+      ...next.configs["core-web-vitals"].rules,     // Next.js Core Web Vitals
+      ...reactHooks.configs.recommended.rules,      // React Hooks recommended
       "react-refresh/only-export-components": [
         "warn",
         { allowConstantExport: true },
