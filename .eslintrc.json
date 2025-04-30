@@ -1,0 +1,17 @@
+{
+	"extends": [
+		"next",
+		"next/core-web-vitals",
+		"plugin:@typescript-eslint/recommended"
+	],
+	"plugins": ["react-hooks", "react-refresh"],
+	"rules": {
+		"react-refresh/only-export-components": [
+			"warn",
+			{ "allowConstantExport": true }
+		],
+		"@typescript-eslint/no-unused-vars": "off",
+		"next/no-html-link-for-pages": ["warn", "pages/"],
+		"next/no-sync-scripts": "warn"
+	}
+}
