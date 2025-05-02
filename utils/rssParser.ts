@@ -1,5 +1,7 @@
+import { XMLParser } from "fast-xml-parser";
+
 interface Episode {
-  id: string; // ✅ new
+  id: string;
   title: string;
   description: string;
   duration: string;
@@ -8,6 +10,8 @@ interface Episode {
   audioUrl: string;
   imageUrl: string;
   featured?: boolean;
+  season?: string;
+  episodeNumber?: string;
 }
 
 export const fetchRssFeed = async (): Promise<Episode[]> => {
@@ -26,11 +30,11 @@ export const fetchRssFeed = async (): Promise<Episode[]> => {
       const description = item.querySelector("description")?.textContent || "";
       const pubDate = item.querySelector("pubDate")?.textContent || "";
 
-      // ✅ Extract episode ID from <link>
+      // Extract episode ID from <link>
       const link = item.querySelector("link")?.textContent || "";
       const id = link.split("/").pop() || `episode-${index}`; // fallback to index
-      
-      // description
+
+      // Clean description
       const cleanDescription = description
         .replace(/<\/p>\s*<p>/gi, '<br>')                   // Replace paragraph breaks with <br>
         .replace(/<p[^>]*>/gi, '')                          // Remove opening <p> tags
@@ -38,7 +42,6 @@ export const fetchRssFeed = async (): Promise<Episode[]> => {
         .replace(/<(?!\/?(br|strong)\b)[^>]*>/gi, '')       // Keep <br> and <strong> tags, strip others
         .replace(/\n+/g, '<br />')                          // Convert newlines to <br />
         .replace(/&nbsp;/g, ' ');                           // Normalize spaces
-
 
       // Duration
       let duration = "";
@@ -53,6 +56,13 @@ export const fetchRssFeed = async (): Promise<Episode[]> => {
       // Image
       const imageElement = item.querySelector("itunes\\:image") || item.querySelector("*|image");
       const imageUrl = imageElement?.getAttribute("href") || "";
+
+      // Season and Episode
+      const seasonElement = item.querySelector("itunes\\:season") || item.querySelector("*|season");;
+      const episodeNumberElement = item.querySelector("itunes\\:episode") || item.querySelector("*|episode");;
+
+      const season = seasonElement?.textContent || "";
+      const episodeNumber = episodeNumberElement?.textContent || "";
 
       // Format date
       const date = new Date(pubDate);
@@ -79,7 +89,7 @@ export const fetchRssFeed = async (): Promise<Episode[]> => {
       }
 
       episodes.push({
-        id, // ✅ added
+        id,
         title,
         description: cleanDescription,
         duration: formattedDuration,
@@ -87,9 +97,12 @@ export const fetchRssFeed = async (): Promise<Episode[]> => {
         spotifyLink: "https://open.spotify.com/show/0ZpvzCEuDeKQhBw74YEmp9",
         audioUrl,
         imageUrl,
-        featured: index === 0
+        featured: index === 0,
+        season, // Add season to the episode data
+        episodeNumber // Add episode number to the episode data
       });
     });
+
 
     return episodes;
   } catch (error) {

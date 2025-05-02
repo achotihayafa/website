@@ -62,7 +62,7 @@ const HeroSection = () => {
           >
             <Button
               size="lg"
-              className="h-11 rounded-md px-8 w-full font-bold md:w-auto text-xl bg-podcast-yellow text-black hover:bg-podcast-yellow/90 shadow-lg shadow-podcast-yellow/20 flex items-center justify-center gap-2 whitespace-nowrap"
+              className="h-11 rounded-md px-8 w-64 font-bold text-xl bg-podcast-yellow text-black hover:bg-podcast-yellow/90 shadow-lg shadow-podcast-yellow/20 flex items-center justify-center gap-2 whitespace-nowrap"
               onClick={() =>
                 window.open("https://open.spotify.com/show/0ZpvzCEuDeKQhBw74YEmp9?si=MjucC2YbRyqI4Iee2HYbHw", "_blank")
               }
@@ -74,7 +74,7 @@ const HeroSection = () => {
             <Button
               variant="outline"
               size="lg"
-              className="inline-flex items-center justify-center gap-2 whitespace-nowrap font-medium border bg-background hover:text-accent-foreground h-11 rounded-md px-8 w-full md:w-auto text-xl text-white border-white hover:bg-white/10"
+              className="h-11 rounded-md px-8 w-64 md:w-48 font-medium text-xl text-white border-white hover:bg-white/10 flex items-center justify-center gap-2 whitespace-nowrap"
               onClick={() =>
                 document.getElementById('best')?.scrollIntoView({ behavior: 'smooth' })
               }

@@ -105,7 +105,7 @@ const Navbar = () => {
         <button onClick={() => goToSection('btl')} className="text-xl font-medium text-white">בין השורות</button>
         <Button
           onClick={() => goToSection('platforms')}
-          className="text-xl font-bold w-full bg-podcast-yellow text-black hover:bg-podcast-yellow/90 rounded-full"
+          className="text-xl font-bold bg-podcast-yellow text-black hover:bg-podcast-yellow/90 rounded-md px-10 py-3"
         >
           האזינו עכשיו
         </Button>

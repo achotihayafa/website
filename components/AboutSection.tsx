@@ -29,13 +29,10 @@ const AboutSection = () => {
     <section id="about" className="py-20 relative overflow-hidden">
       {/* Background gradient and margin icons */}
       <div className="absolute inset-0 -z-10 pointer-events-none w-full h-full overflow-hidden">
-        {/* Gradient blobs in corners */}
-        <div className="absolute top-0 left-0 w-72 h-72 rounded-full bg-gradient-to-br from-white/10 via-podcast-magenta/10 to-white/0 blur-3xl animate-pulse-slow pointer-events-none z-0"></div>
-        <div className="absolute bottom-0 right-0 w-96 h-96 rounded-full bg-gradient-to-br from-podcast-magenta/10 via-white/10 to-white/0 blur-3xl animate-pulse-slow pointer-events-none z-0" style={{ animationDelay: '0.8s' }}></div>
         {/* Subtle icons only in margins, fully inside the section */}
-        <Headphones className="absolute top-10 left-4 w-20 h-20 text-white/20 pointer-events-none z-0" />
-        <Mic2 className="absolute bottom-10 right-4 w-24 h-24 text-white/15 pointer-events-none z-0" />
-        <Heart className="absolute top-[60%] right-4 w-16 h-16 text-podcast-magenta/20 pointer-events-none z-0" />
+        <Headphones className="absolute top-10 left-4 w-24 h-24 text-white/20 pointer-events-none z-0" />
+        <Mic2 className="absolute bottom-10 left-4 w-24 h-24 text-white/15 pointer-events-none z-0" />
+        <Heart className="absolute top-[60%] right-4 w-32 h-32 sm:w-20 sm:h-20 text-podcast-magenta/20 pointer-events-none z-0" />
         <Play className="absolute top-[50%] left-4 w-20 h-20 text-podcast-yellow/20 pointer-events-none z-0" />
       </div>
       <div className="container px-6">
@@ -77,7 +74,7 @@ const AboutSection = () => {
                     href={host.social.instagram}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-white/60 hover:text-podcast-yellow transition-colors"
+                    className="text-white/60 hover:text-podcast-magenta transition-colors"
                     title="Instagram"
                   >
                     <svg width="25" height="25" fill="none" viewBox="0 0 24 24">
@@ -88,7 +85,7 @@ const AboutSection = () => {
                     href={host.social.linkedin}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-white/60 hover:text-podcast-yellow transition-colors"
+                    className="text-white/60 hover:text-podcast-magenta transition-colors"
                     title="LinkedIn"
                   >
                     <svg width="25" height="25" fill="none" viewBox="0 0 24 24">

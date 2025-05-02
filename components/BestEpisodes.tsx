@@ -74,16 +74,13 @@ const BestEpisodes = () => {
   };
 
   return (
-    <section id="best" className="py-20 bg-black relative overflow-hidden">
+    <section id="best" className="py-20 relative overflow-hidden">
       {/* Decorative icons in the margins */}
       <div className="absolute inset-0 -z-10 pointer-events-none w-full h-full overflow-hidden">
-        <Headphones className="absolute top-10 left-0 -translate-x-1/2 w-32 h-32 text-podcast-magenta/15 pointer-events-none z-0" />
-        <Mic2 className="absolute bottom-10 right-0 translate-x-1/2 w-40 h-40 text-podcast-yellow/15 pointer-events-none z-0" />
-        <Heart className="absolute top-[60%] right-0 translate-x-1/2 w-24 h-24 text-podcast-magenta/10 pointer-events-none z-0" />
-        <Play className="absolute top-[50%] left-0 -translate-x-1/2 w-32 h-32 text-podcast-yellow/10 pointer-events-none z-0" />
+        <Heart className="absolute top-10 left-20 -translate-x-1/2 w-32 h-32 text-podcast-magenta/15 pointer-events-none z-0" />
+        <Mic2 className="absolute bottom-0 right-10 translate-x-1/2 w-40 h-40 text-podcast-magenta/15 pointer-events-none z-0" />
+        <Play className="absolute top-[50%] left-10 w-32 h-32 text-white/15 pointer-events-none z-0" />
       </div>
-      {/* Optional: subtle background gradient */}
-      <div className="absolute inset-0 bg-gradient-to-b from-black via-podcast-magenta/10 to-black z-[-20]"></div>
 
       <div className="container px-6">
         <div className="mb-12 text-center">
@@ -100,7 +97,7 @@ const BestEpisodes = () => {
           {bestEpisodes.map((episode, index) => (
             <Card
               key={index}
-              className="relative bg-podcast-darkgray/30 border border-white/30 group transition-all duration-300 overflow-hidden flex flex-col hover:border-podcast-magenta"
+              className="relative bg-black border border-white/30 group transition-all duration-300 overflow-hidden flex flex-col hover:border-podcast-magenta"
             >
               <CardContent className="p-0 relative flex flex-col h-full">
                 <AspectRatio ratio={1} className="overflow-hidden">

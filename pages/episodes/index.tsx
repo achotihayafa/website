@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import Head from 'next/head';
-import { useQuery } from '@tanstack/react-query';
 import Navbar from '../../components/Navbar';
 import Footer from '../../components/Footer';
+import { useQuery } from '@tanstack/react-query';
 import { fetchRssFeed } from 'utils/rssParser';
 import { Card, CardContent } from "../../components/ui/card";
 import { AspectRatio } from "../../components/ui/aspect-ratio";
@@ -10,36 +10,27 @@ import { SiSpotify, SiYoutube, SiApplepodcasts } from "react-icons/si";
 import { FaPlay, FaPause, FaCalendarAlt, FaClock } from "react-icons/fa";
 import Link from 'next/link';
 
-const OG_IMAGE_URL = 'https://achotihayafa.com/opengraph.png';
-
-function decodeHtml(html: string): string {
-  const textarea = document.createElement("textarea");
-  textarea.innerHTML = html;
-  return textarea.value;
-}
-
-function stripHtmlAndBr(html: string): string {
-  const decoded = decodeHtml(html);
-  return decoded
-    .replace(/<br\s*\/?>/gi, ' ')
-    .replace(/<[^>]+>/g, '')
-    .trim();
-}
-
 const PODCAST_LINKS = {
   spotify: "https://open.spotify.com/show/0ZpvzCEuDeKQhBw74YEmp9?si=MjucC2YbRyqI4Iee2HYbHw",
   youtube: "https://www.youtube.com/@AchotiHaYafa",
   apple: "https://podcasts.apple.com/us/podcast/אחותי-היפה/id1728358395"
 };
 
+const decodeHtmlAndRemoveStrong = (html: string): string => {
+  const decoded = html
+    .replace(/&quot;/g, '"') // Decode HTML entities
+    .replace(/<strong\b[^>]*>([\s\S]*?)<\/strong>/gi, '$1'); // Remove <strong> tags
+  return decoded.replace(/<[^>]+>/g, ''); // Remove any remaining HTML tags
+};
+
 const AllEpisodes = () => {
   const { data: episodes, isLoading, error } = useQuery({
     queryKey: ['episodes'],
-    queryFn: fetchRssFeed,
+    queryFn: fetchRssFeed
   });
 
-  const audioRefs = React.useRef<Array<HTMLAudioElement | null>>([]);
-  const [playingIndex, setPlayingIndex] = React.useState<number | null>(null);
+  const audioRefs = useRef<Array<HTMLAudioElement | null>>([]);
+  const [playingIndex, setPlayingIndex] = useState<number | null>(null);
 
   const togglePlay = (index: number) => {
     const currentAudio = audioRefs.current[index];
@@ -57,44 +48,30 @@ const AllEpisodes = () => {
     }
   };
 
-  React.useEffect(() => {
+  useEffect(() => {
     return () => {
       audioRefs.current.forEach(audio => audio && audio.pause());
     };
   }, []);
 
-  const generateJsonLd = () => {
-    if (!episodes || episodes.length === 0) return null;
-
-    const podcastData = {
-      "@context": "https://schema.org",
-      "@type": "PodcastSeries",
-      "name": "אחותי היפה",
-      "description": "פודקאסט על רגשות אבל בעצם פודקאסט להטב\"קי",
-      "url": "https://open.spotify.com/show/0ZpvzCEuDeKQhBw74YEmp9",
-      "image": episodes[0]?.imageUrl || OG_IMAGE_URL,
-      "inLanguage": "he",
-      "author": {
-        "@type": "Person",
-        "name": "צחי כהן ויהונתן כהן"
+  // Breadcrumb JSON-LD for SEO
+  const breadcrumbJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://achotihayafa.com/"
       },
-      "webFeed": "https://anchor.fm/s/f1452300/podcast/rss",
-      "episode": episodes.map((episode, index) => ({
-        "@type": "PodcastEpisode",
-        "position": index + 1,
-        "name": decodeHtml(episode.title),
-        "description": stripHtmlAndBr(episode.description),
-        "datePublished": episode.date,
-        "duration": episode.duration,
-        "url": episode.audioUrl,
-        "associatedMedia": {
-          "@type": "MediaObject",
-          "contentUrl": episode.audioUrl
-        }
-      }))
-    };
-
-    return JSON.stringify(podcastData);
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Episodes",
+        "item": "https://achotihayafa.com/episodes"
+      }
+    ]
   };
 
   return (
@@ -106,20 +83,34 @@ const AllEpisodes = () => {
         <meta property="og:title" content="כל פרקי הפודקאסט אחותי היפה - פודקאסט על רגשות אבל בעצם פודקאסט להטב״קי" />
         <meta property="og:description" content='כל פרקי הפודקאסט "אחותי היפה" – שיחות על רגשות, זהות, משפחה וחיים קוויריים. בהנחיית האחים הגאים צחי ויהונתן כהן. בכל פרק רגש חדש.' />
         <meta property="og:type" content="website" />
-        <meta property="og:image" content={OG_IMAGE_URL} />
+        <meta property="og:image" content="/opengraph.png" />
         <meta property="og:image:alt" content="אחותי היפה" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:image" content={OG_IMAGE_URL} />
-        {/* JSON-LD Structured Data */}
-        {episodes && episodes.length > 0 && (
-          <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: generateJsonLd() || '' }} />
-        )}
+        <meta name="twitter:image" content="/opengraph.png" />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }} />
       </Head>
 
       <div className="min-h-screen">
         <Navbar />
 
-        <div className="pt-32 pb-20 bg-black">
+        {/* Breadcrumbs */}
+        <section className="pt-20 pb-1">
+          <div className="bg-black">
+            <nav className="container px-6 py-4 text-sm text-white/70 mt-5">
+              <ol className="flex items-center">
+                <li>
+                  <Link href="/" className="hover:text-white">
+                    דף הבית
+                  </Link>
+                </li>
+                <li className="text-white/50">&nbsp;&nbsp;/&nbsp;&nbsp;</li>
+                <li className="text-white">כל הפרקים</li>
+              </ol>
+            </nav>
+          </div>
+        </section>
+
+        <div className="pt-1 pb-20 bg-black">
           <div className="container px-6">
             <div className="mb-12">
               <h1 className="text-5xl md:text-6xl font-bold text-podcast-yellow mb-6 text-center">
@@ -147,15 +138,19 @@ const AllEpisodes = () => {
                   >
                     <CardContent className="p-0 relative flex flex-col h-full">
                       <AspectRatio ratio={1} className="overflow-hidden">
-                        {episode.imageUrl && (
+                        {episode.imageUrl ? (
                           <Link href={`/episodes/${episode.id}`}>
                             <img
                               src={episode.imageUrl}
-                              alt={decodeHtml(episode.title)}
+                              alt={episode.title}
                               className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110 hover:scale-110"
                               loading="lazy"
                             />
                           </Link>
+                        ) : (
+                          <div className="w-full h-full bg-gray-300 flex items-center justify-center">
+                            <span className="text-gray-500">No Image Available</span>
+                          </div>
                         )}
                       </AspectRatio>
 
@@ -188,11 +183,11 @@ const AllEpisodes = () => {
                           </div>
                           <h3 className="text-3xl font-bold mb-3 text-podcast-yellow">
                             <Link href={`/episodes/${episode.id}`}>
-                              {decodeHtml(episode.title)}
+                              {episode.title}
                             </Link>
                           </h3>
                           <p className="text-white/80 mb-6 line-clamp-3">
-                            {stripHtmlAndBr(episode.description)}
+                            {decodeHtmlAndRemoveStrong(episode.description)}
                           </p>
                         </div>
                         <div className="flex gap-4 mt-auto">
@@ -214,24 +209,21 @@ const AllEpisodes = () => {
             )}
           </div>
         </div>
-
-        {/* CTA to Spotify */}
-        <div className="text-center mt-20 mb-10">
-          <p className="text-xl text-white/80 mb-6">
-            רוצה לא לפספס את הפרק הבא?
-          </p>
-          <a
-            href={PODCAST_LINKS.spotify}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-3 bg-podcast-yellow text-black text-lg font-bold px-8 py-3 rounded-full hover:bg-white hover:text-black transition-colors duration-300 shadow-lg shadow-podcast-yellow/30"
-            aria-label="עקבו אחרינו בספוטיפיי"
-          >
-            <SiSpotify size={24} />
-            זה הזמן לעקוב אחרינו בספוטיפיי
-          </a>
-        </div>
-
+            <div className="text-center mt-20 mb-10">
+              <p className="text-xl text-white/80 mb-6">
+                רוצה לא לפספס את הפרק הבא?
+              </p>
+              <a
+                href="https://open.spotify.com/show/0ZpvzCEuDeKQhBw74YEmp9?si=MjucC2YbRyqI4Iee2HYbHw"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-3 bg-podcast-yellow text-black text-lg font-bold px-8 py-3 rounded-md hover:bg-white hover:text-black transition-colors duration-300 shadow-lg shadow-podcast-yellow/30"
+                aria-label="עקבו אחרינו בספוטיפיי"
+              >
+                <SiSpotify size={24} />
+                זה הזמן לעקוב אחרינו בספוטיפיי
+              </a>
+            </div>
         <Footer />
       </div>
     </>

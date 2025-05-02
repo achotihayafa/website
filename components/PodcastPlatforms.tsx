@@ -56,10 +56,8 @@ const PodcastPlatforms = () => {
       {/* Platform-themed icons in the margins and between sections */}
       <div className="absolute inset-0 -z-10 pointer-events-none w-full h-full overflow-hidden">
         {/* Margins */}
-        <Headphones className="absolute top-10 left-0 -translate-x-1/2 w-32 h-32 text-podcast-yellow/15 pointer-events-none z-0" />
-        <Mic2 className="absolute bottom-10 right-0 translate-x-1/2 w-40 h-40 text-podcast-magenta/15 pointer-events-none z-0" />
-        <Heart className="absolute top-[60%] right-0 translate-x-1/2 w-24 h-24 text-podcast-yellow/10 pointer-events-none z-0" />
-        <Play className="absolute top-[50%] left-0 -translate-x-1/2 w-32 h-32 text-podcast-magenta/10 pointer-events-none z-0" />
+        <Play className="absolute top-10 left-20 -translate-x-1/2 w-20 h-20 sm:w-32 sm:h-32 text-podcast-yellow/15 pointer-events-none z-0" />
+        <Headphones className="absolute top-[50%] left-15 -translate-x-1/2 w-20 h-20 sm:w-32 sm:h-32 text-podcast-magenta/10 pointer-events-none z-0" />
       </div>
       {/* Background gradient */}
       <div className="absolute inset-0 bg-gradient-to-b from-black via-podcast-magenta/10 to-black z-[-20]"></div>

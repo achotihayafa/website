@@ -69,16 +69,13 @@ const LatestEpisodes = () => {
   }, []);
 
   return (
-    <section id="latest" className="py-20 bg-black relative overflow-hidden">
+    <section id="latest" className="py-20 relative overflow-hidden">
       {/* Decorative icons in the margins */}
       <div className="absolute inset-0 -z-10 pointer-events-none w-full h-full overflow-hidden">
-        <Headphones className="absolute top-10 left-0 -translate-x-1/2 w-32 h-32 text-podcast-yellow/15 pointer-events-none z-0" />
-        <Mic2 className="absolute bottom-10 right-0 translate-x-1/2 w-40 h-40 text-podcast-magenta/15 pointer-events-none z-0" />
-        <Heart className="absolute top-[60%] right-0 translate-x-1/2 w-24 h-24 text-podcast-yellow/10 pointer-events-none z-0" />
-        <Play className="absolute top-[50%] left-0 -translate-x-1/2 w-32 h-32 text-podcast-magenta/10 pointer-events-none z-0" />
+        <Headphones className="absolute top-10 left-0 w-32 h-32 text-podcast-yellow/15 pointer-events-none z-0" />
+        <Heart className="absolute top-[60%] right-10 w-24 h-24 text-podcast-yellow/10 pointer-events-none z-0" />
+        <Play className="absolute top-[50%] left-10 w-32 h-32 text-podcast-magenta/10 pointer-events-none z-0" />
       </div>
-      {/* Optional: subtle background gradient */}
-      <div className="absolute inset-0 bg-gradient-to-b from-black via-podcast-yellow/10 to-black z-[-20]"></div>
 
       <div className="container px-6">
         {/* Section Title */}
@@ -103,7 +100,7 @@ const LatestEpisodes = () => {
           </div>
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {episodes?.slice(0, 6).map((episode, index) => (
+            {episodes?.slice(0, 3).map((episode, index) => (
               <Card
                 key={index}
                 className="relative bg-podcast-darkgray/30 border border-white/30 group transition-all duration-300 overflow-hidden flex flex-col hover:border-podcast-yellow"
@@ -184,12 +181,12 @@ const LatestEpisodes = () => {
         )}
 
         {/* Button to All Episodes */}
-        <div className="flex justify-center mt-12 mb-6">
+        <div className="flex justify-center rounded-md mt-12 mb-6">
           <Link
             href="/episodes"
-            className="bg-podcast-yellow text-black font-bold px-6 py-2 rounded-full hover:bg-white transition-colors duration-300"
+            className="bg-podcast-yellow text-black font-bold px-6 py-2 rounded-md hover:bg-white transition-colors duration-300"
           >
-            רוצה עוד? כל הפרקים כאן
+            כל הרגשות - כל הפרקים
           </Link>
         </div>
       </div>
