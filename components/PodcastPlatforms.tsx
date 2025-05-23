@@ -53,14 +53,7 @@ const PodcastPlatforms = () => {
       viewport={{ once: true, amount: 0.4 }}
       transition={{ duration: 0.6, ease: 'easeOut' }}
     >
-      {/* Platform-themed icons in the margins and between sections */}
-      <div className="absolute inset-0 -z-10 pointer-events-none w-full h-full overflow-hidden">
-        {/* Margins */}
-        <Play className="absolute top-10 left-10 -translate-x-1/2 w-20 h-20 sm:w-32 sm:h-32 text-podcast-yellow/15 pointer-events-none z-0" />
-        <Headphones className="absolute bottom-[1%] right-5 w-20 h-20 sm:w-32 sm:h-32 text-white/10 pointer-events-none z-0" />
-      </div>
-      {/* Background gradient */}
-      <div className="absolute inset-0 bg-gradient-to-b from-black via-podcast-magenta/10 to-black z-[-20]"></div>
+
       {/* Main content */}
       <div className="container px-6 relative z-10">
         <div className="mb-6 text-center">

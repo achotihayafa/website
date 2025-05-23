@@ -26,15 +26,11 @@ const AboutSection = () => {
   ];
 
   return (
-    <section id="about" className="py-20 relative overflow-hidden">
-      {/* Background gradient and margin icons */}
-      <div className="absolute inset-0 -z-10 pointer-events-none w-full h-full overflow-hidden">
-        {/* Subtle icons only in margins, fully inside the section */}
-        <Info className="absolute top-10 left-4 w-24 h-24 text-podcast-magenta/20 pointer-events-none z-0" />
-        <Mic2 className="absolute bottom-10 left-4 w-24 h-24 text-white/15 pointer-events-none z-0" />
-        <Heart className="absolute top-[60%] right-4 w-32 h-32 sm:w-20 sm:h-20 text-podcast-magenta/20 pointer-events-none z-0" />
-        <Play className="absolute top-[50%] left-4 w-20 h-20 text-podcast-yellow/20 pointer-events-none z-0" />
-      </div>
+    <section
+      id="about"
+      className="py-20 relative overflow-x-hidden overflow-y-visible"
+    >
+
       <div className="container px-6">
 
         {/* Intro Title */}

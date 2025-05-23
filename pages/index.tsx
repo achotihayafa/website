@@ -11,6 +11,20 @@ import BTLSection from '../components/BTLSection';
 import Footer from '../components/Footer';
 
 const Index = () => {
+  // Animated background on scroll
+  React.useEffect(() => {
+    const handleScroll = () => {
+      const bg = document.getElementById('animated-bg');
+      if (bg) {
+        const scrollY = window.scrollY || 0;
+        // Move and rotate the blobs based on scroll position
+        bg.style.setProperty('--bg-scroll', `${scrollY}`);
+      }
+    };
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   return (
     <>
       <Head>
@@ -74,6 +88,58 @@ const Index = () => {
           `
         }} />
       </Head>
+      {/* Animated blurry background */}
+      <div
+        id="animated-bg"
+        className="fixed inset-0 -z-50 pointer-events-none"
+        aria-hidden="true"
+        style={{
+          '--bg-scroll': '0',
+        } as React.CSSProperties}
+      >
+        {/* Magenta blob */}
+        <div
+          className="absolute top-[10vh] left-[-10vw] sm:w-[22vw] sm:h-[22vw] w-[44vw] h-[44vw] rounded-full bg-podcast-magenta/40 blur-2xl transition-transform duration-300 opacity-70"
+          style={{
+            transform: `
+              translateY(calc(min(0px, var(--bg-scroll,0) * 0.15px)))
+              translateX(calc(10px * sin(var(--bg-scroll,0) * 0.01)))
+              rotate(calc(var(--bg-scroll,0) * 0.05deg))
+            `
+          }}
+        />
+        {/* Yellow blob */}
+        <div
+          className="absolute bottom-[-10vh] right-[-10vw] sm:w-[18vw] sm:h-[18vw] w-[36vw] h-[36vw] rounded-full bg-podcast-yellow/30 blur-2xl transition-transform duration-300 opacity-70"
+          style={{
+            transform: `
+              translateY(calc(max(0px, var(--bg-scroll,0) * -0.12px)))
+              translateX(calc(-12px * cos(var(--bg-scroll,0) * 0.008)))
+              rotate(calc(var(--bg-scroll,0) * -0.04deg))
+            `
+          }}
+        />
+        {/* Small yellow blob */}
+        <div
+          className="absolute top-[60vh] left-[50vw] sm:w-[10vw] sm:h-[10vw] w-[20vw] h-[20vw] rounded-full bg-podcast-yellow/10 blur-lg transition-transform duration-300 opacity-80"
+          style={{
+            transform: `
+              translateY(calc(min(0px, var(--bg-scroll,0) * 0.08px)))
+              translateX(calc(8px * cos(var(--bg-scroll,0) * 0.012)))
+            `
+          }}
+        />
+        {/* Small magenta blob */}
+        <div
+          className="absolute top-[30vh] right-[30vw] sm:w-[7vw] sm:h-[7vw] w-[14vw] h-[14vw] rounded-full bg-podcast-magenta/10 blur-lg transition-transform duration-300 opacity-80"
+          style={{
+            transform: `
+              translateY(calc(max(0px, var(--bg-scroll,0) * -0.06px)))
+              translateX(calc(-7px * sin(var(--bg-scroll,0) * 0.014)))
+            `
+          }}
+        />
+      </div>
       <Navbar />
       <HeroSection />
       <PodcastPlatforms />

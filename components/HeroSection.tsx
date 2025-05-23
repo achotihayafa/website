@@ -18,7 +18,7 @@ const HeroSection = () => {
   }, []);
 
   return (
-    <section className="relative h-screen flex items-center pt-16 md:pt-24 overflow-hidden">
+      <section className="relative h-screen flex items-center pt-16 md:pt-24 overflow-hidden">
       {/* Background animated circles */}
       <div className="absolute inset-0 -z-10 pointer-events-none">
         <div className="absolute top-[20%] left-[10%] w-80 h-80 rounded-full bg-gradient-to-br from-podcast-magenta/30 via-podcast-yellow/30 to-podcast-magenta/10 blur-3xl animate-pulse-slow"></div>
@@ -62,7 +62,7 @@ const HeroSection = () => {
           >
             <Button
               size="lg"
-              className="h-11 rounded-md px-8 w-64 font-bold text-xl bg-podcast-yellow text-black hover:bg-podcast-yellow/90 shadow-lg shadow-podcast-yellow/20 flex items-center justify-center gap-2 whitespace-nowrap"
+              className="h-11 rounded-md px-8 w-64 font-bold text-xl bg-podcast-yellow text-black hover:bg-podcast-yellow/80 shadow-lg shadow-podcast-yellow/20 flex items-center justify-center gap-2 whitespace-nowrap"
               onClick={() =>
                 window.open("https://open.spotify.com/show/0ZpvzCEuDeKQhBw74YEmp9?si=MjucC2YbRyqI4Iee2HYbHw", "_blank")
               }
@@ -95,7 +95,7 @@ const HeroSection = () => {
           <img
             src={podcastCover}
             alt="Podcast Cover"
-            className="w-48 h-48 md:w-80 md:h-80 object-cover rounded-3xl shadow-2xl border-4 border-white/10 transition-transform duration-300 hover:scale-105"
+            className="w-48 h-48 md:w-80 md:h-80 object-cover rounded-3xl shadow-2xl transition-transform duration-300 hover:scale-105"
           />
         </motion.div>
       </div>

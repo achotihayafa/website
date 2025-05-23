@@ -11,7 +11,7 @@ const PODCAST_LINKS = {
 
 const Footer = () => {
   return (
-    <footer className="bg-black/80 text-white py-12">
+    <footer className="bg-black text-white py-12">
       <div className="border-t border-white/10 mb-10" />
       <div className="container px-6 max-w-screen-2xl">
         <div className="flex flex-col md:flex-row justify-between gap-14 mb-8">

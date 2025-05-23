@@ -256,7 +256,7 @@ const AllEpisodes = ({ episodes }: Props) => {
             </a>
             {/* Podcast About Text */}
             <div className="text-center md:text-right flex-1">
-              <h2 className="text-4xl md:text-4xl mb-4 text-podcast-magenta">על הפודקאסט</h2>
+              <h2 className="text-4xl md:text-4xl mb-4 text-podcast-yellow">על הפודקאסט</h2>
               <p className="text-lg text-white/80 mb-2">
                 "אחותי היפה" הוא פודקאסט על רגשות, זהות ולהטב"קיות, דרך שיחות עומק אינטימיות וכנות. בכל פרק אנחנו – צחי ויהונתן כהן, אחים כבר יותר משלושים שנה – בוחרים רגש מתוך הספר "Atlas of the Heart" של ברנה בראון, וצוללים אל תוך זיכרונות, חוויות, וסיפורים אישיים. בין ילדות בבית דתי, דייטים מביכים, וחיפוש אחר משמעות – אנחנו מנסים להבין מה באמת עובר עלינו בפנים. בכל פרק אנחנו מנסות להביא מבט אישי, חד ומרגש על קנאה, גאווה, וכאב. "אחותי היפה" הוא לא רק פודקאסט – הוא הזמנה להרגיש.
               </p>
@@ -281,7 +281,7 @@ export const getStaticProps: GetStaticProps = async () => {
   return {
     props: {
       episodes,
-    },
-    revalidate: 3600, // Optional: ISR, revalidate every hour
+    }
+    // REMOVE revalidate: 3600, // ISR is not supported with output: export
   };
 };

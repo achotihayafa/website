@@ -70,12 +70,6 @@ const LatestEpisodes = () => {
 
   return (
     <section id="latest" className="py-20 relative overflow-hidden">
-      {/* Decorative icons in the margins */}
-      <div className="absolute inset-0 -z-10 pointer-events-none w-full h-full overflow-hidden">
-        <Clock className="absolute top-10 left-0 w-32 h-32 text-podcast-yellow/15 pointer-events-none z-0" />
-        <Heart className="absolute top-[60%] right-10 w-24 h-24 text-podcast-yellow/10 pointer-events-none z-0" />
-        <Play className="absolute top-[50%] left-10 w-32 h-32 text-podcast-magenta/10 pointer-events-none z-0" />
-      </div>
 
       <div className="container px-6">
         {/* Section Title */}
@@ -103,7 +97,7 @@ const LatestEpisodes = () => {
             {episodes?.slice(0, 3).map((episode, index) => (
               <Card
                 key={index}
-                className="relative bg-podcast-darkgray/30 border border-white/30 group transition-all duration-300 overflow-hidden flex flex-col hover:border-podcast-yellow"
+                className="relative bg-black border border-white/30 group transition-all duration-300 overflow-hidden flex flex-col hover:border-podcast-yellow"
                 style={{ borderRadius: '1rem' }}
               >
                 <CardContent className="p-0 relative flex flex-col h-full">

@@ -1,5 +1,7 @@
 import { parseStringPromise } from 'xml2js';
 
+declare module 'xml2js';
+
 interface Episode {
   id: string;
   title: string;
