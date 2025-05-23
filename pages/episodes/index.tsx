@@ -2,7 +2,6 @@ import React, { useRef, useState, useEffect } from 'react';
 import Head from 'next/head';
 import Navbar from '../../components/Navbar';
 import Footer from '../../components/Footer';
-import { useQuery } from '@tanstack/react-query';
 import { fetchRssFeed } from 'utils/rssParser';
 import { Card, CardContent } from "../../components/ui/card";
 import { AspectRatio } from "../../components/ui/aspect-ratio";
@@ -23,12 +22,25 @@ const decodeHtmlAndRemoveStrong = (html: string): string => {
   return decoded.replace(/<[^>]+>/g, ''); // Remove any remaining HTML tags
 };
 
-const AllEpisodes = () => {
-  const { data: episodes, isLoading, error } = useQuery({
-    queryKey: ['episodes'],
-    queryFn: fetchRssFeed
-  });
+type Episode = {
+  id: string;
+  title: string;
+  description: string;
+  duration: string;
+  date: string;
+  spotifyLink: string;
+  audioUrl: string;
+  imageUrl: string;
+  featured?: boolean;
+  season?: string;
+  episodeNumber?: string;
+};
 
+type Props = {
+  episodes: Episode[];
+};
+
+const AllEpisodes = ({ episodes }: Props) => {
   const audioRefs = useRef<Array<HTMLAudioElement | null>>([]);
   const [playingIndex, setPlayingIndex] = useState<number | null>(null);
 
@@ -121,17 +133,16 @@ const AllEpisodes = () => {
               </p>
             </div>
 
-            {isLoading ? (
-              <div className="flex justify-center items-center py-20">
-                <span className="animate-spin text-white text-2xl">⏳</span>
-              </div>
-            ) : error ? (
-              <div className="text-center py-10">
-                <p className="text-white text-xl">אירעה שגיאה בטעינת הפרקים. נסו שוב מאוחר יותר.</p>
-              </div>
-            ) : (
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                {episodes?.map((episode, index) => (
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {episodes?.map((episode, index) => {
+                // Ensure episode.id is always a string
+                let episodeId = episode.id;
+                if (typeof episodeId === 'object' && episodeId !== null) {
+                  if ('_' in episodeId) episodeId = episodeId._;
+                  else if ('$' in episodeId) episodeId = episodeId.$;
+                  else episodeId = String(episodeId);
+                }
+                return (
                   <Card
                     key={index}
                     className="relative bg-podcast-darkgray/30 border border-white/30 group transition-all duration-300 overflow-hidden flex flex-col hover:border-podcast-yellow"
@@ -139,7 +150,7 @@ const AllEpisodes = () => {
                     <CardContent className="p-0 relative flex flex-col h-full">
                       <AspectRatio ratio={1} className="overflow-hidden">
                         {episode.imageUrl ? (
-                          <Link href={`/episodes/${episode.id}`}>
+                          <Link href={`/episodes/${episodeId}`}>
                             <img
                               src={episode.imageUrl}
                               alt={episode.title}
@@ -182,7 +193,7 @@ const AllEpisodes = () => {
                             </span>
                           </div>
                           <h3 className="text-3xl font-bold mb-3 text-podcast-yellow">
-                            <Link href={`/episodes/${episode.id}`}>
+                            <Link href={`/episodes/${episodeId}`}>
                               {episode.title}
                             </Link>
                           </h3>
@@ -204,11 +215,9 @@ const AllEpisodes = () => {
                       </div>
                     </CardContent>
                   </Card>
-                ))}
-              </div>
-            )}
-          </div>
-        </div>
+                );
+              })}
+            </div>
             <div className="text-center mt-20 mb-10">
               <p className="text-xl text-white/80 mb-6">
                 רוצה לא לפספס את הפרק הבא?
@@ -224,6 +233,36 @@ const AllEpisodes = () => {
                 זה הזמן לעקוב אחרינו בספוטיפיי
               </a>
             </div>
+          </div>
+        </div>
+              {/* Podcast About Section */}
+      <section className="py-16 bg-gradient-to-b from-black via-podcast-magenta/10 to-black mt-1">
+        <div className="container px-6 max-w-5xl mx-auto">
+          <div className="flex flex-col md:flex-row items-center md:items-start gap-8">
+            {/* Podcast Cover */}
+            <a
+              href="https://open.spotify.com/show/0ZpvzCEuDeKQhBw74YEmp9?si=MjucC2YbRyqI4Iee2HYbHw"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block flex-shrink-0 group"
+              title="האזינו בספוטיפיי"
+            >
+              <img
+                src="/cover.jpg"
+                alt='עטיפת הפודקאסט "אחותי היפה"'
+                className="w-40 h-40 md:w-48 md:h-48 rounded-xl shadow-lg group-hover:scale-105 transition-transform"
+              />
+            </a>
+            {/* Podcast About Text */}
+            <div className="text-center md:text-right flex-1">
+              <h2 className="text-4xl md:text-4xl mb-4 text-podcast-magenta">על הפודקאסט</h2>
+              <p className="text-lg text-white/80 mb-2">
+                "אחותי היפה" הוא פודקאסט על רגשות, זהות ולהטב"קיות, דרך שיחות עומק אינטימיות וכנות. בכל פרק אנחנו – צחי ויהונתן כהן, אחים כבר יותר משלושים שנה – בוחרים רגש מתוך הספר "Atlas of the Heart" של ברנה בראון, וצוללים אל תוך זיכרונות, חוויות, וסיפורים אישיים. בין ילדות בבית דתי, דייטים מביכים, וחיפוש אחר משמעות – אנחנו מנסים להבין מה באמת עובר עלינו בפנים. בכל פרק אנחנו מנסות להביא מבט אישי, חד ומרגש על קנאה, גאווה, וכאב. "אחותי היפה" הוא לא רק פודקאסט – הוא הזמנה להרגיש.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
         <Footer />
       </div>
     </>
@@ -231,3 +270,17 @@ const AllEpisodes = () => {
 };
 
 export default AllEpisodes;
+
+// --- Static Generation Functions ---
+
+import { GetStaticProps } from "next";
+
+export const getStaticProps: GetStaticProps = async () => {
+  const episodes = await fetchRssFeed();
+  return {
+    props: {
+      episodes,
+    },
+    revalidate: 3600, // Optional: ISR, revalidate every hour
+  };
+};

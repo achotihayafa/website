@@ -1,4 +1,4 @@
-import { XMLParser } from "fast-xml-parser";
+import { parseStringPromise } from 'xml2js';
 
 interface Episode {
   id: string;
@@ -19,20 +19,28 @@ export const fetchRssFeed = async (): Promise<Episode[]> => {
     const response = await fetch("https://anchor.fm/s/f1452300/podcast/rss");
     const text = await response.text();
 
-    const parser = new DOMParser();
-    const xmlDoc = parser.parseFromString(text, "text/xml");
-    const items = xmlDoc.querySelectorAll("item");
+    // Parse XML using xml2js
+    const result = await parseStringPromise(text, { explicitArray: false });
 
-    const episodes: Episode[] = [];
+    // Now, result.rss.channel.item is your episodes array (adjust as needed)
+    const items = result.rss.channel.item || [];
 
-    items.forEach((item, index) => {
-      const title = item.querySelector("title")?.textContent || "";
-      const description = item.querySelector("description")?.textContent || "";
-      const pubDate = item.querySelector("pubDate")?.textContent || "";
+    const episodes: Episode[] = items.map((item: any, index: number) => {
+      const title = item.title;
+      const description = item.description;
+      const pubDate = item.pubDate;
 
-      // Extract episode ID from <link>
-      const link = item.querySelector("link")?.textContent || "";
-      const id = link.split("/").pop() || `episode-${index}`; // fallback to index
+      // Extract episode ID from <link> (e.g., https://podcasters.spotify.com/pod/show/achoti/episodes/ep-e322n03)
+      const link = item.link || "";
+      let id = "";
+      const match = link.match(/\/episodes\/([^/?#]+)/);
+      if (match && match[1]) {
+        id = match[1];
+      } else if (item.guid) {
+        id = typeof item.guid === "string" ? item.guid : (item.guid._ || `episode-${index}`);
+      } else {
+        id = link.split("/").pop() || `episode-${index}`;
+      }
 
       // Clean description
       const cleanDescription = description
@@ -44,25 +52,17 @@ export const fetchRssFeed = async (): Promise<Episode[]> => {
         .replace(/&nbsp;/g, ' ');                           // Normalize spaces
 
       // Duration
-      let duration = "";
-      const durationElement = item.querySelector("itunes\\:duration") || item.querySelector("*|duration");
-      if (durationElement) {
-        duration = durationElement.textContent || "";
-      }
+      let duration = item['itunes:duration'] || "";
 
       // Audio
-      const audioUrl = item.querySelector("enclosure")?.getAttribute("url") || "";
+      const audioUrl = item.enclosure?.$.url || "";
 
       // Image
-      const imageElement = item.querySelector("itunes\\:image") || item.querySelector("*|image");
-      const imageUrl = imageElement?.getAttribute("href") || "";
+      const imageUrl = item['itunes:image']?.$.href || "";
 
       // Season and Episode
-      const seasonElement = item.querySelector("itunes\\:season") || item.querySelector("*|season");;
-      const episodeNumberElement = item.querySelector("itunes\\:episode") || item.querySelector("*|episode");;
-
-      const season = seasonElement?.textContent || "";
-      const episodeNumber = episodeNumberElement?.textContent || "";
+      const season = item['itunes:season'] || "";
+      const episodeNumber = item['itunes:episode'] || "";
 
       // Format date
       const date = new Date(pubDate);
@@ -88,7 +88,7 @@ export const fetchRssFeed = async (): Promise<Episode[]> => {
         }
       }
 
-      episodes.push({
+      return {
         id,
         title,
         description: cleanDescription,
@@ -100,7 +100,7 @@ export const fetchRssFeed = async (): Promise<Episode[]> => {
         featured: index === 0,
         season, // Add season to the episode data
         episodeNumber // Add episode number to the episode data
-      });
+      };
     });
 
 

@@ -7,9 +7,8 @@ const BTLSection = () => {
     <section id="btl" className="py-20 relative overflow-hidden">
       {/* Music-themed icons in the margins */}
       <div className="absolute inset-0 -z-10 pointer-events-none w-full h-full overflow-hidden">
-        <Headphones className="absolute top-10 left-15 -translate-x-1/2 w-20 h-20 text-podcast-yellow/30 pointer-events-none z-0" />
-        <Mic2 className="absolute bottom-10 right-20 translate-x-1/2 w-24 h-24 text-podcast-magenta/30 pointer-events-none z-0" />
-        <Heart className="absolute top-[60%] right-10 translate-x-1/2 w-16 h-16 text-podcast-yellow/20 pointer-events-none z-0" />
+        <Music className="absolute top-10 left-15 -translate-x-1/2 w-20 h-20 text-podcast-yellow/30 pointer-events-none z-0" />
+        <Mic2 className="absolute bottom-10 right-20 translate-x-1/2 w-24 h-24 text-white/30 pointer-events-none z-0" />
         <Play className="absolute top-[50%] left-20 -translate-x-1/2 w-20 h-20 text-podcast-magenta/20 pointer-events-none z-0" />
       </div>
       <div className="container px-6 relative z-10">

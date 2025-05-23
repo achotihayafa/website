@@ -72,7 +72,7 @@ const LatestEpisodes = () => {
     <section id="latest" className="py-20 relative overflow-hidden">
       {/* Decorative icons in the margins */}
       <div className="absolute inset-0 -z-10 pointer-events-none w-full h-full overflow-hidden">
-        <Headphones className="absolute top-10 left-0 w-32 h-32 text-podcast-yellow/15 pointer-events-none z-0" />
+        <Clock className="absolute top-10 left-0 w-32 h-32 text-podcast-yellow/15 pointer-events-none z-0" />
         <Heart className="absolute top-[60%] right-10 w-24 h-24 text-podcast-yellow/10 pointer-events-none z-0" />
         <Play className="absolute top-[50%] left-10 w-32 h-32 text-podcast-magenta/10 pointer-events-none z-0" />
       </div>

@@ -239,7 +239,7 @@ const EpisodeDetailPage = ({ episode, randomEpisodes }: Props) => {
           </div>
         </section>
         <div className="container px-6 max-w-6xl mx-auto mt-5">
-          <h2 className="text-3xl text-podcast-magenta mb-6 text-center">
+          <h2 className="text-4xl text-podcast-magenta mb-6 text-center">
             פרקים נוספים שאולי תאהבו
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -290,14 +290,33 @@ const EpisodeDetailPage = ({ episode, randomEpisodes }: Props) => {
         </div>
       {/* Podcast About Section */}
       <section className="py-16 bg-gradient-to-b from-black via-podcast-magenta/10 to-black mt-16">
-        <div className="container px-6 max-w-3xl mx-auto text-center">
-          <h2 className="text-3xl md:text-4xl mb-4 text-podcast-magenta">על הפודקאסט "אחותי היפה"</h2>
-          <p className="text-lg text-white/80 mb-2">
-            "אחותי היפה" הוא פודקאסט על רגשות, זהות ולהטב"קיות, דרך שיחות עומק אינטימיות וכנות. בכל פרק אנחנו – צחי ויהונתן כהן, אחים כבר יותר משלושים שנה – בוחרים רגש מתוך הספר "Atlas of the Heart" של ברנה בראון, וצוללים אל תוך זיכרונות, חוויות, וסיפורים אישיים. בין ילדות בבית דתי, דייטים מביכים, וחיפוש אחר משמעות – אנחנו מנסים להבין מה באמת עובר עלינו בפנים. בכל פרק אנחנו מנסות להביא מבט אישי, חד ומרגש על קנאה, גאווה, וכאב. "אחותי היפה" הוא לא רק פודקאסט – הוא הזמנה להרגיש.
-          </p>
+        <div className="container px-6 max-w-5xl mx-auto">
+          <div className="flex flex-col md:flex-row items-center md:items-start gap-8">
+            {/* Podcast Cover */}
+            <a
+              href="https://open.spotify.com/show/0ZpvzCEuDeKQhBw74YEmp9?si=MjucC2YbRyqI4Iee2HYbHw"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block flex-shrink-0 group"
+              title="האזינו בספוטיפיי"
+            >
+              <img
+                src="/cover.jpg"
+                alt='עטיפת הפודקאסט "אחותי היפה"'
+                className="w-40 h-40 md:w-48 md:h-48 rounded-xl shadow-lg group-hover:scale-105 transition-transform"
+              />
+            </a>
+            {/* Podcast About Text */}
+            <div className="text-center md:text-right flex-1">
+              <h2 className="text-4xl md:text-4xl mb-4 text-podcast-magenta">על הפודקאסט</h2>
+              <p className="text-lg text-white/80 mb-2">
+                "אחותי היפה" הוא פודקאסט על רגשות, זהות ולהטב"קיות, דרך שיחות עומק אינטימיות וכנות. בכל פרק אנחנו – צחי ויהונתן כהן, אחים כבר יותר משלושים שנה – בוחרים רגש מתוך הספר "Atlas of the Heart" של ברנה בראון, וצוללים אל תוך זיכרונות, חוויות, וסיפורים אישיים. בין ילדות בבית דתי, דייטים מביכים, וחיפוש אחר משמעות – אנחנו מנסים להבין מה באמת עובר עלינו בפנים. בכל פרק אנחנו מנסות להביא מבט אישי, חד ומרגש על קנאה, גאווה, וכאב. "אחותי היפה" הוא לא רק פודקאסט – הוא הזמנה להרגיש.
+              </p>
+            </div>
+          </div>
         </div>
       </section>
-        <Footer />
+      <Footer />
       </div>
     </>
   );
@@ -311,23 +330,60 @@ import { GetStaticPaths, GetStaticProps } from "next";
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const episodes = await fetchRssFeed();
-  const paths = episodes.map((e: Episode) => ({
-    params: { id: e.id }
-  }));
+  const paths = episodes
+    .map((e: Episode) => {
+      // Ensure id is always a string and matches the RSS id extraction logic
+      let id: unknown = e.id;
+      if (typeof id === 'object' && id !== null) {
+        const obj = id as Record<string, unknown>;
+        if ('_' in obj) id = obj._ as string;
+        else if ('$' in obj) id = obj.$ as string;
+        else id = String(id);
+      }
+      return { params: { id: String(id) } };
+    })
+    .filter(Boolean);
+
   return { paths, fallback: false };
 };
 
 export const getStaticProps: GetStaticProps = async (context) => {
   const episodes = await fetchRssFeed();
-  const id = context.params?.id as string;
-  const episode = episodes.find((e: Episode) => e.id === id);
+  let id: unknown = context.params?.id;
+
+  if (typeof id === 'object' && id !== null) {
+    const obj = id as Record<string, unknown>;
+    if ('_' in obj) id = obj._ as string;
+    else if ('$' in obj) id = obj.$ as string;
+    else id = String(id);
+  }
+
+  const episode = episodes.find((e: Episode) => {
+    let eid: unknown = e.id;
+    if (typeof eid === 'object' && eid !== null) {
+      const obj = eid as Record<string, unknown>;
+      if ('_' in obj) eid = obj._ as string;
+      else if ('$' in obj) eid = obj.$ as string;
+      else eid = String(eid);
+    }
+    return String(eid) === String(id);
+  });
 
   if (!episode) {
     return { notFound: true };
   }
 
   // Pick 3 random episodes (excluding current)
-  const filtered = episodes.filter((e: Episode) => e.id !== id);
+  const filtered = episodes.filter((e: Episode) => {
+    let eid: unknown = e.id;
+    if (typeof eid === 'object' && eid !== null) {
+      const obj = eid as Record<string, unknown>;
+      if ('_' in obj) eid = obj._ as string;
+      else if ('$' in obj) eid = obj.$ as string;
+      else eid = String(eid);
+    }
+    return String(eid) !== String(id);
+  });
   const shuffled = filtered.sort(() => 0.5 - Math.random());
   const randomEpisodes = shuffled.slice(0, 3);
 
