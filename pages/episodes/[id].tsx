@@ -3,9 +3,7 @@
 'use client';
 
 import React, { useRef, useState } from "react";
-import Head from 'next/head'; // Use Next.js Head
-import { useRouter } from "next/router";
-import { useQuery } from "@tanstack/react-query";
+import Head from 'next/head';
 import { fetchRssFeed } from "utils/rssParser";
 import { FaPlay, FaPause, FaCalendarAlt, FaClock } from "react-icons/fa";
 import { SiSpotify, SiYoutube, SiApplepodcasts } from "react-icons/si";
@@ -15,16 +13,24 @@ import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
 import Link from 'next/link';
 
-const EpisodeDetailPage = () => {
-  const router = useRouter();
-  const { id: episodeId } = router.query;
+type Episode = {
+  id: string;
+  title: string;
+  description: string;
+  date: string;
+  duration: string;
+  imageUrl: string;
+  audioUrl: string;
+  season?: string;
+  episodeNumber?: string;
+};
 
-  const { data: episodes, isLoading, error } = useQuery({
-    queryKey: ['episodes'],
-    queryFn: fetchRssFeed,
-    enabled: !!episodeId, // Only fetch if episodeId is available
-  });
+type Props = {
+  episode: Episode;
+  randomEpisodes: Episode[];
+};
 
+const EpisodeDetailPage = ({ episode, randomEpisodes }: Props) => {
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const [playing, setPlaying] = useState(false);
 
@@ -39,20 +45,6 @@ const EpisodeDetailPage = () => {
     }
   };
 
-  if (isLoading) {
-    return <div className="text-center text-white py-20">טוען פרק...</div>;
-  }
-
-  if (error || !episodes) {
-    return <div className="text-center text-white py-20">אירעה שגיאה בטעינת הפרק.</div>;
-  }
-
-  const episode = episodes?.find(e => e.id === episodeId);
-  if (!episode) {
-    return <div className="text-center text-white py-20">הפרק לא נמצא.</div>;
-  }
-
-  // Breadcrumb JSON-LD for SEO
   const breadcrumbJsonLd = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
@@ -77,14 +69,6 @@ const EpisodeDetailPage = () => {
       }
     ]
   };
-
-  const getRandomEpisodes = (currentEpisodeId: string, count: number) => {
-    const filteredEpisodes = episodes.filter(e => e.id !== currentEpisodeId);
-    const shuffled = filteredEpisodes.sort(() => 0.5 - Math.random());
-    return shuffled.slice(0, count);
-  };
-
-  const randomEpisodes = getRandomEpisodes(episode.id, 3);
 
   return (
     <>
@@ -304,6 +288,15 @@ const EpisodeDetailPage = () => {
             ))}
           </div>
         </div>
+      {/* Podcast About Section */}
+      <section className="py-16 bg-gradient-to-b from-black via-podcast-magenta/10 to-black mt-16">
+        <div className="container px-6 max-w-3xl mx-auto text-center">
+          <h2 className="text-3xl md:text-4xl mb-4 text-podcast-magenta">על הפודקאסט "אחותי היפה"</h2>
+          <p className="text-lg text-white/80 mb-2">
+            "אחותי היפה" הוא פודקאסט על רגשות, זהות ולהטב"קיות, דרך שיחות עומק אינטימיות וכנות. בכל פרק אנחנו – צחי ויהונתן כהן, אחים כבר יותר משלושים שנה – בוחרים רגש מתוך הספר "Atlas of the Heart" של ברנה בראון, וצוללים אל תוך זיכרונות, חוויות, וסיפורים אישיים. בין ילדות בבית דתי, דייטים מביכים, וחיפוש אחר משמעות – אנחנו מנסים להבין מה באמת עובר עלינו בפנים. בכל פרק אנחנו מנסות להביא מבט אישי, חד ומרגש על קנאה, גאווה, וכאב. "אחותי היפה" הוא לא רק פודקאסט – הוא הזמנה להרגיש.
+          </p>
+        </div>
+      </section>
         <Footer />
       </div>
     </>
@@ -311,6 +304,40 @@ const EpisodeDetailPage = () => {
 };
 
 export default EpisodeDetailPage;
+
+// --- Static Generation Functions ---
+
+import { GetStaticPaths, GetStaticProps } from "next";
+
+export const getStaticPaths: GetStaticPaths = async () => {
+  const episodes = await fetchRssFeed();
+  const paths = episodes.map((e: Episode) => ({
+    params: { id: e.id }
+  }));
+  return { paths, fallback: false };
+};
+
+export const getStaticProps: GetStaticProps = async (context) => {
+  const episodes = await fetchRssFeed();
+  const id = context.params?.id as string;
+  const episode = episodes.find((e: Episode) => e.id === id);
+
+  if (!episode) {
+    return { notFound: true };
+  }
+
+  // Pick 3 random episodes (excluding current)
+  const filtered = episodes.filter((e: Episode) => e.id !== id);
+  const shuffled = filtered.sort(() => 0.5 - Math.random());
+  const randomEpisodes = shuffled.slice(0, 3);
+
+  return {
+    props: {
+      episode,
+      randomEpisodes,
+    },
+  };
+};
 
 function decodeHtml(html: string): string {
   if (typeof window !== "undefined") {
