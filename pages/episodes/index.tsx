@@ -136,10 +136,11 @@ const AllEpisodes = ({ episodes }: Props) => {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {episodes?.map((episode, index) => {
                 // Ensure episode.id is always a string
-                let episodeId = episode.id;
+                let episodeId: unknown = episode.id;
                 if (typeof episodeId === 'object' && episodeId !== null) {
-                  if ('_' in episodeId) episodeId = episodeId._;
-                  else if ('$' in episodeId) episodeId = episodeId.$;
+                  const obj = episodeId as Record<string, unknown>;
+                  if ('_' in obj) episodeId = obj._ as string;
+                  else if ('$' in obj) episodeId = obj.$ as string;
                   else episodeId = String(episodeId);
                 }
                 return (
