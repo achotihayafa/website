@@ -4,7 +4,7 @@
   "/404": "pages/404.html",
   "/NotFound": "pages/NotFound.html",
   "/": "pages/index.html",
-  "/episodes/[id]": "pages/episodes/[id].js",
   "/episodes": "pages/episodes.js",
+  "/episodes/[id]": "pages/episodes/[id].js",
   "/_document": "pages/_document.js"
 }

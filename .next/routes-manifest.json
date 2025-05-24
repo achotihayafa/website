@@ -52,15 +52,15 @@
   "dataRoutes": [
     {
       "page": "/episodes",
-      "dataRouteRegex": "^/_next/data/sSwlK3Ofv_vR1dZG0e5AL/episodes\\.json$"
+      "dataRouteRegex": "^/_next/data/ancWdHu_rSqlRE_RceW\\-c/episodes\\.json$"
     },
     {
       "page": "/episodes/[id]",
       "routeKeys": {
         "nxtPid": "nxtPid"
       },
-      "dataRouteRegex": "^/_next/data/sSwlK3Ofv_vR1dZG0e5AL/episodes/([^/]+?)\\.json$",
-      "namedDataRouteRegex": "^/_next/data/sSwlK3Ofv_vR1dZG0e5AL/episodes/(?<nxtPid>[^/]+?)\\.json$"
+      "dataRouteRegex": "^/_next/data/ancWdHu_rSqlRE_RceW\\-c/episodes/([^/]+?)\\.json$",
+      "namedDataRouteRegex": "^/_next/data/ancWdHu_rSqlRE_RceW\\-c/episodes/(?<nxtPid>[^/]+?)\\.json$"
     }
   ],
   "rsc": {
