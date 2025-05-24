@@ -36,7 +36,7 @@ const Index = () => {
         <meta name="keywords" content="פודקאסט רגשי, פודקאסט להטב, פודקאסט על רגשות, צחי כהן, יהונתן כהן, ברנה בראון, פודקאסטים קוויריים, פודקסטים להטבקים, פודקאסט גאה בעברית" />
         <meta name="author" content="אחותי היפה" />
         <link rel="canonical" href="https://achotihayafa.com/" />
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/favicon.ico" type="image/x-icon" />
         {/* OpenGraph Meta Tags */}
         <meta property="og:title" content='אחותי היפה | פודקאסט על רגשות, אבל בעצם פודקאסט להטב"קי' />
         <meta property="og:description" content="שיחות אינטימיות, מצחיקות ומרגשות על רגשות, שייכות, משפחה וחיים קוויריים – עם האחים הגאים צחי ויהונתן כהן." />
@@ -48,7 +48,7 @@ const Index = () => {
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content='אחותי היפה | פודקאסט על רגשות, אבל בעצם פודקאסט להטב"קי' />
         <meta name="twitter:description" content="שיחות אינטימיות, מצחיקות ומרגשות על רגשות, שייכות, משפחה וחיים קוויריים – עם האחים הגאים צחי ויהונתן כהן." />
-        <meta name="twitter:image" content="/opengraph.png" />
+        <meta name="twitter:image" content="https://achotihayafa.com/opengraph.png" />
         {/* JSON-LD Structured Data */}
         <script type="application/ld+json" dangerouslySetInnerHTML={{
           __html: `
@@ -58,7 +58,7 @@ const Index = () => {
             "name": "אחותי היפה",
             "description": "פודקאסט רגשי וקווירי בעברית – שיחות על רגשות, שייכות, משפחה וזהות מינית עם האחים צחי ויהונתן כהן.",
             "url": "https://achotihayafa.com/",
-            "image": "https://achotihayafa.com/opengraph.png",
+            "image": "https://achotihayafa.com/cover.jpg",
             "inLanguage": "he",
             "isAccessibleForFree": true,
             "author": {

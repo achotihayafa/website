@@ -45,67 +45,9 @@ const EpisodeDetailPage = ({ episode, randomEpisodes }: Props) => {
     }
   };
 
-  const breadcrumbJsonLd = {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "itemListElement": [
-      {
-        "@type": "ListItem",
-        "position": 1,
-        "name": "Home",
-        "item": "https://achotihayafa.com/"
-      },
-      {
-        "@type": "ListItem",
-        "position": 2,
-        "name": "Episodes",
-        "item": "https://achotihayafa.com/episodes"
-      },
-      {
-        "@type": "ListItem",
-        "position": 3,
-        "name": decodeHtml(episode.title),
-        "item": `https://achotihayafa.com/episodes/${episode.id}`
-      }
-    ]
-  };
-
   return (
     <>
-      <Head>
-        <title>{decodeHtml(episode.title)} | אחותי היפה</title>
-        <meta name="description" content={decodeHtml(episode.description).slice(0, 160)} />
-        <meta property="og:title" content={`${decodeHtml(episode.title)} | אחותי היפה`} />
-        <meta property="og:description" content={stripHtml(episode.description)} />
-        <meta property="og:image" content={episode.imageUrl} />
-        <meta property="og:image:alt" content={`עטיפת הפרק - ${decodeHtml(episode.title)}`} />
-        <meta property="og:type" content="article" />
-        <meta property="og:url" content={`https://achotihayafa.com/episodes/${episode.id}`} />
-        <link rel="canonical" href={`https://achotihayafa.com/episodes/${episode.id}`} />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content={`${decodeHtml(episode.title)} | אחותי היפה`} />
-        <meta name="twitter:description" content={stripHtml(episode.description)} />
-        <meta name="twitter:image" content={episode.imageUrl} />
-        <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "PodcastEpisode",
-            "name": decodeHtml(episode.title),
-            "description": stripHtml(episode.description),
-            "datePublished": episode.date,
-            "associatedMedia": {
-              "@type": "MediaObject",
-              "contentUrl": episode.audioUrl
-            },
-            "partOfSeries": {
-              "@type": "PodcastSeries",
-              "name": "אחותי היפה",
-              "url": "https://achotihayafa.com/"
-            }
-          })}
-        </script>
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }} />
-      </Head>
+      <EpisodeMeta episode={episode} />
 
       <div className="min-h-screen bg-black text-white">
         <Navbar />
@@ -310,7 +252,7 @@ const EpisodeDetailPage = ({ episode, randomEpisodes }: Props) => {
             <div className="text-center md:text-right flex-1">
               <h2 className="text-4xl md:text-4xl mb-4 text-podcast-magenta">על הפודקאסט</h2>
               <p className="text-lg text-white/80 mb-2">
-                "אחותי היפה" הוא פודקאסט על רגשות, זהות ולהטב"קיות, דרך שיחות עומק אינטימיות וכנות. בכל פרק אנחנו – צחי ויהונתן כהן, אחים כבר יותר משלושים שנה – בוחרים רגש מתוך הספר "Atlas of the Heart" של ברנה בראון, וצוללים אל תוך זיכרונות, חוויות, וסיפורים אישיים. בין ילדות בבית דתי, דייטים מביכים, וחיפוש אחר משמעות – אנחנו מנסים להבין מה באמת עובר עלינו בפנים. בכל פרק אנחנו מנסות להביא מבט אישי, חד ומרגש על קנאה, גאווה, וכאב. "אחותי היפה" הוא לא רק פודקאסט – הוא הזמנה להרגיש.
+                "אחותי היפה" הוא פודקאסט על רגשות, זהות ולהטב"קיות, דרך שיחות עומק אינטימיות וכנות. בכל פרק אנחנו – צחי ויהונתן כהן, אחים כבר יותר משלושים שנה – בוחרים רגש מתוך הספר "Atlas of the Heart" של ברנה בראון, וצוללים אל תוך זיכרונות, חוויות, וסיפורים אישיים. בין ילדות בבית דתי, דייטים מביכים, וחיפוש אחר משמעות – אנחנו מנסים להבין מה באמת עובר עלינו בפנים. בכל פרק אנחנו מנסות להביא מבט אישי, חד ומרגש על קנאה, גאווה, וכאב. "אחותי היפה" הוא לא רק פודקאסט – הוא הזמנה לפתוח את הלב ולהרגיש.
               </p>
             </div>
           </div>
@@ -324,7 +266,7 @@ const EpisodeDetailPage = ({ episode, randomEpisodes }: Props) => {
 
 export default EpisodeDetailPage;
 
-// --- Static Generation Functions ---
+// --- Server-side Metadata Rendering ---
 
 import { GetStaticPaths, GetStaticProps } from "next";
 
@@ -394,6 +336,71 @@ export const getStaticProps: GetStaticProps = async (context) => {
     },
   };
 };
+
+function EpisodeMeta({ episode }: { episode: Episode }) {
+  // These helpers are safe to use here
+  const breadcrumbJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://achotihayafa.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Episodes",
+        "item": "https://achotihayafa.com/episodes"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": decodeHtml(episode.title),
+        "item": `https://achotihayafa.com/episodes/${episode.id}`
+      }
+    ]
+  };
+
+  return (
+    <Head>
+      <title>{decodeHtml(episode.title)} | אחותי היפה</title>
+      <meta name="description" content={stripHtml(episode.description).slice(0, 160)} />
+      <meta property="og:title" content={`${decodeHtml(episode.title)} | אחותי היפה – פודקאסט על רגשות, אבל בעצם פודקאסט להטב"קי`} />
+      <meta property="og:description" content={stripHtml(episode.description)} />
+      <meta property="og:image" content={episode.imageUrl} />
+      <meta property="og:image:alt" content={`עטיפת הפרק - ${decodeHtml(episode.title)}`} />
+      <meta property="og:type" content="article" />
+      <meta property="og:url" content={`https://achotihayafa.com/episodes/${episode.id}`} />
+      <link rel="canonical" href={`https://achotihayafa.com/episodes/${episode.id}`} />
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:title" content={`${decodeHtml(episode.title)} | אחותי היפה – פודקאסט על רגשות, אבל בעצם פודקאסט להטב"קי`} />
+      <meta name="twitter:description" content={stripHtml(episode.description)} />
+      <meta name="twitter:image" content={episode.imageUrl} />
+      <script type="application/ld+json">
+        {JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "PodcastEpisode",
+          "name": decodeHtml(episode.title),
+          "description": stripHtml(episode.description),
+          "datePublished": episode.date,
+          "associatedMedia": {
+            "@type": "MediaObject",
+            "contentUrl": episode.audioUrl
+          },
+          "partOfSeries": {
+            "@type": "PodcastSeries",
+            "name": "אחותי היפה",
+            "url": "https://achotihayafa.com/"
+          }
+        })}
+      </script>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }} />
+    </Head>
+  );
+}
 
 function decodeHtml(html: string): string {
   if (typeof window !== "undefined") {

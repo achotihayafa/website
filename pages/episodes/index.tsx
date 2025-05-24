@@ -95,10 +95,10 @@ const AllEpisodes = ({ episodes }: Props) => {
         <meta property="og:title" content="כל פרקי הפודקאסט אחותי היפה - פודקאסט על רגשות אבל בעצם פודקאסט להטב״קי" />
         <meta property="og:description" content='כל פרקי הפודקאסט "אחותי היפה" – שיחות על רגשות, זהות, משפחה וחיים קוויריים. בהנחיית האחים הגאים צחי ויהונתן כהן. בכל פרק רגש חדש.' />
         <meta property="og:type" content="website" />
-        <meta property="og:image" content="/opengraph.png" />
+        <meta property="og:image" content="https://achotihayafa.com/opengraph.png" />
         <meta property="og:image:alt" content="אחותי היפה" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:image" content="/opengraph.png" />
+        <meta name="twitter:image" content="https://achotihayafa.com/opengraph.png" />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }} />
       </Head>
 
@@ -258,7 +258,7 @@ const AllEpisodes = ({ episodes }: Props) => {
             <div className="text-center md:text-right flex-1">
               <h2 className="text-4xl md:text-4xl mb-4 text-podcast-yellow">על הפודקאסט</h2>
               <p className="text-lg text-white/80 mb-2">
-                "אחותי היפה" הוא פודקאסט על רגשות, זהות ולהטב"קיות, דרך שיחות עומק אינטימיות וכנות. בכל פרק אנחנו – צחי ויהונתן כהן, אחים כבר יותר משלושים שנה – בוחרים רגש מתוך הספר "Atlas of the Heart" של ברנה בראון, וצוללים אל תוך זיכרונות, חוויות, וסיפורים אישיים. בין ילדות בבית דתי, דייטים מביכים, וחיפוש אחר משמעות – אנחנו מנסים להבין מה באמת עובר עלינו בפנים. בכל פרק אנחנו מנסות להביא מבט אישי, חד ומרגש על קנאה, גאווה, וכאב. "אחותי היפה" הוא לא רק פודקאסט – הוא הזמנה להרגיש.
+                "אחותי היפה" הוא פודקאסט על רגשות, זהות ולהטב"קיות, דרך שיחות עומק אינטימיות וכנות. בכל פרק אנחנו – צחי ויהונתן כהן, אחים כבר יותר משלושים שנה – בוחרים רגש מתוך הספר "Atlas of the Heart" של ברנה בראון, וצוללים אל תוך זיכרונות, חוויות, וסיפורים אישיים. בין ילדות בבית דתי, דייטים מביכים, וחיפוש אחר משמעות – אנחנו מנסים להבין מה באמת עובר עלינו בפנים. בכל פרק אנחנו מנסות להביא מבט אישי, חד ומרגש על קנאה, גאווה, וכאב. "אחותי היפה" הוא לא רק פודקאסט – הוא הזמנה לפתוח את הלב ולהרגיש.
               </p>
             </div>
           </div>
