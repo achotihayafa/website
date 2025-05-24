@@ -364,20 +364,48 @@ function EpisodeMeta({ episode }: { episode: Episode }) {
     ]
   };
 
+  // Helper to strip HTML and remove <strong> tags for meta description
+  function stripHtmlAndStrong(html: string): string {
+    // Remove <strong>...</strong> tags
+    let noStrong = html.replace(/<strong\b[^>]*>([\s\S]*?)<\/strong>/gi, '$1');
+    // Remove all other HTML tags
+    return noStrong.replace(/<[^>]+>/g, '');
+  }
+
+  // Helper to decode ALL HTML entities for meta tags (including &quot;)
+  function fullyDecodeEntities(str: string): string {
+    if (typeof window !== "undefined") {
+      const textarea = document.createElement("textarea");
+      textarea.innerHTML = str;
+      return textarea.value;
+    } else {
+      // Fallback for server-side rendering (covers most common entities)
+      return str
+        .replace(/&amp;/g, "&")
+        .replace(/&lt;/g, "<")
+        .replace(/&gt;/g, ">")
+        .replace(/&quot;/g, '"')
+        .replace(/&#039;/g, "'")
+        .replace(/&#39;/g, "'")
+        .replace(/&apos;/g, "'")
+        .replace(/&nbsp;/g, " ");
+    }
+  }
+
   return (
     <Head>
-      <title>{decodeHtml(episode.title)} | אחותי היפה</title>
-      <meta name="description" content={stripHtml(episode.description).slice(0, 160)} />
-      <meta property="og:title" content={`${decodeHtml(episode.title)} | אחותי היפה – פודקאסט על רגשות, אבל בעצם פודקאסט להטב"קי`} />
-      <meta property="og:description" content={stripHtml(episode.description)} />
+      <title>{fullyDecodeEntities(episode.title)} | אחותי היפה</title>
+      <meta name="description" content={fullyDecodeEntities(stripHtmlAndStrong(episode.description)).slice(0, 160)} />
+      <meta property="og:title" content={`${fullyDecodeEntities(episode.title)} | אחותי היפה – פודקאסט על רגשות, אבל בעצם פודקאסט להטב"קי`} />
+      <meta property="og:description" content={fullyDecodeEntities(stripHtmlAndStrong(episode.description))} />
       <meta property="og:image" content={episode.imageUrl} />
-      <meta property="og:image:alt" content={`עטיפת הפרק - ${decodeHtml(episode.title)}`} />
+      <meta property="og:image:alt" content={`עטיפת הפרק - ${fullyDecodeEntities(episode.title)}`} />
       <meta property="og:type" content="article" />
       <meta property="og:url" content={`https://achotihayafa.com/episodes/${episode.id}`} />
       <link rel="canonical" href={`https://achotihayafa.com/episodes/${episode.id}`} />
       <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:title" content={`${decodeHtml(episode.title)} | אחותי היפה – פודקאסט על רגשות, אבל בעצם פודקאסט להטב"קי`} />
-      <meta name="twitter:description" content={stripHtml(episode.description)} />
+      <meta name="twitter:title" content={`${fullyDecodeEntities(episode.title)} | אחותי היפה – פודקאסט על רגשות, אבל בעצם פודקאסט להטב"קי`} />
+      <meta name="twitter:description" content={fullyDecodeEntities(stripHtmlAndStrong(episode.description))} />
       <meta name="twitter:image" content={episode.imageUrl} />
       <script type="application/ld+json">
         {JSON.stringify({
