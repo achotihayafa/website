@@ -1,4 +1,6 @@
-import React, { useRef, useState, useEffect } from 'react';
+'use client';
+
+import React, { useRef, useState, useEffect, useMemo } from 'react';
 import Head from 'next/head';
 import Navbar from '../../components/Navbar';
 import Footer from '../../components/Footer';
@@ -6,8 +8,9 @@ import { fetchRssFeed } from 'utils/rssParser';
 import { Card, CardContent } from "../../components/ui/card";
 import { AspectRatio } from "../../components/ui/aspect-ratio";
 import { SiSpotify, SiYoutube, SiApplepodcasts } from "react-icons/si";
-import { FaPlay, FaPause, FaCalendarAlt, FaClock } from "react-icons/fa";
+import { FaPlay, FaPause, FaCalendarAlt, FaClock, FaSearch } from "react-icons/fa";
 import Link from 'next/link';
+import { GetStaticProps } from "next";
 
 const PODCAST_LINKS = {
   spotify: "https://open.spotify.com/show/0ZpvzCEuDeKQhBw74YEmp9?si=MjucC2YbRyqI4Iee2HYbHw",
@@ -15,11 +18,28 @@ const PODCAST_LINKS = {
   apple: "https://podcasts.apple.com/us/podcast/אחותי-היפה/id1728358395"
 };
 
-const decodeHtmlAndRemoveStrong = (html: string): string => {
-  const decoded = html
-    .replace(/&quot;/g, '"') // Decode HTML entities
-    .replace(/<strong\b[^>]*>([\s\S]*?)<\/strong>/gi, '$1'); // Remove <strong> tags
-  return decoded.replace(/<[^>]+>/g, ''); // Remove any remaining HTML tags
+/**
+ * UTILS
+ */
+function slugifyHebrew(text: string): string {
+  return text.toString().toLowerCase().trim()
+    .replace(/\s+/g, '-') 
+    .replace(/[^\u0590-\u05FFa-z0-9-]+/g, '') 
+    .replace(/\-\-+/g, '-')
+    .replace(/^-+/, '').replace(/-+$/, '');
+}
+
+function decodeHtml(html: string): string {
+  if (typeof window !== "undefined") {
+    const textarea = document.createElement("textarea");
+    textarea.innerHTML = html;
+    return textarea.value;
+  }
+  return html.replace(/&/g, "&").replace(/</g, "<").replace(/>/g, ">").replace(/"/g, '"').replace(/'/g, "'");
+}
+
+const stripHtml = (html: string): string => {
+  return html.replace(/<[^>]+>/g, '').replace(/&nbsp;/g, ' ');
 };
 
 type Episode = {
@@ -28,242 +48,151 @@ type Episode = {
   description: string;
   duration: string;
   date: string;
-  spotifyLink: string;
   audioUrl: string;
   imageUrl: string;
-  featured?: boolean;
   season?: string;
   episodeNumber?: string;
 };
 
-type Props = {
-  episodes: Episode[];
-};
-
-const AllEpisodes = ({ episodes }: Props) => {
+const AllEpisodes = ({ episodes }: { episodes: Episode[] }) => {
   const audioRefs = useRef<Array<HTMLAudioElement | null>>([]);
   const [playingIndex, setPlayingIndex] = useState<number | null>(null);
+  const [searchTerm, setSearchTerm] = useState('');
+
+  // 1. Filter Logic
+  const filteredEpisodes = useMemo(() => {
+    return episodes.filter(ep => {
+      const searchTarget = (ep.title + ep.description).toLowerCase();
+      return searchTarget.includes(searchTerm.toLowerCase());
+    });
+  }, [searchTerm, episodes]);
+
+  // 2. Grouping Logic (Groups by Season)
+  const groupedEpisodes = useMemo(() => {
+    const groups: Record<string, Episode[]> = {};
+    filteredEpisodes.forEach(ep => {
+      const s = ep.season || "כללי";
+      if (!groups[s]) groups[s] = [];
+      groups[s].push(ep);
+    });
+    // Sort seasons descending (e.g., Season 2 first)
+    return Object.entries(groups).sort((a, b) => Number(b[0]) - Number(a[0]));
+  }, [filteredEpisodes]);
 
   const togglePlay = (index: number) => {
     const currentAudio = audioRefs.current[index];
     if (!currentAudio) return;
-
     if (playingIndex === index && !currentAudio.paused) {
       currentAudio.pause();
       setPlayingIndex(null);
     } else {
-      audioRefs.current.forEach((audio, i) => {
-        if (i !== index && audio) audio.pause();
-      });
+      audioRefs.current.forEach((audio, i) => { if (i !== index && audio) audio.pause(); });
       currentAudio.play();
       setPlayingIndex(index);
     }
   };
 
-  useEffect(() => {
-    return () => {
-      audioRefs.current.forEach(audio => audio && audio.pause());
-    };
-  }, []);
-
-  // Breadcrumb JSON-LD for SEO
-  const breadcrumbJsonLd = {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "itemListElement": [
-      {
-        "@type": "ListItem",
-        "position": 1,
-        "name": "Home",
-        "item": "https://achotihayafa.com/"
-      },
-      {
-        "@type": "ListItem",
-        "position": 2,
-        "name": "Episodes",
-        "item": "https://achotihayafa.com/episodes"
-      }
-    ]
-  };
-
   return (
     <>
       <Head>
-        <title>כל הפרקים - אחותי היפה | פודקאסט על רגשות אבל בעצם פודקאסט להטב"קי</title>
-        <meta name="description" content='כל פרקי הפודקאסט "אחותי היפה" – שיחות על רגשות, זהות, משפחה וחיים קוויריים. בהנחיית האחים הגאים צחי ויהונתן כהן. בכל פרק רגש חדש.' />
-        <meta name="keywords" content="אחותי היפה, פודקאסט, להטב, גאווה, רגשות, פודקסט קווירי, פודקאסט על רגשות, פודקאסט גאה בעברית, ברנה בראון, צחי כהן, יהונתן כהן" />
-        <meta property="og:title" content="כל פרקי הפודקאסט אחותי היפה - פודקאסט על רגשות אבל בעצם פודקאסט להטב״קי" />
-        <meta property="og:description" content='כל פרקי הפודקאסט "אחותי היפה" – שיחות על רגשות, זהות, משפחה וחיים קוויריים. בהנחיית האחים הגאים צחי ויהונתן כהן. בכל פרק רגש חדש.' />
-        <meta property="og:type" content="website" />
-        <meta property="og:image" content="https://achotihayafa.com/opengraph.png" />
-        <meta property="og:image:alt" content="אחותי היפה" />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:image" content="https://achotihayafa.com/opengraph.png" />
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }} />
+        <title>כל הפרקים - אחותי היפה</title>
+        <meta name="description" content="חיפוש ודפדוף בכל פרקי הפודקאסט אחותי היפה לפי עונות." />
       </Head>
 
-      <div className="min-h-screen">
+      <div className="min-h-screen bg-black text-white" dir="rtl">
         <Navbar />
 
-        {/* Breadcrumbs */}
-        <section className="pt-20 pb-1">
-          <div className="bg-black">
-            <nav className="container px-6 py-4 text-sm text-white/70 mt-5">
-              <ol className="flex items-center">
-                <li>
-                  <Link href="/" className="hover:text-white">
-                    דף הבית
-                  </Link>
-                </li>
-                <li className="text-white/50">&nbsp;&nbsp;/&nbsp;&nbsp;</li>
-                <li className="text-white">כל הפרקים</li>
-              </ol>
-            </nav>
-          </div>
-        </section>
-
-        <div className="pt-1 pb-20 bg-black">
-          <div className="container px-6">
-            <div className="mb-12">
-              <h1 className="text-5xl md:text-6xl font-bold text-podcast-yellow mb-6 text-center">
-                כל הרגשות – כל הפרקים
-              </h1>
-              <p className="text-white/80 text-lg text-center mb-10">
-                שיחות מלב אל לב של האחים הגאים צחי ויהונתן כהן – על אהבה, פחד, שייכות, ויציאה מהארון
-              </p>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {episodes?.map((episode, index) => {
-                // Ensure episode.id is always a string
-                let episodeId: unknown = episode.id;
-                if (typeof episodeId === 'object' && episodeId !== null) {
-                  const obj = episodeId as Record<string, unknown>;
-                  if ('_' in obj) episodeId = obj._ as string;
-                  else if ('$' in obj) episodeId = obj.$ as string;
-                  else episodeId = String(episodeId);
-                }
-                return (
-                  <Card
-                    key={index}
-                    className="relative bg-podcast-darkgray/30 border border-white/30 group transition-all duration-300 overflow-hidden flex flex-col hover:border-podcast-yellow"
-                  >
-                    <CardContent className="p-0 relative flex flex-col h-full">
-                      <AspectRatio ratio={1} className="overflow-hidden">
-                        {episode.imageUrl ? (
-                          <Link href={`/episodes/${episodeId}`}>
-                            <img
-                              src={episode.imageUrl}
-                              alt={episode.title}
-                              className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110 hover:scale-110"
-                              loading="lazy"
-                            />
-                          </Link>
-                        ) : (
-                          <div className="w-full h-full bg-gray-300 flex items-center justify-center">
-                            <span className="text-gray-500">No Image Available</span>
-                          </div>
-                        )}
-                      </AspectRatio>
-
-                      {episode.audioUrl && (
-                        <>
-                          <audio
-                            ref={el => { audioRefs.current[index] = el; }}
-                            src={episode.audioUrl}
-                            preload="none"
-                          />
-                          <button
-                            onClick={() => togglePlay(index)}
-                            className="absolute bottom-4 left-4 bg-podcast-yellow rounded-full p-2 text-black hover:bg-black hover:text-podcast-yellow transition-colors z-10"
-                            aria-label={playingIndex === index ? "הפסק פרק" : "הפעל פרק"}
-                          >
-                            {playingIndex === index ? <FaPause /> : <FaPlay />}
-                          </button>
-                        </>
-                      )}
-
-                      <div className="p-6 flex flex-col justify-between flex-grow">
-                        <div>
-                          <div className="flex justify-between items-center mb-3">
-                            <span className="flex items-center gap-1 text-white/70 text-sm">
-                              <FaCalendarAlt className="text-podcast-yellow" /> {episode.date}
-                            </span>
-                            <span className="flex items-center gap-1 text-white/70 text-sm">
-                              <FaClock className="text-podcast-yellow" /> {episode.duration}
-                            </span>
-                          </div>
-                          <h3 className="text-3xl font-bold mb-3 text-podcast-yellow">
-                            <Link href={`/episodes/${episodeId}`}>
-                              {episode.title}
-                            </Link>
-                          </h3>
-                          <p className="text-white/80 mb-6 line-clamp-3">
-                            {decodeHtmlAndRemoveStrong(episode.description)}
-                          </p>
-                        </div>
-                        <div className="flex gap-4 mt-auto">
-                          <a href={PODCAST_LINKS.spotify} target="_blank" rel="noopener noreferrer" className="text-white/80 hover:text-podcast-yellow transition-colors" aria-label="האזינו ב-Spotify">
-                            <SiSpotify size={24} />
-                          </a>
-                          <a href={PODCAST_LINKS.youtube} target="_blank" rel="noopener noreferrer" className="text-white/80 hover:text-podcast-yellow transition-colors" aria-label="האזינו ב-YouTube">
-                            <SiYoutube size={24} />
-                          </a>
-                          <a href={PODCAST_LINKS.apple} target="_blank" rel="noopener noreferrer" className="text-white/80 hover:text-podcast-yellow transition-colors" aria-label="האזינו ב-Apple Podcasts">
-                            <SiApplepodcasts size={24} />
-                          </a>
-                        </div>
-                      </div>
-                    </CardContent>
-                  </Card>
-                );
-              })}
-            </div>
-            <div className="text-center mt-20 mb-10">
-              <p className="text-xl text-white/80 mb-6">
-                רוצה לא לפספס את הפרק הבא?
-              </p>
-              <a
-                href="https://open.spotify.com/show/0ZpvzCEuDeKQhBw74YEmp9?si=MjucC2YbRyqI4Iee2HYbHw"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-3 bg-podcast-yellow text-black text-lg font-bold px-8 py-3 rounded-md hover:bg-white hover:text-black transition-colors duration-300 shadow-lg shadow-podcast-yellow/30"
-                aria-label="עקבו אחרינו בספוטיפיי"
-              >
-                <SiSpotify size={24} />
-                זה הזמן לעקוב אחרינו בספוטיפיי
-              </a>
-            </div>
-          </div>
-        </div>
-              {/* Podcast About Section */}
-      <section className="py-16 bg-gradient-to-b from-black via-podcast-magenta/10 to-black mt-1">
-        <div className="container px-6 max-w-5xl mx-auto">
-          <div className="flex flex-col md:flex-row items-center md:items-start gap-8">
-            {/* Podcast Cover */}
-            <a
-              href="https://open.spotify.com/show/0ZpvzCEuDeKQhBw74YEmp9?si=MjucC2YbRyqI4Iee2HYbHw"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="block flex-shrink-0 group"
-              title="האזינו בספוטיפיי"
-            >
-              <img
-                src="/cover.jpg"
-                alt='עטיפת הפודקאסט "אחותי היפה"'
-                className="w-40 h-40 md:w-48 md:h-48 rounded-xl shadow-lg group-hover:scale-105 transition-transform"
+        <main className="pt-24 pb-20 container px-6">
+          <header className="mb-16 text-center">
+            <h1 className="text-5xl md:text-6xl font-bold text-podcast-yellow mb-6">
+              כל הרגשות – כל הפרקים
+            </h1>
+            
+            {/* Search Bar */}
+            <div className="relative max-w-2xl mx-auto mt-10">
+              <div className="absolute inset-y-0 right-4 flex items-center pointer-events-none text-podcast-yellow">
+                <FaSearch />
+              </div>
+              <input
+                type="text"
+                placeholder="חפשו פרק, רגש או נושא..."
+                className="w-full bg-podcast-darkgray/50 border border-white/20 rounded-full py-4 pr-12 pl-6 text-white focus:outline-none focus:border-podcast-yellow transition-all"
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
               />
-            </a>
-            {/* Podcast About Text */}
-            <div className="text-center md:text-right flex-1">
-              <h2 className="text-4xl md:text-4xl mb-4 text-podcast-yellow">על הפודקאסט</h2>
-              <p className="text-lg text-white/80 mb-2">
-                "אחותי היפה" הוא פודקאסט על רגשות, זהות ולהטב"קיות, דרך שיחות עומק אינטימיות וכנות. בכל פרק אנחנו – צחי ויהונתן כהן, אחים כבר יותר משלושים שנה – בוחרים רגש מתוך הספר "Atlas of the Heart" של ברנה בראון, וצוללים אל תוך זיכרונות, חוויות, וסיפורים אישיים. בין ילדות בבית דתי, דייטים מביכים, וחיפוש אחר משמעות – אנחנו מנסים להבין מה באמת עובר עלינו בפנים. בכל פרק אנחנו מנסות להביא מבט אישי, חד ומרגש על קנאה, גאווה, וכאב. "אחותי היפה" הוא לא רק פודקאסט – הוא הזמנה לפתוח את הלב ולהרגיש.
-              </p>
             </div>
-          </div>
-        </div>
-      </section>
+          </header>
+
+          {groupedEpisodes.length > 0 ? (
+            groupedEpisodes.map(([season, seasonEpisodes]) => (
+              <section key={season} className="mb-20">
+                <div className="flex items-center gap-4 mb-10">
+                  <h2 className="text-3xl font-bold text-podcast-magenta whitespace-nowrap">
+                    {season === "כללי" ? "פרקים מיוחדים" : `עונה ${season}`}
+                  </h2>
+                  <div className="h-px bg-gradient-to-l from-podcast-magenta/50 to-transparent w-full"></div>
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                  {seasonEpisodes.map((episode, idx) => {
+                    const globalIdx = episodes.indexOf(episode);
+                    const slug = slugifyHebrew(decodeHtml(episode.title));
+
+                    return (
+                      <Card key={episode.id} className="bg-podcast-darkgray/30 border border-white/10 group hover:border-podcast-yellow transition-all flex flex-col">
+                        <CardContent className="p-0 flex flex-col h-full">
+                          <AspectRatio ratio={1} className="overflow-hidden relative">
+                            <Link href={`/episodes/${slug}`}>
+                              <img src={episode.imageUrl} alt={episode.title} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
+                            </Link>
+                            {episode.audioUrl && (
+                              <button
+                                onClick={() => togglePlay(globalIdx)}
+                                className="absolute bottom-4 left-4 bg-podcast-yellow rounded-full p-3 text-black hover:scale-110 transition-transform z-10"
+                              >
+                                {playingIndex === globalIdx ? <FaPause /> : <FaPlay />}
+                                <audio ref={el => { audioRefs.current[globalIdx] = el; }} src={episode.audioUrl} preload="none" />
+                              </button>
+                            )}
+                          </AspectRatio>
+
+                          <div className="p-6 flex flex-col flex-grow">
+                            <div className="flex justify-between text-xs text-white/50 mb-2 font-mono">
+                               <span>עונה {episode.season} | פרק {episode.episodeNumber}</span>
+                               <span className="flex items-center gap-1"><FaCalendarAlt /> {episode.date}</span>
+                            </div>
+                            
+                            <h3 className="text-2xl font-bold mb-3 text-podcast-yellow group-hover:text-white transition-colors">
+                              <Link href={`/episodes/${slug}`}>{decodeHtml(episode.title)}</Link>
+                            </h3>
+                            
+                            <p className="text-white/70 text-sm line-clamp-3 mb-6">
+                              {stripHtml(episode.description)}
+                            </p>
+
+                            <div className="mt-auto flex justify-between items-center pt-4 border-t border-white/5">
+                              <div className="flex gap-3">
+                                <a href={PODCAST_LINKS.spotify} className="hover:text-podcast-yellow"><SiSpotify size={20}/></a>
+                                <a href={PODCAST_LINKS.youtube} className="hover:text-podcast-yellow"><SiYoutube size={20}/></a>
+                              </div>
+                              <span className="text-xs text-white/40 flex items-center gap-1"><FaClock /> {episode.duration}</span>
+                            </div>
+                          </div>
+                        </CardContent>
+                      </Card>
+                    );
+                  })}
+                </div>
+              </section>
+            ))
+          ) : (
+            <div className="text-center py-20">
+              <p className="text-2xl text-white/50">לא מצאנו פרקים שתואמים את החיפוש שלך...</p>
+              <button onClick={() => setSearchTerm('')} className="mt-4 text-podcast-yellow underline">נקה חיפוש</button>
+            </div>
+          )}
+        </main>
+
         <Footer />
       </div>
     </>
@@ -272,16 +201,7 @@ const AllEpisodes = ({ episodes }: Props) => {
 
 export default AllEpisodes;
 
-// --- Static Generation Functions ---
-
-import { GetStaticProps } from "next";
-
 export const getStaticProps: GetStaticProps = async () => {
   const episodes = await fetchRssFeed();
-  return {
-    props: {
-      episodes,
-    }
-    // REMOVE revalidate: 3600, // ISR is not supported with output: export
-  };
+  return { props: { episodes } };
 };
