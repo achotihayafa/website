@@ -1,14 +1,12 @@
-// Add or update this file to enable static export with Next.js 13+
-// See: https://nextjs.org/docs/app/building-your-application/deploying/static-exports
-
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   output: 'export',
+  // This ensures all links start with ./ instead of / 
+  // making the site "location-agnostic"
+  trailingSlash: true, 
   images: {
-    unoptimized: true,    // Required for static export
-  reactStrictMode: true,
+    unoptimized: true,
+  },
 };
 
-export default nextConfig;
-
-// Rename this file to: next.config.cjs
+module.exports = nextConfig;
