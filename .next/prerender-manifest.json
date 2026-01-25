@@ -1,0 +1,859 @@
+{
+  "version": 4,
+  "routes": {
+    "/episodes/פרק-בונוס-3-קטעים-מצחיקים-ומרגשים-שירדו-בעריכה": {
+      "initialRevalidateSeconds": false,
+      "srcRoute": "/episodes/[id]",
+      "dataRoute": "/_next/data/pO4OWqUobJ9t9GrY7wBGm/episodes/פרק-בונוס-3-קטעים-מצחיקים-ומרגשים-שירדו-בעריכה.json",
+      "allowHeader": [
+        "host",
+        "x-matched-path",
+        "x-prerender-revalidate",
+        "x-prerender-revalidate-if-generated",
+        "x-next-revalidated-tags",
+        "x-next-revalidate-tag-token"
+      ]
+    },
+    "/episodes/ריסטרט-אבל-בעצם-דיברנו-על-הכוחות-שבידיים-שלנו": {
+      "initialRevalidateSeconds": false,
+      "srcRoute": "/episodes/[id]",
+      "dataRoute": "/_next/data/pO4OWqUobJ9t9GrY7wBGm/episodes/ריסטרט-אבל-בעצם-דיברנו-על-הכוחות-שבידיים-שלנו.json",
+      "allowHeader": [
+        "host",
+        "x-matched-path",
+        "x-prerender-revalidate",
+        "x-prerender-revalidate-if-generated",
+        "x-next-revalidated-tags",
+        "x-next-revalidate-tag-token"
+      ]
+    },
+    "/episodes/הפתעה-אבל-בעצם-דיברנו-על-קינק": {
+      "initialRevalidateSeconds": false,
+      "srcRoute": "/episodes/[id]",
+      "dataRoute": "/_next/data/pO4OWqUobJ9t9GrY7wBGm/episodes/הפתעה-אבל-בעצם-דיברנו-על-קינק.json",
+      "allowHeader": [
+        "host",
+        "x-matched-path",
+        "x-prerender-revalidate",
+        "x-prerender-revalidate-if-generated",
+        "x-next-revalidated-tags",
+        "x-next-revalidate-tag-token"
+      ]
+    },
+    "/episodes/רחמים-אבל-בעצם-דיברנו-על-איך-חברויות-נגמרות": {
+      "initialRevalidateSeconds": false,
+      "srcRoute": "/episodes/[id]",
+      "dataRoute": "/_next/data/pO4OWqUobJ9t9GrY7wBGm/episodes/רחמים-אבל-בעצם-דיברנו-על-איך-חברויות-נגמרות.json",
+      "allowHeader": [
+        "host",
+        "x-matched-path",
+        "x-prerender-revalidate",
+        "x-prerender-revalidate-if-generated",
+        "x-next-revalidated-tags",
+        "x-next-revalidate-tag-token"
+      ]
+    },
+    "/episodes/הצפה-אבל-בעצם-דיברנו-על-למידה-מטעויות": {
+      "initialRevalidateSeconds": false,
+      "srcRoute": "/episodes/[id]",
+      "dataRoute": "/_next/data/pO4OWqUobJ9t9GrY7wBGm/episodes/הצפה-אבל-בעצם-דיברנו-על-למידה-מטעויות.json",
+      "allowHeader": [
+        "host",
+        "x-matched-path",
+        "x-prerender-revalidate",
+        "x-prerender-revalidate-if-generated",
+        "x-next-revalidated-tags",
+        "x-next-revalidate-tag-token"
+      ]
+    },
+    "/episodes/התנסות-אבל-בעצם-דיברנו-על-סקס-בדייט-הראשון": {
+      "initialRevalidateSeconds": false,
+      "srcRoute": "/episodes/[id]",
+      "dataRoute": "/_next/data/pO4OWqUobJ9t9GrY7wBGm/episodes/התנסות-אבל-בעצם-דיברנו-על-סקס-בדייט-הראשון.json",
+      "allowHeader": [
+        "host",
+        "x-matched-path",
+        "x-prerender-revalidate",
+        "x-prerender-revalidate-if-generated",
+        "x-next-revalidated-tags",
+        "x-next-revalidate-tag-token"
+      ]
+    },
+    "/episodes/ביטחון-אבל-בעצם-דיברנו-על-פגיעות-מוות-וגורל": {
+      "initialRevalidateSeconds": false,
+      "srcRoute": "/episodes/[id]",
+      "dataRoute": "/_next/data/pO4OWqUobJ9t9GrY7wBGm/episodes/ביטחון-אבל-בעצם-דיברנו-על-פגיעות-מוות-וגורל.json",
+      "allowHeader": [
+        "host",
+        "x-matched-path",
+        "x-prerender-revalidate",
+        "x-prerender-revalidate-if-generated",
+        "x-next-revalidated-tags",
+        "x-next-revalidate-tag-token"
+      ]
+    },
+    "/episodes/פרפקציוניזם-אבל-בעצם-דיברנו-על-בינוניות-כאידיאל": {
+      "initialRevalidateSeconds": false,
+      "srcRoute": "/episodes/[id]",
+      "dataRoute": "/_next/data/pO4OWqUobJ9t9GrY7wBGm/episodes/פרפקציוניזם-אבל-בעצם-דיברנו-על-בינוניות-כאידיאל.json",
+      "allowHeader": [
+        "host",
+        "x-matched-path",
+        "x-prerender-revalidate",
+        "x-prerender-revalidate-if-generated",
+        "x-next-revalidated-tags",
+        "x-next-revalidate-tag-token"
+      ]
+    },
+    "/episodes/אמונה-אבל-בעצם-דיברנו-על-בית": {
+      "initialRevalidateSeconds": false,
+      "srcRoute": "/episodes/[id]",
+      "dataRoute": "/_next/data/pO4OWqUobJ9t9GrY7wBGm/episodes/אמונה-אבל-בעצם-דיברנו-על-בית.json",
+      "allowHeader": [
+        "host",
+        "x-matched-path",
+        "x-prerender-revalidate",
+        "x-prerender-revalidate-if-generated",
+        "x-next-revalidated-tags",
+        "x-next-revalidate-tag-token"
+      ]
+    },
+    "/episodes/עצמאות-אבל-בעצם-דיברנו-על-עצמאות-מבחירה-לעומת-עצמאות-מהכרח": {
+      "initialRevalidateSeconds": false,
+      "srcRoute": "/episodes/[id]",
+      "dataRoute": "/_next/data/pO4OWqUobJ9t9GrY7wBGm/episodes/עצמאות-אבל-בעצם-דיברנו-על-עצמאות-מבחירה-לעומת-עצמאות-מהכרח.json",
+      "allowHeader": [
+        "host",
+        "x-matched-path",
+        "x-prerender-revalidate",
+        "x-prerender-revalidate-if-generated",
+        "x-next-revalidated-tags",
+        "x-next-revalidate-tag-token"
+      ]
+    },
+    "/episodes/השוואה-אבל-בעצם-דיברנו-על-לגדול-בצל-של-אחות-גדולה": {
+      "initialRevalidateSeconds": false,
+      "srcRoute": "/episodes/[id]",
+      "dataRoute": "/_next/data/pO4OWqUobJ9t9GrY7wBGm/episodes/השוואה-אבל-בעצם-דיברנו-על-לגדול-בצל-של-אחות-גדולה.json",
+      "allowHeader": [
+        "host",
+        "x-matched-path",
+        "x-prerender-revalidate",
+        "x-prerender-revalidate-if-generated",
+        "x-next-revalidated-tags",
+        "x-next-revalidate-tag-token"
+      ]
+    },
+    "/episodes/חוסר-תקווה-אבל-בעצם-דיברנו-על-יציאה-מהארון": {
+      "initialRevalidateSeconds": false,
+      "srcRoute": "/episodes/[id]",
+      "dataRoute": "/_next/data/pO4OWqUobJ9t9GrY7wBGm/episodes/חוסר-תקווה-אבל-בעצם-דיברנו-על-יציאה-מהארון.json",
+      "allowHeader": [
+        "host",
+        "x-matched-path",
+        "x-prerender-revalidate",
+        "x-prerender-revalidate-if-generated",
+        "x-next-revalidated-tags",
+        "x-next-revalidate-tag-token"
+      ]
+    },
+    "/episodes/שינוי-אבל-בעצם-דיברנו-על-תל-אביב": {
+      "initialRevalidateSeconds": false,
+      "srcRoute": "/episodes/[id]",
+      "dataRoute": "/_next/data/pO4OWqUobJ9t9GrY7wBGm/episodes/שינוי-אבל-בעצם-דיברנו-על-תל-אביב.json",
+      "allowHeader": [
+        "host",
+        "x-matched-path",
+        "x-prerender-revalidate",
+        "x-prerender-revalidate-if-generated",
+        "x-next-revalidated-tags",
+        "x-next-revalidate-tag-token"
+      ]
+    },
+    "/episodes/חמלה-עצמית-אבל-בעצם-דיברנו-על-דימוי-גוף": {
+      "initialRevalidateSeconds": false,
+      "srcRoute": "/episodes/[id]",
+      "dataRoute": "/_next/data/pO4OWqUobJ9t9GrY7wBGm/episodes/חמלה-עצמית-אבל-בעצם-דיברנו-על-דימוי-גוף.json",
+      "allowHeader": [
+        "host",
+        "x-matched-path",
+        "x-prerender-revalidate",
+        "x-prerender-revalidate-if-generated",
+        "x-next-revalidated-tags",
+        "x-next-revalidate-tag-token"
+      ]
+    },
+    "/episodes/אשמה-אבל-בעצם-דיברנו-על-לשחרר-אחריות-מרגשות-של-אחרים": {
+      "initialRevalidateSeconds": false,
+      "srcRoute": "/episodes/[id]",
+      "dataRoute": "/_next/data/pO4OWqUobJ9t9GrY7wBGm/episodes/אשמה-אבל-בעצם-דיברנו-על-לשחרר-אחריות-מרגשות-של-אחרים.json",
+      "allowHeader": [
+        "host",
+        "x-matched-path",
+        "x-prerender-revalidate",
+        "x-prerender-revalidate-if-generated",
+        "x-next-revalidated-tags",
+        "x-next-revalidate-tag-token"
+      ]
+    },
+    "/episodes/ראשוניות-אבל-בעצם-דיברנו-על-לפתוח-את-הלב-לאהבה": {
+      "initialRevalidateSeconds": false,
+      "srcRoute": "/episodes/[id]",
+      "dataRoute": "/_next/data/pO4OWqUobJ9t9GrY7wBGm/episodes/ראשוניות-אבל-בעצם-דיברנו-על-לפתוח-את-הלב-לאהבה.json",
+      "allowHeader": [
+        "host",
+        "x-matched-path",
+        "x-prerender-revalidate",
+        "x-prerender-revalidate-if-generated",
+        "x-next-revalidated-tags",
+        "x-next-revalidate-tag-token"
+      ]
+    },
+    "/episodes/מבוכה-אבל-בעצם-דיברנו-על-הכוח-שמתגלה-כשמחליטים-לעשות": {
+      "initialRevalidateSeconds": false,
+      "srcRoute": "/episodes/[id]",
+      "dataRoute": "/_next/data/pO4OWqUobJ9t9GrY7wBGm/episodes/מבוכה-אבל-בעצם-דיברנו-על-הכוח-שמתגלה-כשמחליטים-לעשות.json",
+      "allowHeader": [
+        "host",
+        "x-matched-path",
+        "x-prerender-revalidate",
+        "x-prerender-revalidate-if-generated",
+        "x-next-revalidated-tags",
+        "x-next-revalidate-tag-token"
+      ]
+    },
+    "/episodes/כישלון-אבל-בעצם-דיברנו-על-תקווה-וחלומות-לעתיד": {
+      "initialRevalidateSeconds": false,
+      "srcRoute": "/episodes/[id]",
+      "dataRoute": "/_next/data/pO4OWqUobJ9t9GrY7wBGm/episodes/כישלון-אבל-בעצם-דיברנו-על-תקווה-וחלומות-לעתיד.json",
+      "allowHeader": [
+        "host",
+        "x-matched-path",
+        "x-prerender-revalidate",
+        "x-prerender-revalidate-if-generated",
+        "x-next-revalidated-tags",
+        "x-next-revalidate-tag-token"
+      ]
+    },
+    "/episodes/פרק-בונוס-2-קטעים-מרגשים-ומצחיקים-שירדו-בעריכה": {
+      "initialRevalidateSeconds": false,
+      "srcRoute": "/episodes/[id]",
+      "dataRoute": "/_next/data/pO4OWqUobJ9t9GrY7wBGm/episodes/פרק-בונוס-2-קטעים-מרגשים-ומצחיקים-שירדו-בעריכה.json",
+      "allowHeader": [
+        "host",
+        "x-matched-path",
+        "x-prerender-revalidate",
+        "x-prerender-revalidate-if-generated",
+        "x-next-revalidated-tags",
+        "x-next-revalidate-tag-token"
+      ]
+    },
+    "/episodes/בגידה-אבל-בעצם-דיברנו-על-איך-האמת-תשחרר-אותך": {
+      "initialRevalidateSeconds": false,
+      "srcRoute": "/episodes/[id]",
+      "dataRoute": "/_next/data/pO4OWqUobJ9t9GrY7wBGm/episodes/בגידה-אבל-בעצם-דיברנו-על-איך-האמת-תשחרר-אותך.json",
+      "allowHeader": [
+        "host",
+        "x-matched-path",
+        "x-prerender-revalidate",
+        "x-prerender-revalidate-if-generated",
+        "x-next-revalidated-tags",
+        "x-next-revalidate-tag-token"
+      ]
+    },
+    "/episodes/דאגה-אבל-בעצם-דיברנו-על-איפה-היינו-בשבעה-באוקטובר": {
+      "initialRevalidateSeconds": false,
+      "srcRoute": "/episodes/[id]",
+      "dataRoute": "/_next/data/pO4OWqUobJ9t9GrY7wBGm/episodes/דאגה-אבל-בעצם-דיברנו-על-איפה-היינו-בשבעה-באוקטובר.json",
+      "allowHeader": [
+        "host",
+        "x-matched-path",
+        "x-prerender-revalidate",
+        "x-prerender-revalidate-if-generated",
+        "x-next-revalidated-tags",
+        "x-next-revalidate-tag-token"
+      ]
+    },
+    "/episodes/טיפשות-אבל-בעצם-דיברנו-על-אהבה": {
+      "initialRevalidateSeconds": false,
+      "srcRoute": "/episodes/[id]",
+      "dataRoute": "/_next/data/pO4OWqUobJ9t9GrY7wBGm/episodes/טיפשות-אבל-בעצם-דיברנו-על-אהבה.json",
+      "allowHeader": [
+        "host",
+        "x-matched-path",
+        "x-prerender-revalidate",
+        "x-prerender-revalidate-if-generated",
+        "x-next-revalidated-tags",
+        "x-next-revalidate-tag-token"
+      ]
+    },
+    "/episodes/בושה-אבל-בעצם-דיברנו-על-פגיעה-מינית-והטרדה-מינית": {
+      "initialRevalidateSeconds": false,
+      "srcRoute": "/episodes/[id]",
+      "dataRoute": "/_next/data/pO4OWqUobJ9t9GrY7wBGm/episodes/בושה-אבל-בעצם-דיברנו-על-פגיעה-מינית-והטרדה-מינית.json",
+      "allowHeader": [
+        "host",
+        "x-matched-path",
+        "x-prerender-revalidate",
+        "x-prerender-revalidate-if-generated",
+        "x-next-revalidated-tags",
+        "x-next-revalidate-tag-token"
+      ]
+    },
+    "/episodes/בדידות-אבל-בעצם-דיברנו-על-המאמץ-להפיג-את-הבדידות": {
+      "initialRevalidateSeconds": false,
+      "srcRoute": "/episodes/[id]",
+      "dataRoute": "/_next/data/pO4OWqUobJ9t9GrY7wBGm/episodes/בדידות-אבל-בעצם-דיברנו-על-המאמץ-להפיג-את-הבדידות.json",
+      "allowHeader": [
+        "host",
+        "x-matched-path",
+        "x-prerender-revalidate",
+        "x-prerender-revalidate-if-generated",
+        "x-next-revalidated-tags",
+        "x-next-revalidate-tag-token"
+      ]
+    },
+    "/episodes/אדישות-אבל-בעצם-דיברנו-על-כמה-תקשורת-חשובה-עם-חברים": {
+      "initialRevalidateSeconds": false,
+      "srcRoute": "/episodes/[id]",
+      "dataRoute": "/_next/data/pO4OWqUobJ9t9GrY7wBGm/episodes/אדישות-אבל-בעצם-דיברנו-על-כמה-תקשורת-חשובה-עם-חברים.json",
+      "allowHeader": [
+        "host",
+        "x-matched-path",
+        "x-prerender-revalidate",
+        "x-prerender-revalidate-if-generated",
+        "x-next-revalidated-tags",
+        "x-next-revalidate-tag-token"
+      ]
+    },
+    "/episodes/חרטה-אבל-בעצם-דיברנו-על-חרדה-מזוגיות": {
+      "initialRevalidateSeconds": false,
+      "srcRoute": "/episodes/[id]",
+      "dataRoute": "/_next/data/pO4OWqUobJ9t9GrY7wBGm/episodes/חרטה-אבל-בעצם-דיברנו-על-חרדה-מזוגיות.json",
+      "allowHeader": [
+        "host",
+        "x-matched-path",
+        "x-prerender-revalidate",
+        "x-prerender-revalidate-if-generated",
+        "x-next-revalidated-tags",
+        "x-next-revalidate-tag-token"
+      ]
+    },
+    "/episodes/גבורה-אבל-בעצם-דיברנו-על-איך-להציל-את-עצמי": {
+      "initialRevalidateSeconds": false,
+      "srcRoute": "/episodes/[id]",
+      "dataRoute": "/_next/data/pO4OWqUobJ9t9GrY7wBGm/episodes/גבורה-אבל-בעצם-דיברנו-על-איך-להציל-את-עצמי.json",
+      "allowHeader": [
+        "host",
+        "x-matched-path",
+        "x-prerender-revalidate",
+        "x-prerender-revalidate-if-generated",
+        "x-next-revalidated-tags",
+        "x-next-revalidate-tag-token"
+      ]
+    },
+    "/episodes/שמחה-לאיד-אבל-בעצם-דיברנו-על-שנאה-ונקמה": {
+      "initialRevalidateSeconds": false,
+      "srcRoute": "/episodes/[id]",
+      "dataRoute": "/_next/data/pO4OWqUobJ9t9GrY7wBGm/episodes/שמחה-לאיד-אבל-בעצם-דיברנו-על-שנאה-ונקמה.json",
+      "allowHeader": [
+        "host",
+        "x-matched-path",
+        "x-prerender-revalidate",
+        "x-prerender-revalidate-if-generated",
+        "x-next-revalidated-tags",
+        "x-next-revalidate-tag-token"
+      ]
+    },
+    "/episodes/נוסטלגיה-אבל-בעצם-דיברנו-על-חגיגות-בר-מצווה": {
+      "initialRevalidateSeconds": false,
+      "srcRoute": "/episodes/[id]",
+      "dataRoute": "/_next/data/pO4OWqUobJ9t9GrY7wBGm/episodes/נוסטלגיה-אבל-בעצם-דיברנו-על-חגיגות-בר-מצווה.json",
+      "allowHeader": [
+        "host",
+        "x-matched-path",
+        "x-prerender-revalidate",
+        "x-prerender-revalidate-if-generated",
+        "x-next-revalidated-tags",
+        "x-next-revalidate-tag-token"
+      ]
+    },
+    "/episodes/התפעמות-אבל-בעצם-דיברנו-על-חופים-שומרים-וגבולות": {
+      "initialRevalidateSeconds": false,
+      "srcRoute": "/episodes/[id]",
+      "dataRoute": "/_next/data/pO4OWqUobJ9t9GrY7wBGm/episodes/התפעמות-אבל-בעצם-דיברנו-על-חופים-שומרים-וגבולות.json",
+      "allowHeader": [
+        "host",
+        "x-matched-path",
+        "x-prerender-revalidate",
+        "x-prerender-revalidate-if-generated",
+        "x-next-revalidated-tags",
+        "x-next-revalidate-tag-token"
+      ]
+    },
+    "/episodes/ויתור-אבל-בעצם-דיברנו-על-מה-אנחנו-באמת-רוצות": {
+      "initialRevalidateSeconds": false,
+      "srcRoute": "/episodes/[id]",
+      "dataRoute": "/_next/data/pO4OWqUobJ9t9GrY7wBGm/episodes/ויתור-אבל-בעצם-דיברנו-על-מה-אנחנו-באמת-רוצות.json",
+      "allowHeader": [
+        "host",
+        "x-matched-path",
+        "x-prerender-revalidate",
+        "x-prerender-revalidate-if-generated",
+        "x-next-revalidated-tags",
+        "x-next-revalidate-tag-token"
+      ]
+    },
+    "/episodes/התמודדות-אבל-בעצם-דיברנו-על-חברות-לרגע-ורוע-בסיסי": {
+      "initialRevalidateSeconds": false,
+      "srcRoute": "/episodes/[id]",
+      "dataRoute": "/_next/data/pO4OWqUobJ9t9GrY7wBGm/episodes/התמודדות-אבל-בעצם-דיברנו-על-חברות-לרגע-ורוע-בסיסי.json",
+      "allowHeader": [
+        "host",
+        "x-matched-path",
+        "x-prerender-revalidate",
+        "x-prerender-revalidate-if-generated",
+        "x-next-revalidated-tags",
+        "x-next-revalidate-tag-token"
+      ]
+    },
+    "/episodes/גבולות-אבל-בעצם-דיברנו-על-הניסיון-להבין-מי-אני": {
+      "initialRevalidateSeconds": false,
+      "srcRoute": "/episodes/[id]",
+      "dataRoute": "/_next/data/pO4OWqUobJ9t9GrY7wBGm/episodes/גבולות-אבל-בעצם-דיברנו-על-הניסיון-להבין-מי-אני.json",
+      "allowHeader": [
+        "host",
+        "x-matched-path",
+        "x-prerender-revalidate",
+        "x-prerender-revalidate-if-generated",
+        "x-next-revalidated-tags",
+        "x-next-revalidate-tag-token"
+      ]
+    },
+    "/episodes/התרגשות-אבל-בעצם-דיברנו-על-ברלין": {
+      "initialRevalidateSeconds": false,
+      "srcRoute": "/episodes/[id]",
+      "dataRoute": "/_next/data/pO4OWqUobJ9t9GrY7wBGm/episodes/התרגשות-אבל-בעצם-דיברנו-על-ברלין.json",
+      "allowHeader": [
+        "host",
+        "x-matched-path",
+        "x-prerender-revalidate",
+        "x-prerender-revalidate-if-generated",
+        "x-next-revalidated-tags",
+        "x-next-revalidate-tag-token"
+      ]
+    },
+    "/episodes/החמצה-אבל-בעצם-דיברנו-על-זוגיות-שלא-קרתה": {
+      "initialRevalidateSeconds": false,
+      "srcRoute": "/episodes/[id]",
+      "dataRoute": "/_next/data/pO4OWqUobJ9t9GrY7wBGm/episodes/החמצה-אבל-בעצם-דיברנו-על-זוגיות-שלא-קרתה.json",
+      "allowHeader": [
+        "host",
+        "x-matched-path",
+        "x-prerender-revalidate",
+        "x-prerender-revalidate-if-generated",
+        "x-next-revalidated-tags",
+        "x-next-revalidate-tag-token"
+      ]
+    },
+    "/episodes/פרק-בונוס-איך-הפודקאסט-התחיל-הרגעים-הכי-מרגשים-וקטעים-שירדו-בעריכה": {
+      "initialRevalidateSeconds": false,
+      "srcRoute": "/episodes/[id]",
+      "dataRoute": "/_next/data/pO4OWqUobJ9t9GrY7wBGm/episodes/פרק-בונוס-איך-הפודקאסט-התחיל-הרגעים-הכי-מרגשים-וקטעים-שירדו-בעריכה.json",
+      "allowHeader": [
+        "host",
+        "x-matched-path",
+        "x-prerender-revalidate",
+        "x-prerender-revalidate-if-generated",
+        "x-next-revalidated-tags",
+        "x-next-revalidate-tag-token"
+      ]
+    },
+    "/episodes/פגיעות-אבל-בעצם-דיברנו-על-בדידות": {
+      "initialRevalidateSeconds": false,
+      "srcRoute": "/episodes/[id]",
+      "dataRoute": "/_next/data/pO4OWqUobJ9t9GrY7wBGm/episodes/פגיעות-אבל-בעצם-דיברנו-על-בדידות.json",
+      "allowHeader": [
+        "host",
+        "x-matched-path",
+        "x-prerender-revalidate",
+        "x-prerender-revalidate-if-generated",
+        "x-next-revalidated-tags",
+        "x-next-revalidate-tag-token"
+      ]
+    },
+    "/episodes/טינה-אבל-בעצם-דיברנו-על-אבא": {
+      "initialRevalidateSeconds": false,
+      "srcRoute": "/episodes/[id]",
+      "dataRoute": "/_next/data/pO4OWqUobJ9t9GrY7wBGm/episodes/טינה-אבל-בעצם-דיברנו-על-אבא.json",
+      "allowHeader": [
+        "host",
+        "x-matched-path",
+        "x-prerender-revalidate",
+        "x-prerender-revalidate-if-generated",
+        "x-next-revalidated-tags",
+        "x-next-revalidate-tag-token"
+      ]
+    },
+    "/episodes/בלבול-אבל-בעצם-דיברנו-על-הבלבול-בתחילת-מערכות-יחסים": {
+      "initialRevalidateSeconds": false,
+      "srcRoute": "/episodes/[id]",
+      "dataRoute": "/_next/data/pO4OWqUobJ9t9GrY7wBGm/episodes/בלבול-אבל-בעצם-דיברנו-על-הבלבול-בתחילת-מערכות-יחסים.json",
+      "allowHeader": [
+        "host",
+        "x-matched-path",
+        "x-prerender-revalidate",
+        "x-prerender-revalidate-if-generated",
+        "x-next-revalidated-tags",
+        "x-next-revalidate-tag-token"
+      ]
+    },
+    "/episodes/אושר-אבל-בעצם-דיברנו-על-מאיפה-אושר-מתחיל": {
+      "initialRevalidateSeconds": false,
+      "srcRoute": "/episodes/[id]",
+      "dataRoute": "/_next/data/pO4OWqUobJ9t9GrY7wBGm/episodes/אושר-אבל-בעצם-דיברנו-על-מאיפה-אושר-מתחיל.json",
+      "allowHeader": [
+        "host",
+        "x-matched-path",
+        "x-prerender-revalidate",
+        "x-prerender-revalidate-if-generated",
+        "x-next-revalidated-tags",
+        "x-next-revalidate-tag-token"
+      ]
+    },
+    "/episodes/אכזבה-אבל-בעצם-דיברנו-על-ציפיות-ממשפחה-וחברים": {
+      "initialRevalidateSeconds": false,
+      "srcRoute": "/episodes/[id]",
+      "dataRoute": "/_next/data/pO4OWqUobJ9t9GrY7wBGm/episodes/אכזבה-אבל-בעצם-דיברנו-על-ציפיות-ממשפחה-וחברים.json",
+      "allowHeader": [
+        "host",
+        "x-matched-path",
+        "x-prerender-revalidate",
+        "x-prerender-revalidate-if-generated",
+        "x-next-revalidated-tags",
+        "x-next-revalidate-tag-token"
+      ]
+    },
+    "/episodes/תסכול-אבל-בעצם-דיברנו-על-איך-לבקש-עזרה": {
+      "initialRevalidateSeconds": false,
+      "srcRoute": "/episodes/[id]",
+      "dataRoute": "/_next/data/pO4OWqUobJ9t9GrY7wBGm/episodes/תסכול-אבל-בעצם-דיברנו-על-איך-לבקש-עזרה.json",
+      "allowHeader": [
+        "host",
+        "x-matched-path",
+        "x-prerender-revalidate",
+        "x-prerender-revalidate-if-generated",
+        "x-next-revalidated-tags",
+        "x-next-revalidate-tag-token"
+      ]
+    },
+    "/episodes/גאווה-אבל-בעצם-דיברנו-על-המסע-הפנימי-עד-ליציאה-מהארון-חלק-2": {
+      "initialRevalidateSeconds": false,
+      "srcRoute": "/episodes/[id]",
+      "dataRoute": "/_next/data/pO4OWqUobJ9t9GrY7wBGm/episodes/גאווה-אבל-בעצם-דיברנו-על-המסע-הפנימי-עד-ליציאה-מהארון-חלק-2.json",
+      "allowHeader": [
+        "host",
+        "x-matched-path",
+        "x-prerender-revalidate",
+        "x-prerender-revalidate-if-generated",
+        "x-next-revalidated-tags",
+        "x-next-revalidate-tag-token"
+      ]
+    },
+    "/episodes/גאווה-אבל-בעצם-דיברנו-על-המסע-הפנימי-עד-ליציאה-מהארון-חלק-1": {
+      "initialRevalidateSeconds": false,
+      "srcRoute": "/episodes/[id]",
+      "dataRoute": "/_next/data/pO4OWqUobJ9t9GrY7wBGm/episodes/גאווה-אבל-בעצם-דיברנו-על-המסע-הפנימי-עד-ליציאה-מהארון-חלק-1.json",
+      "allowHeader": [
+        "host",
+        "x-matched-path",
+        "x-prerender-revalidate",
+        "x-prerender-revalidate-if-generated",
+        "x-next-revalidated-tags",
+        "x-next-revalidate-tag-token"
+      ]
+    },
+    "/episodes/כעס-אבל-בעצם-דיברנו-על-זעם-מלא-זעם": {
+      "initialRevalidateSeconds": false,
+      "srcRoute": "/episodes/[id]",
+      "dataRoute": "/_next/data/pO4OWqUobJ9t9GrY7wBGm/episodes/כעס-אבל-בעצם-דיברנו-על-זעם-מלא-זעם.json",
+      "allowHeader": [
+        "host",
+        "x-matched-path",
+        "x-prerender-revalidate",
+        "x-prerender-revalidate-if-generated",
+        "x-next-revalidated-tags",
+        "x-next-revalidate-tag-token"
+      ]
+    },
+    "/episodes/הסיבוב-המהיר-טיילור-סוויפט": {
+      "initialRevalidateSeconds": false,
+      "srcRoute": "/episodes/[id]",
+      "dataRoute": "/_next/data/pO4OWqUobJ9t9GrY7wBGm/episodes/הסיבוב-המהיר-טיילור-סוויפט.json",
+      "allowHeader": [
+        "host",
+        "x-matched-path",
+        "x-prerender-revalidate",
+        "x-prerender-revalidate-if-generated",
+        "x-next-revalidated-tags",
+        "x-next-revalidate-tag-token"
+      ]
+    },
+    "/episodes/שמחה-אבל-בעצם-דיברנו-על-המרדף-אחר-האושר": {
+      "initialRevalidateSeconds": false,
+      "srcRoute": "/episodes/[id]",
+      "dataRoute": "/_next/data/pO4OWqUobJ9t9GrY7wBGm/episodes/שמחה-אבל-בעצם-דיברנו-על-המרדף-אחר-האושר.json",
+      "allowHeader": [
+        "host",
+        "x-matched-path",
+        "x-prerender-revalidate",
+        "x-prerender-revalidate-if-generated",
+        "x-next-revalidated-tags",
+        "x-next-revalidate-tag-token"
+      ]
+    },
+    "/episodes/אבל-אבל-בעצם-דיברנו-על-האבל-הפרטי-שלנו": {
+      "initialRevalidateSeconds": false,
+      "srcRoute": "/episodes/[id]",
+      "dataRoute": "/_next/data/pO4OWqUobJ9t9GrY7wBGm/episodes/אבל-אבל-בעצם-דיברנו-על-האבל-הפרטי-שלנו.json",
+      "allowHeader": [
+        "host",
+        "x-matched-path",
+        "x-prerender-revalidate",
+        "x-prerender-revalidate-if-generated",
+        "x-next-revalidated-tags",
+        "x-next-revalidate-tag-token"
+      ]
+    },
+    "/episodes/השפלה-אבל-בעצם-דיברנו-על-כעס-היררכיה-והומופוביה": {
+      "initialRevalidateSeconds": false,
+      "srcRoute": "/episodes/[id]",
+      "dataRoute": "/_next/data/pO4OWqUobJ9t9GrY7wBGm/episodes/השפלה-אבל-בעצם-דיברנו-על-כעס-היררכיה-והומופוביה.json",
+      "allowHeader": [
+        "host",
+        "x-matched-path",
+        "x-prerender-revalidate",
+        "x-prerender-revalidate-if-generated",
+        "x-next-revalidated-tags",
+        "x-next-revalidate-tag-token"
+      ]
+    },
+    "/episodes/תקווה-אבל-בעצם-דיברנו-על-משפחות-מלחמות-ואימהות": {
+      "initialRevalidateSeconds": false,
+      "srcRoute": "/episodes/[id]",
+      "dataRoute": "/_next/data/pO4OWqUobJ9t9GrY7wBGm/episodes/תקווה-אבל-בעצם-דיברנו-על-משפחות-מלחמות-ואימהות.json",
+      "allowHeader": [
+        "host",
+        "x-matched-path",
+        "x-prerender-revalidate",
+        "x-prerender-revalidate-if-generated",
+        "x-next-revalidated-tags",
+        "x-next-revalidate-tag-token"
+      ]
+    },
+    "/episodes/הימנעות-אבל-בעצם-דיברנו-על-פרידות-צהל-ויציאה-מהארון": {
+      "initialRevalidateSeconds": false,
+      "srcRoute": "/episodes/[id]",
+      "dataRoute": "/_next/data/pO4OWqUobJ9t9GrY7wBGm/episodes/הימנעות-אבל-בעצם-דיברנו-על-פרידות-צהל-ויציאה-מהארון.json",
+      "allowHeader": [
+        "host",
+        "x-matched-path",
+        "x-prerender-revalidate",
+        "x-prerender-revalidate-if-generated",
+        "x-next-revalidated-tags",
+        "x-next-revalidate-tag-token"
+      ]
+    },
+    "/episodes/שברון-לב-אבל-בעצם-דיברנו-על-סוגים-שונים-של-אהבה": {
+      "initialRevalidateSeconds": false,
+      "srcRoute": "/episodes/[id]",
+      "dataRoute": "/_next/data/pO4OWqUobJ9t9GrY7wBGm/episodes/שברון-לב-אבל-בעצם-דיברנו-על-סוגים-שונים-של-אהבה.json",
+      "allowHeader": [
+        "host",
+        "x-matched-path",
+        "x-prerender-revalidate",
+        "x-prerender-revalidate-if-generated",
+        "x-next-revalidated-tags",
+        "x-next-revalidate-tag-token"
+      ]
+    },
+    "/episodes/הסיבוב-המהיר-הערצה": {
+      "initialRevalidateSeconds": false,
+      "srcRoute": "/episodes/[id]",
+      "dataRoute": "/_next/data/pO4OWqUobJ9t9GrY7wBGm/episodes/הסיבוב-המהיר-הערצה.json",
+      "allowHeader": [
+        "host",
+        "x-matched-path",
+        "x-prerender-revalidate",
+        "x-prerender-revalidate-if-generated",
+        "x-next-revalidated-tags",
+        "x-next-revalidate-tag-token"
+      ]
+    },
+    "/episodes/הערצה-אבל-בעצם-דיברנו-על-מרצה-אחת-ששינתה-לצחי-את-החיים": {
+      "initialRevalidateSeconds": false,
+      "srcRoute": "/episodes/[id]",
+      "dataRoute": "/_next/data/pO4OWqUobJ9t9GrY7wBGm/episodes/הערצה-אבל-בעצם-דיברנו-על-מרצה-אחת-ששינתה-לצחי-את-החיים.json",
+      "allowHeader": [
+        "host",
+        "x-matched-path",
+        "x-prerender-revalidate",
+        "x-prerender-revalidate-if-generated",
+        "x-next-revalidated-tags",
+        "x-next-revalidate-tag-token"
+      ]
+    },
+    "/episodes/סקרנות-אבל-בעצם-דיברנו-על-קוויריות-א-בינאריות-וביסקסואליות": {
+      "initialRevalidateSeconds": false,
+      "srcRoute": "/episodes/[id]",
+      "dataRoute": "/_next/data/pO4OWqUobJ9t9GrY7wBGm/episodes/סקרנות-אבל-בעצם-דיברנו-על-קוויריות-א-בינאריות-וביסקסואליות.json",
+      "allowHeader": [
+        "host",
+        "x-matched-path",
+        "x-prerender-revalidate",
+        "x-prerender-revalidate-if-generated",
+        "x-next-revalidated-tags",
+        "x-next-revalidate-tag-token"
+      ]
+    },
+    "/episodes/שייכות-אבל-בעצם-דיברנו-על-משפחת-בחירה": {
+      "initialRevalidateSeconds": false,
+      "srcRoute": "/episodes/[id]",
+      "dataRoute": "/_next/data/pO4OWqUobJ9t9GrY7wBGm/episodes/שייכות-אבל-בעצם-דיברנו-על-משפחת-בחירה.json",
+      "allowHeader": [
+        "host",
+        "x-matched-path",
+        "x-prerender-revalidate",
+        "x-prerender-revalidate-if-generated",
+        "x-next-revalidated-tags",
+        "x-next-revalidate-tag-token"
+      ]
+    },
+    "/episodes/הגנתיות-אבל-בעצם-דיברנו-על-איך-אנחנו-מגיבים-לפידבק": {
+      "initialRevalidateSeconds": false,
+      "srcRoute": "/episodes/[id]",
+      "dataRoute": "/_next/data/pO4OWqUobJ9t9GrY7wBGm/episodes/הגנתיות-אבל-בעצם-דיברנו-על-איך-אנחנו-מגיבים-לפידבק.json",
+      "allowHeader": [
+        "host",
+        "x-matched-path",
+        "x-prerender-revalidate",
+        "x-prerender-revalidate-if-generated",
+        "x-next-revalidated-tags",
+        "x-next-revalidate-tag-token"
+      ]
+    },
+    "/episodes/עצב-אבל-בעצם-דיברנו-על-מוות-אבל-וזיכרון": {
+      "initialRevalidateSeconds": false,
+      "srcRoute": "/episodes/[id]",
+      "dataRoute": "/_next/data/pO4OWqUobJ9t9GrY7wBGm/episodes/עצב-אבל-בעצם-דיברנו-על-מוות-אבל-וזיכרון.json",
+      "allowHeader": [
+        "host",
+        "x-matched-path",
+        "x-prerender-revalidate",
+        "x-prerender-revalidate-if-generated",
+        "x-next-revalidated-tags",
+        "x-next-revalidate-tag-token"
+      ]
+    },
+    "/episodes/קנאה-אבל-בעצם-דיברנו-על-עוני-חוסר-ובושה": {
+      "initialRevalidateSeconds": false,
+      "srcRoute": "/episodes/[id]",
+      "dataRoute": "/_next/data/pO4OWqUobJ9t9GrY7wBGm/episodes/קנאה-אבל-בעצם-דיברנו-על-עוני-חוסר-ובושה.json",
+      "allowHeader": [
+        "host",
+        "x-matched-path",
+        "x-prerender-revalidate",
+        "x-prerender-revalidate-if-generated",
+        "x-next-revalidated-tags",
+        "x-next-revalidate-tag-token"
+      ]
+    },
+    "/episodes/הסיבוב-המהיר-שנאה": {
+      "initialRevalidateSeconds": false,
+      "srcRoute": "/episodes/[id]",
+      "dataRoute": "/_next/data/pO4OWqUobJ9t9GrY7wBGm/episodes/הסיבוב-המהיר-שנאה.json",
+      "allowHeader": [
+        "host",
+        "x-matched-path",
+        "x-prerender-revalidate",
+        "x-prerender-revalidate-if-generated",
+        "x-next-revalidated-tags",
+        "x-next-revalidate-tag-token"
+      ]
+    },
+    "/episodes/שנאה-אבל-בעצם-דיברנו-על-אהבות-גדולות-שהופכות-לשנאה": {
+      "initialRevalidateSeconds": false,
+      "srcRoute": "/episodes/[id]",
+      "dataRoute": "/_next/data/pO4OWqUobJ9t9GrY7wBGm/episodes/שנאה-אבל-בעצם-דיברנו-על-אהבות-גדולות-שהופכות-לשנאה.json",
+      "allowHeader": [
+        "host",
+        "x-matched-path",
+        "x-prerender-revalidate",
+        "x-prerender-revalidate-if-generated",
+        "x-next-revalidated-tags",
+        "x-next-revalidate-tag-token"
+      ]
+    },
+    "/episodes/קשר-אבל-בעצם-דיברנו-על-חיפוש-אהבה": {
+      "initialRevalidateSeconds": false,
+      "srcRoute": "/episodes/[id]",
+      "dataRoute": "/_next/data/pO4OWqUobJ9t9GrY7wBGm/episodes/קשר-אבל-בעצם-דיברנו-על-חיפוש-אהבה.json",
+      "allowHeader": [
+        "host",
+        "x-matched-path",
+        "x-prerender-revalidate",
+        "x-prerender-revalidate-if-generated",
+        "x-next-revalidated-tags",
+        "x-next-revalidate-tag-token"
+      ]
+    },
+    "/episodes/רוגע-אבל-בעצם-דיברנו-על-טיולים-בחול": {
+      "initialRevalidateSeconds": false,
+      "srcRoute": "/episodes/[id]",
+      "dataRoute": "/_next/data/pO4OWqUobJ9t9GrY7wBGm/episodes/רוגע-אבל-בעצם-דיברנו-על-טיולים-בחול.json",
+      "allowHeader": [
+        "host",
+        "x-matched-path",
+        "x-prerender-revalidate",
+        "x-prerender-revalidate-if-generated",
+        "x-next-revalidated-tags",
+        "x-next-revalidate-tag-token"
+      ]
+    },
+    "/episodes": {
+      "initialRevalidateSeconds": false,
+      "srcRoute": null,
+      "dataRoute": "/_next/data/pO4OWqUobJ9t9GrY7wBGm/episodes.json",
+      "allowHeader": [
+        "host",
+        "x-matched-path",
+        "x-prerender-revalidate",
+        "x-prerender-revalidate-if-generated",
+        "x-next-revalidated-tags",
+        "x-next-revalidate-tag-token"
+      ]
+    }
+  },
+  "dynamicRoutes": {
+    "/episodes/[id]": {
+      "routeRegex": "^/episodes/([^/]+?)(?:/)?$",
+      "dataRoute": "/_next/data/pO4OWqUobJ9t9GrY7wBGm/episodes/[id].json",
+      "fallback": false,
+      "dataRouteRegex": "^/_next/data/pO4OWqUobJ9t9GrY7wBGm/episodes/([^/]+?)\\.json$",
+      "allowHeader": [
+        "host",
+        "x-matched-path",
+        "x-prerender-revalidate",
+        "x-prerender-revalidate-if-generated",
+        "x-next-revalidated-tags",
+        "x-next-revalidate-tag-token"
+      ]
+    }
+  },
+  "notFoundRoutes": [],
+  "preview": {
+    "previewModeId": "7b2fd58e2b84d702c5b9452c86a8d9b4",
+    "previewModeSigningKey": "d3228959ba1cff87615f6eefc111dced54df7bcc37b5f9953853c288487843b7",
+    "previewModeEncryptionKey": "2c95a1d52d93b559ae78dbce79bdf5f2ce3bf0b4bc7bc750efa90e623d05eff2"
+  }
+}
