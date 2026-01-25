@@ -4,6 +4,7 @@ import { SiSpotify, SiYoutube, SiApplepodcasts } from "react-icons/si";
 import { AspectRatio } from "./ui/aspect-ratio";
 import { FaPlay, FaPause } from "react-icons/fa";
 import { Heart, Headphones, Mic2, Play } from 'lucide-react';
+import Link from 'next/link'; // added import
 
 interface BestEpisode {
   title: string;
@@ -20,7 +21,7 @@ interface BestEpisode {
 const bestEpisodes: BestEpisode[] = [
   {
     title: "גבורה, אבל בעצם דיברנו על איך להציל את עצמי",
-    description: "פרק מאזינות מיוחד - חמש מאזינות סיפרו את סיפור הגבורה האישי שלהן.",
+    description: "פרק מאזינות מיוחד - חמש מאזינות סיפרו את סיפור הגבורה האישי שלהן. מסע בין בחירות אמיצות, ריפוי מכאב והתמודדות עם אובדן, שמזכירים לכולנו שהגיע תורנו להיות גיבורים.",
     links: {
       file: "https://anchor.fm/s/f1452300/podcast/play/96190587/https%3A%2F%2Fd3ctxlq1ktw2nl.cloudfront.net%2Fstaging%2F2024-11-23%2F392010396-44100-2-6998d530623d6.m4a",
       spotify: "https://open.spotify.com/episode/2gxt1hu1Jh3z2HKltTScWP?si=C2oYXGyYSvClgFVeJADXHQ",
@@ -73,6 +74,18 @@ const BestEpisodes = () => {
     }
   };
 
+  // add slug helper (match logic in pages/episodes/[id].tsx)
+  const slugifyHebrew = (text: string): string =>
+    text
+      .toString()
+      .toLowerCase()
+      .trim()
+      .replace(/\s+/g, '-')
+      .replace(/[^\u0590-\u05FFa-z0-9-]+/g, '')
+      .replace(/\-\-+/g, '-')
+      .replace(/^-+/, '')
+      .replace(/-+$/, '');
+
   return (
     <section id="best" className="py-20 relative overflow-hidden">
 
@@ -88,84 +101,96 @@ const BestEpisodes = () => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {bestEpisodes.map((episode, index) => (
-            <Card
-              key={index}
-              className="relative bg-black border border-white/30 group transition-all duration-300 overflow-hidden flex flex-col hover:border-podcast-magenta"
-              style={{ borderRadius: '1rem' }}
-            >
-              <CardContent className="p-0 relative flex flex-col h-full">
-                <AspectRatio ratio={1} className="overflow-hidden">
-                  <img
-                    src={episode.imageUrl}
-                    alt={`${episode.title} – פרק נבחר מתוך הפודקאסט אחותי היפה`}
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110 hover:scale-110"
-                    loading="lazy"
-                  />
-                </AspectRatio>
+          {bestEpisodes.map((episode, index) => {
+            // build internal episode URL from slugified title
+            const slug = slugifyHebrew(episode.title);
+            const episodeLink = `/episodes/${slug}`;
 
-                {episode.links.file && (
-                  <>
-                    <audio
-                      ref={el => { audioRefs.current[index] = el; }}
-                      src={episode.links.file}
-                    />
-                    <button
-                      onClick={() => togglePlay(index)}
-                      className="absolute bottom-4 left-4 bg-podcast-magenta rounded-full p-2 hover:bg-white transition-colors z-10"
-                      aria-label={playingIndex === index ? "הפסק פרק" : "הפעל פרק"}
-                    >
-                      <span className="text-white hover:text-podcast-magenta transition-colors">
-                        {playingIndex === index ? <FaPause /> : <FaPlay />}
-                      </span>
-                    </button>
-                  </>
-                )}
+            return (
+              <Card
+                key={index}
+                className="relative bg-black border border-white/30 group transition-all duration-300 overflow-hidden flex flex-col hover:border-podcast-magenta"
+                style={{ borderRadius: '1rem' }}
+              >
+                <CardContent className="p-0 relative flex flex-col h-full">
+                   <AspectRatio ratio={1} className="overflow-hidden">
+                    <Link href={episodeLink} legacyBehavior>
+                      <a className="block w-full h-full" aria-label={`פתח את הדף של ${episode.title}`}>
+                        <img
+                          src={episode.imageUrl}
+                          alt={`${episode.title} – פרק נבחר מתוך הפודקאסט אחותי היפה`}
+                          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110 hover:scale-110"
+                          loading="lazy"
+                        />
+                      </a>
+                    </Link>
+                   </AspectRatio>
 
-                <div className="p-6 flex flex-col flex-grow">
-                  <h3 className="text-3xl mb-3 text-podcast-magenta">
-                    {episode.title}
-                  </h3>
-                  <p className="text-white/80 mb-6 line-clamp-3 flex-grow">{episode.description}</p>
-                  <div className="flex gap-4 mt-auto">
-                    {episode.links.spotify && (
-                      <a
-                        href={episode.links.spotify}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-white/80 hover:text-podcast-magenta transition-colors"
-                        aria-label="האזינו ב-Spotify"
+                  {episode.links.file && (
+                    <>
+                      <audio
+                        ref={el => { audioRefs.current[index] = el; }}
+                        src={episode.links.file}
+                      />
+                      <button
+                        onClick={() => togglePlay(index)}
+                        className="absolute bottom-4 left-4 bg-podcast-magenta rounded-full p-2 hover:bg-white transition-colors z-10"
+                        aria-label={playingIndex === index ? "הפסק פרק" : "הפעל פרק"}
                       >
-                        <SiSpotify size={24} />
-                      </a>
-                    )}
-                    {episode.links.youtube && (
-                      <a
-                        href={episode.links.youtube}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-white/80 hover:text-podcast-magenta transition-colors"
-                        aria-label="האזינו ב-YouTube"
-                      >
-                        <SiYoutube size={24} />
-                      </a>
-                    )}
-                    {episode.links.apple && (
-                      <a
-                        href={episode.links.apple}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-white/80 hover:text-podcast-magenta transition-colors"
-                        aria-label="האזינו ב-Apple Podcasts"
-                      >
-                        <SiApplepodcasts size={24} />
-                      </a>
-                    )}
+                        <span className="text-white hover:text-podcast-magenta transition-colors">
+                          {playingIndex === index ? <FaPause /> : <FaPlay />}
+                        </span>
+                      </button>
+                    </>
+                  )}
+
+                  <div className="p-6 flex flex-col flex-grow">
+                    <h3 className="text-3xl mb-3 text-podcast-magenta">
+                      <Link href={episodeLink} legacyBehavior>
+                        <a className="inline-block" aria-label={`פתח את הדף של ${episode.title}`}>{episode.title}</a>
+                      </Link>
+                    </h3>
+                    <p className="text-white/80 mb-6 line-clamp-3 flex-grow">{episode.description}</p>
+                    <div className="flex gap-4 mt-auto">
+                      {episode.links.spotify && (
+                        <a
+                          href={episode.links.spotify}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-white/80 hover:text-podcast-magenta transition-colors"
+                          aria-label="האזינו ב-Spotify"
+                        >
+                          <SiSpotify size={24} />
+                        </a>
+                      )}
+                      {episode.links.youtube && (
+                        <a
+                          href={episode.links.youtube}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-white/80 hover:text-podcast-magenta transition-colors"
+                          aria-label="האזינו ב-YouTube"
+                        >
+                          <SiYoutube size={24} />
+                        </a>
+                      )}
+                      {episode.links.apple && (
+                        <a
+                          href={episode.links.apple}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-white/80 hover:text-podcast-magenta transition-colors"
+                          aria-label="האזינו ב-Apple Podcasts"
+                        >
+                          <SiApplepodcasts size={24} />
+                        </a>
+                      )}
+                    </div>
                   </div>
-                </div>
-              </CardContent>
-            </Card>
-          ))}
+                </CardContent>
+              </Card>
+            );
+          })}
         </div>
       </div>
     </section>

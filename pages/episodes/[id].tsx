@@ -67,9 +67,11 @@ function stripHtml(html: string): string {
 }
 
 function formatDescriptionAsHtml(raw: string): string {
-  const decoded = decodeHtml(raw).replace(/ /g, ' ');
+  const decoded = decodeHtml(raw).replace(/\s+/g, ' ');
   // SEO IMPROVEMENT: Turn keywords into H2 headings
-  let formatted = decoded.replace(/(הפניות:|בין השורות:|מה בפרק\?)/g, '<h2 class="text-2xl text-podcast-yellow mt-8 mb-4 font-bold">$1</h2>');
+  let formatted = decoded
+    .replace(/\s*(בין השורות:)\s*/, '<h2 class="text-3xl text-podcast-yellow font-bold">$1</h2>')
+    .replace(/\s*(הפניות:)\s*/, '<h2 class="text-3xl text-podcast-yellow font-bold">$1</h2>');
   formatted = formatted.replace(/<strong\b[^>]*>([\s\S]*?)<\/strong>/gi, '<b>$1</b>');
   const sanitized = formatted.replace(/<(?!br\s*\/?>|\/?b>|\/?h2[^>]*>)(\/?[\w-]+)[^>]*>/gi, '');
 
@@ -140,7 +142,7 @@ const EpisodeDetailPage = ({ episode, randomEpisodes }: Props) => {
                     </>
                   )}
                 </AspectRatio>
-                {/* Social Links (Restored) */}
+                {/* Social Links */}
                 <div className="flex gap-6 justify-center mt-8">
                   <a href="https://open.spotify.com/show/0ZpvzCEuDeKQhBw74YEmp9?si=MjucC2YbRyqI4Iee2HYbHw" target="_blank" rel="noopener noreferrer" className="text-white hover:text-podcast-yellow transition-colors" aria-label="האזינו ב-Spotify"><SiSpotify size={36} /></a>
                   <a href="https://www.youtube.com/@AchotiHaYafa" target="_blank" rel="noopener noreferrer" className="text-white hover:text-podcast-yellow transition-colors" aria-label="האזינו ב-YouTube"><SiYoutube size={36} /></a>
@@ -206,7 +208,7 @@ const EpisodeDetailPage = ({ episode, randomEpisodes }: Props) => {
                           <a>{decodeHtml(randomEpisode.title)}</a>
                         </Link>
                       </h3>
-                      <p className="text-white/80 mb-6 line-clamp-3">{stripHtml(randomEpisode.description)}</p>
+                      <p className="text-white/80 mb-2 line-clamp-3">{stripHtml(randomEpisode.description)}</p>
                     </div>
                   </div>
                 </CardContent>
@@ -225,7 +227,7 @@ const EpisodeDetailPage = ({ episode, randomEpisodes }: Props) => {
               <div className="text-center md:text-right flex-1">
                 <h2 className="text-4xl md:text-4xl mb-4 text-podcast-magenta">על הפודקאסט</h2>
                 <p className="text-lg text-white/80 mb-2">
-                  "אחותי היפה" הוא פודקאסט על רגשות, זהות ולהטב"קיות... (Your full text here)
+                  "אחותי היפה" הוא פודקאסט על רגשות, זהות ולהטב"קיות, דרך שיחות עומק אינטימיות וכנות. בכל פרק אנחנו – צחי ויהונתן כהן, אחים כבר יותר משלושים שנה – בוחרים רגש מתוך הספר "Atlas of the Heart" של ברנה בראון, וצוללים אל תוך זיכרונות, חוויות, וסיפורים אישיים. בין ילדות בבית דתי, דייטים מביכים, וחיפוש אחר משמעות – אנחנו מנסים להבין מה באמת עובר עלינו בפנים. בכל פרק אנחנו מנסות להביא מבט אישי, חד ומרגש על קנאה, גאווה, וכאב. "אחותי היפה" הוא לא רק פודקאסט – הוא הזמנה לפתוח את הלב ולהרגיש.
                 </p>
               </div>
             </div>
@@ -289,21 +291,38 @@ function EpisodeMeta({ episode }: { episode: Episode }) {
  */
 export const getStaticPaths: GetStaticPaths = async () => {
   const episodes = await fetchRssFeed();
-  const paths = episodes.map((e: Episode) => ({
-    params: { id: slugifyHebrew(decodeHtml(e.title)) },
-  }));
+  // generate both slug and id paths so we can detect id requests and redirect
+  const paths = episodes.flatMap((e: Episode) => ([
+    { params: { id: slugifyHebrew(decodeHtml(e.title)) } },
+    { params: { id: e.id } },
+  ]));
   return { paths, fallback: false };
 };
 
 export const getStaticProps: GetStaticProps = async (context) => {
   const episodes = await fetchRssFeed();
-  const slug = context.params?.id as string;
-  const episode = episodes.find((e: Episode) => slugifyHebrew(decodeHtml(e.title)) === slug);
+  const param = context.params?.id as string;
 
-  if (!episode) return { notFound: true };
+  // try find by slug (preferred)
+  let episode = episodes.find((e: Episode) => slugifyHebrew(decodeHtml(e.title)) === param);
+
+  // if not found by slug, check if param matches an old id and redirect to slug URL
+  if (!episode) {
+    const byId = episodes.find((e: Episode) => e.id === param);
+    if (byId) {
+      const newSlug = slugifyHebrew(decodeHtml(byId.title));
+      return {
+        redirect: {
+          destination: `/episodes/${newSlug}`,
+          permanent: true,
+        }
+      };
+    }
+    return { notFound: true };
+  }
 
   const randomEpisodes = episodes
-    .filter((e: Episode) => e.id !== episode.id)
+    .filter((e: Episode) => e.id !== episode!.id)
     .sort(() => 0.5 - Math.random())
     .slice(0, 3);
 

@@ -47,6 +47,7 @@ const Navbar = () => {
         <nav className="hidden md:flex items-center gap-12 flex-nowrap">
           <button onClick={() => goToSection('best')} className="font-medium text-white hover:text-podcast-yellow transition-colors whitespace-nowrap">פרקים נבחרים</button>
           <button onClick={() => goToSection('latest')} className="font-medium text-white hover:text-podcast-yellow transition-colors whitespace-nowrap">פרקים אחרונים</button>
+          <Link href="/episodes" className="font-medium text-white hover:text-podcast-yellow transition-colors whitespace-nowrap">כל הפרקים</Link>
           <button onClick={() => goToSection('about')} className="font-medium text-white hover:text-podcast-yellow transition-colors whitespace-nowrap">מי אנחנו</button>
           <button onClick={() => goToSection('btl')} className="font-medium text-white hover:text-podcast-yellow transition-colors whitespace-nowrap">בין השורות</button>
           <Button
@@ -101,6 +102,7 @@ const Navbar = () => {
 
         <button onClick={() => goToSection('best')} className="text-xl font-medium text-white">פרקים נבחרים</button>
         <button onClick={() => goToSection('latest')} className="text-xl font-medium text-white">פרקים אחרונים</button>
+        <Link href="/episodes" className="text-xl font-medium text-white hover:text-podcast-yellow transition-colors whitespace-nowrap">כל הפרקים</Link>
         <button onClick={() => goToSection('about')} className="text-xl font-medium text-white">מי אנחנו</button>
         <button onClick={() => goToSection('btl')} className="text-xl font-medium text-white">בין השורות</button>
         <Button

@@ -39,7 +39,7 @@ function decodeHtml(html: string): string {
 }
 
 const stripHtml = (html: string): string => {
-  return html.replace(/<[^>]+>/g, '').replace(/&nbsp;/g, ' ');
+  return html.replace(/<br\s*\/?>/gi, ' ').replace(/<[^>]+>/g, '').replace(/&nbsp;/g, ' ');
 };
 
 type Episode = {
@@ -79,6 +79,15 @@ const AllEpisodes = ({ episodes }: { episodes: Episode[] }) => {
     return Object.entries(groups).sort((a, b) => Number(b[0]) - Number(a[0]));
   }, [filteredEpisodes]);
 
+  // Compute all seasons for chips
+  const allSeasons = useMemo(() => {
+    const seasons = new Set<string>();
+    episodes.forEach(ep => {
+      seasons.add(ep.season || "כללי");
+    });
+    return Array.from(seasons).sort((a, b) => Number(b) - Number(a));
+  }, [episodes]);
+
   const togglePlay = (index: number) => {
     const currentAudio = audioRefs.current[index];
     if (!currentAudio) return;
@@ -92,20 +101,70 @@ const AllEpisodes = ({ episodes }: { episodes: Episode[] }) => {
     }
   };
 
+  const siteOrigin = (typeof window !== "undefined" && window.location?.origin) || process.env.NEXT_PUBLIC_SITE_URL || '';
+  const canonicalUrl = siteOrigin ? `${siteOrigin}/episodes` : '/episodes';
+  const socialImage = (episodes && episodes[0]?.imageUrl) || '/default-social-image.jpg';
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "PodcastSeries",
+    "name": "אחותי היפה",
+    "description": "ארכיון הפרקים המלא של אחותי היפה — פודקאסט על זהות, רגשות וחיי להט\"ב.",
+    "url": canonicalUrl,
+    "image": socialImage,
+    "publisher": {
+      "@type": "Organization",
+      "name": "אחותי היפה"
+    },
+    "episode": (episodes || []).slice(0,5).map(ep => ({
+      "@type": "PodcastEpisode",
+      "name": decodeHtml(ep.title),
+      "description": stripHtml(decodeHtml(ep.description)),
+      "datePublished": ep.date,
+      "duration": ep.duration,
+      "url": siteOrigin ? `${siteOrigin}/episodes/${slugifyHebrew(decodeHtml(ep.title))}` : `/episodes/${slugifyHebrew(decodeHtml(ep.title))}`,
+      "image": ep.imageUrl
+    }))
+  };
+
   return (
     <>
       <Head>
-        <title>כל הפרקים - אחותי היפה</title>
+        <title>אחותי היפה - ארכיון הפרקים המלא | פודקאסט על זהות, רגשות וחיי להט"ב</title>
         <meta name="description" content="חיפוש ודפדוף בכל פרקי הפודקאסט אחותי היפה לפי עונות." />
+        <meta name="keywords" content="אחותי היפה, פודקאסט, להטב&quot;ק, רגשות, זהות, פרקים, עונות" />
+        <meta name="robots" content="index, follow" />
+
+        {/* Open Graph */}
+        <meta property="og:title" content="אחותי היפה - ארכיון הפרקים המלא" />
+        <meta property="og:description" content="חיפוש ודפדוף בכל פרקי הפודקאסט אחותי היפה לפי עונות." />
+        <meta property="og:image" content={socialImage} />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content={canonicalUrl} />
+        <meta property="og:locale" content="he_IL" />
+
+        {/* Twitter */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="אחותי היפה - ארכיון הפרקים המלא" />
+        <meta name="twitter:description" content="חיפוש ודפדוף בכל פרקי הפודקאסט אחותי היפה לפי עונות." />
+        <meta name="twitter:image" content={socialImage} />
+
+        <link rel="canonical" href={canonicalUrl} />
+        <link rel="alternate" type="application/rss+xml" title="אחותי היפה RSS" href="/feed.xml" />
+
+        <script
+          type="application/ld+json"
+          // eslint-disable-next-line react/no-danger
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
       </Head>
 
       <div className="min-h-screen bg-black text-white" dir="rtl">
         <Navbar />
 
-        <main className="pt-24 pb-20 container px-6">
+        <main className="pt-32 pb-20 container px-6">
           <header className="mb-16 text-center">
             <h1 className="text-5xl md:text-6xl font-bold text-podcast-yellow mb-6">
-              כל הרגשות – כל הפרקים
+             ארכיון הפרקים המלא של אחותי היפה
             </h1>
             
             {/* Search Bar */}
@@ -121,11 +180,58 @@ const AllEpisodes = ({ episodes }: { episodes: Episode[] }) => {
                 onChange={(e) => setSearchTerm(e.target.value)}
               />
             </div>
+
+            {/* Season Jump Chips */}
+            <div className="flex flex-wrap justify-center gap-2 mt-8">
+              {allSeasons.map(season => (
+                <a
+                  key={season}
+                  href={`#season-${season}`}
+                  className="px-4 py-2 bg-podcast-darkgray/50 border border-white/20 rounded-full text-white hover:bg-podcast-yellow hover:text-black transition-all"
+                >
+                  {season === "כללי" ? "פרקים מיוחדים" : `עונה ${season}`}
+                </a>
+              ))}
+            </div>
+
+            {/* Redesigned descriptive text - hidden during search */}
+            {searchTerm === '' && (
+              <div className="mt-16 bg-podcast-darkgray/20 border border-white/10 rounded-lg p-8 max-w-5xl mx-auto text-right">
+                <p className="text-lg text-white/90 leading-relaxed mb-8">
+                  ברוכים הבאים למאגר השיחות המלא של "אחותי היפה" – הפודקאסט שבו רגשות וזהות נפגשים. כאן תוכלו למצוא את כל הפרקים שבהם האחים הגאים צחי ויהונתן כהן צוללים לעומק החוויה הלהטב"קית בישראל. הארכיון שלנו מאגד עונות שלמות של שיחות אינטימיות על משפחה, יציאה מהארון, ובניית זהות עצמית דרך קשת רחבה של רגשות: מקנאה ופחד ועד לתקווה, שייכות וגאווה.
+                </p>
+                <h2 className="text-3xl font-bold text-podcast-yellow mb-4">חפשו פרקים לפי נושאים, רגשות או עונות</h2>
+                <p className="text-base text-white/80 leading-relaxed mb-8">
+                  פה ניתן לדפדף בין העונות השונות או לחפש פרקים לפי מילות מפתח מעניינות. בין אם אלו סיפורים על התבגרות להטב"קית, על התמודדות עם דחייה, או פשוט שיחה כנה על מה שקורה לנו בפנים – כל הפרקים כל הרגשות מחכים כאן.
+                </p>
+                <h2 className="text-3xl font-bold text-podcast-yellow mb-4">מה תמצאו בארכיון?</h2>
+                <ul className="space-y-3 text-white/80">
+                  <li className="flex items-start gap-3">
+                    <span className="text-podcast-yellow">•</span>
+                    <div>
+                      <p className="text-base"><strong>שיחות על רגשות</strong>: פרקים ממוקדים על נושאים כמו בושה, אומץ וקנאה.</p>
+                    </div>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <span className="text-podcast-yellow">•</span>
+                    <div>
+                      <p className="text-base"><strong>זהות להטב"קית</strong>: מבט עמוק על החיים בקהילה הגאה בישראל של היום.</p>
+                    </div>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <span className="text-podcast-yellow">•</span>
+                    <div>
+                      <p className="text-base"><strong>סיפורים משפחתיים</strong>: מערכת היחסים המיוחדת בין אחים גאים והדינמיקה המשפחתית.</p>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            )}
           </header>
 
           {groupedEpisodes.length > 0 ? (
             groupedEpisodes.map(([season, seasonEpisodes]) => (
-              <section key={season} className="mb-20">
+              <section key={season} id={`season-${season}`} className="mb-20">
                 <div className="flex items-center gap-4 mb-10">
                   <h2 className="text-3xl font-bold text-podcast-magenta whitespace-nowrap">
                     {season === "כללי" ? "פרקים מיוחדים" : `עונה ${season}`}
@@ -139,7 +245,7 @@ const AllEpisodes = ({ episodes }: { episodes: Episode[] }) => {
                     const slug = slugifyHebrew(decodeHtml(episode.title));
 
                     return (
-                      <Card key={episode.id} className="bg-podcast-darkgray/30 border border-white/10 group hover:border-podcast-yellow transition-all flex flex-col">
+                      <Card key={episode.id} className="bg-podcast-darkgray/30 border border-white/10 group hover:border-podcast-yellow transition-all flex flex-col overflow-hidden">
                         <CardContent className="p-0 flex flex-col h-full">
                           <AspectRatio ratio={1} className="overflow-hidden relative">
                             <Link href={`/episodes/${slug}`}>
@@ -156,24 +262,25 @@ const AllEpisodes = ({ episodes }: { episodes: Episode[] }) => {
                             )}
                           </AspectRatio>
 
-                          <div className="p-6 flex flex-col flex-grow">
-                            <div className="flex justify-between text-xs text-white/50 mb-2 font-mono">
-                               <span>עונה {episode.season} | פרק {episode.episodeNumber}</span>
-                               <span className="flex items-center gap-1"><FaCalendarAlt /> {episode.date}</span>
+                            <div className="p-6 flex flex-col flex-grow">
+                            <div className="flex justify-between text-xs text-white/50 mb-2 font-assistant">
+                              <span>{episode.season ? `עונה ${episode.season} | פרק ${episode.episodeNumber}` : ''}</span>
+                              <span className="flex items-center gap-1"><FaCalendarAlt /> {episode.date}</span>
                             </div>
                             
-                            <h3 className="text-2xl font-bold mb-3 text-podcast-yellow group-hover:text-white transition-colors">
+                            <h3 className="text-3xl font-bold mb-3 text-podcast-yellow group-hover:text-white transition-colors">
                               <Link href={`/episodes/${slug}`}>{decodeHtml(episode.title)}</Link>
                             </h3>
                             
                             <p className="text-white/70 text-sm line-clamp-3 mb-6">
-                              {stripHtml(episode.description)}
+                              {stripHtml(decodeHtml(episode.description))}
                             </p>
 
                             <div className="mt-auto flex justify-between items-center pt-4 border-t border-white/5">
                               <div className="flex gap-3">
                                 <a href={PODCAST_LINKS.spotify} className="hover:text-podcast-yellow"><SiSpotify size={20}/></a>
                                 <a href={PODCAST_LINKS.youtube} className="hover:text-podcast-yellow"><SiYoutube size={20}/></a>
+                                <a href={PODCAST_LINKS.apple} className="hover:text-podcast-yellow"><SiApplepodcasts size={20}/></a>
                               </div>
                               <span className="text-xs text-white/40 flex items-center gap-1"><FaClock /> {episode.duration}</span>
                             </div>
