@@ -4,7 +4,7 @@
     "/episodes/0101-hopelessness-coming-out": {
       "initialRevalidateSeconds": false,
       "srcRoute": "/episodes/[id]",
-      "dataRoute": "/_next/data/0h6RxBUxuBdzVmlDLZ2Jq/episodes/0101-hopelessness-coming-out.json",
+      "dataRoute": "/_next/data/JXRiSENEjfW2CjPvLR6ff/episodes/0101-hopelessness-coming-out.json",
       "allowHeader": [
         "host",
         "x-matched-path",
@@ -17,7 +17,7 @@
     "/episodes/0102-relaxation-travel-abroad": {
       "initialRevalidateSeconds": false,
       "srcRoute": "/episodes/[id]",
-      "dataRoute": "/_next/data/0h6RxBUxuBdzVmlDLZ2Jq/episodes/0102-relaxation-travel-abroad.json",
+      "dataRoute": "/_next/data/JXRiSENEjfW2CjPvLR6ff/episodes/0102-relaxation-travel-abroad.json",
       "allowHeader": [
         "host",
         "x-matched-path",
@@ -30,7 +30,7 @@
     "/episodes/0103-love-search-relationship": {
       "initialRevalidateSeconds": false,
       "srcRoute": "/episodes/[id]",
-      "dataRoute": "/_next/data/0h6RxBUxuBdzVmlDLZ2Jq/episodes/0103-love-search-relationship.json",
+      "dataRoute": "/_next/data/JXRiSENEjfW2CjPvLR6ff/episodes/0103-love-search-relationship.json",
       "allowHeader": [
         "host",
         "x-matched-path",
@@ -43,7 +43,7 @@
     "/episodes/0104-great-loves-turn-into-hatred": {
       "initialRevalidateSeconds": false,
       "srcRoute": "/episodes/[id]",
-      "dataRoute": "/_next/data/0h6RxBUxuBdzVmlDLZ2Jq/episodes/0104-great-loves-turn-into-hatred.json",
+      "dataRoute": "/_next/data/JXRiSENEjfW2CjPvLR6ff/episodes/0104-great-loves-turn-into-hatred.json",
       "allowHeader": [
         "host",
         "x-matched-path",
@@ -56,7 +56,7 @@
     "/episodes/0105-envy-poverty-lack-and-shame": {
       "initialRevalidateSeconds": false,
       "srcRoute": "/episodes/[id]",
-      "dataRoute": "/_next/data/0h6RxBUxuBdzVmlDLZ2Jq/episodes/0105-envy-poverty-lack-and-shame.json",
+      "dataRoute": "/_next/data/JXRiSENEjfW2CjPvLR6ff/episodes/0105-envy-poverty-lack-and-shame.json",
       "allowHeader": [
         "host",
         "x-matched-path",
@@ -69,7 +69,7 @@
     "/episodes/0106-death-grief-and-memory": {
       "initialRevalidateSeconds": false,
       "srcRoute": "/episodes/[id]",
-      "dataRoute": "/_next/data/0h6RxBUxuBdzVmlDLZ2Jq/episodes/0106-death-grief-and-memory.json",
+      "dataRoute": "/_next/data/JXRiSENEjfW2CjPvLR6ff/episodes/0106-death-grief-and-memory.json",
       "allowHeader": [
         "host",
         "x-matched-path",
@@ -82,7 +82,7 @@
     "/episodes/0107-defensiveness-how-we-respond-to-feedback": {
       "initialRevalidateSeconds": false,
       "srcRoute": "/episodes/[id]",
-      "dataRoute": "/_next/data/0h6RxBUxuBdzVmlDLZ2Jq/episodes/0107-defensiveness-how-we-respond-to-feedback.json",
+      "dataRoute": "/_next/data/JXRiSENEjfW2CjPvLR6ff/episodes/0107-defensiveness-how-we-respond-to-feedback.json",
       "allowHeader": [
         "host",
         "x-matched-path",
@@ -95,7 +95,7 @@
     "/episodes/0108-belonging-chosen-family": {
       "initialRevalidateSeconds": false,
       "srcRoute": "/episodes/[id]",
-      "dataRoute": "/_next/data/0h6RxBUxuBdzVmlDLZ2Jq/episodes/0108-belonging-chosen-family.json",
+      "dataRoute": "/_next/data/JXRiSENEjfW2CjPvLR6ff/episodes/0108-belonging-chosen-family.json",
       "allowHeader": [
         "host",
         "x-matched-path",
@@ -108,7 +108,7 @@
     "/episodes/0109-curiosity-queer-non-binary-and-bisexuality": {
       "initialRevalidateSeconds": false,
       "srcRoute": "/episodes/[id]",
-      "dataRoute": "/_next/data/0h6RxBUxuBdzVmlDLZ2Jq/episodes/0109-curiosity-queer-non-binary-and-bisexuality.json",
+      "dataRoute": "/_next/data/JXRiSENEjfW2CjPvLR6ff/episodes/0109-curiosity-queer-non-binary-and-bisexuality.json",
       "allowHeader": [
         "host",
         "x-matched-path",
@@ -121,7 +121,7 @@
     "/episodes/0110-admiration-lecturer-who-changed-tzachis-life": {
       "initialRevalidateSeconds": false,
       "srcRoute": "/episodes/[id]",
-      "dataRoute": "/_next/data/0h6RxBUxuBdzVmlDLZ2Jq/episodes/0110-admiration-lecturer-who-changed-tzachis-life.json",
+      "dataRoute": "/_next/data/JXRiSENEjfW2CjPvLR6ff/episodes/0110-admiration-lecturer-who-changed-tzachis-life.json",
       "allowHeader": [
         "host",
         "x-matched-path",
@@ -134,7 +134,7 @@
     "/episodes/0111-heartbreak-different-types-of-love": {
       "initialRevalidateSeconds": false,
       "srcRoute": "/episodes/[id]",
-      "dataRoute": "/_next/data/0h6RxBUxuBdzVmlDLZ2Jq/episodes/0111-heartbreak-different-types-of-love.json",
+      "dataRoute": "/_next/data/JXRiSENEjfW2CjPvLR6ff/episodes/0111-heartbreak-different-types-of-love.json",
       "allowHeader": [
         "host",
         "x-matched-path",
@@ -147,7 +147,7 @@
     "/episodes/0112-avoidance-farewells-idf-and-coming-out": {
       "initialRevalidateSeconds": false,
       "srcRoute": "/episodes/[id]",
-      "dataRoute": "/_next/data/0h6RxBUxuBdzVmlDLZ2Jq/episodes/0112-avoidance-farewells-idf-and-coming-out.json",
+      "dataRoute": "/_next/data/JXRiSENEjfW2CjPvLR6ff/episodes/0112-avoidance-farewells-idf-and-coming-out.json",
       "allowHeader": [
         "host",
         "x-matched-path",
@@ -160,7 +160,7 @@
     "/episodes/0113-hope-families-wars-and-mothers": {
       "initialRevalidateSeconds": false,
       "srcRoute": "/episodes/[id]",
-      "dataRoute": "/_next/data/0h6RxBUxuBdzVmlDLZ2Jq/episodes/0113-hope-families-wars-and-mothers.json",
+      "dataRoute": "/_next/data/JXRiSENEjfW2CjPvLR6ff/episodes/0113-hope-families-wars-and-mothers.json",
       "allowHeader": [
         "host",
         "x-matched-path",
@@ -173,7 +173,7 @@
     "/episodes/0114-humiliation-anger-hierarchy-and-homophobia": {
       "initialRevalidateSeconds": false,
       "srcRoute": "/episodes/[id]",
-      "dataRoute": "/_next/data/0h6RxBUxuBdzVmlDLZ2Jq/episodes/0114-humiliation-anger-hierarchy-and-homophobia.json",
+      "dataRoute": "/_next/data/JXRiSENEjfW2CjPvLR6ff/episodes/0114-humiliation-anger-hierarchy-and-homophobia.json",
       "allowHeader": [
         "host",
         "x-matched-path",
@@ -186,7 +186,7 @@
     "/episodes/0115-our-private-grief": {
       "initialRevalidateSeconds": false,
       "srcRoute": "/episodes/[id]",
-      "dataRoute": "/_next/data/0h6RxBUxuBdzVmlDLZ2Jq/episodes/0115-our-private-grief.json",
+      "dataRoute": "/_next/data/JXRiSENEjfW2CjPvLR6ff/episodes/0115-our-private-grief.json",
       "allowHeader": [
         "host",
         "x-matched-path",
@@ -199,7 +199,7 @@
     "/episodes/0116-joy-the-pursuit-of-happiness": {
       "initialRevalidateSeconds": false,
       "srcRoute": "/episodes/[id]",
-      "dataRoute": "/_next/data/0h6RxBUxuBdzVmlDLZ2Jq/episodes/0116-joy-the-pursuit-of-happiness.json",
+      "dataRoute": "/_next/data/JXRiSENEjfW2CjPvLR6ff/episodes/0116-joy-the-pursuit-of-happiness.json",
       "allowHeader": [
         "host",
         "x-matched-path",
@@ -212,7 +212,7 @@
     "/episodes/quick-round-taylor-swift": {
       "initialRevalidateSeconds": false,
       "srcRoute": "/episodes/[id]",
-      "dataRoute": "/_next/data/0h6RxBUxuBdzVmlDLZ2Jq/episodes/quick-round-taylor-swift.json",
+      "dataRoute": "/_next/data/JXRiSENEjfW2CjPvLR6ff/episodes/quick-round-taylor-swift.json",
       "allowHeader": [
         "host",
         "x-matched-path",
@@ -225,7 +225,7 @@
     "/episodes/0117-anger-rage": {
       "initialRevalidateSeconds": false,
       "srcRoute": "/episodes/[id]",
-      "dataRoute": "/_next/data/0h6RxBUxuBdzVmlDLZ2Jq/episodes/0117-anger-rage.json",
+      "dataRoute": "/_next/data/JXRiSENEjfW2CjPvLR6ff/episodes/0117-anger-rage.json",
       "allowHeader": [
         "host",
         "x-matched-path",
@@ -238,7 +238,7 @@
     "/episodes/0118-pride-the-inner-journey-to-coming-out-part-1": {
       "initialRevalidateSeconds": false,
       "srcRoute": "/episodes/[id]",
-      "dataRoute": "/_next/data/0h6RxBUxuBdzVmlDLZ2Jq/episodes/0118-pride-the-inner-journey-to-coming-out-part-1.json",
+      "dataRoute": "/_next/data/JXRiSENEjfW2CjPvLR6ff/episodes/0118-pride-the-inner-journey-to-coming-out-part-1.json",
       "allowHeader": [
         "host",
         "x-matched-path",
@@ -251,7 +251,7 @@
     "/episodes/0119-pride-the-inner-journey-to-coming-out-part-2": {
       "initialRevalidateSeconds": false,
       "srcRoute": "/episodes/[id]",
-      "dataRoute": "/_next/data/0h6RxBUxuBdzVmlDLZ2Jq/episodes/0119-pride-the-inner-journey-to-coming-out-part-2.json",
+      "dataRoute": "/_next/data/JXRiSENEjfW2CjPvLR6ff/episodes/0119-pride-the-inner-journey-to-coming-out-part-2.json",
       "allowHeader": [
         "host",
         "x-matched-path",
@@ -264,7 +264,7 @@
     "/episodes/0120-frustration-how-to-ask-for-help": {
       "initialRevalidateSeconds": false,
       "srcRoute": "/episodes/[id]",
-      "dataRoute": "/_next/data/0h6RxBUxuBdzVmlDLZ2Jq/episodes/0120-frustration-how-to-ask-for-help.json",
+      "dataRoute": "/_next/data/JXRiSENEjfW2CjPvLR6ff/episodes/0120-frustration-how-to-ask-for-help.json",
       "allowHeader": [
         "host",
         "x-matched-path",
@@ -277,7 +277,7 @@
     "/episodes/0121-disappointment-expectations-from-family-and-friends": {
       "initialRevalidateSeconds": false,
       "srcRoute": "/episodes/[id]",
-      "dataRoute": "/_next/data/0h6RxBUxuBdzVmlDLZ2Jq/episodes/0121-disappointment-expectations-from-family-and-friends.json",
+      "dataRoute": "/_next/data/JXRiSENEjfW2CjPvLR6ff/episodes/0121-disappointment-expectations-from-family-and-friends.json",
       "allowHeader": [
         "host",
         "x-matched-path",
@@ -290,7 +290,7 @@
     "/episodes/0122-happiness-where-does-happiness-begin": {
       "initialRevalidateSeconds": false,
       "srcRoute": "/episodes/[id]",
-      "dataRoute": "/_next/data/0h6RxBUxuBdzVmlDLZ2Jq/episodes/0122-happiness-where-does-happiness-begin.json",
+      "dataRoute": "/_next/data/JXRiSENEjfW2CjPvLR6ff/episodes/0122-happiness-where-does-happiness-begin.json",
       "allowHeader": [
         "host",
         "x-matched-path",
@@ -303,7 +303,7 @@
     "/episodes/0123-confusion-at-the-beginning-of-relationships": {
       "initialRevalidateSeconds": false,
       "srcRoute": "/episodes/[id]",
-      "dataRoute": "/_next/data/0h6RxBUxuBdzVmlDLZ2Jq/episodes/0123-confusion-at-the-beginning-of-relationships.json",
+      "dataRoute": "/_next/data/JXRiSENEjfW2CjPvLR6ff/episodes/0123-confusion-at-the-beginning-of-relationships.json",
       "allowHeader": [
         "host",
         "x-matched-path",
@@ -316,7 +316,7 @@
     "/episodes/0124-resentment-our-father": {
       "initialRevalidateSeconds": false,
       "srcRoute": "/episodes/[id]",
-      "dataRoute": "/_next/data/0h6RxBUxuBdzVmlDLZ2Jq/episodes/0124-resentment-our-father.json",
+      "dataRoute": "/_next/data/JXRiSENEjfW2CjPvLR6ff/episodes/0124-resentment-our-father.json",
       "allowHeader": [
         "host",
         "x-matched-path",
@@ -329,7 +329,7 @@
     "/episodes/0125-loneliness-vulnerability": {
       "initialRevalidateSeconds": false,
       "srcRoute": "/episodes/[id]",
-      "dataRoute": "/_next/data/0h6RxBUxuBdzVmlDLZ2Jq/episodes/0125-loneliness-vulnerability.json",
+      "dataRoute": "/_next/data/JXRiSENEjfW2CjPvLR6ff/episodes/0125-loneliness-vulnerability.json",
       "allowHeader": [
         "host",
         "x-matched-path",
@@ -342,7 +342,7 @@
     "/episodes/0126-bonus-episode": {
       "initialRevalidateSeconds": false,
       "srcRoute": "/episodes/[id]",
-      "dataRoute": "/_next/data/0h6RxBUxuBdzVmlDLZ2Jq/episodes/0126-bonus-episode.json",
+      "dataRoute": "/_next/data/JXRiSENEjfW2CjPvLR6ff/episodes/0126-bonus-episode.json",
       "allowHeader": [
         "host",
         "x-matched-path",
@@ -355,7 +355,7 @@
     "/episodes/0201-relationship-that-never-happened": {
       "initialRevalidateSeconds": false,
       "srcRoute": "/episodes/[id]",
-      "dataRoute": "/_next/data/0h6RxBUxuBdzVmlDLZ2Jq/episodes/0201-relationship-that-never-happened.json",
+      "dataRoute": "/_next/data/JXRiSENEjfW2CjPvLR6ff/episodes/0201-relationship-that-never-happened.json",
       "allowHeader": [
         "host",
         "x-matched-path",
@@ -368,7 +368,7 @@
     "/episodes/0202-excitement-berlin": {
       "initialRevalidateSeconds": false,
       "srcRoute": "/episodes/[id]",
-      "dataRoute": "/_next/data/0h6RxBUxuBdzVmlDLZ2Jq/episodes/0202-excitement-berlin.json",
+      "dataRoute": "/_next/data/JXRiSENEjfW2CjPvLR6ff/episodes/0202-excitement-berlin.json",
       "allowHeader": [
         "host",
         "x-matched-path",
@@ -381,7 +381,7 @@
     "/episodes/0203-boundaries-who-i-am": {
       "initialRevalidateSeconds": false,
       "srcRoute": "/episodes/[id]",
-      "dataRoute": "/_next/data/0h6RxBUxuBdzVmlDLZ2Jq/episodes/0203-boundaries-who-i-am.json",
+      "dataRoute": "/_next/data/JXRiSENEjfW2CjPvLR6ff/episodes/0203-boundaries-who-i-am.json",
       "allowHeader": [
         "host",
         "x-matched-path",
@@ -394,7 +394,7 @@
     "/episodes/0204-coping-friendship-and-basic-evil": {
       "initialRevalidateSeconds": false,
       "srcRoute": "/episodes/[id]",
-      "dataRoute": "/_next/data/0h6RxBUxuBdzVmlDLZ2Jq/episodes/0204-coping-friendship-and-basic-evil.json",
+      "dataRoute": "/_next/data/JXRiSENEjfW2CjPvLR6ff/episodes/0204-coping-friendship-and-basic-evil.json",
       "allowHeader": [
         "host",
         "x-matched-path",
@@ -407,7 +407,7 @@
     "/episodes/0205-discouragement-what-we-really-want": {
       "initialRevalidateSeconds": false,
       "srcRoute": "/episodes/[id]",
-      "dataRoute": "/_next/data/0h6RxBUxuBdzVmlDLZ2Jq/episodes/0205-discouragement-what-we-really-want.json",
+      "dataRoute": "/_next/data/JXRiSENEjfW2CjPvLR6ff/episodes/0205-discouragement-what-we-really-want.json",
       "allowHeader": [
         "host",
         "x-matched-path",
@@ -420,7 +420,7 @@
     "/episodes/0206-awe-beaches-guards-and-borders": {
       "initialRevalidateSeconds": false,
       "srcRoute": "/episodes/[id]",
-      "dataRoute": "/_next/data/0h6RxBUxuBdzVmlDLZ2Jq/episodes/0206-awe-beaches-guards-and-borders.json",
+      "dataRoute": "/_next/data/JXRiSENEjfW2CjPvLR6ff/episodes/0206-awe-beaches-guards-and-borders.json",
       "allowHeader": [
         "host",
         "x-matched-path",
@@ -433,7 +433,7 @@
     "/episodes/0207-nostalgia-bar-mitzvah-celebrations": {
       "initialRevalidateSeconds": false,
       "srcRoute": "/episodes/[id]",
-      "dataRoute": "/_next/data/0h6RxBUxuBdzVmlDLZ2Jq/episodes/0207-nostalgia-bar-mitzvah-celebrations.json",
+      "dataRoute": "/_next/data/JXRiSENEjfW2CjPvLR6ff/episodes/0207-nostalgia-bar-mitzvah-celebrations.json",
       "allowHeader": [
         "host",
         "x-matched-path",
@@ -446,7 +446,7 @@
     "/episodes/0208-schadenfreude-hate-and-revenge": {
       "initialRevalidateSeconds": false,
       "srcRoute": "/episodes/[id]",
-      "dataRoute": "/_next/data/0h6RxBUxuBdzVmlDLZ2Jq/episodes/0208-schadenfreude-hate-and-revenge.json",
+      "dataRoute": "/_next/data/JXRiSENEjfW2CjPvLR6ff/episodes/0208-schadenfreude-hate-and-revenge.json",
       "allowHeader": [
         "host",
         "x-matched-path",
@@ -459,7 +459,7 @@
     "/episodes/0209-heroism-how-to-save-myself": {
       "initialRevalidateSeconds": false,
       "srcRoute": "/episodes/[id]",
-      "dataRoute": "/_next/data/0h6RxBUxuBdzVmlDLZ2Jq/episodes/0209-heroism-how-to-save-myself.json",
+      "dataRoute": "/_next/data/JXRiSENEjfW2CjPvLR6ff/episodes/0209-heroism-how-to-save-myself.json",
       "allowHeader": [
         "host",
         "x-matched-path",
@@ -472,7 +472,7 @@
     "/episodes/0210-regret-anxiety-about-relationships": {
       "initialRevalidateSeconds": false,
       "srcRoute": "/episodes/[id]",
-      "dataRoute": "/_next/data/0h6RxBUxuBdzVmlDLZ2Jq/episodes/0210-regret-anxiety-about-relationships.json",
+      "dataRoute": "/_next/data/JXRiSENEjfW2CjPvLR6ff/episodes/0210-regret-anxiety-about-relationships.json",
       "allowHeader": [
         "host",
         "x-matched-path",
@@ -485,7 +485,7 @@
     "/episodes/0211-indifference-communication-with-friends": {
       "initialRevalidateSeconds": false,
       "srcRoute": "/episodes/[id]",
-      "dataRoute": "/_next/data/0h6RxBUxuBdzVmlDLZ2Jq/episodes/0211-indifference-communication-with-friends.json",
+      "dataRoute": "/_next/data/JXRiSENEjfW2CjPvLR6ff/episodes/0211-indifference-communication-with-friends.json",
       "allowHeader": [
         "host",
         "x-matched-path",
@@ -498,7 +498,7 @@
     "/episodes/0212-the-effort-to-dispel-loneliness": {
       "initialRevalidateSeconds": false,
       "srcRoute": "/episodes/[id]",
-      "dataRoute": "/_next/data/0h6RxBUxuBdzVmlDLZ2Jq/episodes/0212-the-effort-to-dispel-loneliness.json",
+      "dataRoute": "/_next/data/JXRiSENEjfW2CjPvLR6ff/episodes/0212-the-effort-to-dispel-loneliness.json",
       "allowHeader": [
         "host",
         "x-matched-path",
@@ -511,7 +511,7 @@
     "/episodes/0213-shame-sexual-assault-and-sexual-harassment": {
       "initialRevalidateSeconds": false,
       "srcRoute": "/episodes/[id]",
-      "dataRoute": "/_next/data/0h6RxBUxuBdzVmlDLZ2Jq/episodes/0213-shame-sexual-assault-and-sexual-harassment.json",
+      "dataRoute": "/_next/data/JXRiSENEjfW2CjPvLR6ff/episodes/0213-shame-sexual-assault-and-sexual-harassment.json",
       "allowHeader": [
         "host",
         "x-matched-path",
@@ -524,7 +524,7 @@
     "/episodes/0214-stupidity-love": {
       "initialRevalidateSeconds": false,
       "srcRoute": "/episodes/[id]",
-      "dataRoute": "/_next/data/0h6RxBUxuBdzVmlDLZ2Jq/episodes/0214-stupidity-love.json",
+      "dataRoute": "/_next/data/JXRiSENEjfW2CjPvLR6ff/episodes/0214-stupidity-love.json",
       "allowHeader": [
         "host",
         "x-matched-path",
@@ -537,7 +537,7 @@
     "/episodes/0215-worry-where-we-were-on-october-7th": {
       "initialRevalidateSeconds": false,
       "srcRoute": "/episodes/[id]",
-      "dataRoute": "/_next/data/0h6RxBUxuBdzVmlDLZ2Jq/episodes/0215-worry-where-we-were-on-october-7th.json",
+      "dataRoute": "/_next/data/JXRiSENEjfW2CjPvLR6ff/episodes/0215-worry-where-we-were-on-october-7th.json",
       "allowHeader": [
         "host",
         "x-matched-path",
@@ -550,7 +550,7 @@
     "/episodes/0216-betrayal-truth-will-set-you-free": {
       "initialRevalidateSeconds": false,
       "srcRoute": "/episodes/[id]",
-      "dataRoute": "/_next/data/0h6RxBUxuBdzVmlDLZ2Jq/episodes/0216-betrayal-truth-will-set-you-free.json",
+      "dataRoute": "/_next/data/JXRiSENEjfW2CjPvLR6ff/episodes/0216-betrayal-truth-will-set-you-free.json",
       "allowHeader": [
         "host",
         "x-matched-path",
@@ -563,7 +563,7 @@
     "/episodes/0226-bonus-episode-2": {
       "initialRevalidateSeconds": false,
       "srcRoute": "/episodes/[id]",
-      "dataRoute": "/_next/data/0h6RxBUxuBdzVmlDLZ2Jq/episodes/0226-bonus-episode-2.json",
+      "dataRoute": "/_next/data/JXRiSENEjfW2CjPvLR6ff/episodes/0226-bonus-episode-2.json",
       "allowHeader": [
         "host",
         "x-matched-path",
@@ -576,7 +576,7 @@
     "/episodes/0217-failure-hopes-and-dreams": {
       "initialRevalidateSeconds": false,
       "srcRoute": "/episodes/[id]",
-      "dataRoute": "/_next/data/0h6RxBUxuBdzVmlDLZ2Jq/episodes/0217-failure-hopes-and-dreams.json",
+      "dataRoute": "/_next/data/JXRiSENEjfW2CjPvLR6ff/episodes/0217-failure-hopes-and-dreams.json",
       "allowHeader": [
         "host",
         "x-matched-path",
@@ -589,7 +589,7 @@
     "/episodes/0218-embarrassment-the-power-to-do-something": {
       "initialRevalidateSeconds": false,
       "srcRoute": "/episodes/[id]",
-      "dataRoute": "/_next/data/0h6RxBUxuBdzVmlDLZ2Jq/episodes/0218-embarrassment-the-power-to-do-something.json",
+      "dataRoute": "/_next/data/JXRiSENEjfW2CjPvLR6ff/episodes/0218-embarrassment-the-power-to-do-something.json",
       "allowHeader": [
         "host",
         "x-matched-path",
@@ -602,7 +602,7 @@
     "/episodes/0219-beginning-opening-the-heart-to-love": {
       "initialRevalidateSeconds": false,
       "srcRoute": "/episodes/[id]",
-      "dataRoute": "/_next/data/0h6RxBUxuBdzVmlDLZ2Jq/episodes/0219-beginning-opening-the-heart-to-love.json",
+      "dataRoute": "/_next/data/JXRiSENEjfW2CjPvLR6ff/episodes/0219-beginning-opening-the-heart-to-love.json",
       "allowHeader": [
         "host",
         "x-matched-path",
@@ -615,7 +615,7 @@
     "/episodes/0220-guilt-release-responsibility-for-others-emotions": {
       "initialRevalidateSeconds": false,
       "srcRoute": "/episodes/[id]",
-      "dataRoute": "/_next/data/0h6RxBUxuBdzVmlDLZ2Jq/episodes/0220-guilt-release-responsibility-for-others-emotions.json",
+      "dataRoute": "/_next/data/JXRiSENEjfW2CjPvLR6ff/episodes/0220-guilt-release-responsibility-for-others-emotions.json",
       "allowHeader": [
         "host",
         "x-matched-path",
@@ -628,7 +628,7 @@
     "/episodes/0221-self-compassion-body-image": {
       "initialRevalidateSeconds": false,
       "srcRoute": "/episodes/[id]",
-      "dataRoute": "/_next/data/0h6RxBUxuBdzVmlDLZ2Jq/episodes/0221-self-compassion-body-image.json",
+      "dataRoute": "/_next/data/JXRiSENEjfW2CjPvLR6ff/episodes/0221-self-compassion-body-image.json",
       "allowHeader": [
         "host",
         "x-matched-path",
@@ -638,10 +638,10 @@
         "x-next-revalidate-tag-token"
       ]
     },
-    "/episodes/0222-change-tel-aviv-": {
+    "/episodes/0222-change-tel-aviv": {
       "initialRevalidateSeconds": false,
       "srcRoute": "/episodes/[id]",
-      "dataRoute": "/_next/data/0h6RxBUxuBdzVmlDLZ2Jq/episodes/0222-change-tel-aviv-.json",
+      "dataRoute": "/_next/data/JXRiSENEjfW2CjPvLR6ff/episodes/0222-change-tel-aviv.json",
       "allowHeader": [
         "host",
         "x-matched-path",
@@ -654,7 +654,7 @@
     "/episodes/0223-hopelessness-coming-out-of-the-closet": {
       "initialRevalidateSeconds": false,
       "srcRoute": "/episodes/[id]",
-      "dataRoute": "/_next/data/0h6RxBUxuBdzVmlDLZ2Jq/episodes/0223-hopelessness-coming-out-of-the-closet.json",
+      "dataRoute": "/_next/data/JXRiSENEjfW2CjPvLR6ff/episodes/0223-hopelessness-coming-out-of-the-closet.json",
       "allowHeader": [
         "host",
         "x-matched-path",
@@ -667,7 +667,7 @@
     "/episodes/0224-comparison-growing-up-with-an-older-sister": {
       "initialRevalidateSeconds": false,
       "srcRoute": "/episodes/[id]",
-      "dataRoute": "/_next/data/0h6RxBUxuBdzVmlDLZ2Jq/episodes/0224-comparison-growing-up-with-an-older-sister.json",
+      "dataRoute": "/_next/data/JXRiSENEjfW2CjPvLR6ff/episodes/0224-comparison-growing-up-with-an-older-sister.json",
       "allowHeader": [
         "host",
         "x-matched-path",
@@ -680,7 +680,7 @@
     "/episodes/0225-independence-by-choice-vs-independence-by-necessity": {
       "initialRevalidateSeconds": false,
       "srcRoute": "/episodes/[id]",
-      "dataRoute": "/_next/data/0h6RxBUxuBdzVmlDLZ2Jq/episodes/0225-independence-by-choice-vs-independence-by-necessity.json",
+      "dataRoute": "/_next/data/JXRiSENEjfW2CjPvLR6ff/episodes/0225-independence-by-choice-vs-independence-by-necessity.json",
       "allowHeader": [
         "host",
         "x-matched-path",
@@ -693,7 +693,7 @@
     "/episodes/0301-belief-home": {
       "initialRevalidateSeconds": false,
       "srcRoute": "/episodes/[id]",
-      "dataRoute": "/_next/data/0h6RxBUxuBdzVmlDLZ2Jq/episodes/0301-belief-home.json",
+      "dataRoute": "/_next/data/JXRiSENEjfW2CjPvLR6ff/episodes/0301-belief-home.json",
       "allowHeader": [
         "host",
         "x-matched-path",
@@ -706,7 +706,7 @@
     "/episodes/0302-perfectionism-mediocrity-as-an-ideal": {
       "initialRevalidateSeconds": false,
       "srcRoute": "/episodes/[id]",
-      "dataRoute": "/_next/data/0h6RxBUxuBdzVmlDLZ2Jq/episodes/0302-perfectionism-mediocrity-as-an-ideal.json",
+      "dataRoute": "/_next/data/JXRiSENEjfW2CjPvLR6ff/episodes/0302-perfectionism-mediocrity-as-an-ideal.json",
       "allowHeader": [
         "host",
         "x-matched-path",
@@ -719,7 +719,7 @@
     "/episodes/0303-security-vulnerability-death-and-fate": {
       "initialRevalidateSeconds": false,
       "srcRoute": "/episodes/[id]",
-      "dataRoute": "/_next/data/0h6RxBUxuBdzVmlDLZ2Jq/episodes/0303-security-vulnerability-death-and-fate.json",
+      "dataRoute": "/_next/data/JXRiSENEjfW2CjPvLR6ff/episodes/0303-security-vulnerability-death-and-fate.json",
       "allowHeader": [
         "host",
         "x-matched-path",
@@ -732,7 +732,7 @@
     "/episodes/0304-exploring-sex-on-the-first-date": {
       "initialRevalidateSeconds": false,
       "srcRoute": "/episodes/[id]",
-      "dataRoute": "/_next/data/0h6RxBUxuBdzVmlDLZ2Jq/episodes/0304-exploring-sex-on-the-first-date.json",
+      "dataRoute": "/_next/data/JXRiSENEjfW2CjPvLR6ff/episodes/0304-exploring-sex-on-the-first-date.json",
       "allowHeader": [
         "host",
         "x-matched-path",
@@ -745,7 +745,7 @@
     "/episodes/0305-overwhelm-learning-from-mistakes": {
       "initialRevalidateSeconds": false,
       "srcRoute": "/episodes/[id]",
-      "dataRoute": "/_next/data/0h6RxBUxuBdzVmlDLZ2Jq/episodes/0305-overwhelm-learning-from-mistakes.json",
+      "dataRoute": "/_next/data/JXRiSENEjfW2CjPvLR6ff/episodes/0305-overwhelm-learning-from-mistakes.json",
       "allowHeader": [
         "host",
         "x-matched-path",
@@ -758,7 +758,7 @@
     "/episodes/0306-pity-how-friendships-end": {
       "initialRevalidateSeconds": false,
       "srcRoute": "/episodes/[id]",
-      "dataRoute": "/_next/data/0h6RxBUxuBdzVmlDLZ2Jq/episodes/0306-pity-how-friendships-end.json",
+      "dataRoute": "/_next/data/JXRiSENEjfW2CjPvLR6ff/episodes/0306-pity-how-friendships-end.json",
       "allowHeader": [
         "host",
         "x-matched-path",
@@ -771,7 +771,7 @@
     "/episodes/0307-surprise-kink": {
       "initialRevalidateSeconds": false,
       "srcRoute": "/episodes/[id]",
-      "dataRoute": "/_next/data/0h6RxBUxuBdzVmlDLZ2Jq/episodes/0307-surprise-kink.json",
+      "dataRoute": "/_next/data/JXRiSENEjfW2CjPvLR6ff/episodes/0307-surprise-kink.json",
       "allowHeader": [
         "host",
         "x-matched-path",
@@ -784,7 +784,7 @@
     "/episodes/0308-restart-the-powers-in-our-hands": {
       "initialRevalidateSeconds": false,
       "srcRoute": "/episodes/[id]",
-      "dataRoute": "/_next/data/0h6RxBUxuBdzVmlDLZ2Jq/episodes/0308-restart-the-powers-in-our-hands.json",
+      "dataRoute": "/_next/data/JXRiSENEjfW2CjPvLR6ff/episodes/0308-restart-the-powers-in-our-hands.json",
       "allowHeader": [
         "host",
         "x-matched-path",
@@ -794,10 +794,10 @@
         "x-next-revalidate-tag-token"
       ]
     },
-    "/episodes/0325-bonus-episode-3": {
+    "/episodes/0326-bonus-episode-3": {
       "initialRevalidateSeconds": false,
       "srcRoute": "/episodes/[id]",
-      "dataRoute": "/_next/data/0h6RxBUxuBdzVmlDLZ2Jq/episodes/0325-bonus-episode-3.json",
+      "dataRoute": "/_next/data/JXRiSENEjfW2CjPvLR6ff/episodes/0326-bonus-episode-3.json",
       "allowHeader": [
         "host",
         "x-matched-path",
@@ -810,7 +810,7 @@
     "/episodes/quick-round-hate": {
       "initialRevalidateSeconds": false,
       "srcRoute": "/episodes/[id]",
-      "dataRoute": "/_next/data/0h6RxBUxuBdzVmlDLZ2Jq/episodes/quick-round-hate.json",
+      "dataRoute": "/_next/data/JXRiSENEjfW2CjPvLR6ff/episodes/quick-round-hate.json",
       "allowHeader": [
         "host",
         "x-matched-path",
@@ -823,7 +823,7 @@
     "/episodes/quick-round-admiration": {
       "initialRevalidateSeconds": false,
       "srcRoute": "/episodes/[id]",
-      "dataRoute": "/_next/data/0h6RxBUxuBdzVmlDLZ2Jq/episodes/quick-round-admiration.json",
+      "dataRoute": "/_next/data/JXRiSENEjfW2CjPvLR6ff/episodes/quick-round-admiration.json",
       "allowHeader": [
         "host",
         "x-matched-path",
@@ -836,7 +836,7 @@
     "/episodes": {
       "initialRevalidateSeconds": false,
       "srcRoute": null,
-      "dataRoute": "/_next/data/0h6RxBUxuBdzVmlDLZ2Jq/episodes.json",
+      "dataRoute": "/_next/data/JXRiSENEjfW2CjPvLR6ff/episodes.json",
       "allowHeader": [
         "host",
         "x-matched-path",
@@ -850,9 +850,9 @@
   "dynamicRoutes": {
     "/episodes/[id]": {
       "routeRegex": "^/episodes/([^/]+?)(?:/)?$",
-      "dataRoute": "/_next/data/0h6RxBUxuBdzVmlDLZ2Jq/episodes/[id].json",
+      "dataRoute": "/_next/data/JXRiSENEjfW2CjPvLR6ff/episodes/[id].json",
       "fallback": false,
-      "dataRouteRegex": "^/_next/data/0h6RxBUxuBdzVmlDLZ2Jq/episodes/([^/]+?)\\.json$",
+      "dataRouteRegex": "^/_next/data/JXRiSENEjfW2CjPvLR6ff/episodes/([^/]+?)\\.json$",
       "allowHeader": [
         "host",
         "x-matched-path",
@@ -869,8 +869,8 @@
     "/episodes/0226-bonus-episode-2"
   ],
   "preview": {
-    "previewModeId": "ab34424582803021cef2d32add2662bf",
-    "previewModeSigningKey": "b624368e80ae4af733fcee707b5e3fdd04a807ab5746b6859a70842a7357c32c",
-    "previewModeEncryptionKey": "f165ed2884ef39fda1373fb46a9fe0e90a11a8fdb6eafdfefb7a0a449b11f6f5"
+    "previewModeId": "ddbcaf03ab1bb108029e97316bf68d22",
+    "previewModeSigningKey": "6c6476e517eef57f54613cb714bd91ea606623b4e61dff658a31d2229e9b1ef2",
+    "previewModeEncryptionKey": "7db5cb3916cb3bb3e78d674c918bf0822d122604bc9d3dfb0b1f6b1c560eae3e"
   }
 }
