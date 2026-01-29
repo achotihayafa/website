@@ -1,10 +1,13 @@
+'use client';
+
 import React, { useRef, useState } from 'react';
 import { Card, CardContent } from "./ui/card";
 import { SiSpotify, SiYoutube, SiApplepodcasts } from "react-icons/si";
 import { AspectRatio } from "./ui/aspect-ratio";
 import { FaPlay, FaPause } from "react-icons/fa";
-import { Heart, Headphones, Mic2, Play } from 'lucide-react';
-import Link from 'next/link'; // added import
+import { Heart } from 'lucide-react';
+import Link from 'next/link';
+import mappingData from "../utils/episode-mapping.json";
 
 interface BestEpisode {
   title: string;
@@ -43,7 +46,7 @@ const bestEpisodes: BestEpisode[] = [
   },
   {
     title: "אבל, אבל בעצם דיברנו על האבל הפרטי שלנו",
-    description: "סיפור הקשר שלנו עם בן דודה שלנו, אביתר, שנהרג בצוק איתן. על הדיסוננס בין האבל הפרטי לאבל הציבורי, ואיך המוות שלו השפיע על כל אחד מבני המשפחה.",
+    description: "סיפור הקשר שלנו עם בן דודה שלנו, אביתר, שנהרג בצוק איתן. על הפער בין האבל הפרטי לאבל הציבורי, ואיך המוות שלו השפיע על כל אחד מבני המשפחה.",
     links: {
       file: "https://anchor.fm/s/f1452300/podcast/play/86371760/https%3A%2F%2Fd3ctxlq1ktw2nl.cloudfront.net%2Fstaging%2F2024-4-6%2F376700196-44100-2-7f0ab9a0557f9.m4a",
       spotify: "https://open.spotify.com/episode/0S4JmDWDphqIgvEaxPzsmN?si=nzRNqNMHShCp4_QNgzqMOA",
@@ -74,21 +77,13 @@ const BestEpisodes = () => {
     }
   };
 
-  // add slug helper (match logic in pages/episodes/[id].tsx)
-  const slugifyHebrew = (text: string): string =>
-    text
-      .toString()
-      .toLowerCase()
-      .trim()
-      .replace(/\s+/g, '-')
-      .replace(/[^\u0590-\u05FFa-z0-9-]+/g, '')
-      .replace(/\-\-+/g, '-')
-      .replace(/^-+/, '')
-      .replace(/-+$/, '');
+  // Helper to find slug from mapping file by title
+  const getSlugByTitle = (title: string): string => {
+    return (mappingData.titleToSlug as Record<string, string>)[title] || encodeURIComponent(title);
+  };
 
   return (
     <section id="best" className="py-20 relative overflow-hidden">
-
       <div className="container px-6">
         <div className="mb-12 text-center">
           <div className="w-12 h-12 rounded-full bg-podcast-magenta flex items-center justify-center mx-auto mb-4">
@@ -102,8 +97,8 @@ const BestEpisodes = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {bestEpisodes.map((episode, index) => {
-            // build internal episode URL from slugified title
-            const slug = slugifyHebrew(episode.title);
+            // Use the official mapping to get the slug
+            const slug = getSlugByTitle(episode.title);
             const episodeLink = `/episodes/${slug}`;
 
             return (
@@ -114,15 +109,13 @@ const BestEpisodes = () => {
               >
                 <CardContent className="p-0 relative flex flex-col h-full">
                    <AspectRatio ratio={1} className="overflow-hidden">
-                    <Link href={episodeLink} legacyBehavior>
-                      <a className="block w-full h-full" aria-label={`פתח את הדף של ${episode.title}`}>
+                    <Link href={episodeLink} className="block w-full h-full" aria-label={`פתח את הדף של ${episode.title}`}>
                         <img
                           src={episode.imageUrl}
                           alt={`${episode.title} – פרק נבחר מתוך הפודקאסט אחותי היפה`}
-                          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110 hover:scale-110"
+                          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                           loading="lazy"
                         />
-                      </a>
                     </Link>
                    </AspectRatio>
 
@@ -145,43 +138,25 @@ const BestEpisodes = () => {
                   )}
 
                   <div className="p-6 flex flex-col flex-grow">
-                    <h3 className="text-3xl mb-3 text-podcast-magenta">
-                      <Link href={episodeLink} legacyBehavior>
-                        <a className="inline-block" aria-label={`פתח את הדף של ${episode.title}`}>{episode.title}</a>
+                    <h3 className="text-3xl mb-3 text-podcast-magenta transition-colors duration-300 group-hover:text-white">
+                      <Link href={episodeLink} aria-label={`דף הפרק של ${episode.title}`}>
+                        {episode.title}
                       </Link>
                     </h3>
                     <p className="text-white/80 mb-6 line-clamp-3 flex-grow">{episode.description}</p>
                     <div className="flex gap-4 mt-auto">
                       {episode.links.spotify && (
-                        <a
-                          href={episode.links.spotify}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="text-white/80 hover:text-podcast-magenta transition-colors"
-                          aria-label="האזינו ב-Spotify"
-                        >
+                        <a href={episode.links.spotify} target="_blank" rel="noopener noreferrer" className="text-white/80 hover:text-podcast-magenta transition-colors" aria-label="האזינו ב-Spotify">
                           <SiSpotify size={24} />
                         </a>
                       )}
                       {episode.links.youtube && (
-                        <a
-                          href={episode.links.youtube}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="text-white/80 hover:text-podcast-magenta transition-colors"
-                          aria-label="האזינו ב-YouTube"
-                        >
+                        <a href={episode.links.youtube} target="_blank" rel="noopener noreferrer" className="text-white/80 hover:text-podcast-magenta transition-colors" aria-label="האזינו ב-YouTube">
                           <SiYoutube size={24} />
                         </a>
                       )}
                       {episode.links.apple && (
-                        <a
-                          href={episode.links.apple}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="text-white/80 hover:text-podcast-magenta transition-colors"
-                          aria-label="האזינו ב-Apple Podcasts"
-                        >
+                        <a href={episode.links.apple} target="_blank" rel="noopener noreferrer" className="text-white/80 hover:text-podcast-magenta transition-colors" aria-label="האזינו ב-Apple Podcasts">
                           <SiApplepodcasts size={24} />
                         </a>
                       )}
