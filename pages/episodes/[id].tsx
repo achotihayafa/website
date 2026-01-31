@@ -297,8 +297,8 @@ function EpisodeMeta({ episode, slug }: { episode: Episode; slug: string }) {
       <meta name="description" content={plainDesc} />
       
       {/* Facebook / Open Graph */}
-      <meta property="og:type" content="video.episode" /> {/* More accurate for podcast episodes than music.song */}
-      <meta property="og:title" content={`${decodedTitle} | פודקאסט אחותי היפה`} />
+      <meta property="og:type" content="video.episode" /> 
+      <meta property="og:title" content={`${decodedTitle} | הפודקאסט אחותי היפה`} />
       <meta property="og:description" content={plainDesc} />
       <meta property="og:image" content={episode.imageUrl || SOCIAL_IMAGE} />
       <meta property="og:url" content={fullUrl} />
