@@ -62,7 +62,7 @@
     "ריסטרט, אבל בעצם דיברנו על הכוחות שבידיים שלנו": "0308-restart-the-powers-in-our-hands",
     "פרק בונוס 3: קטעים מצחיקים ומרגשים שירדו בעריכה": "0326-bonus-episode-3",
     "הסיבוב המהיר: שנאה": "quick-round-hate",
-    "הסיבוב המהיר: הערצה": "quick-round-admiration"
+    "הסיבוב המהיר: הערצה": "quick-round-admiration",
     "בועה, אבל בעצם דיברנו על זרות ושייכות": "0309-bubble-alienation-belonging"
   },
   "slugToTitle": {
@@ -129,7 +129,7 @@
     "0308-restart-the-powers-in-our-hands": "ריסטרט, אבל בעצם דיברנו על הכוחות שבידיים שלנו",
     "0326-bonus-episode-3": "פרק בונוס 3: קטעים מצחיקים ומרגשים שירדו בעריכה",
     "quick-round-hate": "הסיבוב המהיר: שנאה",
-    "quick-round-admiration": "הסיבוב המהיר: הערצה"
+    "quick-round-admiration": "הסיבוב המהיר: הערצה",
     "0309-bubble-alienation-belonging": "בועה, אבל בעצם דיברנו על זרות ושייכות"
   },
   "episodes": [
@@ -196,7 +196,7 @@
     { "hebTitle": "ריסטרט, אבל בעצם דיברנו על הכוחות שבידיים שלנו", "slug": "0308-restart-the-powers-in-our-hands" },
     { "hebTitle": "פרק בונוס 3: קטעים מצחיקים ומרגשים שירדו בעריכה", "slug": "0326-bonus-episode-3" },
     { "hebTitle": "הסיבוב המהיר: שנאה", "slug": "quick-round-hate" },
-    { "hebTitle": "הסיבוב המהיר: הערצה", "slug": "quick-round-admiration" }
+    { "hebTitle": "הסיבוב המהיר: הערצה", "slug": "quick-round-admiration" },
     { "hebTitle": "בועה, אבל בעצם דיברנו על זרות ושייכות", "slug": "0309-bubble-alienation-belonging" }
   ]
 }
