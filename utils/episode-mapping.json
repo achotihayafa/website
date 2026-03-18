@@ -65,7 +65,8 @@
     "הסיבוב המהיר: הערצה": "quick-round-admiration",
     "בועה, אבל בעצם דיברנו על זרות ושייכות": "0309-bubble-alienation-belonging",
     "התחפשות, אבל בעצם דיברנו על ההזדמנות להשתנות": "0310-dressing-up-chance-to-change",
-    "ייאוש, אבל בעצם דיברנו על הפחד מהמוות": "0311-despair-fear-of-death"
+    "ייאוש, אבל בעצם דיברנו על הפחד מהמוות": "0311-despair-fear-of-death",
+    "חלום, אבל בעצם דיברנו על ניו-יורק": "0312-dream-new-york"
   },
   "slugToTitle": {
     "0101-hopelessness-coming-out": "חוסר תקווה, אבל בעצם דיברנו על יציאה מהארון",
@@ -134,7 +135,8 @@
     "quick-round-admiration": "הסיבוב המהיר: הערצה",
     "0309-bubble-alienation-belonging": "בועה, אבל בעצם דיברנו על זרות ושייכות",
     "0310-dressing-up-chance-to-change": "התחפשות, אבל בעצם דיברנו על ההזדמנות להשתנות",
-    "0311-despair-fear-of-death": "ייאוש, אבל בעצם דיברנו על הפחד מהמוות"
+    "0311-despair-fear-of-death": "ייאוש, אבל בעצם דיברנו על הפחד מהמוות",
+    "0312-dream-new-york": "חלום, אבל בעצם דיברנו על ניו-יורק"
   },
   "episodes": [
     { "hebTitle": "חוסר תקווה, אבל בעצם דיברנו על יציאה מהארון", "slug": "0101-hopelessness-coming-out" },
@@ -203,6 +205,7 @@
     { "hebTitle": "הסיבוב המהיר: הערצה", "slug": "quick-round-admiration" },
     { "hebTitle": "בועה, אבל בעצם דיברנו על זרות ושייכות", "slug": "0309-bubble-alienation-belonging" },
     { "hebTitle": "התחפשות, אבל בעצם דיברנו על ההזדמנות להשתנות", "slug": "0310-dressing-up-chance-to-change" },
-    { "hebTitle": "ייאוש, אבל בעצם דיברנו על הפחד מהמוות", "slug": "0311-despair-fear-of-death" }
+    { "hebTitle": "ייאוש, אבל בעצם דיברנו על הפחד מהמוות", "slug": "0311-despair-fear-of-death" },
+    { "hebTitle": "חלום, אבל בעצם דיברנו על ניו-יורק", "slug": "0312-dream-new-york" }
   ]
 }
