@@ -67,7 +67,8 @@
     "התחפשות, אבל בעצם דיברנו על ההזדמנות להשתנות": "0310-dressing-up-chance-to-change",
     "ייאוש, אבל בעצם דיברנו על הפחד מהמוות": "0311-despair-fear-of-death",
     "חלום, אבל בעצם דיברנו על ניו-יורק": "0312-dream-new-york",
-    "קהילתיות, אבל בעצם דיברנו על טיילור סוויפט": "0313-community-taylor-swift"
+    "קהילתיות, אבל בעצם דיברנו על טיילור סוויפט": "0313-community-taylor-swift",
+    "תקומה, אבל בעצם דיברנו על גוסטינג": "0314-resilience-ghosting"
   },
   "slugToTitle": {
     "0101-hopelessness-coming-out": "חוסר תקווה, אבל בעצם דיברנו על יציאה מהארון",
@@ -138,7 +139,8 @@
     "0310-dressing-up-chance-to-change": "התחפשות, אבל בעצם דיברנו על ההזדמנות להשתנות",
     "0311-despair-fear-of-death": "ייאוש, אבל בעצם דיברנו על הפחד מהמוות",
     "0312-dream-new-york": "חלום, אבל בעצם דיברנו על ניו-יורק",
-    "0313-community-taylor-swift": "קהילתיות, אבל בעצם דיברנו על טיילור סוויפט"
+    "0313-community-taylor-swift": "קהילתיות, אבל בעצם דיברנו על טיילור סוויפט",
+    "0314-resilience-ghosting": "תקומה, אבל בעצם דיברנו על גוסטינג"
   },
   "episodes": [
     { "hebTitle": "חוסר תקווה, אבל בעצם דיברנו על יציאה מהארון", "slug": "0101-hopelessness-coming-out" },
@@ -209,6 +211,7 @@
     { "hebTitle": "התחפשות, אבל בעצם דיברנו על ההזדמנות להשתנות", "slug": "0310-dressing-up-chance-to-change" },
     { "hebTitle": "ייאוש, אבל בעצם דיברנו על הפחד מהמוות", "slug": "0311-despair-fear-of-death" },
     { "hebTitle": "חלום, אבל בעצם דיברנו על ניו-יורק", "slug": "0312-dream-new-york" },
-    { "hebTitle": "קהילתיות, אבל בעצם דיברנו על טיילור סוויפט", "slug": "0313-community-taylor-swift" }
+    { "hebTitle": "קהילתיות, אבל בעצם דיברנו על טיילור סוויפט", "slug": "0313-community-taylor-swift" },
+    { "hebTitle": "תקומה, אבל בעצם דיברנו על גוסטינג", "slug": "0314-resilience-ghosting" }
   ]
 }
