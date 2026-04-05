@@ -10,8 +10,7 @@
     "start": "next start",
     "lint": "eslint . --config .eslintrc.cjs",
     "predeploy": "npm run build",
-    "deploy": "next build && gh-pages -d out",
-    "postbuild": "node --import tsx scripts/generate-sitemap.ts"
+    "deploy": "next build && gh-pages -d out"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.9.0",

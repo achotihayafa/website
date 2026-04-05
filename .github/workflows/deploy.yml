@@ -33,7 +33,7 @@ jobs:
         run: npm install
 
       - name: Generate sitemap
-        run: node --import tsx scripts/generate-sitemap.ts
+        run: npx tsx scripts/generate-sitemap.ts
 
       - name: Build with Next.js
         run: npm run build
