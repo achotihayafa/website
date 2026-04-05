@@ -79,7 +79,7 @@ const BestEpisodes = () => {
 
   // Helper to find slug from mapping file by title
   const getSlugByTitle = (title: string): string => {
-    return (mappingData.titleToSlug as Record<string, string>)[title] || encodeURIComponent(title);
+    return (mappingData.episodes.find(ep => ep.hebTitle === title)?.slug) || encodeURIComponent(title);
   };
 
   return (

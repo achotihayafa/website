@@ -34,7 +34,7 @@ function stripHtml(html: string): string {
 
 const getSlugByTitle = (title: string): string => {
   const decoded = decodeHtml(title);
-  return (mappingData.titleToSlug as Record<string, string>)[decoded] || encodeURIComponent(decoded);
+  return mappingData.episodes.find(ep => ep.hebTitle === decoded)?.slug || encodeURIComponent(decoded);
 };
 
 type Episode = {

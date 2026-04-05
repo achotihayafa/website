@@ -79,7 +79,7 @@ function formatDescriptionAsHtml(raw: string): string {
 // Helper to get slug from title for links
 const getSlugByTitle = (title: string): string => {
   const decoded = decodeHtml(title);
-  return (mappingData.titleToSlug as Record<string, string>)[decoded] || encodeURIComponent(decoded);
+  return (mappingData.episodes.find(ep => ep.hebTitle === decoded)?.slug) || encodeURIComponent(decoded);
 };
 
 const EpisodeDetailPage = ({ episode, randomEpisodes, currentSlug }: Props) => {
@@ -330,7 +330,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 export const getStaticProps: GetStaticProps = async (context) => {
   const paramSlug = context.params?.id as string;
   
-  const hebTitle = (mappingData.slugToTitle as Record<string, string>)[paramSlug];
+  const hebTitle = (mappingData.episodes.find(ep => ep.slug === paramSlug)?.hebTitle);
 
   if (!hebTitle) return { notFound: true };
 

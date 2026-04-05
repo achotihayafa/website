@@ -39,7 +39,7 @@ export default function Custom404() {
           try {
             // 1. Check if the segment is already an official Hebrew title in our mapping
             // This handles cases like: /episodes/שייכות-אבל-בעצם...
-            const officialSlugFromTitle = (mappingData.titleToSlug as Record<string, string>)[decodedSegment];
+            const officialSlugFromTitle = mappingData.episodes.find(ep => ep.hebTitle === decodedSegment)?.slug;
             
             if (officialSlugFromTitle) {
               router.replace(`/episodes/${officialSlugFromTitle}`);
@@ -52,7 +52,7 @@ export default function Custom404() {
             
             if (matchById) {
               const decodedTitle = decodeHtml(matchById.title);
-              const officialSlugFromId = (mappingData.titleToSlug as Record<string, string>)[decodedTitle];
+              const officialSlugFromId = mappingData.episodes.find(ep => ep.hebTitle === decodedTitle)?.slug;
 
               if (officialSlugFromId) {
                 router.replace(`/episodes/${officialSlugFromId}`);
