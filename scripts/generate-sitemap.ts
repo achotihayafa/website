@@ -10,7 +10,7 @@ async function generate() {
   const episodeUrls = mappingData.episodes.map(ep => {
     return `
       <url>
-        <loc>${SITE_URL}/episodes/${ep.slug}</loc>
+        <loc>${SITE_URL}/episodes/${ep.slug}/</loc>
         <lastmod>${currentDate}</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
